@@ -1,0 +1,38 @@
+#pragma once
+
+#include "Singleton.h"
+
+class DXBitmap;
+class Texture;
+
+// 리소스 개념이 게임에서 다양하게 등장.
+// 텍스처 / 메시 / 사운드 / 이펙트 등등..
+// 모든 리소스들을 관리하는 매니저
+class ResourceManager : public Singleton<ResourceManager>
+{
+	friend Singleton<ResourceManager>;
+	ResourceManager() {}
+public:
+
+	HWND _hwnd;
+	fs::path _resourcePath;
+
+	void Init(HWND hwnd, fs::path directory);
+	void Destroy();	// 리소스 정리
+
+	void CreateTextureVec(fs::path directory);
+
+	void LoadTexture(std::string name, std::wstring path, int32 countX = 1, int32 countY = 1);
+	Texture* GetTexture(std::string name);
+
+	const SpriteInfo* GetSpriteInfo(std::string key);
+
+	//DXBitmap* LoadDXBitmap(std::string key, std::wstring path);
+
+private:
+	//std::unordered_map<std::string, Texture*> _textures;
+	std::unordered_map<std::string, SpriteInfo>	_spriteNames;
+
+	std::map<std::string, std::unordered_map<std::string, std::vector<DXBitmap*>>> _textures;
+};
+

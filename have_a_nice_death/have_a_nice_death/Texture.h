@@ -1,0 +1,28 @@
+#pragma once
+
+class DXBitmap;
+
+class Texture
+{
+public:
+	void Destroy();
+
+	// 해당 리소스가 그려지는 부분
+	void Render(ID2D1RenderTarget* renderTarget, Vector pos);
+
+	void SetRenderedPosition(int32 x, int32 y) { _renderingOffsetX = x; _renderingOffsetY = y; }
+
+private:
+	// 텍스처를 그리기위한 변수
+	HDC		_textureHdc = 0;
+
+	DXBitmap* _bitmap = nullptr;
+
+	int32 _textureSizeX = 0;	// 원본 텍스처 크기
+	int32 _textureSizeY = 0;
+
+	int32 _renderingOffsetX = 0; //사이즈에서, 중심으로써 처리될 위치
+	int32 _renderingOffsetY = 0;
+
+};
+

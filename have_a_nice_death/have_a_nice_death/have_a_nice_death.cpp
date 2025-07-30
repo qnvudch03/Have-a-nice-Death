@@ -1,8 +1,10 @@
 ﻿// have_a_nice_death.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
+#include "pch.h"
 #include "framework.h"
 #include "have_a_nice_death.h"
+#include "Game.h"
 
 #define MAX_LOADSTRING 100
 
@@ -10,6 +12,7 @@
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+HWND g_hWnd;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -27,6 +30,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // TODO: 여기에 코드를 입력합니다.
 
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_HAVEANICEDEATH, szWindowClass, MAX_LOADSTRING);
@@ -40,17 +45,45 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HAVEANICEDEATH));
 
-    MSG msg;
+    MSG msg = {};
+
+    //Gamd의 루프
+    Game* game = Game::GetInstance();
+    game->Init(g_hWnd);
+
+    const float targetFrameTime = 1000.0f / 120.f;  // 초당(1000ms) 120 프레임
+
+    LARGE_INTEGER frequency, now, prev;
+    ::QueryPerformanceFrequency(&frequency);
+    ::QueryPerformanceCounter(&prev);
+
+
 
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (msg.message != WM_QUIT)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            ::TranslateMessage(&msg);
+            ::DispatchMessage(&msg);
+        }
+        else
+        {
+            ::QueryPerformanceCounter(&now);
+            float elapsed = (now.QuadPart - prev.QuadPart) / static_cast<float>(frequency.QuadPart) * 1000.0f;
+
+            if (elapsed >= targetFrameTime)
+            {
+                game->Update();
+                game->Render();
+
+                prev = now;
+            }
         }
     }
+
+    game->GetCurrentScence()->Destroy();
+    delete game->GetCurrentScence();
 
     return (int) msg.wParam;
 }
@@ -97,16 +130,20 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   RECT windowRect = { 0, 0, GWinSizeX, GWinSizeY };
 
-   if (!hWnd)
+   ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
+
+   g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+       CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
+
+   if (!g_hWnd)
    {
-      return FALSE;
+       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
+   ShowWindow(g_hWnd, nCmdShow);
+   UpdateWindow(g_hWnd);
 
    return TRUE;
 }

@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="SingleTon">
+      <UniqueIdentifier>{7b7a8d4e-acb0-4dcd-b817-27fcd414934d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{2858a390-7d2d-40ef-a230-2608d8019f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{09a2f3a0-2101-41dd-b5ca-c8be717063be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{06eb8c14-25aa-4693-b043-c9f3fb3bd0ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{0f8fc78a-ea54-4f03-b798-674e532a9072}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -27,10 +42,97 @@
     <ClInclude Include="have_a_nice_death.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="DXBitmap.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="StageLoader.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Defines.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DXBitmap.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="StageLoader.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
