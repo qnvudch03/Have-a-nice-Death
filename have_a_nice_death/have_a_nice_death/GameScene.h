@@ -13,6 +13,8 @@ public:
 	virtual void PostUpdate(float deltaTime) override;
 	virtual void Render(ID2D1RenderTarget* renderTarget) override;
 
+	virtual void loadUI() override;
+
 private:
 };
 

@@ -13,6 +13,6 @@ void UIImage::Update()
 {
 }
 
-void UIImage::Render(HDC hdc)
+void UIImage::Render(ID2D1RenderTarget* renderTarget)
 {
 }

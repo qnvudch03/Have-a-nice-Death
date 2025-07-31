@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Scene.h"
 #include "Object.h"
+#include "UI.h"
 //Todo 차후 캐릭터로 바꿔야함
 //#include "Actor.h"
 
@@ -9,6 +10,7 @@ void Scene::Init()
 {
 	// 필요한 리소스 로드
 	loadResource();
+	loadUI();
 }
 
 void Scene::Destroy()
@@ -69,6 +71,12 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 		{
 			actor->Render(renderTarget);
 		}
+	}
+
+	//UI는 다 그린 후 맨 마지막에
+	for (auto& ui : *SceneUI)
+	{
+		ui->Render(renderTarget);
 	}
 }
 

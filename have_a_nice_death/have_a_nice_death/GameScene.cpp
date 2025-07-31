@@ -25,3 +25,7 @@ void GameScene::Render(ID2D1RenderTarget* renderTarget)
 {
 	Super::Render(renderTarget);
 }
+
+void GameScene::loadUI()
+{
+}

@@ -1,6 +1,7 @@
 #pragma once
 
 class Object;
+class UI;
 
 class Scene
 {
@@ -20,6 +21,7 @@ public:
 
 protected:
 	virtual void loadResource() {}
+	virtual void loadUI() {}
 
 private:
 	void addActor(Object* actor);
@@ -38,5 +40,6 @@ protected:
 	std::vector<Object*> _reserveRemove;	// 삭제되어야 하는 액터들을 관리
 
 	//UIManager _ui;
+	std::vector<UI*>* SceneUI;
 };
 

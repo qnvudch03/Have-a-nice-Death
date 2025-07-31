@@ -14,6 +14,6 @@ void UIButton::Update()
 {
 }
 
-void UIButton::Render(HDC hdc)
+void UIButton::Render(ID2D1RenderTarget* renderTarget)
 {
 }

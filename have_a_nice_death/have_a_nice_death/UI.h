@@ -7,10 +7,10 @@ public:
 	UI(Texture* texture, Vector pos) : _uiTexture(texture), _pos(pos){}
 	virtual ~UI() = default;
 
-protected:
+public:
 	virtual void Init() {}
 	virtual void Update() {}
-	virtual void Render(HDC hdc);
+	virtual void Render(ID2D1RenderTarget* renderTarget);
 	virtual void Open() { _isOpen = true; }
 	virtual void Close() { _isOpen = false; }
 

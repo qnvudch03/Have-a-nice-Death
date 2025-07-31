@@ -2,6 +2,8 @@
 #include "LobbyScene.h"
 #include "ResourceManager.h"
 #include "StaticObject.h"
+#include "UIManager.h"
+#include "UI.h"
 
 void Lobby::Init()
 {
@@ -78,4 +80,10 @@ void Lobby::loadResource()
 	}
 
 
+}
+
+void Lobby::loadUI()
+{
+	//LobbySceneUI = UIManager::GetInstance()->GetSceneUI(this);
+	SceneUI = UIManager::GetInstance()->GetSceneUI(this);
 }

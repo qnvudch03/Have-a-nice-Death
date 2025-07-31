@@ -18,12 +18,6 @@ public:
 
 	Scene* GetCurrentScence() { return _currScene; }
 
-	// camera 좌표 기준의 월드 좌표
-	//static Vector ConvertScreenPos(Vector worldPos);
-	//static Vector ConvertWorldPos(Vector screenPos);
-	//static bool CanMove(Cell cell);
-
-
 	ID2D1HwndRenderTarget* GetRenderTarget() { return _dxRenderTarget; }
 	IWICImagingFactory* GetWICFactory() { return _wicFactory; }
 
@@ -41,6 +35,17 @@ private:
 	ID2D1Factory* _dxFactory = nullptr;
 	ID2D1HwndRenderTarget* _dxRenderTarget = nullptr;
 	IWICImagingFactory* _wicFactory = nullptr;
+
+	//Draw Text
+	IDWriteFactory* m_pDWriteFactory = nullptr;
+	IDWriteTextFormat* m_pTextFormat = nullptr;
+
+	void InitDirectWrite();
+
+	void DrawText(ID2D1RenderTarget* renderTarget, const wchar_t* text, float x, float y);
+
+	//// 해제 함수
+	//void CleanupDirectWrite();
 
 	Scene* _currScene = nullptr;
 	std::function<void(Vector pos)> _onLeftMousecliked;

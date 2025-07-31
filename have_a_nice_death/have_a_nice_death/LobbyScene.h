@@ -2,6 +2,8 @@
 #include "Scene.h"
 #include "Object.h"
 
+class UI;
+
 class Lobby : public Scene
 {
 	using Super = Scene;
@@ -15,6 +17,7 @@ public:
 
 protected:
 	virtual void loadResource() override;
+	virtual void loadUI() override;
 
 	std::vector<Object*> LobbySceneObjects;
 
