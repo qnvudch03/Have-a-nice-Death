@@ -10,7 +10,7 @@ public:
 	virtual void Update(float deltaTime);
 	virtual void Render(ID2D1RenderTarget* renderTarget);
 
-	Object(RenderLayer rendertype, bool haveToDrawCenter) : _RenderType(rendertype) , isdrawCenter(haveToDrawCenter)
+	Object(RenderLayer rendertype, DrawAnchor drawanchor) : _RenderType(rendertype) , anchorPosition(drawanchor)
 	{
 
 	}
@@ -29,7 +29,7 @@ public:
 
 	//애니메이션 관련
 	Animaotr animaotr;
-	bool isdrawCenter = false;
+	DrawAnchor anchorPosition = DrawAnchor::Positiondefault;
 
 	//void Destory();
 

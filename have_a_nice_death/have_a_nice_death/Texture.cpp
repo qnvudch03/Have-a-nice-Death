@@ -12,7 +12,7 @@ void Texture::Destroy()
 {
 }
 
-void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, bool isdrawCenter)
+void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, DrawAnchor drawAnchor)
 {
     if (_bitmap->GetBitmap() == nullptr)
         return;
@@ -30,7 +30,7 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, bool isdrawCen
 
     D2D1_RECT_F destLeft;
 
-    if (isdrawCenter)
+    if (drawAnchor == DrawAnchor::Center)
     {
         float halfX = static_cast<float>(_bitmap->GetBitmapSize().Width) / 2;
         float halfY = static_cast<float>(_bitmap->GetBitmapSize().Height) / 2;
@@ -42,13 +42,22 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, bool isdrawCen
             pos.y + halfY - _renderingOffsetY);
     }
 
-    else
+    else if (drawAnchor == DrawAnchor::Topleft)
     {
         destLeft = D2D1::RectF(
             pos.x,
             pos.y,
             pos.x + static_cast<float>(_bitmap->GetBitmapSize().Width),
             pos.y + static_cast<float>(_bitmap->GetBitmapSize().Height));
+    }
+
+    else if (drawAnchor == DrawAnchor::Bottomright)
+    {
+        destLeft = D2D1::RectF(
+            pos.x - static_cast<float>(_bitmap->GetBitmapSize().Width),
+            pos.y - static_cast<float>(_bitmap->GetBitmapSize().Height),
+            pos.x,
+            pos.y);
     }
     
     renderTarget->DrawBitmap(_bitmap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);

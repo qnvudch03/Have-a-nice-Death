@@ -10,7 +10,7 @@ public:
 
 	virtual void Init() override;
 	virtual void Update(float deltaTime) override;
-	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, bool havetoDrawCenter = false) : Super(RenderType, havetoDrawCenter)
+	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, DrawAnchor anchorPosition = DrawAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
 		_ownTextures = OwningTextures;
 	}

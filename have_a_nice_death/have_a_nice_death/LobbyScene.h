@@ -23,6 +23,7 @@ protected:
 	Object* _Death_Head = nullptr;
 	Object* _Death_Body = nullptr;
 	Object* _Death_Arm = nullptr;
+	Object* _smoke = nullptr;
 
 	Object* _Start_Btn = nullptr;
 	Object* _Edit_Btn = nullptr;

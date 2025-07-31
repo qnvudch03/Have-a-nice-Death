@@ -38,44 +38,39 @@ void Lobby::loadResource()
 		};
 
 	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)
-	_backGround = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "BackGround"), RenderLayer::Background);
+	_backGround = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "BackGround"), RenderLayer::Background, Vector(0, 0), DrawAnchor::Topleft);
 	if (_backGround != nullptr)
 	{
-		/*LobbySceneObjects.push_back(_backGround);
-		_backGround->animaotr.SetAnimSpeed(30);*/
 		setLobbyActor(_backGround);
 	}
 
-	_Death_Head = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "head"), RenderLayer::Effect, Vector(GWinSizeX - 400, 300), true);
+	_Death_Head = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "head"), RenderLayer::Effect, Vector(GWinSizeX - 400, 280), DrawAnchor::Center);
 	if (_Death_Head != nullptr)
 	{
-		/*LobbySceneObjects.push_back(_Death_Head);
-		_Death_Head->animaotr.SetAnimSpeed(30);*/
-
 		//람다를 써 보자
 		setLobbyActor(_Death_Head);
 	}
 		
 
-	_Death_Body = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 400, 550), true);
+	_Death_Body = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 400, 550), DrawAnchor::Center);
 	if (_Death_Body != nullptr)
 	{
-		/*LobbySceneObjects.push_back(_Death_Body);
-		_Death_Body->animaotr.SetAnimSpeed(30);*/
-
 		setLobbyActor(_Death_Body);
 	}
 		
 
-	_Death_Arm = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 350, 510), true);
+	_Death_Arm = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 350, 510), DrawAnchor::Center);
 	if (_Death_Arm != nullptr)
 	{
-		/*LobbySceneObjects.push_back(_Death_Arm);
-		_Death_Arm->animaotr.SetAnimSpeed(30);*/
-
 		setLobbyActor(_Death_Arm);
 	}
 		
+	_smoke = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "Smoke"), RenderLayer::Effect, Vector(GWinSizeX - 410, 435), DrawAnchor::Bottomright);
+	if (_smoke != nullptr)
+	{
+		setLobbyActor(_smoke);
+	}
+
 
 	for (auto& Iter : LobbySceneObjects)
 	{

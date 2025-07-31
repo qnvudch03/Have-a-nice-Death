@@ -24,6 +24,14 @@ enum RenderLayer
 	Max
 };
 
+enum DrawAnchor
+{
+	Topleft,
+	Center,
+	Bottomright,
+	Positiondefault
+};
+
 // 모든 텍스처의 Sprite 구분 식별자
 struct SpriteInfo
 {
