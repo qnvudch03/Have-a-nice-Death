@@ -12,8 +12,8 @@
 Game::Game()
 {
 	//·Îºñ ¾À;
-	//_currScene = new Lobby();
-	_currScene = new GameScene();
+	_currScene = new Lobby();
+	//_currScene = new GameScene();
 }
 
 Game::~Game()
@@ -110,5 +110,7 @@ void Game::Render()
 
 
 	GetScene()->Render(_dxRenderTarget);
+
+	_dxRenderTarget->EndDraw();
 
 }

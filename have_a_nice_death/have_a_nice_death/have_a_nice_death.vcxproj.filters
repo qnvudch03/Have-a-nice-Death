@@ -87,6 +87,15 @@
     <ClInclude Include="Object.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="Animaotr.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="LivingObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -132,6 +141,15 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Animaotr.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="LivingObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>

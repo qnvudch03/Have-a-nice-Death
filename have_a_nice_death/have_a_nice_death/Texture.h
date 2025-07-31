@@ -5,10 +5,14 @@ class DXBitmap;
 class Texture
 {
 public:
+	Texture(DXBitmap* bitmap, int32 SizeX, int32 SizeY) : _bitmap(bitmap), _textureSizeX(SizeX), _textureSizeY(SizeY) {}
+	~Texture();
+
+
 	void Destroy();
 
 	// 해당 리소스가 그려지는 부분
-	void Render(ID2D1RenderTarget* renderTarget, Vector pos);
+	void Render(ID2D1RenderTarget* renderTarget, Vector pos, bool isdrawCenter = false);
 
 	void SetRenderedPosition(int32 x, int32 y) { _renderingOffsetX = x; _renderingOffsetY = y; }
 
@@ -21,7 +25,7 @@ private:
 	int32 _textureSizeX = 0;	// 원본 텍스처 크기
 	int32 _textureSizeY = 0;
 
-	int32 _renderingOffsetX = 0; //사이즈에서, 중심으로써 처리될 위치
+	int32 _renderingOffsetX = 0; //그려질 때 가중치
 	int32 _renderingOffsetY = 0;
 
 };

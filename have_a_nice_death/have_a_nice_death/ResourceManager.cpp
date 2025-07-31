@@ -20,7 +20,7 @@ void ResourceManager::Destroy()
     {
         for (auto& [fileName, bitmapVec] : fileMap)
         {
-            for (DXBitmap* bmp : bitmapVec)
+            for (Texture* bmp : bitmapVec)
             {
                 delete bmp;
             }
@@ -60,18 +60,66 @@ void ResourceManager::CreateTextureVec(fs::path directory)
                 //이미지 포인터에 매핑
                 for (const auto& Lowleentry : fs::directory_iterator(Middleentry))
                 {
-                    std::wstring temp = Lowleentry.path().c_str();
+                    //std::vector<Vector> offsetVector;
+                    std::wstring FileName = Lowleentry.path().c_str();
+
+                    //offset txt 파일 걸려내기
+                    if (FileName[FileName.size() - 4] == L'.' &&
+                        FileName[FileName.size() - 3] == L't'&&
+                        FileName[FileName.size() - 2] == L'x'&&
+                        FileName[FileName.size() - 1] == L't')
+                    {
+                        std::wifstream file(FileName);
+                        if (!file.is_open())
+                        {
+                            continue;
+                        }
+
+                        int x, y;
+                        auto& Iter = _textures[UpperName][MiddleName];
+                        int pngCounter = 0;
+                        while (file >> x >> y)
+                        {
+                            if (Iter.size() <= pngCounter)
+                                break;
+
+                            Iter[pngCounter]->SetRenderedPosition(x, y);
+                            pngCounter++;
+                        }
+
+                        continue;
+                    }
 
                     DXBitmap* bitmap = new DXBitmap();
-                    bitmap->Load(temp);
+                    bitmap->Load(FileName);
 
-                    _textures[UpperName][MiddleName].push_back(bitmap);
+                    _textures[UpperName][MiddleName].push_back(new Texture(bitmap, bitmap->GetBitmapSize().Width, bitmap->GetBitmapSize().Height));
 
                 }
             }
 
         }
     }
+
+}
+
+std::vector<Texture*>* ResourceManager::GetTextures(std::string UpperName, std::string MiddleName)
+{
+    if (!_textures.contains(UpperName))
+        return nullptr;
+
+    const auto& middleMap = _textures.at(UpperName);
+
+
+    if (!middleMap.contains(MiddleName))
+        return nullptr;
+
+    const auto& textures = middleMap.at(MiddleName);
+
+    if (textures.empty())
+        return nullptr;
+
+    return const_cast<std::vector<Texture*>*>(&textures);
 
 }
 

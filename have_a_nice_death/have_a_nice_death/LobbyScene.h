@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Object.h"
 
 class Lobby : public Scene
 {
@@ -14,5 +15,16 @@ public:
 
 protected:
 	virtual void loadResource() override;
+
+	std::vector<Object*> LobbySceneObjects;
+
+	Object* _backGround = nullptr;
+
+	Object* _Death_Head = nullptr;
+	Object* _Death_Body = nullptr;
+	Object* _Death_Arm = nullptr;
+
+	Object* _Start_Btn = nullptr;
+	Object* _Edit_Btn = nullptr;
 };
 

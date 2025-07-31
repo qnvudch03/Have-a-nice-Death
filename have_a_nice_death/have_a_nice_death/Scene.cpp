@@ -33,22 +33,24 @@ void Scene::Destroy()
 
 void Scene::Update(float deltatTime)
 {
-	/*for (auto actor : _actors)
+	for (auto actor : _actors)
 	{
 		actor->Update(deltatTime);
 	}
 
-	_ui.Update();*/
+	PostUpdate(deltatTime);
+
+	//_ui.Update();
 }
 
 void Scene::PostUpdate(float deltaTime)
 {
-	//// 예약된 객체를 추가
-	//for (auto actor : _reserveAdd)
-	//{
-	//	addActor(actor);
-	//}
-	//_reserveAdd.clear();
+	// 예약된 객체를 추가
+	for (auto actor : _reserveAdd)
+	{
+		addActor(actor);
+	}
+	_reserveAdd.clear();
 
 
 	//// 예약된 객체를 삭제, A Enemy 2번
@@ -61,7 +63,7 @@ void Scene::PostUpdate(float deltaTime)
 
 void Scene::Render(ID2D1RenderTarget* renderTarget)
 {
-	for (auto list : _renderList)
+	for (auto& list : _renderList)
 	{
 		for (auto actor : list)
 		{
@@ -70,7 +72,7 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 	}
 }
 
-void Scene::ReserveRemove(Actor* actor)
+void Scene::ReserveRemove(Object* actor)
 {
 	/*for (auto iter : _reserveRemove)
 	{
@@ -81,10 +83,10 @@ void Scene::ReserveRemove(Actor* actor)
 	_reserveRemove.push_back(actor);*/
 }
 
-void Scene::ReserveAdd(Actor* actor)
+void Scene::ReserveAdd(Object* actor)
 {
-	/*actor->Init();
-	_reserveAdd.push_back(actor);*/
+	//actor->Init();
+	_reserveAdd.push_back(actor);
 }
 
 void Scene::RemoveAllActor()
@@ -104,23 +106,23 @@ void Scene::RemoveAllActor()
 	_actors.clear();*/
 }
 
-void Scene::addActor(Actor* actor)
+void Scene::addActor(Object* actor)
 {
-	////actor->Init();
+	//actor->Init();
 
-	//// 직접 관리하는 _actor 컨테이너에 바로 넣지않는다.
-	//// Update 로직에서 _actor 컨테이너를 순회중일수도 있기때문에
-	//// 안전하게 사용하기 위해서 예약 시스템을 사용한다.
-	//_actors.insert(actor);
+	// 직접 관리하는 _actor 컨테이너에 바로 넣지않는다.
+	// Update 로직에서 _actor 컨테이너를 순회중일수도 있기때문에
+	// 안전하게 사용하기 위해서 예약 시스템을 사용한다.
+	_actors.insert(actor);
 
-	//// 렌더링 순서에 맞게, 렌더링 컨테이너도 채워준다.
-	//if (actor->GetRenderLayer() == RenderLayer::Count)
-	//	return;
+	// 렌더링 순서에 맞게, 렌더링 컨테이너도 채워준다.
+	if (actor->GetRenderLayer() == RenderLayer::Max)
+		return;
 
-	//_renderList[(int32)actor->GetRenderLayer()].insert(actor);
+	_renderList[(int32)actor->GetRenderLayer()].push_back(actor);
 }
 
-void Scene::removeActor(Actor* actor)
+void Scene::removeActor(Object* actor)
 {
 	//// 렌더링 리스트에서 제거
 	//if (actor->GetRenderLayer() != RenderLayer::Count)
