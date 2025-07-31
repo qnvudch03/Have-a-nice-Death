@@ -6,6 +6,7 @@ void InputManager::Init(HWND hwnd)
 {
 	_hwnd = hwnd;
 	_states.resize(KEY_TYPE_COUNT, KeyState::None);
+
 }
 
 void InputManager::Update()
@@ -47,6 +48,8 @@ void InputManager::Update()
 	{
 		//눌린 좌표가, 게임 시작인지, 게임 에디터 인지는 알아야지
 		Game::GetInstance()->OnLeftClickEvent();
+
+
 	}
 }
 

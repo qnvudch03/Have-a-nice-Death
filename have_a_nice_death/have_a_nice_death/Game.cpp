@@ -4,6 +4,7 @@
 #include "TimeManager.h"
 #include "InputManager.h"
 #include "ResourceManager.h"
+#include "UIManager.h"
 
 #include "LobbyScene.h"
 #include "GameScene.h"
@@ -51,6 +52,9 @@ void Game::Init(HWND hwnd)
 	fs::path currentPath = fs::path(buffer) / L"../../Resources/";
 	ResourceManager::GetInstance()->Init(hwnd, currentPath);
 
+	//UI
+	UIManager::GetInstance()->Init();
+
 
 	// 타이머 초기화
 	TimeManager::GetInstance()->Init();
@@ -60,14 +64,18 @@ void Game::Init(HWND hwnd)
 
 	_currScene->Init();
 
+	_onLeftMousecliked = [](Vector pos)
+		{
+			UIManager::GetInstance()->OnMouseButtonClicked(pos);
+		};
+
 }
 
 void Game::OnLeftClickEvent()
 {
 	Vector mousePos = InputManager::GetInstance()->GetMousePos();
 
-	//Todo
-	//마우스 위치가 게임 시작인지, 에디터인지, 게임종료인지
+	_onLeftMousecliked(mousePos);
 }
 
 Scene* Game::GetScene()

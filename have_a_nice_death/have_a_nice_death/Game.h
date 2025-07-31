@@ -43,5 +43,6 @@ private:
 	IWICImagingFactory* _wicFactory = nullptr;
 
 	Scene* _currScene = nullptr;
+	std::function<void(Vector pos)> _onLeftMousecliked;
 };
 

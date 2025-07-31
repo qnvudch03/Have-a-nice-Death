@@ -28,6 +28,9 @@
     <Filter Include="Object">
       <UniqueIdentifier>{0f8fc78a-ea54-4f03-b798-674e532a9072}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{a759ec74-2542-4a57-b85d-d0bdf6692a2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -96,6 +99,18 @@
     <ClInclude Include="StaticObject.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIImage.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -151,6 +166,18 @@
     </ClCompile>
     <ClCompile Include="StaticObject.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIImage.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
