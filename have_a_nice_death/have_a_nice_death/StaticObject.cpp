@@ -10,3 +10,8 @@ void StaticObject::Update(float deltaTime)
 {
 	Super::Update(deltaTime);
 }
+
+void StaticObject::Destroy()
+{
+	Super::Destroy();
+}

@@ -99,9 +99,6 @@
     <ClInclude Include="StaticObject.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="UIManager.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -110,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="UIButton.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>SingleTon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +167,6 @@
     <ClCompile Include="StaticObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="UIManager.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="UI.cpp">
       <Filter>UI</Filter>
     </ClCompile>
@@ -178,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="UIButton.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>SingleTon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

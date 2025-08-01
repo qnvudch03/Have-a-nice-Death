@@ -6,11 +6,9 @@
 Texture::~Texture()
 {
     delete _bitmap;
+    _bitmap = nullptr;
 }
 
-void Texture::Destroy()
-{
-}
 
 void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, DrawAnchor drawAnchor)
 {

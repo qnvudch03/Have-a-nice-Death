@@ -54,14 +54,14 @@ void Lobby::loadResource()
 	}
 		
 
-	_Death_Body = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 400, 550), DrawAnchor::Center);
+	_Death_Body = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 420, 550), DrawAnchor::Center);
 	if (_Death_Body != nullptr)
 	{
 		setLobbyActor(_Death_Body);
 	}
 		
 
-	_Death_Arm = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 350, 510), DrawAnchor::Center);
+	_Death_Arm = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 370, 520), DrawAnchor::Center);
 	if (_Death_Arm != nullptr)
 	{
 		setLobbyActor(_Death_Arm);

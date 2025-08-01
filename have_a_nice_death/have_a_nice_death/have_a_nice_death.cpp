@@ -8,6 +8,8 @@
 
 #define MAX_LOADSTRING 100
 
+#define _CRTDBG_MAP_ALLOC
+
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
@@ -43,12 +45,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+    //메모리릭 탐지 코드
+    /*_CrtSetBreakAlloc(4912);
+    _CrtSetBreakAlloc(4915);*/
+
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HAVEANICEDEATH));
 
     MSG msg = {};
 
     //Gamd의 루프
     Game* game = Game::GetInstance();
+
+    
+
     game->Init(g_hWnd);
 
     const float targetFrameTime = 1000.0f / 120.f;  // 초당(1000ms) 120 프레임
@@ -83,7 +92,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    game->GetCurrentScence()->Destroy();
+    //game->GetCurrentScence()->Destroy();
+    game->Destroy();
     delete game->GetCurrentScence();
 
     return (int) msg.wParam;

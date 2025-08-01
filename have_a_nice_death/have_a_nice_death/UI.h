@@ -4,7 +4,7 @@
 class UI
 {
 public:
-	UI(Texture* texture, Vector pos) : _uiTexture(texture), _pos(pos){}
+	UI(std::string name, Texture* texture, Vector pos) : _name(name), _uiTexture(texture), _pos(pos){}
 	virtual ~UI() = default;
 
 public:
@@ -18,6 +18,7 @@ public:
 	void SetOpen(bool open) { _isOpen = open; }
 
 protected:
+	std::string _name;
 	bool _isOpen = true;
 	Vector _pos = {};
 	Texture* _uiTexture = nullptr;

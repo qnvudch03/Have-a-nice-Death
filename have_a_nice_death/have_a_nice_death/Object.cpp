@@ -18,3 +18,8 @@ void Object::Update(float deltaTime)
 	animaotr.Update(deltaTime);
 
 }
+
+void Object::Destroy()
+{
+	animaotr.Destroy();
+}

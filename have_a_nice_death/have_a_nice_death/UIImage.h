@@ -10,7 +10,7 @@ class UIImage : public UI
 
 public:
 
-	UIImage(Texture* texture, Vector pos) : Super(texture, pos)
+	UIImage(std::string name, Texture* texture, Vector pos) : Super(name, texture, pos)
 	{
 
 	}

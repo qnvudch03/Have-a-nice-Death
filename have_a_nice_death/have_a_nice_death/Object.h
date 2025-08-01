@@ -9,6 +9,7 @@ public:
 	virtual void Init() {}
 	virtual void Update(float deltaTime);
 	virtual void Render(ID2D1RenderTarget* renderTarget);
+	virtual void Destroy();
 
 	Object(RenderLayer rendertype, DrawAnchor drawanchor) : _RenderType(rendertype) , anchorPosition(drawanchor)
 	{
@@ -28,10 +29,8 @@ public:
 	void SetPos(Vector pos) { _pos = pos; }
 
 	//애니메이션 관련
-	Animaotr animaotr;
+	Animator animaotr;
 	DrawAnchor anchorPosition = DrawAnchor::Positiondefault;
-
-	//void Destory();
 
 private:
 	//std::vector<Texture*>* _Playtextures = nullptr;

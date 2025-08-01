@@ -10,3 +10,8 @@
 //{
 //	Super::Update(deltaTime);
 //}
+
+void LivingObject::Destroy()
+{
+	Super::Destroy();
+}

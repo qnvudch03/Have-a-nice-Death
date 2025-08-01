@@ -101,7 +101,7 @@ GameScene* Game::GetGameScene()
 
 void Game::Destroy()
 {
-	int A = 10;
+	ResourceManager::GetInstance()->Destroy();
 }
 
 //void Game::InitDirectWrite()

@@ -21,7 +21,7 @@ public:
 	ID2D1HwndRenderTarget* GetRenderTarget() { return _dxRenderTarget; }
 	IWICImagingFactory* GetWICFactory() { return _wicFactory; }
 
-protected:
+public:
 	void Destroy() override;
 
 private:

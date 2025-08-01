@@ -9,6 +9,7 @@ public:
 
 	virtual void Init() override;
 	virtual void Update(float deltaTime) override;
+	virtual void Destroy() override;
 	StaticObject(std::vector<Texture*>* OwningTextures, RenderLayer RenderType, Vector pos = Vector(0,0), DrawAnchor drawAncor = DrawAnchor::Topleft) : Super(RenderType, drawAncor)
 	{
 		_ownTextures = OwningTextures;

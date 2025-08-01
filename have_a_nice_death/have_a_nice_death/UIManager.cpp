@@ -6,6 +6,8 @@
 #include "Game.h"
 #include "DXBitmap.h"
 #include "UI.h"
+#include "UIButton.h"
+#include "UIImage.h"
 
 void UIManager::Init(fs::path directory)
 {
@@ -133,7 +135,18 @@ void UIManager::CreateUIVec(fs::path directory)
 			{
 				std::string name = texture.first.substr(0, texture.first.size() - 4);
 				Vector uiPosition = uidata[name];
-				_gameUI[UpperName].push_back(new UI(texture.second, uiPosition));
+
+				//UI 타입이 버튼일 경우
+				if (name.find("BTN") != std::string::npos)
+				{
+					_gameUI[UpperName].push_back(new UIButton(name, texture.second, uiPosition));
+				}
+
+				//그냥 평범한 이미지 일 경우
+				else
+				{
+					_gameUI[UpperName].push_back(new UIImage(name, texture.second, uiPosition));
+				}
 			}
 
 			uidata.clear();

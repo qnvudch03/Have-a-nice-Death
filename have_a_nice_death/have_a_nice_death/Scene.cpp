@@ -15,22 +15,25 @@ void Scene::Init()
 
 void Scene::Destroy()
 {
-	/*_ui.Destroy();
+	//리로스 해제는 무조건 ResourecManager에서 진행한다.
+	/*auto a = *SceneUI;
 
 	_reserveAdd.clear();
 	_reserveRemove.clear();
-
-	for (auto layer : _renderList)
-	{
-		layer.clear();
-	}
 
 	for (auto iter : _actors)
 	{
 		iter->Destroy();
 		SAFE_DELETE(iter);
 	}
-	_actors.clear();*/
+	_actors.clear();
+
+	for (auto iter : *SceneUI)
+	{
+		SAFE_DELETE(iter);
+	}
+	SceneUI->clear();*/
+
 }
 
 void Scene::Update(float deltatTime)
@@ -48,19 +51,19 @@ void Scene::Update(float deltatTime)
 void Scene::PostUpdate(float deltaTime)
 {
 	// 예약된 객체를 추가
-	for (auto actor : _reserveAdd)
+	for (auto& actor : _reserveAdd)
 	{
 		addActor(actor);
 	}
 	_reserveAdd.clear();
 
 
-	//// 예약된 객체를 삭제, A Enemy 2번
-	//for (auto actor : _reserveRemove)
-	//{
-	//	removeActor(actor);	// 진짜 메모리를 해제
-	//}
-	//_reserveRemove.clear();
+	// 예약된 객체를 삭제, A Enemy 2번
+	for (auto actor : _reserveRemove)
+	{
+		removeActor(actor);	// 진짜 메모리를 해제
+	}
+	_reserveRemove.clear();
 }
 
 void Scene::Render(ID2D1RenderTarget* renderTarget)

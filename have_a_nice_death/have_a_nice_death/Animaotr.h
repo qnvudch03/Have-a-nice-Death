@@ -1,7 +1,7 @@
 #pragma once
 #include "Texture.h"
 
-class Animaotr
+class Animator
 {
 public:
 
@@ -11,18 +11,20 @@ public:
 	int32 TextureNum = 0;
 
 	void SetAnimSpeed(int32 speed) { _animSpeed = speed; }
-	void SetAnimTexture(std::vector<Texture*>* animtures) { _animtures = animtures; }
+	void SetAnimTexture(std::vector<Texture*>* animtures) { _animTextures = animtures; }
+
+	void Destroy();
 
 	void Update(float deltaTime);
 
 	Texture* GetAnimTexture()
 	{
-		return (*_animtures)[AnimTextureIndex];
+		return (*_animTextures)[AnimTextureIndex];
 	}
 
 private:
 	int32 _animSpeed = 0;
 	float _animStackTimer = 0;
-	std::vector<Texture*>* _animtures = nullptr;
+	std::vector<Texture*>* _animTextures = nullptr;
 };
 

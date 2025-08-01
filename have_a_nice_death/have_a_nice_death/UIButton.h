@@ -10,7 +10,7 @@ class UIButton : public UI
 
 public:
 
-	UIButton(Texture* texture, Vector pos) : Super(texture, pos)
+	UIButton(std::string name, Texture* texture, Vector pos) : Super(name, texture, pos)
 	{
 
 	}
