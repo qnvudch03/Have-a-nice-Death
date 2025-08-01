@@ -51,7 +51,7 @@ void Game::Init(HWND hwnd)
 	wchar_t buffer[MAX_PATH];
 	DWORD length = ::GetCurrentDirectory(MAX_PATH, buffer);
 	fs::path ResourcePath = fs::path(buffer) / L"../../Resources/";
-	ResourceManager::GetInstance()->Init(hwnd, ResourcePath);
+	SpriteManager::GetInstance()->Init(hwnd, ResourcePath);
 
 	//UI
 	fs::path UIPath = fs::path(buffer) / L"../../UI/";
@@ -101,7 +101,8 @@ GameScene* Game::GetGameScene()
 
 void Game::Destroy()
 {
-	ResourceManager::GetInstance()->Destroy();
+	SpriteManager::GetInstance()->Destroy();
+	UIManager::GetInstance()->Destroy();
 }
 
 //void Game::InitDirectWrite()

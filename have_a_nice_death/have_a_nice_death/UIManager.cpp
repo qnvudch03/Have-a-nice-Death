@@ -158,5 +158,13 @@ void UIManager::CreateUIVec(fs::path directory)
 void UIManager::Destroy()
 {
 	//TODO
-	//저 Map 없애기
+	for (auto& [UIFolerName, UIVec] : _gameUI)
+	{
+		for (auto Iter : UIVec)
+		{
+			delete Iter;
+			Iter = nullptr;
+		}
+		UIVec.clear();
+	}
 }

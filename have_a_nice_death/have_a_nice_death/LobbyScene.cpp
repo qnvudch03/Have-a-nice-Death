@@ -13,6 +13,7 @@ void Lobby::Init()
 void Lobby::Destroy()
 {
 	Super::Destroy();
+
 }
 
 void Lobby::Update(float deltatTime)
@@ -30,6 +31,16 @@ void Lobby::Render(ID2D1RenderTarget* renderTarget)
 	Super::Render(renderTarget);
 }
 
+void Lobby::EraseScene()
+{
+	Super::EraseScene();
+
+	for (auto Iter : LobbySceneObjects)
+	{
+		delete Iter;
+	}
+}
+
 void Lobby::loadResource()
 {
 
@@ -40,13 +51,13 @@ void Lobby::loadResource()
 		};
 
 	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)
-	_backGround = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "BackGround"), RenderLayer::Background, Vector(0, 0), DrawAnchor::Topleft);
+	_backGround = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "BackGround"), RenderLayer::Background, Vector(0, 0), DrawAnchor::Topleft);
 	if (_backGround != nullptr)
 	{
 		setLobbyActor(_backGround);
 	}
 
-	_Death_Head = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "head"), RenderLayer::Effect, Vector(GWinSizeX - 400, 280), DrawAnchor::Center);
+	_Death_Head = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "head"), RenderLayer::Effect, Vector(GWinSizeX - 400, 280), DrawAnchor::Center);
 	if (_Death_Head != nullptr)
 	{
 		//람다를 써 보자
@@ -54,20 +65,20 @@ void Lobby::loadResource()
 	}
 		
 
-	_Death_Body = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 420, 550), DrawAnchor::Center);
+	_Death_Body = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 420, 550), DrawAnchor::Center);
 	if (_Death_Body != nullptr)
 	{
 		setLobbyActor(_Death_Body);
 	}
 		
 
-	_Death_Arm = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 370, 520), DrawAnchor::Center);
+	_Death_Arm = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 370, 520), DrawAnchor::Center);
 	if (_Death_Arm != nullptr)
 	{
 		setLobbyActor(_Death_Arm);
 	}
 		
-	_smoke = new StaticObject(ResourceManager::GetInstance()->GetTextures("Home", "Smoke"), RenderLayer::Effect, Vector(GWinSizeX - 410, 435), DrawAnchor::Bottomright);
+	_smoke = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "Smoke"), RenderLayer::Effect, Vector(GWinSizeX - 425, 445), DrawAnchor::Bottomright);
 	if (_smoke != nullptr)
 	{
 		setLobbyActor(_smoke);

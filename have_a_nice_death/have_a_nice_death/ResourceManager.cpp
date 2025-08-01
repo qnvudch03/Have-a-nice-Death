@@ -3,18 +3,18 @@
 #include "DXBitmap.h"
 #include "Texture.h"
 
-void ResourceManager::Init(HWND hwnd, fs::path directory)
+void SpriteManager::Init(HWND hwnd, fs::path directory)
 {
     _textures.clear();
 
 	_hwnd = hwnd;
-	_resourcePath = directory;
+	_spritePath = directory;
 
 	CreateTextureVec(directory);
 
 }
 
-void ResourceManager::Destroy()
+void SpriteManager::Destroy()
 {
     for (auto& [folderName, fileMap] : _textures)
     {
@@ -32,7 +32,7 @@ void ResourceManager::Destroy()
     _textures.clear();
 }
 
-void ResourceManager::CreateTextureVec(fs::path directory)
+void SpriteManager::CreateTextureVec(fs::path directory)
 {
     directory = directory.lexically_normal();
 
@@ -103,7 +103,7 @@ void ResourceManager::CreateTextureVec(fs::path directory)
 
 }
 
-std::vector<Texture*>* ResourceManager::GetTextures(std::string UpperName, std::string MiddleName)
+std::vector<Texture*>* SpriteManager::GetTextures(std::string UpperName, std::string MiddleName)
 {
     if (!_textures.contains(UpperName))
         return nullptr;

@@ -8,14 +8,14 @@ class Texture;
 // 리소스 개념이 게임에서 다양하게 등장.
 // 텍스처 / 메시 / 사운드 / 이펙트 등등..
 // 모든 리소스들을 관리하는 매니저
-class ResourceManager : public Singleton<ResourceManager>
+class SpriteManager : public Singleton<SpriteManager>
 {
-	friend Singleton<ResourceManager>;
-	ResourceManager() {}
+	friend Singleton<SpriteManager>;
+	SpriteManager() {}
 public:
 
 	HWND _hwnd;
-	fs::path _resourcePath;
+	fs::path _spritePath;
 
 	void Init(HWND hwnd, fs::path directory);
 	void Destroy();	// 리소스 정리

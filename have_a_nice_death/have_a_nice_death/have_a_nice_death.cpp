@@ -27,6 +27,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+
+    // 뭐 어쩌라고??
+    //메모리릭 탐지 코드
+    /*_CrtSetBreakAlloc(5145);
+    _CrtSetBreakAlloc(236);*/
+
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -44,10 +50,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
-
-    //메모리릭 탐지 코드
-    /*_CrtSetBreakAlloc(4912);
-    _CrtSetBreakAlloc(4915);*/
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HAVEANICEDEATH));
 
@@ -92,7 +94,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    //game->GetCurrentScence()->Destroy();
+    game->GetCurrentScence()->EraseScene();
     game->Destroy();
     delete game->GetCurrentScence();
 
