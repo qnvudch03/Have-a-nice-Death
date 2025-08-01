@@ -2,6 +2,8 @@
 #include "Scene.h"
 
 class Object;
+class Controller;
+class LivingObject;
 
 class GameScene : public Scene
 {
@@ -24,8 +26,12 @@ public:
 	virtual void loadResource() override;
 	virtual void loadUI() override;
 
+	void AddController(LivingObject* ownerObject, Controller* controller);
+	void ChangeControllerOwner(LivingObject* newownerObject, Controller* controller);
+
 private:
 
+	std::map< LivingObject*, Controller*> _gameControllerMap;
 	std::map<std::string, Object*> _gameSceneObjects;
 	//std::vector<Object*> _gameSceneObjects;
 };

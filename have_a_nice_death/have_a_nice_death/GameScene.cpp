@@ -5,6 +5,7 @@
 #include "LivingObject.h"
 #include "SpriteManager.h"
 #include "Death.h"
+#include "Controller.h"
 
 void GameScene::Init()
 {
@@ -41,11 +42,17 @@ void GameScene::EraseScene()
 	if (_gameSceneObjects.empty())
 		return;
 
-	for (auto Iter : _gameSceneObjects)
+	for (auto gmaeObj : _gameSceneObjects)
 	{
-		delete Iter.second;
+		delete gmaeObj.second;
 	}
 	_gameSceneObjects.clear();
+
+	//컨트롤러 삭제
+	for (auto gamdController : _gameControllerMap)
+	{
+		delete gamdController.second;
+	}
 }
 
 
@@ -76,4 +83,25 @@ void GameScene::loadResource()
 void GameScene::loadUI()
 {
 	//HPbar
+}
+
+void GameScene::AddController(LivingObject* ownerObject, Controller* controller)
+{
+	if (_gameControllerMap.find(ownerObject) == _gameControllerMap.end())
+		return;
+
+	_gameControllerMap.insert(std::make_pair(ownerObject, controller));
+	controller->SetOwner(ownerObject);
+}
+
+void GameScene::ChangeControllerOwner(LivingObject* newownerObject, Controller* controller)
+{
+	LivingObject* PostOwner = controller->GetOwner();
+
+	if (PostOwner == nullptr || _gameControllerMap.find(PostOwner) == _gameControllerMap.end())
+		return;
+
+	_gameControllerMap.erase(PostOwner);
+
+	AddController(newownerObject, controller);
 }

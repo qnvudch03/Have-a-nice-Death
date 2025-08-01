@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "LivingObject.h"
+#include "Controller.h"
 
 //void LivingObject::Init()
 //{
@@ -18,6 +19,9 @@ void LivingObject::Init()
 
 void LivingObject::Update(float deltaTime)
 {
+	if (_controller != nullptr)
+		_controller->Update();
+
 	Super::Update(deltaTime);
 }
 

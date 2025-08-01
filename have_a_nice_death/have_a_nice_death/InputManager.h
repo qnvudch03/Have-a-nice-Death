@@ -11,6 +11,7 @@ enum class KeyType
 	Left = VK_LEFT,
 	Right = VK_RIGHT,
 	SpaceBar = VK_SPACE,
+	Shift = VK_SHIFT,
 
 	F1 = VK_F1,
 	F2 = VK_F2,
@@ -25,6 +26,9 @@ enum class KeyType
 	S = 'S',
 	D = 'D',
 	Inventory = 'I',
+	Z = 'z',
+	X = 'x',
+	MAX,
 };
 
 enum class KeyState

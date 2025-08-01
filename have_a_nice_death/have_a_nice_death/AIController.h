@@ -1,5 +1,6 @@
 #pragma once
-class AIController
+#include "Controller.h"
+class AIController : Controller
 {
 };
 
