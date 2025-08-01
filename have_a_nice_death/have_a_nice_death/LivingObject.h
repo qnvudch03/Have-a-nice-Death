@@ -11,12 +11,14 @@ public:
 	virtual void Init() override;
 	virtual void Update(float deltaTime) override;
 	virtual void Destroy() override;
+
+	void SetState(std::string state);
 	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, DrawAnchor anchorPosition = DrawAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
 		_ownTextures = OwningTextures;
 	}
 
-	~LivingObject()
+	virtual ~LivingObject()
 	{
 
 	}

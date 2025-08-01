@@ -9,7 +9,8 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 		iter->Render(renderTarget, GetPos());
 	}*/
 
-	animaotr.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition);
+	if(animaotr.GetAnimTexture() != nullptr)
+		animaotr.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition);
 
 }
 

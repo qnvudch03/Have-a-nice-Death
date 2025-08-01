@@ -15,6 +15,13 @@ bool IsInPoint(RECT rect, POINT pos);
 #define SMALL_NUMBER			(1.e-8f)
 
 
+enum UiType
+{
+	Image,
+	Button,
+	UiDefault
+};
+
 enum RenderLayer
 {
 	Background,

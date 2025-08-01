@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "LobbyScene.h"
-#include "ResourceManager.h"
+#include "SpriteManager.h"
 #include "StaticObject.h"
 #include "UIManager.h"
 #include "UI.h"
@@ -39,6 +39,13 @@ void Lobby::EraseScene()
 	{
 		delete Iter;
 	}
+
+	//현재 씬의 모든 UI를 비활성화
+	for (auto Iter : *SceneUI)
+	{
+		Iter->Close();
+	}
+
 }
 
 void Lobby::loadResource()

@@ -14,13 +14,18 @@ public:
 	virtual void Open() { _isOpen = true; }
 	virtual void Close() { _isOpen = false; }
 
+	UiType GetType() { return _UiType; }
+
 	bool IsOpen() const { return _isOpen; }
 	void SetOpen(bool open) { _isOpen = open; }
 
-protected:
 	std::string _name;
+
+protected:
 	bool _isOpen = true;
 	Vector _pos = {};
 	Texture* _uiTexture = nullptr;
+
+	UiType _UiType = UiType::UiDefault;
 };
 

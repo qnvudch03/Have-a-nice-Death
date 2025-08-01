@@ -16,10 +16,15 @@ public:
 
 	std::vector<UI*>* GetSceneUI(Scene* scene);
 
+	const std::vector<UI*>& GetButtons() { return _buttons; }
+
 private:
 
 	void CreateUIVec(fs::path directory);
 
 	std::map<std::string, std::vector<UI*>> _gameUI;
+
+	std::vector<UI*> _buttons;
+	std::vector<UI*> _images;
 };
 

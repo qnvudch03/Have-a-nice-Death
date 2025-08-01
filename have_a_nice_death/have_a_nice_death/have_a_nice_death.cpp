@@ -30,8 +30,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // 뭐 어쩌라고??
     //메모리릭 탐지 코드
-    /*_CrtSetBreakAlloc(5145);
-    _CrtSetBreakAlloc(236);*/
+    /*_CrtSetBreakAlloc(5173);
+    _CrtSetBreakAlloc(5205);*/
 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
@@ -90,6 +90,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 game->Render();
 
                 prev = now;
+
+                game->CheckReservedScene();
             }
         }
     }

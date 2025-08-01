@@ -8,6 +8,8 @@ public:
 	Texture(DXBitmap* bitmap, int32 SizeX, int32 SizeY) : _bitmap(bitmap), _textureSizeX(SizeX), _textureSizeY(SizeY) {}
 	~Texture();
 
+	Vector GetTextureSize() { return Vector(_textureSizeX, _textureSizeY); }
+
 	// 해당 리소스가 그려지는 부분
 	void Render(ID2D1RenderTarget* renderTarget, Vector pos, DrawAnchor drawAnchor = DrawAnchor::Topleft);
 

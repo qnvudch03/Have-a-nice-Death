@@ -31,6 +31,12 @@
     <Filter Include="UI">
       <UniqueIdentifier>{a759ec74-2542-4a57-b85d-d0bdf6692a2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{50b45b51-b16e-47e2-98e5-4d3723a1ed6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{9005d410-c059-45eb-b016-c18df1ac25b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -45,7 +51,7 @@
     <ClInclude Include="have_a_nice_death.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
+    <ClInclude Include="SpriteManager.h">
       <Filter>SingleTon</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
@@ -111,12 +117,27 @@
     <ClInclude Include="UIManager.h">
       <Filter>SingleTon</Filter>
     </ClInclude>
+    <ClInclude Include="SceneLoader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Death.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="AIController.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
+    <ClCompile Include="SpriteManager.cpp">
       <Filter>SingleTon</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
@@ -178,6 +199,21 @@
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLoader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Death.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="AIController.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

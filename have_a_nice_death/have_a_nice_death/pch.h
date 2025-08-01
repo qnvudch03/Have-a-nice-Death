@@ -12,6 +12,7 @@
 #include <filesystem>
 #include <fstream>
 #include <functional>
+#include <queue>
 
 #include <d2d1.h>
 #include <dwrite_1.h>

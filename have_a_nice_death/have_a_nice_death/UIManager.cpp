@@ -47,6 +47,30 @@ void UIManager::OnMouseButtonClicked(Vector pos)
 {
 	//TODO
 	//현재 활성화가 된 buttonUI를 순회해서, 자기와 위치가 겹치는지 확인하고 실행
+
+	std::vector<UI*>* CurrentSceneUI = GetSceneUI(Game::GetInstance()->GetCurrentScence());
+
+	for (auto Iter : *CurrentSceneUI)
+	{
+		//활성화 된 것만 체크
+		if (!Iter->IsOpen())
+			continue;
+
+		//이미지 타입의 UI 필터
+		if (Iter->GetType() == UiType::Image)
+			continue;
+
+		UIButton* btn = static_cast<UIButton*>(Iter);
+
+		if (btn->CheckClicked(pos))
+		{
+			//우선 제일 먼저 눌림 판정이 난 버튼만 실행되게 하자
+			btn->DoAction();
+
+			return;
+		}
+
+	}
 }
 
 std::vector<UI*>* UIManager::GetSceneUI(Scene* scene)
@@ -139,13 +163,17 @@ void UIManager::CreateUIVec(fs::path directory)
 				//UI 타입이 버튼일 경우
 				if (name.find("BTN") != std::string::npos)
 				{
-					_gameUI[UpperName].push_back(new UIButton(name, texture.second, uiPosition));
+					UIButton* btn = new UIButton(name, texture.second, uiPosition);
+					_gameUI[UpperName].push_back(btn);
+					_buttons.push_back(btn);
 				}
 
 				//그냥 평범한 이미지 일 경우
 				else
 				{
-					_gameUI[UpperName].push_back(new UIImage(name, texture.second, uiPosition));
+					UIImage* img = new UIImage(name, texture.second, uiPosition);
+					_gameUI[UpperName].push_back(img);
+					_images.push_back(img);
 				}
 			}
 
@@ -167,4 +195,7 @@ void UIManager::Destroy()
 		}
 		UIVec.clear();
 	}
+
+	_buttons.clear();
+	_images.clear();
 }

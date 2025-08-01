@@ -77,10 +77,17 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 	}
 
 	//UI는 다 그린 후 맨 마지막에
-	for (auto& ui : *SceneUI)
+	if (SceneUI == nullptr)
+		return;
+
+	else
 	{
-		ui->Render(renderTarget);
+		for (auto& ui : *SceneUI)
+		{
+			ui->Render(renderTarget);
+		}
 	}
+	
 }
 
 void Scene::ReserveRemove(Object* actor)

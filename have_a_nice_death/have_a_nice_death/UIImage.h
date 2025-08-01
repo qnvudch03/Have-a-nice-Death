@@ -12,7 +12,7 @@ public:
 
 	UIImage(std::string name, Texture* texture, Vector pos) : Super(name, texture, pos)
 	{
-
+		_UiType = UiType::Image;
 	}
 
 	~UIImage();

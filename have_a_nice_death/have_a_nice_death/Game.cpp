@@ -3,11 +3,14 @@
 #include "Scene.h"
 #include "TimeManager.h"
 #include "InputManager.h"
-#include "ResourceManager.h"
+#include "SpriteManager.h"
 #include "UIManager.h"
+#include "UI.h"
 
 #include "LobbyScene.h"
 #include "GameScene.h"
+#include "EditorScene.h"
+#include "SceneLoader.h"
 
 
 Game::Game()
@@ -47,6 +50,9 @@ void Game::Init(HWND hwnd)
 	CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_wicFactory));
 
 
+	//펑션 맵 초기화
+	MappingFunctions();
+
 	// 리소스 매니저 초기화
 	wchar_t buffer[MAX_PATH];
 	DWORD length = ::GetCurrentDirectory(MAX_PATH, buffer);
@@ -57,12 +63,13 @@ void Game::Init(HWND hwnd)
 	fs::path UIPath = fs::path(buffer) / L"../../UI/";
 	UIManager::GetInstance()->Init(UIPath);
 
-
 	// 타이머 초기화
 	TimeManager::GetInstance()->Init();
 	// 입력 매니저 초기화
 	InputManager::GetInstance()->Init(hwnd);
 
+	//씬로더 초기화
+	sceneLoader = new SceneLoader();
 
 	_currScene->Init();
 
@@ -78,6 +85,22 @@ void Game::OnLeftClickEvent()
 	Vector mousePos = InputManager::GetInstance()->GetMousePos();
 
 	_onLeftMousecliked(mousePos);
+}
+
+void Game::CheckReservedScene()
+{
+	if (_currScene == nullptr)
+		return;
+
+	if (!sceneLoader->IsReserved())
+		return;
+
+	_currScene->EraseScene();
+	delete _currScene;
+
+	_currScene = sceneLoader->GetReservedScene();
+	_currScene->Init();
+
 }
 
 Scene* Game::GetScene()
@@ -103,6 +126,70 @@ void Game::Destroy()
 {
 	SpriteManager::GetInstance()->Destroy();
 	UIManager::GetInstance()->Destroy();
+
+	delete sceneLoader;
+}
+
+void Game::MappingFunctions()
+{
+
+	_actionMap.clear();
+
+	//버튼 입력에 따른 함수 매핑을 미리 해 두자
+	//이걸 수동으로 매번 해야 하나?? 다른 방법이 없을까?
+	_actionMap = {
+		{"BTN_Play",  [this]() { PlayGame(); }},
+		{"BTN_Edit",  [this]() { EditGame(); }},
+		{"BTN_Exit",  [this]() { ExitGame(); }},
+		{"BTN_Curse", [this]() { SelectCurse(); }}
+	};
+}
+
+std::function<void()> Game::BindingActionByName(std::string actionName)
+{
+	if (_actionMap.find(actionName) == _actionMap.end())
+		return nullptr;
+
+	return _actionMap[actionName];
+}
+
+void Game::PlayGame()
+{
+	//게임 씬으로 전환
+
+	if (_currScene == nullptr)
+	{
+		//Somthing Bad
+		int apple = 0;
+	}
+
+	sceneLoader->ReserveScene(new GameScene());
+}
+
+void Game::EditGame()
+{
+	//에디터 씬으로 전환
+
+	if (_currScene == nullptr)
+	{
+		//Somthing Bad
+		int apple = 0;
+	}
+
+	_currScene->EraseScene();
+	delete _currScene;
+
+	_currScene = new EditorScene();
+	_currScene->Init();
+
+}
+
+void Game::ExitGame()
+{
+}
+
+void Game::SelectCurse()
+{
 }
 
 //void Game::InitDirectWrite()

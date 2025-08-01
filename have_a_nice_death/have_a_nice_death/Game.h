@@ -2,6 +2,8 @@
 #include "Singleton.h"
 #include "Scene.h"
 
+class SceneLoader;
+
 class Game : public Singleton<Game>
 {
 public:
@@ -12,14 +14,19 @@ public:
 	void Update();
 	void Render();
 	void OnLeftClickEvent();
+	void CheckReservedScene();
 
 	static Scene* GetScene();
 	static class GameScene* GetGameScene();
+
+	std::function<void()> BindingActionByName(std::string actionName);
 
 	Scene* GetCurrentScence() { return _currScene; }
 
 	ID2D1HwndRenderTarget* GetRenderTarget() { return _dxRenderTarget; }
 	IWICImagingFactory* GetWICFactory() { return _wicFactory; }
+
+	SceneLoader* sceneLoader = nullptr;
 
 public:
 	void Destroy() override;
@@ -44,10 +51,20 @@ private:
 
 	void DrawText(ID2D1RenderTarget* renderTarget, const wchar_t* text, float x, float y);
 
-	//// 해제 함수
-	//void CleanupDirectWrite();
+	void MappingFunctions();
 
 	Scene* _currScene = nullptr;
 	std::function<void(Vector pos)> _onLeftMousecliked;
+
+	std::unordered_map<std::string, std::function<void()>> _actionMap;
+
+	//게임상에서 UI로 작동할 모든 함수들
+
+	void PlayGame();
+	void EditGame();
+	void ExitGame();
+
+	//이거는 게임씬에있는 함수랑 연결시켜 보는게 어떨까?
+	void SelectCurse();
 };
 

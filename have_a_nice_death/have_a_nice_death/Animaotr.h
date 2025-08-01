@@ -19,6 +19,9 @@ public:
 
 	Texture* GetAnimTexture()
 	{
+		if (_animTextures == nullptr)
+			return nullptr;
+
 		return (*_animTextures)[AnimTextureIndex];
 	}
 
