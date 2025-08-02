@@ -3,5 +3,5 @@
 
 void UI::Render(ID2D1RenderTarget* renderTarget)
 {
-	_uiTexture->Render(renderTarget, _pos, DrawAnchor::Topleft);
+	_uiTexture->Render(renderTarget, _pos, ImageAnchor::Topleft);
 }

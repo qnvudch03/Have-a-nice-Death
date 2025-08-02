@@ -6,31 +6,31 @@ void PlayerController::Update()
 {
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::Z))
 	{
-		_currentInput = KeyType::Z;
+		currentInput = KeyType::Z;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonDown(KeyType::Shift))
 	{
-		_currentInput = KeyType::Shift;
+		currentInput = KeyType::Shift;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonDown(KeyType::SpaceBar))
 	{
-		_currentInput = KeyType::SpaceBar;
+		currentInput = KeyType::SpaceBar;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left))
 	{
-		_currentInput = KeyType::Left;
+		currentInput = KeyType::Left;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
 	{
-		_currentInput = KeyType::Right;
+		currentInput = KeyType::Right;
 	}
 
 	else
 	{
-		_currentInput = KeyType::MAX;
+		currentInput = KeyType::MAX;
 	}
 }

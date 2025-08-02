@@ -50,6 +50,9 @@ void UIManager::OnMouseButtonClicked(Vector pos)
 
 	std::vector<UI*>* CurrentSceneUI = GetSceneUI(Game::GetInstance()->GetCurrentScence());
 
+	if (CurrentSceneUI == nullptr)
+		return;
+
 	for (auto Iter : *CurrentSceneUI)
 	{
 		//활성화 된 것만 체크

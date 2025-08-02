@@ -11,7 +11,7 @@ public:
 	Vector GetTextureSize() { return Vector(_textureSizeX, _textureSizeY); }
 
 	// 해당 리소스가 그려지는 부분
-	void Render(ID2D1RenderTarget* renderTarget, Vector pos, DrawAnchor drawAnchor = DrawAnchor::Topleft);
+	void Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft);
 
 	void SetRenderedPosition(int32 x, int32 y) { _renderingOffsetX = x; _renderingOffsetY = y; }
 

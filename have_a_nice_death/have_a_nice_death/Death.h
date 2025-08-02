@@ -6,8 +6,8 @@ class Death : public LivingObject
 
 public:
 
-	Death(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, DrawAnchor anchorPosition = DrawAnchor::Topleft)
-		: Super(OwningTextures, RenderType, anchorPosition = DrawAnchor::Topleft)
+	Death(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)
+		: Super(OwningTextures, RenderType, anchorPosition = ImageAnchor::Topleft)
 	{
 		SetState("Ideal");
 		animaotr.SetAnimSpeed(30);

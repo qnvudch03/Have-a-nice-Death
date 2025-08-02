@@ -6,6 +6,7 @@
 #include "SpriteManager.h"
 #include "Death.h"
 #include "Controller.h"
+#include "PlayerController.h"
 
 void GameScene::Init()
 {
@@ -13,6 +14,11 @@ void GameScene::Init()
 
 	//TODO
 	//LoadResoucle랑 LoadUI랑 하고 게임 씬은 텍스트에서 stage 파일 읽어서 정보를 얻어와야 해
+	//읽어온 플레이어 오브젝트와, 몬스터 오브젝트들을 여기서 컨트롤러에 바인딩
+
+	//임시코드
+
+	LoadStage("stage1");
 }
 
 void GameScene::Destroy()
@@ -61,6 +67,9 @@ void GameScene::loadResource()
 {
 	_gameSceneObjects.clear();
 
+	//TODO
+	//스테이지 별로 loadResource를 할 것인가
+	//게임씬 내에서, stageload를 통해서 할것인가
 
 	auto setGameActor = [this](Object* actor, std::string objectName)
 		{
@@ -71,7 +80,12 @@ void GameScene::loadResource()
 	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)
 	// TODO
 	//여기서 싹 다 가져오고, LoadStage에서 그때 addreserve 하자
-	_gameSceneObjects[GameSceneObject::Death] = new Death(SpriteManager::GetInstance()->GetTextureMap("Death"), RenderLayer::Character, DrawAnchor::Center);
+	_gameSceneObjects[GameSceneObject::Death] = new Death(SpriteManager::GetInstance()->GetTextureMap("Death"), RenderLayer::Character, ImageAnchor::Center);
+
+	//임시 코드
+	{
+
+	}
 
 
 	for (auto& obj : _gameSceneObjects)
@@ -85,23 +99,28 @@ void GameScene::loadUI()
 	//HPbar
 }
 
-void GameScene::AddController(LivingObject* ownerObject, Controller* controller)
+void GameScene::BindController(Controller* controller, LivingObject* ownerObject)
 {
-	if (_gameControllerMap.find(ownerObject) == _gameControllerMap.end())
+	if (_gameControllerMap.find(controller) == _gameControllerMap.end())
 		return;
 
-	_gameControllerMap.insert(std::make_pair(ownerObject, controller));
+	_gameControllerMap.insert(std::make_pair(controller, ownerObject));
 	controller->SetOwner(ownerObject);
 }
 
-void GameScene::ChangeControllerOwner(LivingObject* newownerObject, Controller* controller)
+void GameScene::ChangeControllerOwner(Controller* controller, LivingObject* newownerObject)
 {
 	LivingObject* PostOwner = controller->GetOwner();
 
-	if (PostOwner == nullptr || _gameControllerMap.find(PostOwner) == _gameControllerMap.end())
+	if (PostOwner == nullptr || _gameControllerMap.find(controller) == _gameControllerMap.end())
 		return;
 
-	_gameControllerMap.erase(PostOwner);
+	_gameControllerMap.erase(controller);
 
-	AddController(newownerObject, controller);
+	BindController(controller, newownerObject);
+}
+
+void GameScene::LoadStage(std::string stage)
+{
+	//
 }

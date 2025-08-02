@@ -10,11 +10,13 @@ public:
 	virtual ~Controller() {}
 
 	virtual void Update();
-	void SetOwner(LivingObject* owner) { _ownerLivingObject = owner; }
-	LivingObject* GetOwner(void) { return _ownerLivingObject; }
+	void SetOwner(LivingObject* owner) { owningLivingObject = owner; }
+	LivingObject* GetOwner(void) { return owningLivingObject; }
+
+	KeyType GetInput() { return currentInput; }
 	
 protected:
-	KeyType _currentInput;
-	LivingObject* _ownerLivingObject = nullptr;
+	KeyType currentInput;
+	LivingObject* owningLivingObject = nullptr;
 };
 

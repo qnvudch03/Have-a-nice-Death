@@ -31,7 +31,7 @@ enum RenderLayer
 	Max
 };
 
-enum DrawAnchor
+enum ImageAnchor
 {
 	Topleft,
 	Center,

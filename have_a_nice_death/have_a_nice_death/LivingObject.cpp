@@ -35,5 +35,5 @@ void LivingObject::SetState(std::string state)
 	if (_ownTextures->find(state) == _ownTextures->end())
 		return;
 
-	SetPlayTexture(&(*_ownTextures)[state]);
+	SetAnimaotrTextures(&(*_ownTextures)[state]);
 }

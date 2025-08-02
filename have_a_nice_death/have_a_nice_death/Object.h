@@ -11,7 +11,7 @@ public:
 	virtual void Render(ID2D1RenderTarget* renderTarget);
 	virtual void Destroy();
 
-	Object(RenderLayer rendertype, DrawAnchor drawanchor) : _RenderType(rendertype) , anchorPosition(drawanchor)
+	Object(RenderLayer rendertype, ImageAnchor drawanchor) : _RenderType(rendertype) , anchorPosition(drawanchor)
 	{
 
 	}
@@ -19,7 +19,7 @@ public:
 	virtual ~Object() = default;
 
 	RenderLayer GetRenderLayer() { return _RenderType; }
-	void SetPlayTexture(std::vector<Texture*>* texturesvec)
+	void SetAnimaotrTextures(std::vector<Texture*>* texturesvec)
 	{ 
 		animaotr.SetAnimTexture(texturesvec);
 		animaotr.TextureNum = (*texturesvec).size();
@@ -30,16 +30,12 @@ public:
 
 	//애니메이션 관련
 	Animator animaotr;
-	DrawAnchor anchorPosition = DrawAnchor::Positiondefault;
+	ImageAnchor anchorPosition = ImageAnchor::Positiondefault;
 
 private:
-	//std::vector<Texture*>* _Playtextures = nullptr;
-	//std::unordered_map<std::string, std::vector<Texture*>>* _OwnTextures;
+
 	RenderLayer _RenderType = RenderLayer::Max;
 	Vector _pos = {};
-
-
-	float _stackIndexCounter = 0;
 
 };
 
