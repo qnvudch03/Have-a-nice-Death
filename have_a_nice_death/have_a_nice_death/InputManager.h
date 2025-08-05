@@ -8,6 +8,8 @@ enum class KeyType
 
 	Up = VK_UP,
 	Down = VK_DOWN,
+	Move = '-',
+	StartMove = '*',
 	Left = VK_LEFT,
 	Right = VK_RIGHT,
 	SpaceBar = VK_SPACE,
@@ -26,8 +28,11 @@ enum class KeyType
 	S = 'S',
 	D = 'D',
 	Inventory = 'I',
-	Z = 'z',
+	Z = 'Z',
 	X = 'x',
+
+	RELEASE = '0',
+
 	MAX,
 };
 
@@ -65,7 +70,8 @@ public:
 	POINT GetMousePos() { return _mousePos; }
 
 	// 이동 입력키가 눌려있는지
-	int32 GetMoveDirX() const;
+	int32 GetMovePressedX() const;
+	int32 GetMoveDownX() const;
 	int32 GetMoveDirY() const;
 
 private:

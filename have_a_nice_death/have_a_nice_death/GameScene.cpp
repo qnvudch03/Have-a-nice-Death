@@ -16,7 +16,13 @@ void GameScene::Init()
 	//LoadResoucle랑 LoadUI랑 하고 게임 씬은 텍스트에서 stage 파일 읽어서 정보를 얻어와야 해
 	//읽어온 플레이어 오브젝트와, 몬스터 오브젝트들을 여기서 컨트롤러에 바인딩
 
+	//TODO 여기 구조 손 봐야 함, 일단 움직이는거 보이위해서 이래 하는거임
 	//임시코드
+	PlayerController* playerController = new PlayerController();
+	_playerControllerVec.push_back(playerController);
+
+	static_cast<LivingObject*>(_gameSceneObjects[GameSceneObject::Death])->SetController(playerController);
+
 
 	LoadStage("stage1");
 }
@@ -74,7 +80,7 @@ void GameScene::loadResource()
 	auto setGameActor = [this](Object* actor, std::string objectName)
 		{
 			_gameSceneObjects[objectName] = actor;
-			actor->animaotr.SetAnimSpeed(30);
+			actor->animator.SetAnimSpeed(DefaultAnimSpeed);
 		};
 
 	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)

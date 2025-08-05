@@ -53,13 +53,26 @@ void InputManager::Update()
 	}
 }
 
-int32 InputManager::GetMoveDirX() const
+int32 InputManager::GetMovePressedX() const
 {
-	if (InputManager::GetInstance()->GetButtonPressed(KeyType::A))
+	if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left))
 	{
 		return -1;
 	}
-	if (InputManager::GetInstance()->GetButtonPressed(KeyType::D))
+	if (InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int32 InputManager::GetMoveDownX() const
+{
+	if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
+	{
+		return -1;
+	}
+	if (InputManager::GetInstance()->GetButtonDown(KeyType::Right))
 	{
 		return 1;
 	}

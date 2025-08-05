@@ -18,24 +18,26 @@ public:
 
 	virtual ~Object() = default;
 
+
 	RenderLayer GetRenderLayer() { return _RenderType; }
-	void SetAnimaotrTextures(std::vector<Texture*>* texturesvec)
+	void SetAnimaotrTextures(std::vector<Texture*>* texturesvec, bool IsLoop = true)
 	{ 
-		animaotr.SetAnimTexture(texturesvec);
-		animaotr.TextureNum = (*texturesvec).size();
+		animator.SetAnimTexture(texturesvec, IsLoop);
+		animator.TextureNum = (*texturesvec).size();
 	}
 
 	Vector GetPos() { return _pos; }
 	void SetPos(Vector pos) { _pos = pos; }
 
 	//애니메이션 관련
-	Animator animaotr;
+	Animator animator;
 	ImageAnchor anchorPosition = ImageAnchor::Positiondefault;
+
+	bool renderingFlipOrder = false;
 
 private:
 
 	RenderLayer _RenderType = RenderLayer::Max;
 	Vector _pos = {};
-
 };
 

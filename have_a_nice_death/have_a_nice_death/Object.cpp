@@ -9,18 +9,18 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 		iter->Render(renderTarget, GetPos());
 	}*/
 
-	if(animaotr.GetAnimTexture() != nullptr)
-		animaotr.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition);
+	if(animator.GetAnimTexture() != nullptr)
+		animator.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition, renderingFlipOrder);
 
 }
 
 void Object::Update(float deltaTime)
 {
-	animaotr.Update(deltaTime);
+	animator.Update(deltaTime);
 
 }
 
 void Object::Destroy()
 {
-	animaotr.Destroy();
+	animator.Destroy();
 }

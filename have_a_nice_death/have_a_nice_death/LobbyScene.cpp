@@ -54,7 +54,7 @@ void Lobby::loadResource()
 	auto setLobbyActor = [this](Object* actor)
 		{
 			LobbySceneObjects.push_back(actor);
-			actor->animaotr.SetAnimSpeed(30);
+			actor->animator.SetAnimSpeed(DefaultAnimSpeed);
 		};
 
 	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)

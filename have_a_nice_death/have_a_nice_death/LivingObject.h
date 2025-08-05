@@ -14,9 +14,16 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual void Destroy() override;
 
-	void SetState(std::string state);
+	void SetState(std::string state, bool IsLoop = true);
+	void SetController(Controller* controller) { _controller = controller; }
+
+	int forwordDirection = 1;
+
+	Controller* GetController() { return _controller; }
+
 	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
+		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
 		_ownTextures = OwningTextures;
 	}
 
@@ -24,6 +31,8 @@ public:
 	{
 
 	}
+
+	virtual void OnAnimEnd() {}
 
 private:
 

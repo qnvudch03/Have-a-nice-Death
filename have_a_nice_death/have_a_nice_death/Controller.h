@@ -1,5 +1,6 @@
 #pragma once
 #include "InputManager.h"
+#include "LivingObject.h"
 
 class LivingObject;
 
@@ -10,7 +11,7 @@ public:
 	virtual ~Controller() {}
 
 	virtual void Update();
-	void SetOwner(LivingObject* owner) { owningLivingObject = owner; }
+	void SetOwner(LivingObject* owner) { owningLivingObject = owner;}
 	LivingObject* GetOwner(void) { return owningLivingObject; }
 
 	KeyType GetInput() { return currentInput; }

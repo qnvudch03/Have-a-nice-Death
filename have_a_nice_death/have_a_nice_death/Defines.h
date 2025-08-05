@@ -13,6 +13,7 @@ bool IsInPoint(RECT rect, POINT pos);
 
 // 언리얼에서 가져옴.
 #define SMALL_NUMBER			(1.e-8f)
+#define DefaultAnimSpeed 30
 
 
 enum UiType
