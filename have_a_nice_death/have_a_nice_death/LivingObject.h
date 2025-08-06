@@ -27,6 +27,8 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual void Destroy() override;
 
+	virtual void SetDebugMode(bool debugmode) override;
+
 	void SetState(std::string state, bool IsLoop = true);
 	void SetController(Controller* controller) { _controller = controller; }
 

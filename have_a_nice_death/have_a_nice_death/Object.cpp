@@ -16,7 +16,11 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 
 void Object::SetDebugMode(bool debugMode)
 {
-	animator.GetAnimTexture()->SetDrawBound(debugMode);
+	//animator.GetAnimTexture()->SetDrawBound(debugMode);
+	for (auto& iter : *animator.GetAnimTextureVec())
+	{
+		iter->SetDrawBound(debugMode);
+	}
 }
 
 void Object::Update(float deltaTime)

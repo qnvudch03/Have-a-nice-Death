@@ -247,11 +247,6 @@ void Game::Update()
 	TimeManager::GetInstance()->Update();
 	InputManager::GetInstance()->Update();
 
-	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
-	{
-		int a = 10;
-	}
-
 	GetScene()->Update(TimeManager::GetDeltaTime());
 }
 

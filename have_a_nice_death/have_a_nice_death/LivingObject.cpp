@@ -32,6 +32,17 @@ void LivingObject::Destroy()
 	Super::Destroy();
 }
 
+void LivingObject::SetDebugMode(bool debugmode)
+{
+	for (auto& Iter : *ownTextures)
+	{
+		for (auto& iter : Iter.second)
+		{
+			iter->SetDrawBound(debugmode);
+		}
+	}
+}
+
 void LivingObject::SetState(std::string state, bool IsLoop)
 {
 	if (ownTextures->find(state) == ownTextures->end())

@@ -78,9 +78,6 @@
     <ClInclude Include="TimeManager.h">
       <Filter>SingleTon</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>SingleTon</Filter>
-    </ClInclude>
     <ClInclude Include="LobbyScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -132,6 +129,9 @@
     <ClInclude Include="Controller.h">
       <Filter>Controller</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -159,9 +159,6 @@
       <Filter>SingleTon</Filter>
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
-      <Filter>SingleTon</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
       <Filter>SingleTon</Filter>
     </ClCompile>
     <ClCompile Include="LobbyScene.cpp">
@@ -214,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="Controller.cpp">
       <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

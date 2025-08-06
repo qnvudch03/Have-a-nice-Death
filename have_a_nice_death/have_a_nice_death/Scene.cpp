@@ -46,7 +46,16 @@ void Scene::Update(float deltatTime)
 
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
 	{
-		debugMode != debugMode;
+		debugMode = !debugMode;
+
+		for (auto& list : _renderList)
+		{
+			for (auto actor : list)
+			{
+				actor->SetDebugMode(debugMode);
+			}
+		}
+
 	}
 
 	PostUpdate(deltatTime);
@@ -78,13 +87,8 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 	{
 		for (auto actor : list)
 		{
-			if (debugMode)
-			{
-				actor->SetDebugMode(debugMode);
-			}
-
+			//actor->SetDebugMode(debugMode);
 			actor->Render(renderTarget);
-
 		}
 	}
 
@@ -99,7 +103,7 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 			ui->Render(renderTarget);
 		}
 	}
-	
+
 }
 
 void Scene::ReserveRemove(Object* actor)

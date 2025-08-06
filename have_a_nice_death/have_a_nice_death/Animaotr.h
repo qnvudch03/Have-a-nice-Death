@@ -31,6 +31,8 @@ public:
 
 	std::function<void()> onAnimEnd;
 
+	std::vector<Texture*>* GetAnimTextureVec() { return _animTextures; }
+
 	Texture* GetAnimTexture()
 	{
 		if (_animTextures == nullptr)
