@@ -60,7 +60,7 @@ class Death : public LivingObject
 public:
 
 	Death(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)
-		: Super(OwningTextures, RenderType, anchorPosition = ImageAnchor::Topleft)
+		: Super(OwningTextures, RenderType, anchorPosition)
 	{
 		SetState("Ideal");
 		state = EDeathStatepriority::State_Idle;
@@ -79,13 +79,17 @@ public:
 
 	void UpdateState(KeyType Input);
 
+	inline bool IsCamMove(EDeathStatepriority state)
+	{
+		return (((state) < EDeathStatepriority::State_Attack1 && (state) > EDeathStatepriority::State_Dash) ||
+					(state) > EDeathStatepriority::State_Attack4);
+	}
+
 private:
 	float deltatime = 0;
 
 	EDeathStatepriority state;
-	std::map<EDeathStatepriority, std::vector<Texture*>*> stateTextureMap;
-
-	
+	//std::map<EDeathStatepriority, std::vector<Texture*>*> stateTextureMap;
 
 	//ComboAttack
 	int atkcombo = 0;

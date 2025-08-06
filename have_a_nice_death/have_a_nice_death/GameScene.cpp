@@ -20,13 +20,14 @@ void GameScene::Init()
 
 	//TODO 여기 구조 손 봐야 함, 일단 움직이는거 보이위해서 이래 하는거임
 	//임시코드
-	PlayerController* playerController = new PlayerController();
+	/*PlayerController* playerController = new PlayerController();
 	_playerControllerVec.push_back(playerController);
 
-	static_cast<LivingObject*>(_gameSceneObjects[GameSceneObject::Death])->SetController(playerController);
+	static_cast<LivingObject*>(_gameSceneObjects[GameSceneObject::Death])->SetController(playerController);*/
 
 
-	LoadStage("stage1");
+	//대문자 주의
+	LoadStage("Stage1");
 }
 
 void GameScene::Destroy()
@@ -96,7 +97,7 @@ void GameScene::loadResource()
 	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)
 	// TODO
 	//여기서 싹 다 가져오고, LoadStage에서 그때 addreserve 하자
-	_gameSceneObjects[GameSceneObject::Death] = new Death(SpriteManager::GetInstance()->GetTextureMap("Death"), RenderLayer::Character, ImageAnchor::Center);
+	//_gameSceneObjects[GameSceneObject::Death] = new Death(SpriteManager::GetInstance()->GetTextureMap("Death"), RenderLayer::Character, ImageAnchor::Bottomcenter);
 
 	//임시 코드
 	{
@@ -139,5 +140,13 @@ void GameScene::ChangeControllerOwner(Controller* controller, LivingObject* newo
 
 void GameScene::LoadStage(std::string stage)
 {
-	stageController->LoadStage(stage);
+	if (stageController->LoadStage(stage))
+	{
+		int succed;
+	}
+
+	else
+	{
+		int failed;
+	}
 }

@@ -37,6 +37,7 @@ enum ImageAnchor
 	Topleft,
 	Center,
 	Bottomright,
+	Bottomcenter,
 	Positiondefault
 };
 

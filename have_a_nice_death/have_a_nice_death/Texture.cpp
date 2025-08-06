@@ -31,6 +31,20 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 
     D2D1_RECT_F destLeft;
 
+    auto DrawBound = [this](ID2D1RenderTarget* renderTarget, D2D1_RECT_F& destLeft)
+        {
+            //디버그 모드용 경계면 그리기
+            ID2D1SolidColorBrush* pBorderBrush = nullptr;
+            renderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Red), &pBorderBrush);
+
+            // 테두리 그리기
+            renderTarget->DrawRectangle(destLeft, pBorderBrush, 2.0f); // 2.0f는 선 두께
+
+            // 브러시 해제
+            pBorderBrush->Release();
+        };
+
+
     if (drawAnchor == ImageAnchor::Center)
     {
         float halfX = static_cast<float>(_bitmap->GetBitmapSize().Width) / 2;
@@ -41,6 +55,18 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
             pos.y - halfY - _renderingOffsetY,
             pos.x + halfX - _renderingOffsetX,
             pos.y + halfY - _renderingOffsetY);
+    }
+
+    else if (drawAnchor == ImageAnchor::Bottomcenter)
+    {
+        float halfX = static_cast<float>(_bitmap->GetBitmapSize().Width) / 2;
+        float height = static_cast<float>(_bitmap->GetBitmapSize().Height);
+
+        destLeft = D2D1::RectF(
+            pos.x - halfX - _renderingOffsetX,
+            pos.y - height - _renderingOffsetY,
+            pos.x + halfX - _renderingOffsetX,
+            pos.y - _renderingOffsetY);
     }
 
     else if (drawAnchor == ImageAnchor::Topleft)
@@ -77,29 +103,36 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
         // 이미지 그리기 (destRect는 기존처럼 작성)
         renderTarget->DrawBitmap(_bitmap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
 
+        if (drawBound)
+            DrawBound(renderTarget, destLeft);
+
         // 원래 상태로 되돌리기
         renderTarget->SetTransform(oldTransform);
+
     }
     
     //정방향
     else
     {
         renderTarget->DrawBitmap(_bitmap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
+
+        if (drawBound)
+            DrawBound(renderTarget, destLeft);
     }
 
 
-    if (drawBound)
-    {
-        //디버그 모드용 경계면 그리기
-        ID2D1SolidColorBrush* pBorderBrush = nullptr;
-        renderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Red), &pBorderBrush);
+    //if (drawBound)
+    //{
+    //    //디버그 모드용 경계면 그리기
+    //    ID2D1SolidColorBrush* pBorderBrush = nullptr;
+    //    renderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Red), &pBorderBrush);
 
-        // 테두리 그리기
-        renderTarget->DrawRectangle(destLeft, pBorderBrush, 2.0f); // 2.0f는 선 두께
+    //    // 테두리 그리기
+    //    renderTarget->DrawRectangle(destLeft, pBorderBrush, 2.0f); // 2.0f는 선 두께
 
-        // 브러시 해제
-        pBorderBrush->Release();
-    }
+    //    // 브러시 해제
+    //    pBorderBrush->Release();
+    //}
         
     
 }

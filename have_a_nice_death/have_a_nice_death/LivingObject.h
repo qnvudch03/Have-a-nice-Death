@@ -8,12 +8,14 @@ class LivingObject : public Object
 
 	struct ObjectStat
 	{
-		int hp = 0;
-		int atk = 0;
-		int def = 0;
+		int hp = 10;
+		int atk = 10;
+		int def = 5;
 		float attack_duration = 0;
 		float attack_range = 0;
-		int speed = 0;
+		float moveForce = 10;
+		float jumpPower = 300;
+
 	};
 
 	ObjectStat GetStat() { return objectStat; }
@@ -32,7 +34,15 @@ public:
 	void SetState(std::string state, bool IsLoop = true);
 	void SetController(Controller* controller) { _controller = controller; }
 
+	//Movecorner
 	int forwordDirection = 1;
+	bool isCanMove = true;
+	bool isTurning = false;
+	Vector velocity;
+	Vector acceleration;
+
+	Vector AddForce(Vector dir, float Power);
+
 
 	Controller* GetController() { return _controller; }
 

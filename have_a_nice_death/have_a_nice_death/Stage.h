@@ -1,20 +1,23 @@
 #pragma once
 
-class GameScene;
+class Scene;
+class Object;
 
 class Stage
 {
 public:
-	Stage(GameScene* Iscene) { gamescene = Iscene; }
-	~Stage()
-	{
+	Stage(Scene* Iscene) { scene = Iscene; }
+	~Stage();
 
-	}
+	bool LoadStage(std::string stage);
 
-	void LoadStage(std::string stage);
+	bool LoadStageInfo(std::string stage);
 
 private:
-	GameScene* gamescene = nullptr;
+
+	std::vector< Object*> stageObjectVec;
+
+	Scene* scene = nullptr;
 	std::string currentStage;
 };
 

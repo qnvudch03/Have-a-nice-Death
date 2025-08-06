@@ -6,12 +6,12 @@
       {
         "owner": "Player",
         "type": "Death",
-        "position": [700, 500]
+        "position": [500, 500]
       },
 	  {
         "owner": "AI",
         "type": "Death",
-        "position": [700, 500]
+        "position": [1200, 500]
       }
     ]
   },
@@ -20,6 +20,7 @@
     "Object": [
       {
         "type": "Platform",
+		"name": "stonebridge",
         "position": [300, 400]
       }
     ]

@@ -7,9 +7,6 @@ void Death::Init()
 {
 	Super::Init();
 
-
-
-
 	SetState("Ideal");
 }
 
@@ -20,13 +17,9 @@ void Death::Update(float deltaTime)
 	deltatime = deltaTime;
 
 	UpdateState(Super::GetController()->GetInput());
-	//TODO
-	//매 업데이트 마다, 입력 값을 받아서 상태를 갱신, 그리고 상태를 보내줌
-	// 혹시 상태마다 애니메이션 스피드가 다를 수도 있음
-	//animaotr.SetAnimSpeed(30);
-	//SetState("Ideal");
 
-	SetPos(Vector(500, 300));
+	isCanMove = IsCamMove(state);
+
 }
 
 void Death::Destroy()
@@ -59,6 +52,18 @@ void Death::OnAnimEnd()
 		{
 			forwordDirection *= -1;
 			renderingFlipOrder = (forwordDirection == -1) ? true : false;
+
+			if (InputManager::GetInstance()->GetMovePressedX() != 0)
+			{
+				//회전 중 다른 버튼을 누른 경우의 처리
+				int dir = InputManager::GetInstance()->GetMovePressedX();
+				if (forwordDirection != dir)
+				{
+					forwordDirection = dir;
+					renderingFlipOrder = (forwordDirection == -1) ? true : false;
+				}
+			}
+
 		}
 
 		else if (state == EDeathStatepriority::State_Dash)
@@ -83,7 +88,17 @@ void Death::OnAnimEnd()
 
 void Death::UpdateState(KeyType Input)
 {
-	//애니메이터의 상태와, 입력값에 따라 SetState를 호출
+	if (state == EDeathStatepriority::State_RunToUturn ||
+		state == EDeathStatepriority::State_IdleUTurn)
+	{
+		isTurning = true;
+		velocity *= 0.8;
+	}
+
+	else
+	{
+		isTurning = false;
+	}
 
 	//이동버튼 해제
 	if (Input == KeyType::RELEASE)
@@ -128,8 +143,8 @@ void Death::UpdateState(KeyType Input)
 
 		//달릴 준비
 		if (state == EDeathStatepriority::State_Idle ||
-			state == EDeathStatepriority::State_RunToIdle ||
-			state == EDeathStatepriority::State_IdleUTurn)
+			state == EDeathStatepriority::State_RunToIdle)// ||
+			//state == EDeathStatepriority::State_IdleUTurn)
 		{
 			//바라보는 방향과 입력 방향이 다를 떄
 			if (forwordDirection != InputManager::GetInstance()->GetMoveDownX())
@@ -164,6 +179,7 @@ void Death::UpdateState(KeyType Input)
 
 				return;
 
+			//현재 입력방향과 속도가 같은지 비교 후 조정
 
 
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Running));
@@ -205,7 +221,7 @@ void Death::UpdateState(KeyType Input)
 	else if (Input == KeyType::Z)
 	{
 
-		if (state <= State_Dash)
+		if (state <= State_Hitted)
 			return;
 
 		if (!Attack())
@@ -230,6 +246,13 @@ bool Death::Attack()
 			
 			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
 		};
+
+	//대쉬 모션 예외처리
+	if (state == EDeathStatepriority::State_Dash && animator.AnimTextureIndex >= animator.TextureNum - 3)
+	{
+		atkcombo = 0;
+		state = EDeathStatepriority::State_Idle;
+	}
 
 	//1단
 	if (atkcombo == 0 &&
@@ -278,7 +301,7 @@ bool Death::Attack()
 		animator.ResetAnimTimer();
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false);
 		state = EDeathStatepriority::State_Attack3;
-		animator.SetAnimSpeed(20);
+		animator.SetAnimSpeed(10);
 
 		atkcombo++;
 
