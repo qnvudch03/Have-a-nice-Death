@@ -247,15 +247,18 @@ void Game::Update()
 	TimeManager::GetInstance()->Update();
 	InputManager::GetInstance()->Update();
 
-	GetScene()->Update(TimeManager::GetDeltaTime());
+	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
+	{
+		int a = 10;
+	}
 
+	GetScene()->Update(TimeManager::GetDeltaTime());
 }
 
 void Game::Render()
 {
 	_dxRenderTarget->BeginDraw();
 	_dxRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
-
 
 	GetScene()->Render(_dxRenderTarget);
 

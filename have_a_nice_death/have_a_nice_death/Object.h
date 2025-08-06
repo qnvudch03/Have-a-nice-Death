@@ -9,6 +9,7 @@ public:
 	virtual void Init() {}
 	virtual void Update(float deltaTime);
 	virtual void Render(ID2D1RenderTarget* renderTarget);
+	virtual void SetDebugMode(bool debugMode);
 	virtual void Destroy();
 
 	Object(RenderLayer rendertype, ImageAnchor drawanchor) : _RenderType(rendertype) , anchorPosition(drawanchor)

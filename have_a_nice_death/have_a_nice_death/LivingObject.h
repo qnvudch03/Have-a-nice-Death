@@ -5,6 +5,19 @@ class Controller;
 
 class LivingObject : public Object
 {
+
+	struct ObjectStat
+	{
+		int hp = 0;
+		int atk = 0;
+		int def = 0;
+		float attack_duration = 0;
+		float attack_range = 0;
+		int speed = 0;
+	};
+
+	ObjectStat GetStat() { return objectStat; }
+
 	//맵 데이터를 받아서, 상태에 따라 상황에 맞는 texture를 Object의 setTexture를 호출해서 설정하세요.
 	using Super = Object;
 
@@ -24,7 +37,7 @@ public:
 	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
 		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
-		_ownTextures = OwningTextures;
+		ownTextures = OwningTextures;
 	}
 
 	virtual ~LivingObject()
@@ -36,8 +49,10 @@ public:
 
 private:
 
-	std::unordered_map<std::string, std::vector<Texture*>>* _ownTextures = nullptr;
+	std::unordered_map<std::string, std::vector<Texture*>>* ownTextures = nullptr;
 
 	Controller* _controller = nullptr;
+
+	ObjectStat objectStat;
 };
 

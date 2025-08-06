@@ -42,5 +42,7 @@ protected:
 
 	//UIManager _ui;
 	std::vector<UI*>* SceneUI;
+
+	bool debugMode = false;
 };
 

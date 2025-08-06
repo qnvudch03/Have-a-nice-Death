@@ -13,6 +13,8 @@ public:
 	// 해당 리소스가 그려지는 부분
 	void Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false);
 
+	void SetDrawBound(bool drawbound) { drawBound = drawbound; }
+
 	void SetRenderedPosition(int32 x, int32 y) { _renderingOffsetX = x; _renderingOffsetY = y; }
 
 private:
@@ -26,6 +28,8 @@ private:
 
 	int32 _renderingOffsetX = 0; //그려질 때 가중치
 	int32 _renderingOffsetY = 0;
+
+	bool drawBound = false;
 
 };
 

@@ -30,8 +30,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // 뭐 어쩌라고??
     //메모리릭 탐지 코드
-    /*_CrtSetBreakAlloc(5173);
-    _CrtSetBreakAlloc(5205);*/
+    /*_CrtSetBreakAlloc(5338);
+    _CrtSetBreakAlloc(5337);*/
 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);

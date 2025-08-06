@@ -86,6 +86,20 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
     {
         renderTarget->DrawBitmap(_bitmap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
     }
+
+
+    if (drawBound)
+    {
+        //디버그 모드용 경계면 그리기
+        ID2D1SolidColorBrush* pBorderBrush = nullptr;
+        renderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Red), &pBorderBrush);
+
+        // 테두리 그리기
+        renderTarget->DrawRectangle(destLeft, pBorderBrush, 2.0f); // 2.0f는 선 두께
+
+        // 브러시 해제
+        pBorderBrush->Release();
+    }
         
     
 }

@@ -47,6 +47,8 @@ private:
 	IDWriteFactory* m_pDWriteFactory = nullptr;
 	IDWriteTextFormat* m_pTextFormat = nullptr;
 
+	bool DegubMode = false;
+
 	void InitDirectWrite();
 
 	void DrawText(ID2D1RenderTarget* renderTarget, const wchar_t* text, float x, float y);

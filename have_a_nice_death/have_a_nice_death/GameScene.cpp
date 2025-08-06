@@ -30,6 +30,8 @@ void GameScene::Init()
 void GameScene::Destroy()
 {
 	Super::Destroy();
+
+
 }
 
 void GameScene::Update(float deltatTime)
@@ -64,6 +66,11 @@ void GameScene::EraseScene()
 	for (auto gamdController : _gameControllerMap)
 	{
 		delete gamdController.second;
+	}
+
+	for (auto playerController : _playerControllerVec)
+	{
+		delete playerController;
 	}
 }
 
@@ -102,6 +109,7 @@ void GameScene::loadResource()
 
 void GameScene::loadUI()
 {
+	//TODO
 	//HPbar
 }
 

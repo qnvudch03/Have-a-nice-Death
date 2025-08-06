@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Object.h"
 #include "UI.h"
+#include "InputManager.h"
 //Todo 차후 캐릭터로 바꿔야함
 //#include "Actor.h"
 
@@ -43,6 +44,11 @@ void Scene::Update(float deltatTime)
 		actor->Update(deltatTime);
 	}
 
+	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
+	{
+		debugMode != debugMode;
+	}
+
 	PostUpdate(deltatTime);
 
 	//_ui.Update();
@@ -72,7 +78,13 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 	{
 		for (auto actor : list)
 		{
+			if (debugMode)
+			{
+				actor->SetDebugMode(debugMode);
+			}
+
 			actor->Render(renderTarget);
+
 		}
 	}
 

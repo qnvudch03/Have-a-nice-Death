@@ -80,8 +80,17 @@ public:
 	void UpdateState(KeyType Input);
 
 private:
+	float deltatime = 0;
+
 	EDeathStatepriority state;
 	std::map<EDeathStatepriority, std::vector<Texture*>*> stateTextureMap;
-	//Controller controller;
+
+	
+
+	//ComboAttack
+	int atkcombo = 0;
+	float attackStackTimer = 0;
+
+	bool Attack();
 };
 

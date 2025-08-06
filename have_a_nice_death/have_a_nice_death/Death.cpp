@@ -17,6 +17,8 @@ void Death::Update(float deltaTime)
 {
 	Super::Update(deltaTime);
 
+	deltatime = deltaTime;
+
 	UpdateState(Super::GetController()->GetInput());
 	//TODO
 	//매 업데이트 마다, 입력 값을 받아서 상태를 갱신, 그리고 상태를 보내줌
@@ -41,6 +43,16 @@ void Death::OnAnimEnd()
 	//땅일 경우
 	//if(isground)
 	{
+		//종료 애니메이션이 공격 일 경우
+		if (state == EDeathStatepriority::State_Attack1 ||
+			state == EDeathStatepriority::State_Attack2 ||
+			state == EDeathStatepriority::State_Attack3 ||
+			state == EDeathStatepriority::State_Attack4)
+		{
+			atkcombo = 0;
+		}
+
+
 		//종료 애니메이션이 UTURN일 경우
 		if (state == EDeathStatepriority::State_IdleUTurn ||
 			state == EDeathStatepriority::State_RunToUturn)
@@ -172,33 +184,121 @@ void Death::UpdateState(KeyType Input)
 
 		if (state > EDeathStatepriority::State_Dash)
 		{
-			renderingFlipOrder = (movedir == -1) ? true : false;
-			forwordDirection = movedir;
+			if (movedir != 0)
+				forwordDirection = movedir;
+
+			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
+			
 
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;
 			animator.SetAnimSpeed(10);
 		}
+
+		//공격 모션 중, 대쉬로 캔슬로인한 콤보 초기화
+		if (atkcombo != 0)
+			atkcombo = 0;
 	}
 
 	//공격
 	else if (Input == KeyType::Z)
 	{
-		//공격도 즉시 변환
-		int32 movedir = InputManager::GetInstance()->GetMovePressedX();
 
-		renderingFlipOrder = (movedir == -1) ? true : false;
-		forwordDirection = movedir;
+		if (state <= State_Dash)
+			return;
 
-		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false);
-		state = EDeathStatepriority::State_Attack1;
-		animator.SetAnimSpeed(35);
-
-
+		if (!Attack())
+		{
+			
+		}
 
 	}
 
 	animator;
+}
+
+bool Death::Attack()
+{
+
+	auto LookDir = [this]()
+		{
+			int32 movedir = InputManager::GetInstance()->GetMovePressedX();
+
+			if(movedir !=0)
+				forwordDirection = movedir;
+			
+			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
+		};
+
+	//1단
+	if (atkcombo == 0 &&
+		state > EDeathStatepriority::State_Dash &&
+		state != EDeathStatepriority::State_Attack1)
+	{
+		LookDir();
+
+		animator.ResetAnimTimer();
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false);
+		state = EDeathStatepriority::State_Attack1;
+		animator.SetAnimSpeed(20);
+		atkcombo++;
+
+		return true;
+	}
+
+	//2단
+	else if (atkcombo == 1 &&
+		state == EDeathStatepriority::State_Attack1 &&
+		animator.AnimTextureIndex < animator.TextureNum - 1 &&
+		animator.AnimTextureIndex > 3)
+	{
+
+		LookDir();
+
+		animator.ResetAnimTimer();
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false);
+		state = EDeathStatepriority::State_Attack2;
+		animator.SetAnimSpeed(20);
+
+		atkcombo++;
+
+		return true;
+	}
+
+	//3단
+	else if (atkcombo == 2 &&
+		state == EDeathStatepriority::State_Attack2 &&
+		animator.AnimTextureIndex < animator.TextureNum - 1 &&
+		animator.AnimTextureIndex > 2)
+	{
+
+		LookDir();
+
+		animator.ResetAnimTimer();
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false);
+		state = EDeathStatepriority::State_Attack3;
+		animator.SetAnimSpeed(20);
+
+		atkcombo++;
+
+		return true;
+	}
+
+	//4단
+	else if (atkcombo == 3 &&
+		state == EDeathStatepriority::State_Attack3 &&
+		animator.AnimTextureIndex > 2)
+	{
+		animator.ResetAnimTimer();
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false);
+		state = EDeathStatepriority::State_Attack4;
+		animator.SetAnimSpeed(20);
+
+		atkcombo++;
+
+		return true;
+	}
+
+	return false;
 }

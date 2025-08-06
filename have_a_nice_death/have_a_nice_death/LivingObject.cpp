@@ -34,8 +34,8 @@ void LivingObject::Destroy()
 
 void LivingObject::SetState(std::string state, bool IsLoop)
 {
-	if (_ownTextures->find(state) == _ownTextures->end())
+	if (ownTextures->find(state) == ownTextures->end())
 		return;
 
-	SetAnimaotrTextures(&(*_ownTextures)[state], IsLoop);
+	SetAnimaotrTextures(&(*ownTextures)[state], IsLoop);
 }

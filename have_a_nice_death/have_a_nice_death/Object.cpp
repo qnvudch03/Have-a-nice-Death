@@ -14,10 +14,14 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 
 }
 
+void Object::SetDebugMode(bool debugMode)
+{
+	animator.GetAnimTexture()->SetDrawBound(debugMode);
+}
+
 void Object::Update(float deltaTime)
 {
 	animator.Update(deltaTime);
-
 }
 
 void Object::Destroy()
