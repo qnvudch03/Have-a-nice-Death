@@ -12,6 +12,8 @@ void GameScene::Init()
 {
 	Super::Init();
 
+	stageController = new Stage(this);
+
 	//TODO
 	//LoadResoucle랑 LoadUI랑 하고 게임 씬은 텍스트에서 stage 파일 읽어서 정보를 얻어와야 해
 	//읽어온 플레이어 오브젝트와, 몬스터 오브젝트들을 여기서 컨트롤러에 바인딩
@@ -31,7 +33,8 @@ void GameScene::Destroy()
 {
 	Super::Destroy();
 
-
+	if(stageController != nullptr)
+		delete stageController;
 }
 
 void GameScene::Update(float deltatTime)
@@ -136,5 +139,5 @@ void GameScene::ChangeControllerOwner(Controller* controller, LivingObject* newo
 
 void GameScene::LoadStage(std::string stage)
 {
-	//
+	stageController->LoadStage(stage);
 }

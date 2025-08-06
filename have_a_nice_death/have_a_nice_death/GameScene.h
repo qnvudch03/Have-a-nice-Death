@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Stage.h"
 
 class Object;
 class Controller;
@@ -44,6 +45,8 @@ private:
 
 	std::vector<PlayerController*> _playerControllerVec;
 	std::vector< AIController*> _aiControllerVec;
+
+	Stage* stageController = nullptr;
 	//std::vector<Object*> _gameSceneObjects;
 };
 

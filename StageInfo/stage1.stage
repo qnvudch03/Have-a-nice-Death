@@ -1,0 +1,27 @@
+{
+  "BackGround": "Stage1BackGround",
+
+  "LivingObjects": {
+    "Object": [
+      {
+        "owner": "Player",
+        "type": "Death",
+        "position": [700, 500]
+      },
+	  {
+        "owner": "AI",
+        "type": "Death",
+        "position": [700, 500]
+      }
+    ]
+  },
+
+  "StaticObjects": {
+    "Object": [
+      {
+        "type": "Platform",
+        "position": [300, 400]
+      }
+    ]
+  }
+}

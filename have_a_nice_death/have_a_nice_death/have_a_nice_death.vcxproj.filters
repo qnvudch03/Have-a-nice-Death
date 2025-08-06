@@ -87,9 +87,6 @@
     <ClInclude Include="EditorScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="StageLoader.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Object</Filter>
     </ClInclude>
@@ -132,6 +129,9 @@
     <ClInclude Include="Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -168,9 +168,6 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="EditorScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="StageLoader.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
@@ -213,6 +210,9 @@
       <Filter>Controller</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
