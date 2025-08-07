@@ -16,6 +16,7 @@ bool IsInPoint(RECT rect, POINT pos);
 #define DefaultAnimSpeed 30
 
 
+//////////////////GameEnum
 enum UiType
 {
 	Image,
@@ -41,7 +42,12 @@ enum ImageAnchor
 	Positiondefault
 };
 
-// 모든 텍스처의 Sprite 구분 식별자
+
+//////////////////
+
+
+
+//////////////////GameStruct
 struct SpriteInfo
 {
 	int32 startX = 0;
@@ -56,7 +62,6 @@ struct Size
 	int32 Width = 0;
 	int32 Height = 0;
 };
-
 
 // vector 구현 ((방향+크기)를 나타내는 벡터)
 struct Vector
@@ -196,6 +201,17 @@ struct Vector
 		return x * other.y - y * other.x;
 	}
 };
+
+struct RectanglePos
+{
+	Vector TopLeft;
+	Vector TopRight;
+	Vector BottomLeft;
+	Vector BottomRight;
+};
+
+//////////////////
+
 
 // 선분과 사각형의 충돌체크
 bool LineIntersectsAABB(Vector p0, Vector p1, const RECT& rect, Vector& outNormal, Vector& outPos, float& t);

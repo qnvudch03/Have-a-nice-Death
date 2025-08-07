@@ -1,6 +1,8 @@
 #pragma once
 #include "Object.h"
 
+class Sensor;
+
 class Controller;
 
 class LivingObject : public Object
@@ -30,9 +32,14 @@ public:
 	virtual void Destroy() override;
 
 	virtual void SetDebugMode(bool debugmode) override;
+	virtual void SetCollider() override;
 
 	void SetState(std::string state, bool IsLoop = true);
 	void SetController(Controller* controller) { _controller = controller; }
+
+	void ApplyEnvironment(float detaTime);
+
+	bool checkCollision(LivingObject* object, Vector start, Vector end);
 
 	//Movecorner
 	int forwordDirection = 1;
@@ -40,6 +47,9 @@ public:
 	bool isTurning = false;
 	Vector velocity;
 	Vector acceleration;
+	float gravityPower = 0.98;
+
+	bool isGround = false;
 
 	Vector AddForce(Vector dir, float Power);
 
@@ -50,6 +60,8 @@ public:
 	{
 		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
 		ownTextures = OwningTextures;
+
+		SetCollider();
 	}
 
 	virtual ~LivingObject()
@@ -66,5 +78,11 @@ private:
 	Controller* _controller = nullptr;
 
 	ObjectStat objectStat;
+
+
+	//감지 센서들
+	Sensor* groundSensor = nullptr;
+	Sensor* wallSensor = nullptr;
+	Sensor* cornerSensor = nullptr;
 };
 

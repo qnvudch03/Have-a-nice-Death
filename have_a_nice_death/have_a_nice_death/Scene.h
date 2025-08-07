@@ -20,6 +20,10 @@ public:
 
 	void RemoveAllActor();
 
+	bool IsbugMode = false;
+
+	std::unordered_set<Object*>* GetActors() { return &_actors; }
+
 protected:
 	virtual void loadResource() {}
 	virtual void loadUI() {}
@@ -42,7 +46,5 @@ protected:
 
 	//UIManager _ui;
 	std::vector<UI*>* SceneUI;
-
-	bool debugMode = false;
 };
 

@@ -22,7 +22,13 @@
         "type": "Platform",
 		"name": "stonebridge",
         "position": [300, 400]
+      },
+	  {
+        "type": "Platform",
+		"name": "emptyground",
+        "position": [750, 750]
       }
+	  
     ]
   }
 }

@@ -33,9 +33,6 @@ void GameScene::Init()
 void GameScene::Destroy()
 {
 	Super::Destroy();
-
-	if(stageController != nullptr)
-		delete stageController;
 }
 
 void GameScene::Update(float deltatTime)
@@ -57,58 +54,37 @@ void GameScene::EraseScene()
 {
 	Super::EraseScene();
 
-	if (_gameSceneObjects.empty())
-		return;
-
-	for (auto gmaeObj : _gameSceneObjects)
+	if (!_gameSceneObjects.empty())
 	{
-		delete gmaeObj.second;
+		for (auto gmaeObj : _gameSceneObjects)
+		{
+			delete gmaeObj;
+		}
+		_gameSceneObjects.clear();
 	}
-	_gameSceneObjects.clear();
+
+	
 
 	//컨트롤러 삭제
 	for (auto gamdController : _gameControllerMap)
 	{
-		delete gamdController.second;
+		delete gamdController.first;
 	}
 
 	for (auto playerController : _playerControllerVec)
 	{
 		delete playerController;
 	}
+
+	if (stageController != nullptr)
+		delete stageController;
 }
 
 
 
 void GameScene::loadResource()
 {
-	_gameSceneObjects.clear();
 
-	//TODO
-	//스테이지 별로 loadResource를 할 것인가
-	//게임씬 내에서, stageload를 통해서 할것인가
-
-	auto setGameActor = [this](Object* actor, std::string objectName)
-		{
-			_gameSceneObjects[objectName] = actor;
-			actor->animator.SetAnimSpeed(DefaultAnimSpeed);
-		};
-
-	//리소스 매니저에서, 필요한 Texture들을 가져오기 (배경 화면, 캐릭터, 시작버튼, 에디터 버튼)
-	// TODO
-	//여기서 싹 다 가져오고, LoadStage에서 그때 addreserve 하자
-	//_gameSceneObjects[GameSceneObject::Death] = new Death(SpriteManager::GetInstance()->GetTextureMap("Death"), RenderLayer::Character, ImageAnchor::Bottomcenter);
-
-	//임시 코드
-	{
-
-	}
-
-
-	for (auto& obj : _gameSceneObjects)
-	{
-		ReserveAdd(obj.second);
-	}
 }
 
 void GameScene::loadUI()
@@ -119,11 +95,11 @@ void GameScene::loadUI()
 
 void GameScene::BindController(Controller* controller, LivingObject* ownerObject)
 {
-	if (_gameControllerMap.find(controller) == _gameControllerMap.end())
+	if (_gameControllerMap.find(controller) != _gameControllerMap.end())
 		return;
 
 	_gameControllerMap.insert(std::make_pair(controller, ownerObject));
-	controller->SetOwner(ownerObject);
+	ownerObject->SetController(controller);
 }
 
 void GameScene::ChangeControllerOwner(Controller* controller, LivingObject* newownerObject)
@@ -142,7 +118,10 @@ void GameScene::LoadStage(std::string stage)
 {
 	if (stageController->LoadStage(stage))
 	{
-		int succed;
+		for (auto& Iter : _gameSceneObjects)
+		{
+			ReserveAdd(Iter);
+		}
 	}
 
 	else

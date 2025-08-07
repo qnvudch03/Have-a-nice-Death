@@ -228,10 +228,7 @@ void Death::UpdateState(KeyType Input)
 		{
 			
 		}
-
 	}
-
-	animator;
 }
 
 bool Death::Attack()
@@ -292,8 +289,8 @@ bool Death::Attack()
 	//3´Ü
 	else if (atkcombo == 2 &&
 		state == EDeathStatepriority::State_Attack2 &&
-		animator.AnimTextureIndex < animator.TextureNum - 1 &&
-		animator.AnimTextureIndex > 2)
+		animator.AnimTextureIndex <= animator.TextureNum &&
+		animator.AnimTextureIndex > 1)
 	{
 
 		LookDir();
@@ -313,6 +310,8 @@ bool Death::Attack()
 		state == EDeathStatepriority::State_Attack3 &&
 		animator.AnimTextureIndex > 2)
 	{
+		LookDir();
+
 		animator.ResetAnimTimer();
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false);
 		state = EDeathStatepriority::State_Attack4;

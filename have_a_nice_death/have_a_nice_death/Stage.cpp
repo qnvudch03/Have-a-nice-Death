@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Stage.h"
-#include "Scene.h"
+#include "GameScene.h"
 #include "Object.h"
 #include "StaticObject.h"
 #include "SpriteManager.h"
@@ -15,13 +15,6 @@ using json = nlohmann::json;
 
 Stage::~Stage()
 {
-	if (!stageObjectVec.empty())
-	{
-		for (auto Iter : stageObjectVec)
-		{
-			delete Iter;
-		}
-	}
 }
 
 bool Stage::LoadStage(std::string stage)
@@ -94,7 +87,8 @@ bool Stage::LoadStageInfo(std::string stage)
 
 				//컨트롤러 바인딩
 				PlayerController* playerController = new PlayerController();
-				livingObject->SetController(playerController);
+				//livingObject->SetController(playerController);
+				gameScene->BindController(playerController, livingObject);
 			}
 
 			else if (!owner.compare("AI"))
@@ -108,7 +102,8 @@ bool Stage::LoadStageInfo(std::string stage)
 
 				//컨트롤러 바인딩
 				AIController* aiController = new AIController();
-				livingObject->SetController(aiController);
+				//livingObject->SetController(aiController);
+				gameScene->BindController(aiController, livingObject);
 			}
 
 
@@ -122,7 +117,7 @@ bool Stage::LoadStageInfo(std::string stage)
 			Vector position = Vector(object["position"][0], object["position"][1]);
 
 			StaticObject* staticObject = new StaticObject(SpriteManager::GetInstance()->GetTextures(type, structureName),
-				RenderLayer::Background, position, ImageAnchor::Center);
+				RenderLayer::Platform, position, ImageAnchor::Center);
 
 			setStageObject(staticObject, position);
 		}
@@ -130,7 +125,9 @@ bool Stage::LoadStageInfo(std::string stage)
 
 		for (auto& Iter : stageObjectVec)
 		{
-			scene->ReserveAdd(Iter);
+			//scene->ReserveAdd(Iter);
+			gameScene->GetGameSceneObjectVec()->push_back(Iter);
+
 		}
 
 	}

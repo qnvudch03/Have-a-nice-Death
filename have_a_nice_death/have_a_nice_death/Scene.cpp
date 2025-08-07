@@ -46,13 +46,13 @@ void Scene::Update(float deltatTime)
 
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
 	{
-		debugMode = !debugMode;
+		IsbugMode = !IsbugMode;
 
 		for (auto& list : _renderList)
 		{
 			for (auto actor : list)
 			{
-				actor->SetDebugMode(debugMode);
+				actor->SetDebugMode(IsbugMode);
 			}
 		}
 

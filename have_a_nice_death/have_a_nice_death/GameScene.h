@@ -33,15 +33,17 @@ public:
 	void ChangeControllerOwner(Controller* controller, LivingObject* newownerObject);
 	void LoadStage(std::string stage);
 
+	std::vector<Object*>* GetGameSceneObjectVec() { return &_gameSceneObjects; }
+
+
+
 private:
 
 	//플레이어 <-> 컨트롤러 이런식으로 매핑되게
 	std::map< Controller* , LivingObject*> _gameControllerMap;
 
-	//게임에서 사용할 모든 오브젝트들이 들어있다.
-	std::map<std::string, Object*> _gameSceneObjects;
-
-	//현재 스테이지에서 사용 할 오브젝트들이 들어있다.
+	//현재 스테이지에서사용할 모든 오브젝트들이 들어있다.
+	std::vector<Object*> _gameSceneObjects;
 
 	std::vector<PlayerController*> _playerControllerVec;
 	std::vector< AIController*> _aiControllerVec;

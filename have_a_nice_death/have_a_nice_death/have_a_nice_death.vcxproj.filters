@@ -37,6 +37,12 @@
     <Filter Include="Controller">
       <UniqueIdentifier>{9005d410-c059-45eb-b016-c18df1ac25b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sensor">
+      <UniqueIdentifier>{35b2dbd1-b21b-47c2-86b2-b14940eaa8a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collider">
+      <UniqueIdentifier>{131494d5-bc49-49e4-96fb-64861eb203fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -132,6 +138,12 @@
     <ClInclude Include="Stage.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Sensor.h">
+      <Filter>Sensor</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -214,6 +226,12 @@
     </ClCompile>
     <ClCompile Include="Stage.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Sensor.cpp">
+      <Filter>Sensor</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

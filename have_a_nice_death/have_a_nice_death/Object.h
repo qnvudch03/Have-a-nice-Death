@@ -2,6 +2,7 @@
 #include "Animaotr.h"
 
 class Texture;
+class Collider;
 
 class Object
 {
@@ -11,13 +12,17 @@ public:
 	virtual void Render(ID2D1RenderTarget* renderTarget);
 	virtual void SetDebugMode(bool debugMode);
 	virtual void Destroy();
+	virtual void SetCollider();
 
 	Object(RenderLayer rendertype, ImageAnchor drawanchor) : _RenderType(rendertype) , anchorPosition(drawanchor)
 	{
 
 	}
 
-	virtual ~Object() = default;
+	virtual ~Object()
+	{
+		
+	}
 
 
 	RenderLayer GetRenderLayer() { return _RenderType; }
@@ -36,9 +41,13 @@ public:
 
 	bool renderingFlipOrder = false;
 
+	Collider* collider = nullptr;
+
 private:
 
 	RenderLayer _RenderType = RenderLayer::Max;
 	Vector _pos = {};
+
+	ID2D1RenderTarget* _renderTarget = nullptr;
 };
 

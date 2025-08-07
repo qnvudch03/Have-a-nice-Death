@@ -23,11 +23,12 @@ void Animator::Update(float deltaTime)
 
 void Animator::Destroy()
 {
-	auto Iter = (*_animTextures).begin();
+	//not work
+	/*auto Iter = (*_animTextures).begin();
 
 	while (Iter != (*_animTextures).end())
 	{
 		delete (*Iter);
 		Iter++;
-	}
+	}*/
 }
