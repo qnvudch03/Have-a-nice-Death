@@ -14,18 +14,6 @@ void GameScene::Init()
 
 	stageController = new Stage(this);
 
-	//TODO
-	//LoadResoucle랑 LoadUI랑 하고 게임 씬은 텍스트에서 stage 파일 읽어서 정보를 얻어와야 해
-	//읽어온 플레이어 오브젝트와, 몬스터 오브젝트들을 여기서 컨트롤러에 바인딩
-
-	//TODO 여기 구조 손 봐야 함, 일단 움직이는거 보이위해서 이래 하는거임
-	//임시코드
-	/*PlayerController* playerController = new PlayerController();
-	_playerControllerVec.push_back(playerController);
-
-	static_cast<LivingObject*>(_gameSceneObjects[GameSceneObject::Death])->SetController(playerController);*/
-
-
 	//대문자 주의
 	LoadStage("Stage1");
 }

@@ -10,11 +10,6 @@ class LivingObject;
 
 class GameScene : public Scene
 {
-	struct GameSceneObject
-	{
-		inline static const std::string Death = "Death";
-		inline static const std::string Monster = "Monster";
-	};
 
 	using Super = Scene;
 

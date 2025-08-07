@@ -38,9 +38,9 @@ public:
 	//애니메이션 관련
 	Animator animator;
 	ImageAnchor anchorPosition = ImageAnchor::Positiondefault;
-
 	bool renderingFlipOrder = false;
 
+	//콜라이더
 	Collider* collider = nullptr;
 
 private:

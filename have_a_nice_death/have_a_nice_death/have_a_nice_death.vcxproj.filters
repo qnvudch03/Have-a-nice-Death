@@ -144,6 +144,9 @@
     <ClInclude Include="Collider.h">
       <Filter>Collider</Filter>
     </ClInclude>
+    <ClInclude Include="DebugLenderer.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -232,6 +235,9 @@
     </ClCompile>
     <ClCompile Include="Collider.cpp">
       <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLenderer.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

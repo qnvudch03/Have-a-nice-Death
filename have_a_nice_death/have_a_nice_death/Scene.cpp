@@ -3,6 +3,8 @@
 #include "Object.h"
 #include "UI.h"
 #include "InputManager.h"
+#include "Game.h"
+#include "DebugLenderer.h"
 //Todo 차후 캐릭터로 바꿔야함
 //#include "Actor.h"
 
@@ -46,13 +48,13 @@ void Scene::Update(float deltatTime)
 
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
 	{
-		IsbugMode = !IsbugMode;
+		IsDbugMode = !IsDbugMode;
 
 		for (auto& list : _renderList)
 		{
 			for (auto actor : list)
 			{
-				actor->SetDebugMode(IsbugMode);
+				actor->SetDebugMode(IsDbugMode);
 			}
 		}
 
@@ -92,17 +94,20 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 		}
 	}
 
+	if (IsDbugMode)
+	{
+		Game::GetInstance()->GetDebugLenderer()->DrawReserved();
+	}
+
 	//UI는 다 그린 후 맨 마지막에
 	if (SceneUI == nullptr)
 		return;
 
-	else
+	for (auto& ui : *SceneUI)
 	{
-		for (auto& ui : *SceneUI)
-		{
-			ui->Render(renderTarget);
-		}
+		ui->Render(renderTarget);
 	}
+
 
 }
 

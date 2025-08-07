@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Collider.h"
 #include "Game.h"
+#include "DebugLenderer.h"
 
 void Object::Render(ID2D1RenderTarget* renderTarget)
 {
@@ -15,24 +16,10 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 	if(animator.GetAnimTexture() != nullptr)
 		animator.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition, renderingFlipOrder);
 
-	//콜라더 그리기
-	if (Game::GetInstance()->GetScene()->IsbugMode && collider != nullptr)
+	if (Game::GetInstance()->GetScene()->IsDbugMode && collider != nullptr)
 	{
-		D2D1_RECT_F destLeft = D2D1::RectF(
-			collider->Getrectangle().TopLeft.x,
-			collider->Getrectangle().TopLeft.y,
-			collider->Getrectangle().BottomRight.x,
-			collider->Getrectangle().BottomRight.y);
-
-		//디버그 모드용 경계면 그리기
-		ID2D1SolidColorBrush* pBorderBrush = nullptr;
-		_renderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Green), &pBorderBrush);
-
-		// 테두리 그리기
-		_renderTarget->DrawRectangle(destLeft, pBorderBrush, 2.0f); // 2.0f는 선 두께
-
-		// 브러시 해제
-		pBorderBrush->Release();
+		//디버그 드로우 예약
+		Game::GetInstance()->GetDebugLenderer()->ReserveCollider(collider);
 	}
 
 }

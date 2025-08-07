@@ -2,6 +2,8 @@
 #include "Singleton.h"
 #include "Scene.h"
 
+class DebugLenderer;
+
 class SceneLoader;
 
 class Game : public Singleton<Game>
@@ -27,6 +29,8 @@ public:
 	IWICImagingFactory* GetWICFactory() { return _wicFactory; }
 
 	SceneLoader* sceneLoader = nullptr;
+
+	DebugLenderer* GetDebugLenderer() { return debugLenderer; }
 
 public:
 	void Destroy() override;
@@ -68,5 +72,7 @@ private:
 
 	//이거는 게임씬에있는 함수랑 연결시켜 보는게 어떨까?
 	void SelectCurse();
+
+	DebugLenderer* debugLenderer = nullptr;
 };
 

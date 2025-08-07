@@ -20,7 +20,7 @@ public:
 
 	void RemoveAllActor();
 
-	bool IsbugMode = false;
+	bool IsDbugMode = false;
 
 	std::unordered_set<Object*>* GetActors() { return &_actors; }
 

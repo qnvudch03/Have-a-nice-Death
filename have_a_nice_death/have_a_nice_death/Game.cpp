@@ -6,6 +6,7 @@
 #include "SpriteManager.h"
 #include "UIManager.h"
 #include "UI.h"
+#include "DebugLenderer.h"
 
 #include "LobbyScene.h"
 #include "GameScene.h"
@@ -71,6 +72,9 @@ void Game::Init(HWND hwnd)
 	//씬로더 초기화
 	sceneLoader = new SceneLoader();
 
+	//디버그 렌더러 초기화
+	debugLenderer = new DebugLenderer(_dxRenderTarget);
+
 	_currScene->Init();
 
 	_onLeftMousecliked = [](Vector pos)
@@ -128,6 +132,8 @@ void Game::Destroy()
 	UIManager::GetInstance()->Destroy();
 
 	delete sceneLoader;
+
+	delete debugLenderer;
 }
 
 void Game::MappingFunctions()

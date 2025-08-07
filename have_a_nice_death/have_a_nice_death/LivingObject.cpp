@@ -3,7 +3,7 @@
 #include "Controller.h"
 #include "Collider.h"
 #include "Game.h"
-#include "Scene.h"
+#include "DebugLenderer.h"
 
 //void LivingObject::Init()
 //{
@@ -25,7 +25,20 @@ void LivingObject::Update(float deltaTime)
 	if (_controller != nullptr)
 		_controller->Update();
 
+	auto game = Game::GetInstance();
+
 	Super::Update(deltaTime);
+
+	for (auto sensor : SensorArray)
+	{
+		Sensor* currentsencor = (*sensor);
+		currentsencor->Update(animator.GetAnimTexture()->GetTextureSize());
+
+		if (game->GetScene()->IsDbugMode)
+		{
+			game->GetDebugLenderer()->ReserveSensor(currentsencor);
+		}
+	}
 
 	ApplyEnvironment(deltaTime);
 
@@ -69,7 +82,17 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	acceleration = { 0,0 };
 	velocity.x *= 0.98;
 
-	if (!isGround)
+	if (abs(velocity.x) < 0.01)
+	{
+		velocity.x = 0;
+	}
+
+	if (abs(velocity.y) < 0.01)
+	{
+		velocity.y = 0;
+	}
+
+	if (!groundSensor->IsActive())
 	{
 		acceleration += AddForce(Vector(0, 1), gravityPower);
 	}
@@ -102,12 +125,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	Vector currentPos = GetPos();
 	Vector movedPos = currentPos + velocity;
 
-	if (checkCollision(this, currentPos, movedPos))
-	{
-		SetPos(movedPos);
-	}
-
-	
+	SetPos(movedPos);
 
 	collider->Update();
 }

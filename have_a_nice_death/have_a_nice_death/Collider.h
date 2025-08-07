@@ -14,10 +14,15 @@ public:
 	void Update();
 	void InitPos();
 
+	Vector GetSize() { return size; }
+	Vector GetCenterPos(){ return colliderCenterPos; }
+
 private:
 	Vector pos;
 	Vector size;
 	Object* owner = nullptr;
+
+	Vector colliderCenterPos;
 
 	RectanglePos rectangle;
 };

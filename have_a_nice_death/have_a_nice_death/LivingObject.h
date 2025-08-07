@@ -1,5 +1,7 @@
 #pragma once
 #include "Object.h"
+#include "Sensor.h"
+#include "Collider.h"
 
 class Sensor;
 
@@ -62,14 +64,31 @@ public:
 		ownTextures = OwningTextures;
 
 		SetCollider();
+
+		//쎈서 할당
+		{
+			Vector objPos = GetPos();
+			Vector size = collider->GetSize();
+			groundSensor = new Sensor(this, Vector(50, 20), SensorType::GroundSensor);
+			wallSensor = new Sensor(this, Vector(20, 100), SensorType::WallSensor);
+			cornerSensor = new Sensor(this, Vector(50, 20), SensorType::CornerSensor);
+		}
 	}
 
 	virtual ~LivingObject()
 	{
-
+		for (auto sensor : SensorArray)
+		{
+			delete *sensor;
+		}
 	}
 
 	virtual void OnAnimEnd() {}
+
+	//감지 센서들
+	Sensor* groundSensor = nullptr;
+	Sensor* wallSensor = nullptr;
+	Sensor* cornerSensor = nullptr;
 
 private:
 
@@ -79,10 +98,6 @@ private:
 
 	ObjectStat objectStat;
 
-
-	//감지 센서들
-	Sensor* groundSensor = nullptr;
-	Sensor* wallSensor = nullptr;
-	Sensor* cornerSensor = nullptr;
+	Sensor** SensorArray[3] = { &groundSensor , &wallSensor, &cornerSensor };
 };
 

@@ -42,6 +42,14 @@ enum ImageAnchor
 	Positiondefault
 };
 
+enum SensorType
+{
+	WallSensor,
+	GroundSensor,
+	CornerSensor,
+	SensorMax
+};
+
 
 //////////////////
 

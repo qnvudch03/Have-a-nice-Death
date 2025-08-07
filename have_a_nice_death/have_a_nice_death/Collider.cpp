@@ -43,8 +43,9 @@ void Collider::Update()
 		rectangle.BottomRight.x = pos.x + halfX;
 		rectangle.BottomRight.y = pos.y;
 	}
-	
 
+	colliderCenterPos.x = rectangle.TopLeft.x + size.x * 0.5f;
+	colliderCenterPos.y = rectangle.TopLeft.y + size.y * 0.5f;
 }
 
 void Collider::InitPos()
