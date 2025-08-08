@@ -7,6 +7,7 @@ class Controller;
 class PlayerController;
 class AIController;
 class LivingObject;
+class HitBoxManager;
 
 class GameScene : public Scene
 {
@@ -28,9 +29,9 @@ public:
 	void ChangeControllerOwner(Controller* controller, LivingObject* newownerObject);
 	void LoadStage(std::string stage);
 
+	HitBoxManager* GetHitBoxManager() { return hitBoxManager; }
+
 	std::vector<Object*>* GetGameSceneObjectVec() { return &_gameSceneObjects; }
-
-
 
 private:
 
@@ -44,6 +45,7 @@ private:
 	std::vector< AIController*> _aiControllerVec;
 
 	Stage* stageController = nullptr;
+	HitBoxManager* hitBoxManager = nullptr;
 	//std::vector<Object*> _gameSceneObjects;
 };
 

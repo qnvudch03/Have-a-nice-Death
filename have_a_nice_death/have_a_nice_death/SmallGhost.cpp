@@ -23,3 +23,8 @@ void SmallGhost::Destroy()
 void SmallGhost::OnAnimEnd()
 {
 }
+
+void SmallGhost::OnHitBoxSpawn()
+{
+
+}

@@ -5,22 +5,25 @@ class Animator
 {
 public:
 
-
-
 	//void Destory() { delete _animtures; }
+
+	int32 hitboxIndex = -1;
+	bool isAttackAnim = false;
 
 	int32 AnimTextureIndex = 0;
 	int32 TextureNum = 0;
 	bool onPlay = false;
 
 	void SetAnimSpeed(int32 speed) { _animSpeed = speed; }
-	void SetAnimTexture(std::vector<Texture*>* animtures, bool IsLoop) 
+	void SetAnimTexture(std::vector<Texture*>* animtures, bool IsLoop, bool IsAttackAnim = false, int32 HitBoxIndex = -1)
 	{ 
 		_animStackTimer = 0;
 		_animTextures = animtures;
 		_IsLoop = IsLoop; 
 		AnimTextureIndex = 0;
 		onPlay = true;
+		isAttackAnim = IsAttackAnim;
+		hitboxIndex = HitBoxIndex;
 	}
 
 	void ResetAnimTimer(float animSpeed = DefaultAnimSpeed) { _animStackTimer = 0;  _animSpeed = animSpeed; _IsLoop = true; }
@@ -30,6 +33,7 @@ public:
 	void Update(float deltaTime);
 
 	std::function<void()> onAnimEnd;
+	std::function<void()> onHitBoxSpawn;
 
 	std::vector<Texture*>* GetAnimTextureVec() { return _animTextures; }
 
@@ -42,6 +46,9 @@ public:
 	}
 
 private:
+
+	Vector atkBoxPos;
+
 	bool _IsLoop = true;
 	int32 _animSpeed = 0;
 	float _animStackTimer = 0;

@@ -26,9 +26,9 @@ public:
 
 
 	RenderLayer GetRenderLayer() { return _RenderType; }
-	void SetAnimaotrTextures(std::vector<Texture*>* texturesvec, bool IsLoop = true)
+	void SetAnimaotrTextures(std::vector<Texture*>* texturesvec, bool IsLoop = true, bool IsAttackAnim = false, int32 HitBoxIndex = -1)
 	{ 
-		animator.SetAnimTexture(texturesvec, IsLoop);
+		animator.SetAnimTexture(texturesvec, IsLoop, IsAttackAnim, HitBoxIndex);
 		animator.TextureNum = (*texturesvec).size();
 	}
 

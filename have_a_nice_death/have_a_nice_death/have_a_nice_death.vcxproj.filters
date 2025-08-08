@@ -43,6 +43,9 @@
     <Filter Include="Collider">
       <UniqueIdentifier>{131494d5-bc49-49e4-96fb-64861eb203fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HitBoxManager">
+      <UniqueIdentifier>{d9584c37-cd7f-4192-9797-dccc50b9a58b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -150,6 +153,12 @@
     <ClInclude Include="SmallGhost.h">
       <Filter>Character</Filter>
     </ClInclude>
+    <ClInclude Include="HitBoxManager.h">
+      <Filter>HitBoxManager</Filter>
+    </ClInclude>
+    <ClInclude Include="HitBox.h">
+      <Filter>HitBoxManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -244,6 +253,12 @@
     </ClCompile>
     <ClCompile Include="SmallGhost.cpp">
       <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="HitBoxManager.cpp">
+      <Filter>HitBoxManager</Filter>
+    </ClCompile>
+    <ClCompile Include="HitBox.cpp">
+      <Filter>HitBoxManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

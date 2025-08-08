@@ -139,6 +139,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="have_a_nice_death.h" />
+    <ClInclude Include="HitBox.h" />
+    <ClInclude Include="HitBoxManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LivingObject.h" />
     <ClInclude Include="LobbyScene.h" />
@@ -175,6 +177,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="have_a_nice_death.cpp" />
+    <ClCompile Include="HitBox.cpp" />
+    <ClCompile Include="HitBoxManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LivingObject.cpp" />
     <ClCompile Include="LobbyScene.cpp" />

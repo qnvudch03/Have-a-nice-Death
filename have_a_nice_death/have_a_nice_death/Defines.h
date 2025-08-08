@@ -50,6 +50,13 @@ enum SensorType
 	SensorMax
 };
 
+enum HitBoxType
+{
+	Fixed,
+	Movable,
+	Default_HitBox
+};
+
 
 //////////////////
 

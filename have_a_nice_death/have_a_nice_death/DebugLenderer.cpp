@@ -2,6 +2,7 @@
 #include "DebugLenderer.h"
 #include "Sensor.h"
 #include "Collider.h"
+#include "HitBox.h"
 
 void DebugLenderer::DrawReserved()
 {
@@ -23,6 +24,20 @@ void DebugLenderer::DrawReserved()
 		}
 
 		colliderVec.clear();
+	}
+
+	if (!hitBoxVec.empty())
+	{
+		for (auto& iter : hitBoxVec)
+		{
+			Vector hitBoxPos = iter->GetPos();
+			Vector hitBoxSize = iter->GetSize();
+
+			DrawRenctangle(Vector(hitBoxPos.x - hitBoxSize.x, hitBoxPos.y - hitBoxSize.y),
+				Vector(hitBoxPos.x + hitBoxSize.x, hitBoxPos.y + hitBoxSize.y), D2D1::ColorF::Yellow);
+		}
+
+		hitBoxVec.clear();
 	}
 	
 }

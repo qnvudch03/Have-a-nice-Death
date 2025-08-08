@@ -19,6 +19,11 @@ void Animator::Update(float deltaTime)
 	}
 
 	AnimTextureIndex = (int32)_animStackTimer;
+
+	if (isAttackAnim && (hitboxIndex == AnimTextureIndex) )
+	{
+		onHitBoxSpawn();
+	}
 }
 
 void Animator::Destroy()

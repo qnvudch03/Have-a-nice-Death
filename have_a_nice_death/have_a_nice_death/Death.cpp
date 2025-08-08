@@ -2,6 +2,11 @@
 #include "Death.h"
 #include "Texture.h"
 #include "Controller.h"
+#include "HitBox.h"
+#include "Game.h"
+#include "GameScene.h"
+#include "HitBoxManager.h"
+#include "DebugLenderer.h"
 
 void Death::Init()
 {
@@ -112,6 +117,60 @@ void Death::OnAnimEnd()
 
 
 
+}
+
+void Death::OnHitBoxSpawn()
+{
+
+	HitBoxManager* hitBoxManager = static_cast<GameScene*>(Game::GetInstance()->GetCurrentScence())->GetHitBoxManager();
+	HitBox* hitbox = hitBoxManager->CallHitBox();
+
+	Vector colliderCenterPos = collider->GetCenterPos();
+	Vector hitBoxSize = { 0,0 };
+
+	switch (state)
+	{
+	case Death::State_Attack1:
+		colliderCenterPos.x += 150;
+		colliderCenterPos.y += 20;
+		hitBoxSize.x = 100;
+		hitBoxSize.y = 40;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
+		break;
+	case Death::State_Attack2:
+		colliderCenterPos.y -= 45;
+
+		hitBoxSize.x = 120;
+		hitBoxSize.y = 110;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
+		break;
+	case Death::State_Attack3:
+		colliderCenterPos.y -= 85;
+
+		hitBoxSize.x = 180;
+		hitBoxSize.y = 150;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
+		break;
+	case Death::State_Attack4:
+		colliderCenterPos.x += 175;
+		colliderCenterPos.y -= 125;
+
+		hitBoxSize.x = 100;
+		hitBoxSize.y = 190;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1.5);
+		break;
+
+	default:
+		break;
+	}
+
+	hitBoxManager->AddHitBox(hitbox);
+
+	Game::GetInstance()->GetDebugLenderer()->ReservedHitBox(hitbox);
 }
 
 void Death::UpdateState(KeyType Input)
@@ -318,7 +377,7 @@ bool Death::Attack()
 		LookDir();
 
 		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false);
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false, 2); //첫번쨰 사진은 0 입니다.
 		state = EDeathStatepriority::State_Attack1;
 		animator.SetAnimSpeed(20);
 		atkcombo++;
@@ -336,7 +395,7 @@ bool Death::Attack()
 		LookDir();
 
 		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false);
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false, 1);
 		state = EDeathStatepriority::State_Attack2;
 		animator.SetAnimSpeed(20);
 
@@ -355,7 +414,7 @@ bool Death::Attack()
 		LookDir();
 
 		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false);
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false, 1);
 		state = EDeathStatepriority::State_Attack3;
 		animator.SetAnimSpeed(10);
 
@@ -372,7 +431,7 @@ bool Death::Attack()
 		LookDir();
 
 		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false);
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false, 10);
 		state = EDeathStatepriority::State_Attack4;
 		animator.SetAnimSpeed(20);
 

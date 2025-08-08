@@ -36,7 +36,7 @@ public:
 	virtual void SetDebugMode(bool debugmode) override;
 	virtual void SetCollider() override;
 
-	void SetState(std::string state, bool IsLoop = true);
+	void SetState(std::string state, bool IsLoop = true, int32 atkIndex = -1);
 	void SetController(Controller* controller) { _controller = controller; }
 
 	void ApplyEnvironment(float detaTime);
@@ -65,6 +65,7 @@ public:
 	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
 		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
+		animator.onHitBoxSpawn = [this]() {this->OnHitBoxSpawn(); };
 		ownTextures = OwningTextures;
 
 		SetCollider();
@@ -88,6 +89,7 @@ public:
 	}
 
 	virtual void OnAnimEnd() {}
+	virtual void OnHitBoxSpawn() {}
 
 	//감지 센서들
 	Sensor* groundSensor = nullptr;

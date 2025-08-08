@@ -2,11 +2,9 @@ c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\vc143.pdb
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\vc143.idb
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\pch.obj
-c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\staticobject.obj
-c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\stageloader.obj
-c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\sceneloader.obj
-c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\scene.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\spritemanager.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\smallghost.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\sensor.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\playercontroller.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\object.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\lobbyscene.obj
@@ -18,8 +16,10 @@ c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\editorscene.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\dxbitmap.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\defines.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\debuglenderer.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\death.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\controller.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\collider.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\animaotr.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\aicontroller.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\uimanager.obj
@@ -28,6 +28,10 @@ c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\ui.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\timemanager.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\texture.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\staticobject.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\stage.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\sceneloader.obj
+c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\scene.obj
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\x64\debug\have_a_nice_death.exe
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\x64\debug\have_a_nice_death.pdb
 c:\users\inha\source\repos\svn_ljh\haveanicedeath\have-a-nice-death\have_a_nice_death\have_a_nice_death\x64\debug\have_a_nice_death.res

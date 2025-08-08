@@ -69,12 +69,22 @@ void LivingObject::SetCollider()
 	collider = new Collider(this, (*ownTextures)["Idle"][0]->GetTextureSize());
 }
 
-void LivingObject::SetState(std::string state, bool IsLoop)
+void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
 {
 	if (ownTextures->find(state) == ownTextures->end())
 		return;
 
-	SetAnimaotrTextures(&(*ownTextures)[state], IsLoop);
+	//기본 애니메이션 일 경우
+	if (atkIndex == -1)
+	{
+		SetAnimaotrTextures(&(*ownTextures)[state], IsLoop);
+	}
+
+	//만약 공격 모션이라면
+	else if(atkIndex >= 0)
+	{
+		SetAnimaotrTextures(&(*ownTextures)[state], IsLoop, true, atkIndex);
+	}
 }
 
 void LivingObject::ApplyEnvironment(float deltaTime)

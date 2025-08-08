@@ -7,12 +7,16 @@
 #include "Death.h"
 #include "Controller.h"
 #include "PlayerController.h"
+#include "HitBoxManager.h"
 
 void GameScene::Init()
 {
 	Super::Init();
 
 	stageController = new Stage(this);
+
+	hitBoxManager = new HitBoxManager();
+	hitBoxManager->Init();
 
 	//대문자 주의
 	LoadStage("Stage1");
@@ -26,6 +30,8 @@ void GameScene::Destroy()
 void GameScene::Update(float deltatTime)
 {
 	Super::Update(deltatTime);
+
+	hitBoxManager->Update(deltatTime);
 }
 
 void GameScene::PostUpdate(float deltaTime)
@@ -66,6 +72,9 @@ void GameScene::EraseScene()
 
 	if (stageController != nullptr)
 		delete stageController;
+
+	if (hitBoxManager != nullptr)
+		delete hitBoxManager;
 }
 
 
