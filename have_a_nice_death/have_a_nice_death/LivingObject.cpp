@@ -79,8 +79,11 @@ void LivingObject::SetState(std::string state, bool IsLoop)
 
 void LivingObject::ApplyEnvironment(float deltaTime)
 {
+	Vector inPut = { 0,0 };
 	acceleration = { 0,0 };
 	velocity.x *= 0.98;
+
+	KeyType currentInput = _controller->GetInput();
 
 	if (abs(velocity.x) < 0.01)
 	{
@@ -92,16 +95,19 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 		velocity.y = 0;
 	}
 
-	if (!groundSensor->IsActive())
+	if (groundSensor->IsActive())
 	{
-		acceleration += AddForce(Vector(0, 1), gravityPower);
+		velocity.y = 0;
+	}
+
+	else
+	{
+		if(isEffectGravity)
+			acceleration += AddForce(Vector(0, 1), gravityPower);
 	}
 
 	if (isCanMove && !isTurning)
 	{
-		Vector inPut = { 0,0 };
-		KeyType currentInput = _controller->GetInput();
-
 		if (currentInput == KeyType::Move)
 		{
 			inPut.x = forwordDirection;
@@ -112,15 +118,24 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 				inPut.x = -1;
 			}*/
 
-		else if (currentInput == KeyType::SpaceBar)
-		{
-			acceleration += AddForce(Vector(0, -1), objectStat.jumpPower);
-		}
-
 		acceleration += AddForce(inPut, objectStat.moveForce);
 
-		velocity += acceleration * deltaTime;
+		//공중상태에서는 가속도를 살짝 낮추자
+		if (!groundSensor->IsActive())
+			acceleration.x *= 0.8;
 	}
+
+	if (isCanJump)
+	{
+		if (currentInput == KeyType::SpaceBar)
+		{
+			if (groundSensor->IsActive())
+				acceleration += AddForce(Vector(0, -1), objectStat.jumpPower);
+		}
+		
+	}
+
+	velocity += acceleration * deltaTime;
 
 	Vector currentPos = GetPos();
 	Vector movedPos = currentPos + velocity;

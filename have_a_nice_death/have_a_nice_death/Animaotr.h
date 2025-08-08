@@ -23,7 +23,7 @@ public:
 		onPlay = true;
 	}
 
-	void ResetAnimTimer() { _animStackTimer = 0;  _animSpeed = DefaultAnimSpeed; _IsLoop = true; }
+	void ResetAnimTimer(float animSpeed = DefaultAnimSpeed) { _animStackTimer = 0;  _animSpeed = animSpeed; _IsLoop = true; }
 
 	void Destroy();
 

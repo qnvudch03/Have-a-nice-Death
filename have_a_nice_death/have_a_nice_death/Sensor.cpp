@@ -30,7 +30,7 @@ void Sensor::Update(Vector textureSize)
 		break;
 
 	case CornerSensor:
-		pos.x = actorPos.x + (colliderSize.x * owner->forwordDirection);
+		pos.x = actorPos.x + (colliderSize.x * 0.8 * owner->forwordDirection);
 		pos.y = actorPos.y + colliderSize.y * 0.6f;
 		break;
 	case SensorMax:
@@ -70,7 +70,8 @@ void Sensor::CheckActive()
 
 
 		isActive =
-			(recPos.TopLeft.x >= actorRect.TopLeft.x && recPos.TopLeft.y >= actorRect.TopLeft.y);
+			(recPos.TopLeft.x >= actorRect.TopLeft.x && recPos.TopLeft.y >= actorRect.TopLeft.y) &&
+			(recPos.TopRight.x <= actorRect.TopRight.x && recPos.TopRight.y >= actorRect.TopRight.y);
 			//(recPos.BottomRight.x <= actorRect.BottomRight.x && recPos.BottomRight.y <= actorRect.BottomRight.y);
 
 		if (isActive == true)

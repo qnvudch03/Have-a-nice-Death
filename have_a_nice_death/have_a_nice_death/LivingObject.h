@@ -18,7 +18,7 @@ class LivingObject : public Object
 		float attack_duration = 0;
 		float attack_range = 0;
 		float moveForce = 10;
-		float jumpPower = 300;
+		float jumpPower = 500;
 
 	};
 
@@ -45,11 +45,15 @@ public:
 
 	//Movecorner
 	int forwordDirection = 1;
+
 	bool isCanMove = true;
+	bool isCanJump = false;
 	bool isTurning = false;
+	bool isEffectGravity = true;
+
 	Vector velocity;
 	Vector acceleration;
-	float gravityPower = 0.98;
+	float gravityPower = 9.8;
 
 	bool isGround = false;
 

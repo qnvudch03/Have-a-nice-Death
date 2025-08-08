@@ -20,6 +20,7 @@ void Death::Update(float deltaTime)
 
 	isCanMove = IsCamMove(state);
 
+	isCanJump = IsCanJump(state);
 }
 
 void Death::Destroy()
@@ -32,6 +33,17 @@ void Death::OnAnimEnd()
 	//애니메이션이 끝났을 떄의 처리
 	//[땅에 있는 애니메이션이였다. -> Ideal]
 	// [공중에 있는 상태였다. -> falling]
+
+	if (state == EDeathStatepriority::State_JumpStart)
+	{
+		if (!groundSensor->IsActive())
+		{
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			state = EDeathStatepriority::State_JumptoFall;
+			animator.ResetAnimTimer(20);
+			return;
+		}
+	}
 
 	//땅일 경우
 	//if(isground)
@@ -68,11 +80,8 @@ void Death::OnAnimEnd()
 
 		else if (state == EDeathStatepriority::State_Dash)
 		{
-			/*SetState(ConvertDeathStateToString(EDeathStatepriority::State_RunToIdle), false);
-			state = EDeathStatepriority::State_RunToIdle;
-			animator.SetAnimSpeed(15);
-
-			return;*/
+			LookInputDir();
+			isEffectGravity = true;
 		}
 
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Idle), true);
@@ -88,11 +97,22 @@ void Death::OnAnimEnd()
 
 void Death::UpdateState(KeyType Input)
 {
+	if (state == EDeathStatepriority::State_JumptoFall &&
+		groundSensor->IsActive())
+	{
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoLand), false);
+		state = EDeathStatepriority::State_JumptoLand;
+		animator.SetAnimSpeed(10);
+
+		velocity.x *= 0.25;
+	}
+
+
 	if (state == EDeathStatepriority::State_RunToUturn ||
 		state == EDeathStatepriority::State_IdleUTurn)
 	{
 		isTurning = true;
-		velocity *= 0.8;
+		velocity.x *= 0.8;
 	}
 
 	else
@@ -128,19 +148,6 @@ void Death::UpdateState(KeyType Input)
 			}
 		}
 
-		////돌아 가는 도중에, 반대 입력이 들어올 때
-		//if (state == EDeathStatepriority::State_IdleUTurn)
-		//{
-		//	if (forwordDirection != InputManager::GetInstance()->GetMoveDownX())
-		//	{
-		//		SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleUTurn), false);
-		//		state = EDeathStatepriority::State_IdleUTurn;
-		//		animator.SetAnimSpeed(10);
-
-		//		return;
-		//	}
-		//}
-
 		//달릴 준비
 		if (state == EDeathStatepriority::State_Idle ||
 			state == EDeathStatepriority::State_RunToIdle)// ||
@@ -162,6 +169,17 @@ void Death::UpdateState(KeyType Input)
 			}
 
 
+		}
+
+		//떨어지는 중
+		if (state == EDeathStatepriority::State_JumptoFall)
+		{
+			int32 movedir = InputManager::GetInstance()->GetMoveDownX();
+
+			if (movedir != 0)
+				forwordDirection = movedir;
+
+			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
 		}
 
 	}
@@ -205,11 +223,13 @@ void Death::UpdateState(KeyType Input)
 
 			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
 			
-
+			velocity = Vector(forwordDirection * 10, 0);
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;
 			animator.SetAnimSpeed(10);
+
+			isEffectGravity = false;
 		}
 
 		//공격 모션 중, 대쉬로 캔슬로인한 콤보 초기화
@@ -229,6 +249,26 @@ void Death::UpdateState(KeyType Input)
 			
 		}
 	}
+
+	//점프
+	else if (Input == KeyType::SpaceBar)
+	{
+		DashException();
+
+		if (state <= State_JumpStart)
+			return;
+
+		if (!groundSensor->IsActive())
+			return;
+
+		LookInputDir();
+
+		atkcombo = 0;
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumpStart), false);
+		state = EDeathStatepriority::State_JumpStart;
+		animator.SetAnimSpeed(20);
+
+	}
 }
 
 bool Death::Attack()
@@ -245,11 +285,11 @@ bool Death::Attack()
 		};
 
 	//대쉬 모션 예외처리
-	if (state == EDeathStatepriority::State_Dash && animator.AnimTextureIndex >= animator.TextureNum - 3)
+	if (DashException())
 	{
 		atkcombo = 0;
-		state = EDeathStatepriority::State_Idle;
 	}
+	
 
 	//1단
 	if (atkcombo == 0 &&
@@ -323,4 +363,38 @@ bool Death::Attack()
 	}
 
 	return false;
+}
+
+bool Death::DashException()
+{
+	if (state == EDeathStatepriority::State_Dash && animator.AnimTextureIndex >= animator.TextureNum - 3)
+	{
+		state = EDeathStatepriority::State_Idle;
+		isEffectGravity = true;
+		return true;
+	}
+	return false;
+}
+
+void Death::LookInputDir()
+{
+	int32 movedir = InputManager::GetInstance()->GetMovePressedX();
+
+	if (movedir != 0)
+		forwordDirection = movedir;
+
+	renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
+}
+
+bool Death::IsCanJump(EDeathStatepriority state)
+{
+	if (state <= State_Hitted &&
+		state == State_JumptoLand &&
+		state == State_JumptoFall &&
+		state == State_JumpStart
+		)
+		return false;
+
+	else
+		return true;
 }

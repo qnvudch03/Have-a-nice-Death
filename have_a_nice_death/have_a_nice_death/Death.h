@@ -11,9 +11,9 @@ class Death : public LivingObject
 		State_Death = 0,
 		State_Hitted = 1,
 		State_Dash = 2,
-		State_JumpStart = 3,
+		State_JumptoLand = 3,
 		State_JumptoFall = 4,
-		State_JumptoLand = 5,
+		State_JumpStart = 5,
 		State_Attack1 = 6,
 		State_Attack2 = 7,
 		State_Attack3 = 8,
@@ -85,6 +85,8 @@ public:
 					(state) > EDeathStatepriority::State_Attack4);
 	}
 
+	bool IsCanJump(EDeathStatepriority state);
+
 private:
 	float deltatime = 0;
 
@@ -94,6 +96,9 @@ private:
 	//ComboAttack
 	int atkcombo = 0;
 	float attackStackTimer = 0;
+
+	bool DashException();
+	void LookInputDir();
 
 	bool Attack();
 };
