@@ -147,6 +147,7 @@
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sensor.h" />
+    <ClInclude Include="SmallGhost.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneLoader.h" />
@@ -183,6 +184,7 @@
     </ClCompile>
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Sensor.cpp" />
+    <ClCompile Include="SmallGhost.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneLoader.cpp" />

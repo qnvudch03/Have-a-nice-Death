@@ -37,6 +37,7 @@ public:
 
 	//애니메이션 관련
 	Animator animator;
+	std::map<std::string, float> stateAnimSpeedMap;
 	ImageAnchor anchorPosition = ImageAnchor::Positiondefault;
 	bool renderingFlipOrder = false;
 

@@ -62,11 +62,11 @@ void LivingObject::SetDebugMode(bool debugmode)
 
 void LivingObject::SetCollider()
 {
-	if (ownTextures->find("Ideal") == ownTextures->end())
+	if (ownTextures->find("Idle") == ownTextures->end())
 		return;
 
 	//첫 ideal 모션의 크기를 가져와 collider로 설정한다.
-	collider = new Collider(this, (*ownTextures)["Ideal"][0]->GetTextureSize());
+	collider = new Collider(this, (*ownTextures)["Idle"][0]->GetTextureSize());
 }
 
 void LivingObject::SetState(std::string state, bool IsLoop)

@@ -46,12 +46,11 @@ class Death : public LivingObject
 			case EDeathStatepriority::State_RunToIdle:    return "RuntoIdle";
 			case EDeathStatepriority::State_RunToUturn:   return "RunUturn";
 			case EDeathStatepriority::State_Running:      return "Running";
-			case EDeathStatepriority::State_IdleUTurn:    return "IdealUturn";
-			case EDeathStatepriority::State_IdleToRun:    return "IdealToRun";
-			case EDeathStatepriority::State_Idle:         return "Ideal";
+			case EDeathStatepriority::State_IdleUTurn:    return "IdleUturn";
+			case EDeathStatepriority::State_IdleToRun:    return "IdleToRun";
+			case EDeathStatepriority::State_Idle:         return "Idle";
 			case EDeathStatepriority::State_max:          return "max";
 			default: return "Unknown";
-
 		}
 	};
 
@@ -62,7 +61,7 @@ public:
 	Death(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)
 		: Super(OwningTextures, RenderType, anchorPosition)
 	{
-		SetState("Ideal");
+		SetState("Idle");
 		state = EDeathStatepriority::State_Idle;
 		animator.SetAnimSpeed(DefaultAnimSpeed);
 

@@ -56,7 +56,6 @@ bool Stage::LoadStageInfo(std::string stage)
 	auto setStageObject = [this](Object* actor, Vector pos)
 		{
 			stageObjectVec.push_back(actor);
-			actor->animator.SetAnimSpeed(DefaultAnimSpeed);
 			actor->SetPos(pos);
 		};
 
@@ -83,7 +82,7 @@ bool Stage::LoadStageInfo(std::string stage)
 																ImageAnchor::Bottomcenter);
 				setStageObject(livingObject, position);
 
-				livingObject->SetState("Ideal");
+				livingObject->SetState("Idle");
 
 				//컨트롤러 바인딩
 				PlayerController* playerController = new PlayerController();
@@ -98,7 +97,7 @@ bool Stage::LoadStageInfo(std::string stage)
 					ImageAnchor::Bottomcenter);
 				setStageObject(livingObject, position);
 
-				livingObject->SetState("Ideal");
+				livingObject->SetState("Idle");
 
 				//컨트롤러 바인딩
 				AIController* aiController = new AIController();
@@ -125,9 +124,7 @@ bool Stage::LoadStageInfo(std::string stage)
 
 		for (auto& Iter : stageObjectVec)
 		{
-			//scene->ReserveAdd(Iter);
 			gameScene->GetGameSceneObjectVec()->push_back(Iter);
-
 		}
 
 	}

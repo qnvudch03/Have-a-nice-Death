@@ -19,5 +19,6 @@ public:
 protected:
 	KeyType currentInput;
 	LivingObject* owningLivingObject = nullptr;
+	int inputDirection = 0;
 };
 

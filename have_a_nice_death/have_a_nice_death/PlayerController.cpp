@@ -4,6 +4,8 @@
 
 void PlayerController::Update()
 {
+	inputDirection = 0;
+
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::Z))
 	{
 		currentInput = KeyType::Z;
@@ -22,11 +24,23 @@ void PlayerController::Update()
 	else if (InputManager::GetInstance()->GetButtonDown(KeyType::Left) || InputManager::GetInstance()->GetButtonDown(KeyType::Right))
 	{
 		currentInput = KeyType::StartMove;
+
+		if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
+			inputDirection = -1;
+
+		else
+			inputDirection = 1;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left) || InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
 	{
 		currentInput = KeyType::Move;
+
+		if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
+			inputDirection = -1;
+
+		else
+			inputDirection = 1;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonUp(KeyType::Right) || InputManager::GetInstance()->GetButtonUp(KeyType::Left))

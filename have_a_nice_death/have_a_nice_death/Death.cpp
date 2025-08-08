@@ -7,7 +7,7 @@ void Death::Init()
 {
 	Super::Init();
 
-	SetState("Ideal");
+	SetState("Idle");
 }
 
 void Death::Update(float deltaTime)
@@ -78,6 +78,7 @@ void Death::OnAnimEnd()
 
 		}
 
+		//대쉬 종료 후
 		else if (state == EDeathStatepriority::State_Dash)
 		{
 			LookInputDir();
@@ -88,6 +89,7 @@ void Death::OnAnimEnd()
 		state = EDeathStatepriority::State_Idle;
 		animator.onPlay = true;
 		animator.ResetAnimTimer();
+		LookInputDir();
 	}
 
 
@@ -369,7 +371,7 @@ bool Death::DashException()
 {
 	if (state == EDeathStatepriority::State_Dash && animator.AnimTextureIndex >= animator.TextureNum - 3)
 	{
-		state = EDeathStatepriority::State_Idle;
+ 		state = EDeathStatepriority::State_Idle;
 		isEffectGravity = true;
 		return true;
 	}

@@ -108,6 +108,7 @@ void GameScene::LoadStage(std::string stage)
 	{
 		for (auto& Iter : _gameSceneObjects)
 		{
+			Iter->Init();
 			ReserveAdd(Iter);
 		}
 	}
