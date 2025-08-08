@@ -8,6 +8,8 @@ void Death::Init()
 	Super::Init();
 
 	SetState("Idle");
+	state = EDeathStatepriority::State_Idle;
+	animator.SetAnimSpeed(DefaultAnimSpeed);
 }
 
 void Death::Update(float deltaTime)
@@ -73,6 +75,21 @@ void Death::OnAnimEnd()
 				{
 					forwordDirection = dir;
 					renderingFlipOrder = (forwordDirection == -1) ? true : false;
+				}
+			}
+
+			if (state == EDeathStatepriority::State_IdleUTurn)
+			{
+				if (GetController()->GetInput() == KeyType::Move)
+				{
+					animator.onPlay = true;
+					animator.ResetAnimTimer(10);
+
+					SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleToRun), false);
+					state = EDeathStatepriority::State_IdleToRun;
+					LookInputDir();
+
+					return;
 				}
 			}
 
@@ -160,7 +177,7 @@ void Death::UpdateState(KeyType Input)
 			{
 				SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleUTurn), false);
 				state = EDeathStatepriority::State_IdleUTurn;
-				animator.SetAnimSpeed(10);
+				animator.SetAnimSpeed(15);
 			}
 
 			else

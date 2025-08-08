@@ -14,46 +14,10 @@ C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_
 C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(56,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(117,17): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(134,17): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(228,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(245,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-  GameScene.cpp
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(26,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(32,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(56,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(118,7): warning C4101: 'failed' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
-  
-  Stage.cpp
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(26,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(32,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(56,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
-  
-  코드를 생성하고 있습니다...
   have_a_nice_death.vcxproj -> C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\x64\Debug\have_a_nice_death.exe

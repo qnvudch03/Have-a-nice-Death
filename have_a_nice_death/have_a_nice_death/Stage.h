@@ -2,6 +2,7 @@
 
 class GameScene;
 class Object;
+class LivingObject;
 
 class Stage
 {
@@ -16,6 +17,8 @@ public:
 private:
 
 	std::vector< Object*> stageObjectVec;
+
+	LivingObject* MakeCharacter(std::string type);
 
 	GameScene* gameScene = nullptr;
 	std::string currentStage;

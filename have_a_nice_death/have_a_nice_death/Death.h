@@ -61,11 +61,6 @@ public:
 	Death(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)
 		: Super(OwningTextures, RenderType, anchorPosition)
 	{
-		SetState("Idle");
-		state = EDeathStatepriority::State_Idle;
-		animator.SetAnimSpeed(DefaultAnimSpeed);
-
-		//Setstae¶û Speed °ª ¼³Á¤ÇØ!!
 	}
 
 	~Death() {}

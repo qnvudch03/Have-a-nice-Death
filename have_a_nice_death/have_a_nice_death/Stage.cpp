@@ -8,6 +8,7 @@
 #include "Death.h"
 #include "PlayerController.h"
 #include "AIController.h"
+#include "SmallGhost.h"
 
 #include "json.hpp"
 
@@ -77,12 +78,12 @@ bool Stage::LoadStageInfo(std::string stage)
 
 			if (!owner.compare("Player"))
 			{
-				//플레이어가 몬스터 일 수도 있으니 일단은 libingobject로 하자
-				LivingObject* livingObject = new Death(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
-																ImageAnchor::Bottomcenter);
-				setStageObject(livingObject, position);
+				LivingObject* livingObject = MakeCharacter(type);
+				
+				if (livingObject == nullptr)
+					continue;
 
-				livingObject->SetState("Idle");
+				setStageObject(livingObject, position);
 
 				//컨트롤러 바인딩
 				PlayerController* playerController = new PlayerController();
@@ -93,11 +94,13 @@ bool Stage::LoadStageInfo(std::string stage)
 			else if (!owner.compare("AI"))
 			{
 				//플레이어가 몬스터 일 수도 있으니 일단은 libingobject로 하자
-				LivingObject* livingObject = new LivingObject(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
-					ImageAnchor::Bottomcenter);
+				LivingObject* livingObject = MakeCharacter(type);
+
+				if (livingObject == nullptr)
+					continue;
+
 				setStageObject(livingObject, position);
 
-				livingObject->SetState("Idle");
 
 				//컨트롤러 바인딩
 				AIController* aiController = new AIController();
@@ -133,4 +136,22 @@ bool Stage::LoadStageInfo(std::string stage)
 
 
 	return true;
+}
+
+LivingObject* Stage::MakeCharacter(std::string type)
+{
+	LivingObject* livingObject = nullptr;
+
+	if (!type.compare("Death"))
+	{
+		livingObject = new Death(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+			ImageAnchor::Bottomcenter);
+	}
+
+	else if (!type.compare("SmallGhost"))
+	{
+		livingObject = new SmallGhost(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+			ImageAnchor::Bottomcenter);
+	}
+	return livingObject;
 }
