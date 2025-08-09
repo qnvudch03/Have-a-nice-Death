@@ -131,7 +131,7 @@ void Death::OnHitBoxSpawn()
 	switch (state)
 	{
 	case Death::State_Attack1:
-		colliderCenterPos.x += 150;
+		colliderCenterPos.x += 150 * forwordDirection;
 		colliderCenterPos.y += 20;
 		hitBoxSize.x = 100;
 		hitBoxSize.y = 40;
@@ -155,7 +155,7 @@ void Death::OnHitBoxSpawn()
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
 		break;
 	case Death::State_Attack4:
-		colliderCenterPos.x += 175;
+		colliderCenterPos.x += 175 * forwordDirection;
 		colliderCenterPos.y -= 125;
 
 		hitBoxSize.x = 100;
@@ -250,7 +250,8 @@ void Death::UpdateState(KeyType Input)
 		}
 
 		//¶³¾îÁö´Â Áß
-		if (state == EDeathStatepriority::State_JumptoFall)
+		if (state == EDeathStatepriority::State_JumptoFall ||
+			state == EDeathStatepriority::State_JumpStart)
 		{
 			int32 movedir = InputManager::GetInstance()->GetMoveDownX();
 

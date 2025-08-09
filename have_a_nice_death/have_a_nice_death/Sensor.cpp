@@ -68,13 +68,20 @@ void Sensor::CheckActive()
 
 		RectanglePos actorRect = actor->collider->Getrectangle();
 
+		if (sensorType == SensorType::GroundSensor)
+		{
+			float margin = 30.0f;
 
-		isActive =
-			(recPos.TopLeft.x >= actorRect.TopLeft.x && recPos.TopLeft.y >= actorRect.TopLeft.y) &&
-			(recPos.TopRight.x <= actorRect.TopRight.x && recPos.TopRight.y >= actorRect.TopRight.y);
-			//(recPos.BottomRight.x <= actorRect.BottomRight.x && recPos.BottomRight.y <= actorRect.BottomRight.y);
+			isActive =
+				(recPos.TopLeft.x >= actorRect.TopLeft.x - margin && recPos.TopLeft.y >= actorRect.TopLeft.y) &&
+				(recPos.TopRight.x <= actorRect.TopRight.x + margin && recPos.TopRight.y >= actorRect.TopRight.y) &&
+				(recPos.BottomLeft.x >= actorRect.BottomLeft.x - margin && recPos.BottomLeft.y <= actorRect.BottomLeft.y) &&
+				(recPos.BottomRight.x <= actorRect.BottomRight.x + margin && recPos.BottomRight.y <= actorRect.BottomRight.y);
 
-		if (isActive == true)
-			return;
+			if (isActive == true)
+				return;
+		}
+
+		
 	}
 }

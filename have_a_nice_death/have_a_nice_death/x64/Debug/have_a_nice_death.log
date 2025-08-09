@@ -17,7 +17,7 @@ C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_
 C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(193,17): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(304,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Death.cpp(305,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
   have_a_nice_death.vcxproj -> C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\x64\Debug\have_a_nice_death.exe
