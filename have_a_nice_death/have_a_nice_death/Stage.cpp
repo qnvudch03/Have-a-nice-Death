@@ -89,6 +89,10 @@ bool Stage::LoadStageInfo(std::string stage)
 				PlayerController* playerController = new PlayerController();
 				//livingObject->SetController(playerController);
 				gameScene->BindController(playerController, livingObject);
+
+				//TODO
+				// 책도 나중에 붙여보자
+				//livingObject->SetBook(new Book(livingObject));
 			}
 
 			else if (!owner.compare("AI"))

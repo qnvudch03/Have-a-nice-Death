@@ -29,38 +29,32 @@ void TimeManager::Update()
 	}
 
 	// 타이머 호출
-	for (auto& iter : _timers)
+	auto Iter = _timers.begin();
+
+	while (Iter != _timers.end())
 	{
-		iter.second.Update(_deltaTime);
+		if (Iter->Update(_deltaTime))
+		{
+			Iter = _timers.erase(Iter);
+			continue;
+		}
+		Iter++;
 	}
 }
 
-void TimeManager::AddTimer(Timer&& timer)
+void TimeManager::AddTimer(Timer timer)
 {
-	int32 id = TimerIdGenerator++;
-	if (_timers.find(id) != _timers.end())
-	{
-		// 이미 존재하는 키라면 리턴
-		return;
-	}
-
-	_timers.emplace(id, std::move(timer));
+	_timers.push_back(timer);
 }
 
-void TimeManager::Remove(int32 id)
-{
-	if (_timers.find(id) != _timers.end())
-	{
-		_timers.erase(id);
-	}
-}
-
-void Timer::Update(float deltaTime)
+bool Timer::Update(float deltaTime)
 {
 	_sumTime += deltaTime;
 	if (_sumTime >= _interval)
 	{
 		_func();
-		_sumTime -= _interval;
+		return true;
 	}
+
+	return false;
 }

@@ -3,6 +3,7 @@
 #include "Sensor.h"
 #include "Collider.h"
 #include "HitBox.h"
+#include "Object.h"
 
 void DebugLenderer::DrawReserved()
 {

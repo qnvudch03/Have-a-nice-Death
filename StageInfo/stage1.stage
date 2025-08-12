@@ -12,6 +12,11 @@
         "owner": "AI",
         "type": "SmallGhost",
         "position": [1200, 500]
+      },
+	  {
+        "owner": "AI",
+        "type": "Death",
+        "position": [800, 500]
       }
     ]
   },
@@ -21,7 +26,7 @@
       {
         "type": "Platform",
 		"name": "stonebridge",
-        "position": [300, 400]
+        "position": [300, 600]
       },
 	  {
         "type": "Platform",

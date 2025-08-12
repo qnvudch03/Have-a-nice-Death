@@ -217,6 +217,18 @@ struct Vector
 	}
 };
 
+struct ObjectStat
+{
+	float hp = 10;
+	float atk = 10;
+	float def = 5;
+	float attack_duration = 0;
+	float attack_range = 0;
+	float moveForce = 10;
+	float jumpPower = 500;
+
+};
+
 struct RectanglePos
 {
 	Vector TopLeft;

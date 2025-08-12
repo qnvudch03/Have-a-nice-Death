@@ -11,7 +11,6 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 	{
 		iter->Render(renderTarget, GetPos());
 	}*/
-	_renderTarget = renderTarget;
 
 	if(animator.GetAnimTexture() != nullptr)
 		animator.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition, renderingFlipOrder);

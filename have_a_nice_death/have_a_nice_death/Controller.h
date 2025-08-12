@@ -15,6 +15,7 @@ public:
 	LivingObject* GetOwner(void) { return owningLivingObject; }
 
 	KeyType GetInput() { return currentInput; }
+	bool isPlayerController = false;
 	
 protected:
 	KeyType currentInput;

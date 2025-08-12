@@ -46,6 +46,9 @@
     <Filter Include="HitBoxManager">
       <UniqueIdentifier>{d9584c37-cd7f-4192-9797-dccc50b9a58b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Book">
+      <UniqueIdentifier>{10f2ca94-4a60-4e45-93ce-2afefb24b1fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -159,6 +162,9 @@
     <ClInclude Include="HitBox.h">
       <Filter>HitBoxManager</Filter>
     </ClInclude>
+    <ClInclude Include="Book.h">
+      <Filter>Book</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -259,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="HitBox.cpp">
       <Filter>HitBoxManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Book.cpp">
+      <Filter>Book</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

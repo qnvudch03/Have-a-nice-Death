@@ -57,7 +57,6 @@ void Scene::Update(float deltatTime)
 				actor->SetDebugMode(IsDbugMode);
 			}
 		}
-
 	}
 
 	PostUpdate(deltatTime);
@@ -76,7 +75,7 @@ void Scene::PostUpdate(float deltaTime)
 
 
 	// 예약된 객체를 삭제, A Enemy 2번
-	for (auto actor : _reserveRemove)
+	for (auto& actor : _reserveRemove)
 	{
 		removeActor(actor);	// 진짜 메모리를 해제
 	}
@@ -113,13 +112,7 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 
 void Scene::ReserveRemove(Object* actor)
 {
-	/*for (auto iter : _reserveRemove)
-	{
-		if (iter == actor)
-			return;
-	}
-
-	_reserveRemove.push_back(actor);*/
+	_reserveRemove.push_back(actor);
 }
 
 void Scene::ReserveAdd(Object* actor)
@@ -158,31 +151,32 @@ void Scene::addActor(Object* actor)
 	if (actor->GetRenderLayer() == RenderLayer::Max)
 		return;
 
-	_renderList[(int32)actor->GetRenderLayer()].push_back(actor);
+	//_renderList[(int32)actor->GetRenderLayer()].push_back(actor);
+	_renderList[(int32)actor->GetRenderLayer()].insert(actor);
 }
 
 void Scene::removeActor(Object* actor)
 {
-	//// 렌더링 리스트에서 제거
-	//if (actor->GetRenderLayer() != RenderLayer::Count)
-	//{
-	//	auto it = _renderList[(int32)actor->GetRenderLayer()].find(actor);
-	//	if (it != _renderList[(int32)actor->GetRenderLayer()].end())
-	//	{
-	//		_renderList[(int32)actor->GetRenderLayer()].erase(it);
-	//	}
-	//}
+	// 렌더링 리스트에서 제거
+	if (actor->GetRenderLayer() != RenderLayer::Max)
+	{
+		auto it = _renderList[(int32)actor->GetRenderLayer()].find(actor);
+		if (it != _renderList[(int32)actor->GetRenderLayer()].end())
+		{
+			_renderList[(int32)actor->GetRenderLayer()].erase(it);
+		}
+	}
 
-	//// 진짜 메모리 해제
-	//{
-	//	auto it = _actors.find(actor);
-	//	if (it != _actors.end())
-	//	{
-	//		// 씬에서 관리하는 컨테이너에서는 제거 가능 (오브젝트 풀 or new )
-	//		_actors.erase(it);
-	//		actor->Destroy();
-	//		// new 만들어진 객체
-	//		delete actor;	// 메모리 해제
-	//	}
-	//}
+	// 진짜 메모리 해제
+	{
+		auto it = _actors.find(actor);
+		if (it != _actors.end())
+		{
+			// 씬에서 관리하는 컨테이너에서는 제거 가능 (오브젝트 풀 or new )
+			_actors.erase(it);
+			actor->Destroy();
+			// new 만들어진 객체
+			delete actor;	// 메모리 해제
+		}
+	}
 }

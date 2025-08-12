@@ -5,8 +5,10 @@ class Timer
 {
 public:
 	using TimerFunc = std::function<void()>;
-	Timer(TimerFunc func, float interval) : _func(func), _interval(interval) {}
-	void Update(float deltaTime);
+	Timer() = default;
+	Timer(TimerFunc func, float armTime) : _func(func), _interval(armTime) {}
+	bool Update(float deltaTime);
+	int32 id = 0;
 
 private:
 	TimerFunc _func;
@@ -23,7 +25,7 @@ public:
 	uint32 GetFps() { return _fps; }
 	static float GetDeltaTime() { if (GetInstance()) return GetInstance()->_deltaTime; return 0; }
 
-	void AddTimer(Timer&& timer);
+	void AddTimer(Timer timer);
 	void Remove(int32 id);
 
 private:
@@ -37,6 +39,6 @@ private:
 	uint32 _fps = 0;
 
 	static int32 TimerIdGenerator;
-	std::map<int32, Timer> _timers;
+	std::vector<Timer> _timers;
 };
 

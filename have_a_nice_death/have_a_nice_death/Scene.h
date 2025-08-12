@@ -38,7 +38,7 @@ protected:
 	std::unordered_set<Object*> _actors;	// 원본 객체가 있는 개념
 
 	// 렌더링 순서를 보장하기위한 컨테이너
-	std::vector<Object*> _renderList[RenderLayer::Max];
+	std::set<Object*> _renderList[RenderLayer::Max];
 
 	// 추가 예정인 액터들을 관리
 	std::vector<Object*> _reserveAdd;		// 추가되어야 하는 액터들을 관리

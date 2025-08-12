@@ -7,6 +7,7 @@
 #include "GameScene.h"
 #include "HitBoxManager.h"
 #include "DebugLenderer.h"
+#include "LivingObject.h"
 
 void Death::Init()
 {
@@ -15,6 +16,9 @@ void Death::Init()
 	SetState("Idle");
 	state = EDeathStatepriority::State_Idle;
 	animator.SetAnimSpeed(DefaultAnimSpeed);
+
+	//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
+	SetStat(ObjectStat(100, 20, 5, 0, 30, 10, 500));
 }
 
 void Death::Update(float deltaTime)
@@ -40,6 +44,11 @@ void Death::OnAnimEnd()
 	//애니메이션이 끝났을 떄의 처리
 	//[땅에 있는 애니메이션이였다. -> Ideal]
 	// [공중에 있는 상태였다. -> falling]
+
+	if (!IsActive)
+	{
+		Die();
+	}
 
 	if (state == EDeathStatepriority::State_JumpStart)
 	{
@@ -112,10 +121,9 @@ void Death::OnAnimEnd()
 		animator.onPlay = true;
 		animator.ResetAnimTimer();
 		LookInputDir();
+
+		DamagedAble = true;
 	}
-
-
-
 
 }
 
@@ -136,7 +144,7 @@ void Death::OnHitBoxSpawn()
 		hitBoxSize.x = 100;
 		hitBoxSize.y = 40;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		break;
 	case Death::State_Attack2:
 		colliderCenterPos.y -= 45;
@@ -144,7 +152,7 @@ void Death::OnHitBoxSpawn()
 		hitBoxSize.x = 120;
 		hitBoxSize.y = 110;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		break;
 	case Death::State_Attack3:
 		colliderCenterPos.y -= 85;
@@ -152,7 +160,7 @@ void Death::OnHitBoxSpawn()
 		hitBoxSize.x = 180;
 		hitBoxSize.y = 150;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		break;
 	case Death::State_Attack4:
 		colliderCenterPos.x += 175 * forwordDirection;
@@ -161,7 +169,7 @@ void Death::OnHitBoxSpawn()
 		hitBoxSize.x = 100;
 		hitBoxSize.y = 190;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, HitBoxType::Fixed, 1.5);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.3, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		break;
 
 	default:
@@ -173,30 +181,52 @@ void Death::OnHitBoxSpawn()
 	Game::GetInstance()->GetDebugLenderer()->ReservedHitBox(hitbox);
 }
 
+void Death::OnHitted(HitBox* hitbox)
+{
+	Super::OnHitted(hitbox);
+
+}
+
 void Death::UpdateState(KeyType Input)
 {
-	if (state == EDeathStatepriority::State_JumptoFall &&
-		groundSensor->IsActive())
+	//상시 모션 체크 구분
 	{
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoLand), false);
-		state = EDeathStatepriority::State_JumptoLand;
-		animator.SetAnimSpeed(10);
+		if (state == EDeathStatepriority::State_JumptoFall &&
+			groundSensor->IsActive())
+		{
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoLand), false);
+			state = EDeathStatepriority::State_JumptoLand;
+			animator.SetAnimSpeed(10);
 
-		velocity.x *= 0.25;
+			velocity.x *= 0.25;
+		}
+
+
+		if (state == EDeathStatepriority::State_RunToUturn ||
+			state == EDeathStatepriority::State_IdleUTurn)
+		{
+			isTurning = true;
+			velocity.x *= 0.8;
+		}
+
+		else
+		{
+			isTurning = false;
+		}
+
+		if (state == EDeathStatepriority::State_Dash || 
+			state == EDeathStatepriority::State_Hitted ||
+			state == EDeathStatepriority::State_Death)
+		{
+			DamagedAble = false;
+		}
+
+		else
+		{
+			DamagedAble = true;
+		}
 	}
-
-
-	if (state == EDeathStatepriority::State_RunToUturn ||
-		state == EDeathStatepriority::State_IdleUTurn)
-	{
-		isTurning = true;
-		velocity.x *= 0.8;
-	}
-
-	else
-	{
-		isTurning = false;
-	}
+	
 
 	//이동버튼 해제
 	if (Input == KeyType::RELEASE)
@@ -309,6 +339,8 @@ void Death::UpdateState(KeyType Input)
 			animator.SetAnimSpeed(10);
 
 			isEffectGravity = false;
+
+			DamagedAble = false;
 		}
 
 		//공격 모션 중, 대쉬로 캔슬로인한 콤보 초기화
@@ -348,6 +380,11 @@ void Death::UpdateState(KeyType Input)
 		animator.SetAnimSpeed(20);
 
 	}
+}
+
+void Death::TakeDamage(float Damage)
+{
+	Super::TakeDamage(Damage);
 }
 
 bool Death::Attack()

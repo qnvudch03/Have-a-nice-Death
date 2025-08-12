@@ -4,6 +4,10 @@
 #include "Collider.h"
 #include "Game.h"
 #include "DebugLenderer.h"
+#include "Animaotr.h"
+#include "HitBox.h"
+#include "TimeManager.h"
+#include "GameScene.h"
 
 //void LivingObject::Init()
 //{
@@ -28,6 +32,9 @@ void LivingObject::Update(float deltaTime)
 	auto game = Game::GetInstance();
 
 	Super::Update(deltaTime);
+
+	if (!IsActive)
+		return;
 
 	for (auto sensor : SensorArray)
 	{
@@ -87,6 +94,11 @@ void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
 	}
 }
 
+void LivingObject::Die()
+{
+	Game::GetGameScene()->ReserveRemove(this);
+}
+
 void LivingObject::ApplyEnvironment(float deltaTime)
 {
 	Vector inPut = { 0,0 };
@@ -107,7 +119,9 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 
 	if (groundSensor->IsActive())
 	{
-		velocity.y = 0;
+		//속도가 아래 방향일 경우에만 적용
+		if(velocity.y > 0)
+			velocity.y = 0;
 	}
 
 	else
@@ -155,30 +169,42 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	collider->Update();
 }
 
-bool LivingObject::checkCollision(LivingObject* object, Vector start, Vector end)
+void LivingObject::OnHitted(HitBox* hitbox)
 {
-	auto sceneActors = *Game::GetInstance()->GetCurrentScence()->GetActors();
-	float tMin = FLT_MAX;
+	if (!DamagedAble)
+		return;
 
-	for (auto& iter : sceneActors)
-	{
-		//플랫폼 외 모두 제외
-		if (iter->GetRenderLayer() != RenderLayer::Platform)
-			continue;
+	DamagedAble = false;
 
-		RectanglePos collisionPos = iter->collider->Getrectangle();
-
-		float t = 0.f;
-		Vector normal;
-		Vector hitPos;
-
-		/*if (LineIntersectsAABB(start, end, rect, normal, hitPos, t))
+	TimeManager::GetInstance()->AddTimer(Timer([this]()
 		{
+			DamagedAble = true;
+		},
+		0.7));
 
-		}*/
+	velocity.x = 0;
+
+	if (forwordDirection == hitbox->GetForwordDirection())
+	{
+		forwordDirection *= -1;
+
+		renderingFlipOrder = (forwordDirection == -1) ? true : (forwordDirection == 1) ? false : renderingFlipOrder;
 	}
 
-	return false;
+	TakeDamage(hitbox->damage);
+}
+
+void LivingObject::TakeDamage(float Damage)
+{
+	float damageAmount = (Damage - objectStat.def <= 0) ? 0 : Damage - objectStat.def;
+	objectStat.hp -= damageAmount;
+
+	if (objectStat.hp <= 0)
+	{
+		animator.ResetAnimTimer(20);
+		SetState("Death", false);
+		IsActive = false;
+	}
 }
 
 Vector LivingObject::AddForce(Vector dir, float Power)

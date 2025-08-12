@@ -2,6 +2,9 @@
 #include "Object.h"
 #include "Sensor.h"
 #include "Collider.h"
+#include "Book.h"
+#include "HitBox.h"
+#include "InputManager.h"
 
 class Sensor;
 
@@ -9,21 +12,6 @@ class Controller;
 
 class LivingObject : public Object
 {
-
-	struct ObjectStat
-	{
-		int hp = 10;
-		int atk = 10;
-		int def = 5;
-		float attack_duration = 0;
-		float attack_range = 0;
-		float moveForce = 10;
-		float jumpPower = 500;
-
-	};
-
-	ObjectStat GetStat() { return objectStat; }
-
 	//맵 데이터를 받아서, 상태에 따라 상황에 맞는 texture를 Object의 setTexture를 호출해서 설정하세요.
 	using Super = Object;
 
@@ -36,12 +24,19 @@ public:
 	virtual void SetDebugMode(bool debugmode) override;
 	virtual void SetCollider() override;
 
+	virtual void UpdateState(KeyType Input) {}
+
 	void SetState(std::string state, bool IsLoop = true, int32 atkIndex = -1);
 	void SetController(Controller* controller) { _controller = controller; }
 
+	void Die();
+
 	void ApplyEnvironment(float detaTime);
 
-	bool checkCollision(LivingObject* object, Vector start, Vector end);
+	ObjectStat GetStat() { return objectStat; }
+	void SetStat(ObjectStat stat) { objectStat = stat; }
+
+	//bool checkCollision(LivingObject* object, Vector start, Vector end);
 
 	//Movecorner
 	int forwordDirection = 1;
@@ -57,7 +52,19 @@ public:
 
 	bool isGround = false;
 
+	void SetBook(Book* Book) { book = Book; }
+
 	Vector AddForce(Vector dir, float Power);
+
+	//Battle
+
+	virtual void TakeDamage(float Damage);
+	bool DamagedAble = true;
+	virtual void OnHitted(HitBox* hitbox);
+
+
+	//Active
+	bool IsActive = true;
 
 
 	Controller* GetController() { return _controller; }
@@ -86,6 +93,12 @@ public:
 		{
 			delete *sensor;
 		}
+
+		if (book != nullptr)
+		{
+			delete book;
+		}
+		
 	}
 
 	virtual void OnAnimEnd() {}
@@ -105,5 +118,7 @@ private:
 	ObjectStat objectStat;
 
 	Sensor** SensorArray[3] = { &groundSensor , &wallSensor, &cornerSensor };
+
+	Book* book = nullptr;
 };
 

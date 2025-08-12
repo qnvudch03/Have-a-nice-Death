@@ -97,6 +97,7 @@ void GameScene::BindController(Controller* controller, LivingObject* ownerObject
 
 	_gameControllerMap.insert(std::make_pair(controller, ownerObject));
 	ownerObject->SetController(controller);
+	controller->SetOwner(ownerObject);
 }
 
 void GameScene::ChangeControllerOwner(Controller* controller, LivingObject* newownerObject)

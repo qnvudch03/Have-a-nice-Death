@@ -32,6 +32,7 @@ private:
 	std::vector<Sensor*> sensorVec;
 	std::vector<Collider* > colliderVec;
 	std::vector< HitBox*> hitBoxVec;
+
 	ID2D1RenderTarget* renderTarget = nullptr;
 };
 

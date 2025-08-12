@@ -37,7 +37,6 @@ public:
 
 	//애니메이션 관련
 	Animator animator;
-	std::map<std::string, float> stateAnimSpeedMap;
 	ImageAnchor anchorPosition = ImageAnchor::Positiondefault;
 	bool renderingFlipOrder = false;
 
@@ -48,7 +47,5 @@ private:
 
 	RenderLayer _RenderType = RenderLayer::Max;
 	Vector _pos = {};
-
-	ID2D1RenderTarget* _renderTarget = nullptr;
 };
 

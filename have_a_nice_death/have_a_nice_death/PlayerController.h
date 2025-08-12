@@ -4,6 +4,10 @@
 class PlayerController : public Controller
 {
 public:
+	PlayerController()
+	{
+		isPlayerController = true;
+	}
 	virtual void Update() override;
 };
 

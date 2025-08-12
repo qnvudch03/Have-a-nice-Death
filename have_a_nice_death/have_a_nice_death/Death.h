@@ -72,7 +72,11 @@ public:
 	virtual void OnAnimEnd() override;
 	virtual void OnHitBoxSpawn() override;
 
-	void UpdateState(KeyType Input);
+	virtual void OnHitted(HitBox* hitbox) override;
+
+	virtual void UpdateState(KeyType Input) override;
+
+	virtual void TakeDamage(float Damage) override;
 
 	inline bool IsCamMove(EDeathStatepriority state)
 	{
