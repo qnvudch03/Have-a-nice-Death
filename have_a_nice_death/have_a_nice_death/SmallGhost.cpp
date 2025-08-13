@@ -2,6 +2,8 @@
 #include "SmallGhost.h"
 #include "HitBox.h"
 #include "Controller.h"
+#include "AnimHitBox.h"
+#include "HitBoxManager.h"
 
 void SmallGhost::Init()
 {
@@ -49,7 +51,16 @@ void SmallGhost::OnAnimEnd()
 
 void SmallGhost::OnHitBoxSpawn()
 {
+	HitBoxManager* hitBoxManager = static_cast<GameScene*>(Game::GetInstance()->GetCurrentScence())->GetHitBoxManager();
+	HitBox* hitbox = hitBoxManager->CallHitBox();
 
+	Vector colliderCenterPos = collider->GetCenterPos();
+	Vector hitBoxSize = { 0,0 };
+
+	if (state = ESmallGhostStatepriority::State_Attack)
+	{
+
+	}
 }
 
 void SmallGhost::OnHitted(HitBox* hitbox)
@@ -85,5 +96,25 @@ void SmallGhost::TakeDamage(float Damage)
 
 void SmallGhost::UpdateState(KeyType Input)
 {
-	
+	//이동버튼 해제
+	if (Input == KeyType::RELEASE)
+	{
+		if (state == ESmallGhostStatepriority::State_Running)
+		{
+			SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Idle), true);
+			state = ESmallGhostStatepriority::State_Idle;
+			animator.SetAnimSpeed(10);
+		}
+	}
+
+	//움직 일 때
+	else if (Input == KeyType::StartMove)
+	{
+		//달리는 도중에 반대 입력이 들어올 때
+		if (state == ESmallGhostStatepriority::State_Running)
+		{
+			int inputDirect = (acceleration.x > 0) ? 1 : ((acceleration.x < 0) ? -1 : 0);
+		}
+
+	}
 }

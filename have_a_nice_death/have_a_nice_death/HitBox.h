@@ -6,11 +6,11 @@ class HitBox
 {
 public:
 	HitBox(){}
-	~HitBox(){}
+	virtual ~HitBox(){}
 
-	void Update(float deltatime);
+	virtual void Update(float deltatime);
 	void SetHitBox(Vector Pos, Vector Size, float Damage, HitBoxType Type, float LifeTime, bool IsPlayerHitBox, LivingObject* Spawner);
-	void ClearBox();
+	virtual void ClearBox();
 
 	int GetForwordDirection() { return forwordDirection; }
 
@@ -20,7 +20,7 @@ public:
 	bool isPlayerHitBox = false;
 	float damage;
 
-private:
+protected:
 
 	HitBoxType type;
 

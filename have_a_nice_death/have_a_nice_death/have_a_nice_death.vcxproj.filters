@@ -171,6 +171,9 @@
     <ClInclude Include="Elevator.h">
       <Filter>Elevator</Filter>
     </ClInclude>
+    <ClInclude Include="AnimHitBox.h">
+      <Filter>HitBoxManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -277,6 +280,9 @@
     </ClCompile>
     <ClCompile Include="Elevator.cpp">
       <Filter>Elevator</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimHitBox.cpp">
+      <Filter>HitBoxManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
