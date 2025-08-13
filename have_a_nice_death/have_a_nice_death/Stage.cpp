@@ -9,6 +9,7 @@
 #include "PlayerController.h"
 #include "AIController.h"
 #include "SmallGhost.h"
+#include "Elevator.h"
 
 #include "json.hpp"
 
@@ -78,7 +79,7 @@ bool Stage::LoadStageInfo(std::string stage)
 
 			if (!owner.compare("Player"))
 			{
-				LivingObject* livingObject = MakeCharacter(type);
+				LivingObject* livingObject = MakeCharacter(type, position);
 				
 				if (livingObject == nullptr)
 					continue;
@@ -98,7 +99,7 @@ bool Stage::LoadStageInfo(std::string stage)
 			else if (!owner.compare("AI"))
 			{
 				//플레이어가 몬스터 일 수도 있으니 일단은 libingobject로 하자
-				LivingObject* livingObject = MakeCharacter(type);
+				LivingObject* livingObject = MakeCharacter(type, position);
 
 				if (livingObject == nullptr)
 					continue;
@@ -125,6 +126,16 @@ bool Stage::LoadStageInfo(std::string stage)
 			StaticObject* staticObject = new StaticObject(SpriteManager::GetInstance()->GetTextures(type, structureName),
 				RenderLayer::Platform, position, ImageAnchor::Center);
 
+			if (!type.compare("Wall"))
+			{
+
+				staticObject->animator.SetAnimSpeed(20);
+				staticObject->animator.SetAnimLoop(false);
+				staticObject->animator.StopAnim();
+				//staticObject->collider->DeActivateCollier();
+			}
+
+			
 			setStageObject(staticObject, position);
 		}
 
@@ -142,14 +153,41 @@ bool Stage::LoadStageInfo(std::string stage)
 	return true;
 }
 
-LivingObject* Stage::MakeCharacter(std::string type)
+LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 {
 	LivingObject* livingObject = nullptr;
 
 	if (!type.compare("Death"))
 	{
-		livingObject = new Death(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+		Death* death = new Death(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
 			ImageAnchor::Bottomcenter);
+
+		Vector elevatorPosition = pos;
+		elevatorPosition.x -= 20;
+		elevatorPosition.y += 10;
+
+		Elevator* elevator = new Elevator(SpriteManager::GetInstance()->GetTextures("Elevator", "open"), RenderLayer::Platform, elevatorPosition, ImageAnchor::Bottomcenter);
+
+		elevator->animator.onAnimEnd = [this, death, elevator]() {
+			
+			elevator->callCount++;
+
+			if (elevator->callCount == 1)
+			{
+				death->OnDeathSpawn();
+				elevator->SetAnimaotrTextures(SpriteManager::GetInstance()->GetTextures("Elevator", "close"), false);
+			}
+
+			else if (elevator->callCount == 2)
+			{
+				gameScene->ReserveRemove(elevator);
+			}
+			
+			};
+
+		livingObject = death;
+
+		gameScene->GetGameSceneObjectVec()->push_back(elevator);
 	}
 
 	else if (!type.compare("SmallGhost"))

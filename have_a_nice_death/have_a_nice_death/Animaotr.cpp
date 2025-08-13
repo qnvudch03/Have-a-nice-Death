@@ -3,7 +3,7 @@
 
 void Animator::Update(float deltaTime)
 {
-	if (onPlay == false)
+	if (onPlay == false || TextureNum == 1)
 		return;
 
 	_animStackTimer += deltaTime * _animSpeed;

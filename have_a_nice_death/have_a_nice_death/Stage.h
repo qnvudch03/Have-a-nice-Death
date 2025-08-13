@@ -18,7 +18,7 @@ private:
 
 	std::vector< Object*> stageObjectVec;
 
-	LivingObject* MakeCharacter(std::string type);
+	LivingObject* MakeCharacter(std::string type, Vector pos = Vector(0,0));
 
 	GameScene* gameScene = nullptr;
 	std::string currentStage;

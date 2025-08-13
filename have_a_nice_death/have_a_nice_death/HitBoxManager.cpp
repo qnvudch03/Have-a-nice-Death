@@ -81,6 +81,9 @@ void HitBoxManager::CheckCollision(HitBox* hitbox)
 		if (character->GetController()->isPlayerController == hitbox->isPlayerHitBox)
 			continue;
 
+		if (!object->collider->CheckIsActive())
+			continue;
+
 		RectanglePos characterRec = object->collider->Getrectangle();
 
 		float charMinX = characterRec.TopLeft.x;

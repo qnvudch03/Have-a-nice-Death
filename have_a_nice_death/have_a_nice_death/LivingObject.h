@@ -6,6 +6,8 @@
 #include "HitBox.h"
 #include "InputManager.h"
 
+#define SETTRIPLE(x) isCanMove = x; isCanJump = x; DamagedAble = x;
+
 class Sensor;
 
 class Controller;

@@ -49,6 +49,9 @@
     <Filter Include="Book">
       <UniqueIdentifier>{10f2ca94-4a60-4e45-93ce-2afefb24b1fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Elevator">
+      <UniqueIdentifier>{d3fcff4b-e8c0-45f9-b0a6-8600bc3835d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -165,6 +168,9 @@
     <ClInclude Include="Book.h">
       <Filter>Book</Filter>
     </ClInclude>
+    <ClInclude Include="Elevator.h">
+      <Filter>Elevator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -268,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="Book.cpp">
       <Filter>Book</Filter>
+    </ClCompile>
+    <ClCompile Include="Elevator.cpp">
+      <Filter>Elevator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

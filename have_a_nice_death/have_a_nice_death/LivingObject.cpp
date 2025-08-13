@@ -49,6 +49,8 @@ void LivingObject::Update(float deltaTime)
 
 	ApplyEnvironment(deltaTime);
 
+
+
 }
 
 void LivingObject::Destroy()
@@ -161,6 +163,11 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 
 	velocity += acceleration * deltaTime;
 
+	if (wallSensor->IsActive())
+	{
+		velocity.x = 0;
+	}
+
 	Vector currentPos = GetPos();
 	Vector movedPos = currentPos + velocity;
 
@@ -175,12 +182,16 @@ void LivingObject::OnHitted(HitBox* hitbox)
 		return;
 
 	DamagedAble = false;
+	isCanMove = false;
+	isCanJump = false;
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]()
 		{
 			DamagedAble = true;
+			isCanMove = true;
+			isCanJump = true;
 		},
-		0.7));
+		0.5));
 
 	velocity.x = 0;
 

@@ -136,6 +136,7 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="DXBitmap.h" />
     <ClInclude Include="EditorScene.h" />
+    <ClInclude Include="Elevator.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameScene.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Defines.cpp" />
     <ClCompile Include="DXBitmap.cpp" />
     <ClCompile Include="EditorScene.cpp" />
+    <ClCompile Include="Elevator.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="have_a_nice_death.cpp" />

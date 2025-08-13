@@ -8,17 +8,29 @@
 #include "HitBoxManager.h"
 #include "DebugLenderer.h"
 #include "LivingObject.h"
+#include "TimeManager.h"
 
 void Death::Init()
 {
 	Super::Init();
 
-	SetState("Idle");
-	state = EDeathStatepriority::State_Idle;
-	animator.SetAnimSpeed(DefaultAnimSpeed);
+	SetState("Appear", false);
+	state = EDeathStatepriority::State_Apear;
+	animator.StopAnim();
+	SETTRIPLE(false)
+
+	isEffectGravity = false;
 
 	//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
 	SetStat(ObjectStat(100, 20, 5, 0, 30, 10, 500));
+}
+
+void Death::OnDeathSpawn()
+{
+	SetState("Appear", false);
+	state = EDeathStatepriority::State_Apear;
+	animator.StartAnim();
+	animator.SetAnimSpeed(30);
 }
 
 void Death::Update(float deltaTime)
@@ -32,6 +44,8 @@ void Death::Update(float deltaTime)
 	isCanMove = IsCamMove(state);
 
 	isCanJump = IsCanJump(state);
+
+
 }
 
 void Death::Destroy()
@@ -44,6 +58,12 @@ void Death::OnAnimEnd()
 	//애니메이션이 끝났을 떄의 처리
 	//[땅에 있는 애니메이션이였다. -> Ideal]
 	// [공중에 있는 상태였다. -> falling]
+
+	if (state == EDeathStatepriority::State_Apear)
+	{
+		SETTRIPLE(true)
+		isEffectGravity = true;
+	}
 
 	if (!IsActive)
 	{
@@ -184,6 +204,15 @@ void Death::OnHitBoxSpawn()
 void Death::OnHitted(HitBox* hitbox)
 {
 	Super::OnHitted(hitbox);
+
+	SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
+	state = EDeathStatepriority::State_Hitted;
+
+	TimeManager::GetInstance()->AddTimer(Timer([this]()
+		{
+			DamagedAble = true;
+		},
+		0.7));
 
 }
 
@@ -332,7 +361,11 @@ void Death::UpdateState(KeyType Input)
 
 			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
 			
-			velocity = Vector(forwordDirection * 10, 0);
+			if (!wallSensor->IsActive())
+			{
+				velocity = Vector(forwordDirection * 10, 0);
+			}
+			
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;

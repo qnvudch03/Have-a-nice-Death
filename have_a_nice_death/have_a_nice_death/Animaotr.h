@@ -15,6 +15,7 @@ public:
 	bool onPlay = false;
 
 	void SetAnimSpeed(int32 speed) { _animSpeed = speed; }
+	void SetAnimLoop(bool Isloop) { _IsLoop = Isloop; }
 	void SetAnimTexture(std::vector<Texture*>* animtures, bool IsLoop, bool IsAttackAnim = false, int32 HitBoxIndex = -1)
 	{ 
 		_animStackTimer = 0;
@@ -31,6 +32,9 @@ public:
 	void Destroy();
 
 	void Update(float deltaTime);
+
+	void StopAnim() { onPlay = false; }
+	void StartAnim() { onPlay = true; }
 
 	std::function<void()> onAnimEnd;
 	std::function<void()> onHitBoxSpawn;

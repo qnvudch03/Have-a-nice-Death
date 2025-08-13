@@ -14,6 +14,8 @@ public:
 	virtual void SetCollider() override;
 	StaticObject(std::vector<Texture*>* OwningTextures, RenderLayer RenderType, Vector pos = Vector(0,0), ImageAnchor drawAncor = ImageAnchor::Topleft) : Super(RenderType, drawAncor)
 	{
+		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
+
 		_ownTextures = OwningTextures;
 		Super::SetAnimaotrTextures(_ownTextures);
 		Super::SetPos(pos);
@@ -29,6 +31,7 @@ public:
 
 	}
 
+	virtual void OnAnimEnd() {}
 
 private:
 	std::vector<Texture*>* _ownTextures = nullptr;

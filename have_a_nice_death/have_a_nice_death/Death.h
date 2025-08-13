@@ -8,6 +8,7 @@ class Death : public LivingObject
 {
 	enum EDeathStatepriority
 	{
+		State_Apear = -1,
 		State_Death = 0,
 		State_Hitted = 1,
 		State_Dash = 2,
@@ -85,6 +86,8 @@ public:
 	}
 
 	bool IsCanJump(EDeathStatepriority state);
+
+	void OnDeathSpawn();
 
 private:
 	float deltatime = 0;

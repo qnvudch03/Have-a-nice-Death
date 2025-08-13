@@ -2,8 +2,41 @@
 #include "Collider.h"
 #include "Object.h"
 
+void Collider::DeActivateCollier()
+{
+	isActivated = false;
+
+	{
+		pos.x = 0;
+		pos.y = 0;
+
+		colliderCenterPos.x = -100;
+		colliderCenterPos.y = -100;
+
+		rectangle.TopLeft.x = -100;
+		rectangle.TopLeft.y = -100;
+
+		rectangle.TopRight.x = -100;
+		rectangle.TopRight.y = -100;
+
+		rectangle.BottomLeft.x = -100;
+		rectangle.BottomLeft.y = -100;
+
+		rectangle.BottomRight.x = -100;
+		rectangle.BottomRight.y = -100;
+	}
+}
+
+void Collider::ActivateCollier()
+{
+	isActivated = true;
+}
+
 void Collider::Update()
 {
+	if (!isActivated)
+		return;
+
 	if (owner->GetRenderLayer() == RenderLayer::Platform)
 	{
 		pos = owner->GetPos();

@@ -6,17 +6,27 @@
       {
         "owner": "Player",
         "type": "Death",
-        "position": [500, 500]
+        "position": [500, 650]
       },
 	  {
         "owner": "AI",
         "type": "SmallGhost",
-        "position": [1200, 500]
+        "position": [1200, 650]
       },
 	  {
         "owner": "AI",
         "type": "Death",
-        "position": [800, 500]
+        "position": [800, 650]
+      },
+	  {
+        "owner": "AI",
+        "type": "SmallGhost",
+        "position": [1600, 650]
+      },
+	  {
+        "owner": "AI",
+        "type": "SmallGhost",
+        "position": [1500, 650]
       }
     ]
   },
@@ -31,7 +41,17 @@
 	  {
         "type": "Platform",
 		"name": "emptyground",
-        "position": [750, 750]
+        "position": [900, 750]
+      },
+	  {
+        "type": "Wall",
+		"name": "PaperWall",
+        "position": [80, 350]
+      },
+	  {
+        "type": "Wall",
+		"name": "PaperWall",
+        "position": [1640, 350]
       }
 	  
     ]

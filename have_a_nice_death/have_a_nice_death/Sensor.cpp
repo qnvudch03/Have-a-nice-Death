@@ -82,6 +82,18 @@ void Sensor::CheckActive()
 				return;
 		}
 
+		else if (sensorType == SensorType::WallSensor)
+		{
+			isActive =
+				(recPos.TopLeft.x >= actorRect.TopLeft.x && recPos.TopLeft.y >= actorRect.TopLeft.y) &&
+				(recPos.TopRight.x <= actorRect.TopRight.x && recPos.TopRight.y >= actorRect.TopRight.y) &&
+				(recPos.BottomLeft.x >= actorRect.BottomLeft.x && recPos.BottomLeft.y <= actorRect.BottomLeft.y) &&
+				(recPos.BottomRight.x <= actorRect.BottomRight.x && recPos.BottomRight.y <= actorRect.BottomRight.y);
+
+			if (isActive == true)
+				return;
+		}
+
 		
 	}
 }

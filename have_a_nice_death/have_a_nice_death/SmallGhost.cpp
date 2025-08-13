@@ -7,9 +7,11 @@ void SmallGhost::Init()
 {
 	Super::Init();
 
-	SetState("Idle");
-	state = ESmallGhostStatepriority::State_Idle;
+	SetState("Appear", false);
+	state = ESmallGhostStatepriority::State_Appear;
 	animator.SetAnimSpeed(10);
+
+	SETTRIPLE(false)
 
 	//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
 	SetStat(ObjectStat(50, 10, 10, 0, 30, 10, 500));
@@ -30,6 +32,16 @@ void SmallGhost::Destroy()
 
 void SmallGhost::OnAnimEnd()
 {
+	if (!IsActive)
+	{
+		Die();
+	}
+
+	if (state == ESmallGhostStatepriority::State_Appear)
+	{
+		SETTRIPLE(true)
+	}
+
 	SetState("Idle", true);
 	state = ESmallGhostStatepriority::State_Idle;
 	animator.SetAnimSpeed(10);
@@ -51,9 +63,23 @@ void SmallGhost::TakeDamage(float Damage)
 
 	if (IsActive)
 	{
-		animator.ResetAnimTimer(15);
-		SetState("Hitted1", false);
 
+		if (state == ESmallGhostStatepriority::State_Hitted1 ||
+			state == ESmallGhostStatepriority::State_Hitted2)
+		{
+			animator.ResetAnimTimer(15);
+			SetState("Hitted2", false);
+			state = ESmallGhostStatepriority::State_Hitted2;
+		}
+
+		else
+		{
+			animator.ResetAnimTimer(15);
+			SetState("Hitted1", false);
+			state = ESmallGhostStatepriority::State_Hitted1;
+		}
+
+		
 	}
 }
 
