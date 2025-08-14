@@ -39,8 +39,12 @@ void Object::Update(float deltaTime)
 
 void Object::Destroy()
 {
-	//Not called
-	//animator.Destroy();
+	if (collider != nullptr)
+	{
+		delete collider;
+		collider = nullptr;
+	}
+		
 }
 
 void Object::SetCollider()

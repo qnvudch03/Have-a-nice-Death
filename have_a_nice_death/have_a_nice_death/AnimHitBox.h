@@ -11,11 +11,7 @@ class AnimHitBox : public HitBox
 
 public:
 
-	AnimHitBox(std::vector<Texture*>* animtures)
-	{
-		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
-		animator.SetAnimTexture(animtures, false);
-	}
+	AnimHitBox() = default;
 
 	~AnimHitBox() = default;
 
@@ -23,7 +19,7 @@ public:
 	virtual void Update(float deltatime) override;
 	virtual void ClearBox() override;
 
-	void SetAnimHitBox(Vector Pos, Vector Size, float Damage, HitBoxType Type, bool IsPlayerHitBox, LivingObject* Spawner);
+	void SetAnimHitBox(Vector Pos, Vector Size, std::vector<Texture*>* animtures, float Damage, HitBoxType Type, bool IsPlayerHitBox, LivingObject* Spawner);
 
 	void OnAnimEnd();
 	Animator animator;

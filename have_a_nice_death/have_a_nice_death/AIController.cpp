@@ -85,9 +85,9 @@ void AIController::Update()
                 currentInput = KeyType::Left;
 
             
-            owningLivingObject->forwordDirection = -1;
+            /*owningLivingObject->forwordDirection = -1;
             owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
-                true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;
+                true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;*/
             break;
 
         case AIController::AI_InputRight:
@@ -97,10 +97,6 @@ void AIController::Update()
 
             else
                 currentInput = KeyType::Right;
-
-            owningLivingObject->forwordDirection = 1;
-            owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
-                true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;
             break;
 
         case AIController::AI_InputJump:

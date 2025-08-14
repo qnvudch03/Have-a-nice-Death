@@ -5,6 +5,8 @@
 #include "Collider.h"
 #include "LivingObject.h"
 #include "Controller.h"
+#include "Game.h"
+#include "DebugLenderer.h"
 
 HitBoxManager::~HitBoxManager()
 {
@@ -14,6 +16,8 @@ HitBoxManager::~HitBoxManager()
 		{
 			delete Iter;
 		}
+
+		spanwedHitBoxVec.clear();
 	}
 
 	if (!hitBoxPull.empty())
@@ -25,8 +29,30 @@ HitBoxManager::~HitBoxManager()
 
 			delete hitbox;
 		}
+
 	}
-	
+
+	if (!spanwedAnimHitBoxVec.empty())
+	{
+		for (auto Iter : spanwedAnimHitBoxVec)
+		{
+			delete Iter;
+		}
+
+		spanwedAnimHitBoxVec.clear();
+	}
+
+	if (!animHitBoxPull.empty())
+	{
+		while (!animHitBoxPull.empty())
+		{
+			AnimHitBox* hitbox = animHitBoxPull.front();
+			animHitBoxPull.pop();
+
+			delete hitbox;
+		}
+	}
+
 }
 
 void HitBoxManager::Init()
@@ -35,6 +61,13 @@ void HitBoxManager::Init()
 	{
 		hitBoxPull.push(new HitBox());
 	}
+
+	for (int i = 0; i < 20; i++)
+	{
+		animHitBoxPull.push(new AnimHitBox());
+	}
+
+	currentGameScene = Game::GetInstance()->GetGameScene();
 }
 
 HitBox* HitBoxManager::CallHitBox()
@@ -46,6 +79,21 @@ HitBox* HitBoxManager::CallHitBox()
 		return hitBox;
 
 	}
+
+	return nullptr;
+}
+
+AnimHitBox* HitBoxManager::CallAnimHitBox()
+{
+	if (!animHitBoxPull.empty())
+	{
+		AnimHitBox* hitBox = animHitBoxPull.front();
+		animHitBoxPull.pop();
+		return hitBox;
+
+	}
+
+	return nullptr;
 }
 
 void HitBoxManager::ReturnHitBox(HitBox* hitbox)
@@ -57,16 +105,61 @@ void HitBoxManager::ReturnHitBox(HitBox* hitbox)
 	spanwedHitBoxVec.erase(hitbox);
 }
 
-void HitBoxManager::Update(float deltatime)
+void HitBoxManager::ReturnAnimHitBox(AnimHitBox* hitbox)
 {
-	if (spanwedHitBoxVec.empty())
+	if (hitbox == nullptr)
 		return;
 
-	auto hitBox = spanwedHitBoxVec;
-	for (auto Iter : hitBox)
+	animHitBoxPull.push(hitbox);
+	spanwedAnimHitBoxVec.erase(hitbox);
+}
+
+void HitBoxManager::Update(float deltatime)
+{
+
+	if (!spanwedHitBoxVec.empty())
 	{
-		Iter->Update(deltatime);
-		CheckCollision(Iter);
+		auto hitBox = spanwedHitBoxVec;
+		for (auto Iter : hitBox)
+		{
+			Iter->Update(deltatime);
+			CheckCollision(Iter);
+
+		}
+
+	}
+
+	if (!spanwedAnimHitBoxVec.empty())
+	{
+		auto animHitBox = spanwedAnimHitBoxVec;
+		for (auto Iter : animHitBox)
+		{
+			Iter->Update(deltatime);
+			CheckCollision(Iter);
+		}
+	}
+
+	
+}
+
+void HitBoxManager::DrawHitbox(ID2D1RenderTarget* renderTarget)
+{
+	//spanwedHitBoxVec
+	bool isDbugMode = Game::GetInstance()->GetCurrentScence()->IsDbugMode;
+	auto GarbageCollector = Game::GetInstance()->GetDebugLenderer();
+
+	if (!spanwedAnimHitBoxVec.empty())
+	{
+		for (auto& Iter : spanwedAnimHitBoxVec)
+		{
+			bool Fliporder = (Iter->GetForwordDirection() == 1) ? false : true;
+			Iter->animator.GetAnimTexture()->Render(renderTarget, Iter->GetPos(), ImageAnchor::Center, Fliporder);
+
+			if (isDbugMode)
+			{
+				GarbageCollector->ReservedHitBox(Iter);
+			}
+		}
 	}
 }
 

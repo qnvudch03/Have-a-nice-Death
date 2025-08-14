@@ -15,6 +15,8 @@ void StaticObject::Update(float deltaTime)
 void StaticObject::Destroy()
 {
 	Super::Destroy();
+
+
 }
 
 void StaticObject::SetCollider()

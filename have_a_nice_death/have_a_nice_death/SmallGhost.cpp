@@ -4,6 +4,7 @@
 #include "Controller.h"
 #include "AnimHitBox.h"
 #include "HitBoxManager.h"
+#include "SpriteManager.h"
 
 void SmallGhost::Init()
 {
@@ -15,13 +16,16 @@ void SmallGhost::Init()
 
 	SETTRIPLE(false)
 
-	//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-	SetStat(ObjectStat(50, 10, 10, 0, 30, 10, 500));
+		//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
+		SetStat(ObjectStat(50, 10, 10, 0, 30, 10, 500));
 }
 
 void SmallGhost::Update(float deltaTime)
 {
 	Super::Update(deltaTime);
+
+	if (state == ESmallGhostStatepriority::State_Appear)
+		return;
 
 	UpdateState(Super::GetController()->GetInput());
 
@@ -44,6 +48,19 @@ void SmallGhost::OnAnimEnd()
 		SETTRIPLE(true)
 	}
 
+	else if (state == ESmallGhostStatepriority::State_IdleToUturn)
+	{
+		isTurning = false;
+		forwordDirection *= -1;
+		renderingFlipOrder = (forwordDirection == -1) ? true : (forwordDirection == 1) ? false : renderingFlipOrder;
+	}
+
+	else if (state == ESmallGhostStatepriority::State_Attack)
+	{
+		isCanMove = true;
+		isCanJump = true;
+	}
+
 	SetState("Idle", true);
 	state = ESmallGhostStatepriority::State_Idle;
 	animator.SetAnimSpeed(10);
@@ -51,16 +68,34 @@ void SmallGhost::OnAnimEnd()
 
 void SmallGhost::OnHitBoxSpawn()
 {
+	if (state != ESmallGhostStatepriority::State_Attack)
+		return;
+
 	HitBoxManager* hitBoxManager = static_cast<GameScene*>(Game::GetInstance()->GetCurrentScence())->GetHitBoxManager();
-	HitBox* hitbox = hitBoxManager->CallHitBox();
+	AnimHitBox* animHitbox = hitBoxManager->CallAnimHitBox();
 
-	Vector colliderCenterPos = collider->GetCenterPos();
-	Vector hitBoxSize = { 0,0 };
+	if (animHitbox == nullptr)
+		return;
 
-	if (state = ESmallGhostStatepriority::State_Attack)
+
 	{
+		Vector colliderCenterPos = collider->GetCenterPos();
+		Vector animHitBoxSpawnPos = colliderCenterPos;
+		animHitBoxSpawnPos.x += forwordDirection * 170;
+		animHitBoxSpawnPos.y += 50;
 
+		Vector hitBoxSize = { 0,0 };
+
+
+		animHitbox->SetAnimHitBox(animHitBoxSpawnPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "Attack_SmallGhost")
+			, GetStat().atk, HitBoxType::Fixed, GetController()->isPlayerController, this);
+
+		animHitbox->animator.SetAnimSpeed(25);
 	}
+	
+
+
+	hitBoxManager->AddAnimHitBox(animHitbox);
 }
 
 void SmallGhost::OnHitted(HitBox* hitbox)
@@ -90,12 +125,19 @@ void SmallGhost::TakeDamage(float Damage)
 			state = ESmallGhostStatepriority::State_Hitted1;
 		}
 
-		
+
 	}
 }
 
 void SmallGhost::UpdateState(KeyType Input)
 {
+	if (state == ESmallGhostStatepriority::State_Hitted1 ||
+		state == ESmallGhostStatepriority::State_Hitted2 ||
+		state == ESmallGhostStatepriority::State_IdleToUturn ||
+		state == ESmallGhostStatepriority::State_Attack)
+		return;
+
+
 	//이동버튼 해제
 	if (Input == KeyType::RELEASE)
 	{
@@ -109,13 +151,49 @@ void SmallGhost::UpdateState(KeyType Input)
 
 	//움직 일 때
 	else if (Input == KeyType::Right ||
-			Input == KeyType::Left)
+		Input == KeyType::Left ||
+		Input == KeyType::KeepRight ||
+		Input == KeyType::KeepLeft)
 	{
-		//달리는 도중에 반대 입력이 들어올 때
-		if (state == ESmallGhostStatepriority::State_Running)
+		if (state == ESmallGhostStatepriority::State_Idle ||
+			state == ESmallGhostStatepriority::State_Running)
 		{
-			int inputDirect = (acceleration.x > 0) ? 1 : ((acceleration.x < 0) ? -1 : 0);
+
+			if (forwordDirection != GetController()->GetInputDownX() &&
+				forwordDirection != GetController()->GetInputPressedX())
+			{
+				SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_IdleToUturn), false);
+				state = ESmallGhostStatepriority::State_IdleToUturn;
+				animator.SetAnimSpeed(10);
+
+				isTurning = true;
+
+				return;
+			}
+
+			if (state != ESmallGhostStatepriority::State_Running)
+			{
+				SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Running), true);
+				state = ESmallGhostStatepriority::State_Running;
+				animator.SetAnimSpeed(10);
+			}
+
+
 		}
 
+	}
+
+	else if (Input == KeyType::Z)
+	{
+		if (state != ESmallGhostStatepriority::State_Idle)
+			return;
+
+		animator.ResetAnimTimer();
+		SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Attack), false, 17);
+		state = ESmallGhostStatepriority::State_Attack;
+		animator.SetAnimSpeed(10);
+
+		isCanMove = false;
+		isCanJump = false;
 	}
 }

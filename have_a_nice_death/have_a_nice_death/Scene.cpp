@@ -78,6 +78,7 @@ void Scene::PostUpdate(float deltaTime)
 	for (auto& actor : _reserveRemove)
 	{
 		removeActor(actor);	// 진짜 메모리를 해제
+
 	}
 	_reserveRemove.clear();
 }

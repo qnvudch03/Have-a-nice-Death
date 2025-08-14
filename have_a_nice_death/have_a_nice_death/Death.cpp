@@ -215,6 +215,8 @@ void Death::OnHitted(HitBox* hitbox)
 		},
 		0.7));
 
+	atkcombo = 0;
+
 }
 
 void Death::UpdateState(KeyType Input)

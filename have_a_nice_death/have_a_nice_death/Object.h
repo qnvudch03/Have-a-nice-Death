@@ -21,7 +21,11 @@ public:
 
 	virtual ~Object()
 	{
-		
+		if (collider != nullptr)
+		{
+			delete collider;
+			collider = nullptr;
+		}
 	}
 
 

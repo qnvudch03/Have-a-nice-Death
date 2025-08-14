@@ -8,6 +8,7 @@
 #include "Controller.h"
 #include "PlayerController.h"
 #include "HitBoxManager.h"
+#include "AnimHitBox.h"
 
 void GameScene::Init()
 {
@@ -42,6 +43,8 @@ void GameScene::PostUpdate(float deltaTime)
 void GameScene::Render(ID2D1RenderTarget* renderTarget)
 {
 	Super::Render(renderTarget);
+
+	hitBoxManager->DrawHitbox(renderTarget);
 }
 
 void GameScene::EraseScene()

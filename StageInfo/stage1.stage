@@ -11,22 +11,7 @@
 	  {
         "owner": "AI",
         "type": "SmallGhost",
-        "position": [1200, 650]
-      },
-	  {
-        "owner": "AI",
-        "type": "Death",
-        "position": [800, 650]
-      },
-	  {
-        "owner": "AI",
-        "type": "SmallGhost",
-        "position": [1600, 650]
-      },
-	  {
-        "owner": "AI",
-        "type": "SmallGhost",
-        "position": [1500, 650]
+        "position": [900, 650]
       }
     ]
   },

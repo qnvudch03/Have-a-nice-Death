@@ -181,6 +181,21 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 			else if (elevator->callCount == 2)
 			{
 				gameScene->ReserveRemove(elevator);
+
+				auto objVec = gameScene->GetGameSceneObjectVec();
+				auto Iter = objVec->begin();
+				while (Iter != objVec->end())
+				{
+					if (*Iter == elevator)
+					{
+						objVec->erase(Iter);
+						break;
+					}
+					
+					Iter++;
+				}
+
+
 			}
 			
 			};

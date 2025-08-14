@@ -9,7 +9,10 @@ void AnimHitBox::Update(float deltatime)
 {
 	//stackTimer += deltatime;
 
+	size = animator.GetAnimTexture()->GetTextureSize() * 0.5;
+
 	animator.Update(deltatime);
+
 }
 
 void AnimHitBox::ClearBox()
@@ -22,7 +25,7 @@ void AnimHitBox::ClearBox()
 	//stackTimer = 0;
 }
 
-void AnimHitBox::SetAnimHitBox(Vector Pos, Vector Size, float Damage, HitBoxType Type, bool IsPlayerHitBox, LivingObject* Spawner)
+void AnimHitBox::SetAnimHitBox(Vector Pos, Vector Size, std::vector<Texture*>* animtures, float Damage, HitBoxType Type, bool IsPlayerHitBox, LivingObject* Spawner)
 {
 	pos = Pos;
 	size = Size;
@@ -35,11 +38,15 @@ void AnimHitBox::SetAnimHitBox(Vector Pos, Vector Size, float Damage, HitBoxType
 	spawner = Spawner;
 
 	forwordDirection = (spawner->GetPos().x <= pos.x) ? 1 : -1;
+
+	animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
+	animator.SetAnimTexture(animtures, false);
+	animator.TextureNum = (*animtures).size();
 }
 
 void AnimHitBox::OnAnimEnd()
 {
 	ClearBox();
 
-	static_cast<GameScene*>(Game::GetInstance()->GetCurrentScence())->GetHitBoxManager()->ReturnHitBox(this);
+	static_cast<GameScene*>(Game::GetInstance()->GetCurrentScence())->GetHitBoxManager()->ReturnAnimHitBox(this);
 }
