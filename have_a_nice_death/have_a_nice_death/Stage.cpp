@@ -185,7 +185,8 @@ bool Stage::LoadStageInfo(std::string stage)
 			StaticObject* staticObject = new StaticObject(SpriteManager::GetInstance()->GetTextures(type, structureName),
 				RenderLayer::Platform, position, ImageAnchor::Center);
 
-			if (!structureName.compare("emptyground"))
+			if (!structureName.compare("emptyground") ||
+				!structureName.compare("emptyWall"))
 			{
 				setStageObject(staticObject, position, 0);
 			}

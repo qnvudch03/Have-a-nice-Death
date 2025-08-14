@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -280,7 +280,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -296,13 +296,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Stage.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Stage.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Stage.cpp",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Stage.cpp",
               "RelativeToolTip": "have_a_nice_death\\Stage.cpp",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAADMAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAALAAAAAAAAAAAAAAAL0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-08-12T00:51:34.866Z",
               "EditorCaption": ""
@@ -317,8 +317,7 @@
               "RelativeToolTip": "have_a_nice_death\\Object.h",
               "ViewState": "AgIAAA8AAAAAAAAAAAAuwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-14T06:21:16.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T06:21:16.275Z"
             },
             {
               "$type": "Document",
@@ -330,8 +329,7 @@
               "RelativeToolTip": "have_a_nice_death\\Scene.cpp",
               "ViewState": "AgIAADUAAAAAAAAAAAAvwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-06T01:44:41.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T01:44:41.676Z"
             },
             {
               "$type": "Document",
@@ -343,8 +341,7 @@
               "RelativeToolTip": "have_a_nice_death\\Scene.h",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-07-30T02:59:53.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T02:59:53.781Z"
             },
             {
               "$type": "Document",
@@ -356,8 +353,7 @@
               "RelativeToolTip": "have_a_nice_death\\GameScene.h",
               "ViewState": "AgIAABsAAAAAAAAAAAAYwCsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-14T07:35:22.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T07:35:22.94Z"
             },
             {
               "$type": "Document",
@@ -369,8 +365,7 @@
               "RelativeToolTip": "have_a_nice_death\\HitBoxManager.cpp",
               "ViewState": "AgIAAJkAAAAAAAAAAAAvwKwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-13T08:16:38.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T08:16:38.287Z"
             },
             {
               "$type": "Document",
@@ -382,8 +377,7 @@
               "RelativeToolTip": "have_a_nice_death\\LivingObject.cpp",
               "ViewState": "AgIAAFIAAAAAAAAAAAAYwGQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-13T06:23:55.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T06:23:55.748Z"
             },
             {
               "$type": "Document",
@@ -395,8 +389,7 @@
               "RelativeToolTip": "have_a_nice_death\\LivingObject.h",
               "ViewState": "AgIAABMAAAAAAAAAAAAvwCEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-09T11:31:48.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T11:31:48.128Z"
             },
             {
               "$type": "Document",
@@ -408,8 +401,7 @@
               "RelativeToolTip": "have_a_nice_death\\Game.cpp",
               "ViewState": "AgIAAGcAAAAAAAAAAAAYwHcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-06T00:40:37.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T00:40:37.932Z"
             },
             {
               "$type": "Document",
@@ -434,21 +426,19 @@
               "RelativeToolTip": "have_a_nice_death\\Controller.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-13T09:11:49.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T09:11:49.901Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Death.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Death.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Death.cpp",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Death.cpp",
               "RelativeToolTip": "have_a_nice_death\\Death.cpp",
-              "ViewState": "AgIAAIMBAAAAAAAAAAAAAI4BAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAIMBAAAAAAAAAAAAAIkBAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-08T00:15:23.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T00:15:23.078Z"
             },
             {
               "$type": "Document",
@@ -460,8 +450,7 @@
               "RelativeToolTip": "have_a_nice_death\\StaticObject.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-31T02:07:43.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T02:07:43.991Z"
             },
             {
               "$type": "Document",
@@ -473,8 +462,7 @@
               "RelativeToolTip": "have_a_nice_death\\Stage.h",
               "ViewState": "AgIAAA4AAAAAAAAAAAAYwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-06T02:43:04.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T02:43:04.015Z"
             },
             {
               "$type": "Document",
@@ -486,8 +474,7 @@
               "RelativeToolTip": "have_a_nice_death\\HitBox.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-13T08:16:31.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T08:16:31.194Z"
             },
             {
               "$type": "Document",
@@ -499,8 +486,7 @@
               "RelativeToolTip": "have_a_nice_death\\PlayerController.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-01T08:01:26.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-01T08:01:26.6Z"
             },
             {
               "$type": "Document",
@@ -512,8 +498,7 @@
               "RelativeToolTip": "have_a_nice_death\\AIController.cpp",
               "ViewState": "AgIAAFcAAAAAAAAAAAAswGUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-02T09:50:40.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-02T09:50:40.031Z"
             },
             {
               "$type": "Document",
@@ -525,8 +510,7 @@
               "RelativeToolTip": "have_a_nice_death\\AIController.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-01T08:01:38.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-01T08:01:38.612Z"
             },
             {
               "$type": "Document",
@@ -538,8 +522,7 @@
               "RelativeToolTip": "have_a_nice_death\\HitBox.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-13T08:16:27.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T08:16:27.308Z"
             },
             {
               "$type": "Document",
@@ -551,8 +534,7 @@
               "RelativeToolTip": "have_a_nice_death\\SmallGhost.h",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-12T03:40:05.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T03:40:05.468Z"
             },
             {
               "$type": "Document",
@@ -564,8 +546,7 @@
               "RelativeToolTip": "have_a_nice_death\\SmallGhost.cpp",
               "ViewState": "AgIAAFQAAAAAAAAAAAAAAGYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-13T08:47:42.556Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T08:47:42.556Z"
             },
             {
               "$type": "Document",
@@ -577,8 +558,7 @@
               "RelativeToolTip": "have_a_nice_death\\Object.cpp",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-30T08:58:10.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T08:58:10.222Z"
             },
             {
               "$type": "Document",
@@ -590,8 +570,7 @@
               "RelativeToolTip": "have_a_nice_death\\Animaotr.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-07T02:08:20.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T02:08:20.481Z"
             },
             {
               "$type": "Document",
@@ -603,8 +582,7 @@
               "RelativeToolTip": "have_a_nice_death\\Elevator.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-13T03:17:59.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T03:17:59.613Z"
             },
             {
               "$type": "Document",
@@ -616,8 +594,7 @@
               "RelativeToolTip": "have_a_nice_death\\StaticObject.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-01T06:55:34.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-01T06:55:34.326Z"
             },
             {
               "$type": "Document",

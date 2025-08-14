@@ -18,15 +18,25 @@
 
   "StaticObjects": {
     "Object": [
-      {
-        "type": "Platform",
-		"name": "stonebridge",
-        "position": [300, 600]
-      },
 	  {
         "type": "Platform",
 		"name": "emptyground",
         "position": [900, 750]
+      },
+	  {
+        "type": "Platform",
+		"name": "emptyWall",
+        "position": [0, 350]
+      },
+	  {
+        "type": "Platform",
+		"name": "emptyWall",
+        "position": [1700, 350]
+      },
+      {
+        "type": "Platform",
+		"name": "stonebridge",
+        "position": [300, 600]
       },
 	  {
         "type": "Wall",
