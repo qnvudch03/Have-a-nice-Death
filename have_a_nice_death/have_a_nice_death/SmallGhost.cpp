@@ -108,7 +108,8 @@ void SmallGhost::UpdateState(KeyType Input)
 	}
 
 	//움직 일 때
-	else if (Input == KeyType::StartMove)
+	else if (Input == KeyType::Right ||
+			Input == KeyType::Left)
 	{
 		//달리는 도중에 반대 입력이 들어올 때
 		if (state == ESmallGhostStatepriority::State_Running)

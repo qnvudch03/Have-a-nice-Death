@@ -4,7 +4,7 @@
 
 void PlayerController::Update()
 {
-	inputDirection = 0;
+	//inputDirection = 0;
 
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::Z))
 	{
@@ -21,26 +21,37 @@ void PlayerController::Update()
 		currentInput = KeyType::SpaceBar;
 	}
 
-	else if (InputManager::GetInstance()->GetButtonDown(KeyType::Left) || InputManager::GetInstance()->GetButtonDown(KeyType::Right))
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
 	{
-		currentInput = KeyType::StartMove;
+		currentInput = KeyType::Left;
 
-		if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
-			inputDirection = -1;
-
-		else
-			inputDirection = 1;
 	}
 
-	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left) || InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::Right))
 	{
-		currentInput = KeyType::Move;
+		currentInput = KeyType::Right;
 
-		if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
-			inputDirection = -1;
+	}
 
-		else
-			inputDirection = 1;
+	//else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left) || InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
+	//{
+	//	currentInput = KeyType::Move;
+
+	//	/*if (InputManager::GetInstance()->GetButtonDown(KeyType::Left))
+	//		inputDirection = -1;
+
+	//	else
+	//		inputDirection = 1;*/
+	//}
+	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left))
+	{
+		currentInput = KeyType::KeepLeft;
+
+	}
+	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
+	{
+		currentInput = KeyType::KeepRight;
+
 	}
 
 	else if (InputManager::GetInstance()->GetButtonUp(KeyType::Right) || InputManager::GetInstance()->GetButtonUp(KeyType::Left))

@@ -77,13 +77,26 @@ void AIController::Update()
         switch (randomInput)
         {
         case AIController::AI_InputLeft:
-            currentInput = KeyType::Move;
+
+            if (pastInput == KeyType::Left || pastInput == KeyType::KeepLeft)
+                currentInput = KeyType::KeepLeft;
+
+            else
+                currentInput = KeyType::Left;
+
+            
             owningLivingObject->forwordDirection = -1;
             owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
                 true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;
             break;
         case AIController::AI_InputRight:
-            currentInput = KeyType::Move;
+            
+            if (pastInput == KeyType::Right || pastInput == KeyType::KeepRight)
+                currentInput = KeyType::KeepRight;
+
+            else
+                currentInput = KeyType::Right;
+
             owningLivingObject->forwordDirection = 1;
             owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
                 true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;
@@ -102,6 +115,8 @@ void AIController::Update()
 
         stack_counter = input_Interver;
     }
+
+    pastInput = currentInput;
 
     stack_counter--;
 }

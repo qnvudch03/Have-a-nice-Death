@@ -114,7 +114,8 @@ void Death::OnAnimEnd()
 
 			if (state == EDeathStatepriority::State_IdleUTurn)
 			{
-				if (GetController()->GetInput() == KeyType::Move)
+				if (GetController()->GetInput() == KeyType::Left ||
+					GetController()->GetInput() == KeyType::Right)
 				{
 					animator.onPlay = true;
 					animator.ResetAnimTimer(10);
@@ -270,7 +271,8 @@ void Death::UpdateState(KeyType Input)
 	}
 
 	//움직 일 때
-	else if (Input == KeyType::StartMove)
+	else if (Input == KeyType::Right ||
+		Input == KeyType::Left)
 	{
 		//달리는 도중에 반대 입력이 들어올 때
 		if (state == EDeathStatepriority::State_Running)
@@ -323,7 +325,8 @@ void Death::UpdateState(KeyType Input)
 	}
 
 	//달리고 있는 중
-	else if (Input == KeyType::Move)
+	else if (Input == KeyType::KeepLeft ||
+			Input == KeyType::KeepRight)
 	{
 
 		if (state > EDeathStatepriority::State_Attack4)
@@ -527,7 +530,22 @@ bool Death::DashException()
 
 void Death::LookInputDir()
 {
-	int32 movedir = InputManager::GetInstance()->GetMovePressedX();
+	KeyType currentInput = GetController()->GetInput();
+	int32 movedir = 0;
+
+	if (currentInput == KeyType::Right ||
+		currentInput == KeyType::KeepRight)
+	{
+		movedir = 1;
+	}
+
+	else if (currentInput == KeyType::Left ||
+		currentInput == KeyType::KeepLeft)
+	{
+		movedir = -1;
+	}
+
+	
 
 	if (movedir != 0)
 		forwordDirection = movedir;

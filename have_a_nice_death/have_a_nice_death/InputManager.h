@@ -8,8 +8,8 @@ enum class KeyType
 
 	Up = VK_UP,
 	Down = VK_DOWN,
-	Move = '-',
-	StartMove = '*',
+	KeepLeft = '-',
+	KeepRight = '*',
 	Left = VK_LEFT,
 	Right = VK_RIGHT,
 	SpaceBar = VK_SPACE,

@@ -40,7 +40,7 @@ public:
 
 	//bool checkCollision(LivingObject* object, Vector start, Vector end);
 
-	//Movecorner
+	//Movement
 	int forwordDirection = 1;
 
 	bool isCanMove = true;

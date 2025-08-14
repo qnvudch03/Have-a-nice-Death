@@ -134,7 +134,8 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 
 	if (isCanMove && !isTurning)
 	{
-		if (currentInput == KeyType::Move)
+		if (currentInput == KeyType::KeepLeft ||
+			currentInput == KeyType::KeepRight)
 		{
 			inPut.x = forwordDirection;
 		}
