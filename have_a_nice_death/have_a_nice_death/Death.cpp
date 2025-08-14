@@ -9,6 +9,7 @@
 #include "DebugLenderer.h"
 #include "LivingObject.h"
 #include "TimeManager.h"
+#include "Elevator.h"
 
 void Death::Init()
 {
@@ -23,6 +24,8 @@ void Death::Init()
 
 	//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
 	SetStat(ObjectStat(100, 20, 5, 0, 30, 10, 500));
+
+	CallElevator();
 }
 
 void Death::OnDeathSpawn()
@@ -586,4 +589,31 @@ bool Death::IsCanJump(EDeathStatepriority state)
 
 	else
 		return true;
+}
+
+void Death::CallElevator()
+{
+	Vector elevatorPosition = GetPos();
+	elevatorPosition.x -= 20;
+	elevatorPosition.y += 10;
+
+	Elevator* elevator = new Elevator(SpriteManager::GetInstance()->GetTextures("Elevator", "open"), RenderLayer::Platform, elevatorPosition, ImageAnchor::Bottomcenter);
+
+	elevator->animator.onAnimEnd = [this, elevator]() {
+
+		elevator->callCount++;
+
+		if (elevator->callCount == 1)
+		{
+			OnDeathSpawn();
+			elevator->SetAnimaotrTextures(SpriteManager::GetInstance()->GetTextures("Elevator", "close"), false);
+		}
+
+		else if (elevator->callCount == 2)
+		{
+			Game::GetInstance()->GetGameScene()->EraseFromGame(elevator);
+		}
+	};
+
+	Game::GetInstance()->GetGameScene()->LoadObject(elevator);
 }

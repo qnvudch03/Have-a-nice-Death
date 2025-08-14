@@ -59,6 +59,5 @@ protected:
 	KeyType currentInput;
 	KeyType pastInput = KeyType::MAX;
 	LivingObject* owningLivingObject = nullptr;
-	//int inputDirection = 0;
 };
 

@@ -9,7 +9,6 @@
 #include "PlayerController.h"
 #include "AIController.h"
 #include "SmallGhost.h"
-#include "Elevator.h"
 
 #include <random>
 
@@ -225,35 +224,10 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 
 	if (!type.compare("Death"))
 	{
-		Death* death = new Death(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+		livingObject = new Death(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
 			ImageAnchor::Bottomcenter);
 
-		Vector elevatorPosition = pos;
-		elevatorPosition.x -= 20;
-		elevatorPosition.y += 10;
-
-		Elevator* elevator = new Elevator(SpriteManager::GetInstance()->GetTextures("Elevator", "open"), RenderLayer::Platform, elevatorPosition, ImageAnchor::Bottomcenter);
-
-		elevator->animator.onAnimEnd = [this, death, elevator]() {
-
-			elevator->callCount++;
-
-			if (elevator->callCount == 1)
-			{
-				death->OnDeathSpawn();
-				elevator->SetAnimaotrTextures(SpriteManager::GetInstance()->GetTextures("Elevator", "close"), false);
-			}
-
-			else if (elevator->callCount == 2)
-			{
-				gameScene->EraseFromGame(elevator);
-			}
-
-			};
-
-		livingObject = death;
-
-		gameScene->GetGameSceneObjectVec()->push_back(elevator);
+		//livingObject = death;
 	}
 
 	else if (!type.compare("SmallGhost"))

@@ -89,6 +89,8 @@ public:
 
 	void OnDeathSpawn();
 
+	void CallElevator();
+
 private:
 	float deltatime = 0;
 

@@ -49,8 +49,6 @@ void LivingObject::Update(float deltaTime)
 
 	ApplyEnvironment(deltaTime);
 
-
-
 }
 
 void LivingObject::Destroy()
