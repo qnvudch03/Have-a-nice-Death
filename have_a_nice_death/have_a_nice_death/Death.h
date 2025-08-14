@@ -103,5 +103,7 @@ private:
 	void LookInputDir();
 
 	bool Attack();
+
+	int CheckDashCondition();
 };
 

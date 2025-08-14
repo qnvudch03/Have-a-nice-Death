@@ -6,6 +6,8 @@ void PlayerController::Update()
 {
 	//inputDirection = 0;
 
+	pastInput = currentInput;
+
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::Z))
 	{
 		currentInput = KeyType::Z;

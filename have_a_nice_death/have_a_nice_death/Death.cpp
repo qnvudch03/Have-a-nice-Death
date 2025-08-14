@@ -101,10 +101,10 @@ void Death::OnAnimEnd()
 			forwordDirection *= -1;
 			renderingFlipOrder = (forwordDirection == -1) ? true : false;
 
-			if (InputManager::GetInstance()->GetMovePressedX() != 0)
+			if (GetController()->GetInputPressedX() != 0)
 			{
 				//회전 중 다른 버튼을 누른 경우의 처리
-				int dir = InputManager::GetInstance()->GetMovePressedX();
+				int dir = GetController()->GetInputPressedX();
 				if (forwordDirection != dir)
 				{
 					forwordDirection = dir;
@@ -277,7 +277,7 @@ void Death::UpdateState(KeyType Input)
 		//달리는 도중에 반대 입력이 들어올 때
 		if (state == EDeathStatepriority::State_Running)
 		{
-			if (forwordDirection != InputManager::GetInstance()->GetMoveDownX())
+			if (forwordDirection != GetController()->GetInputDownX())
 			{
 				SetState(ConvertDeathStateToString(EDeathStatepriority::State_RunToUturn), false);
 				state = EDeathStatepriority::State_RunToUturn;
@@ -293,7 +293,7 @@ void Death::UpdateState(KeyType Input)
 			//state == EDeathStatepriority::State_IdleUTurn)
 		{
 			//바라보는 방향과 입력 방향이 다를 떄
-			if (forwordDirection != InputManager::GetInstance()->GetMoveDownX())
+			if (forwordDirection != GetController()->GetInputDownX())
 			{
 				SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleUTurn), false);
 				state = EDeathStatepriority::State_IdleUTurn;
@@ -314,7 +314,7 @@ void Death::UpdateState(KeyType Input)
 		if (state == EDeathStatepriority::State_JumptoFall ||
 			state == EDeathStatepriority::State_JumpStart)
 		{
-			int32 movedir = InputManager::GetInstance()->GetMoveDownX();
+			int32 movedir = GetController()->GetInputDownX();
 
 			if (movedir != 0)
 				forwordDirection = movedir;
@@ -352,7 +352,7 @@ void Death::UpdateState(KeyType Input)
 	//대쉬
 	else if (Input == KeyType::Shift)
 	{
-		int32 movedir = InputManager::GetInstance()->GetMovePressedX();
+		int32 movedir = CheckDashCondition();
 
 		if (movedir == 0)
 			return;
@@ -428,7 +428,7 @@ bool Death::Attack()
 
 	auto LookDir = [this]()
 		{
-			int32 movedir = InputManager::GetInstance()->GetMovePressedX();
+			int32 movedir = GetController()->GetInputPressedX();
 
 			if(movedir !=0)
 				forwordDirection = movedir;
@@ -515,6 +515,25 @@ bool Death::Attack()
 	}
 
 	return false;
+}
+
+int Death::CheckDashCondition()
+{
+	KeyType pastInput = GetController()->GetPastInput();
+
+	if (pastInput == KeyType::KeepRight ||
+		pastInput == KeyType::Right)
+	{
+		return 1;
+	}
+
+	if (pastInput == KeyType::KeepLeft ||
+		pastInput == KeyType::Left)
+	{
+		return -1;
+	}
+
+	return 0;
 }
 
 bool Death::DashException()

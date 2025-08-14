@@ -17,6 +17,32 @@ public:
 	KeyType GetInput() { return currentInput; }
 	bool isPlayerController = false;
 	
+	int GetInputPressedX()
+	{
+		if (currentInput == KeyType::KeepRight)
+			return 1;
+
+		else if (currentInput == KeyType::KeepLeft)
+			return -1;
+
+		else
+			return 0;
+	}
+
+	int GetInputDownX()
+	{
+		if (currentInput == KeyType::Right)
+			return 1;
+
+		else if (currentInput == KeyType::Left)
+			return -1;
+
+		else
+			return 0;
+	}
+
+	KeyType GetPastInput() { return pastInput; }
+
 protected:
 	KeyType currentInput;
 	KeyType pastInput = KeyType::MAX;

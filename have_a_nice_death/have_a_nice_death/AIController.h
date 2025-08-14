@@ -8,6 +8,7 @@ class AIController : public Controller
 		AI_InputRight,
 		AI_InputJump,
 		AI_InputAttack,
+		AI_InputDash,
 		AI_InputMax
 	};
 

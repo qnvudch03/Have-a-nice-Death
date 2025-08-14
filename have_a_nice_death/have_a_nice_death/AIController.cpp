@@ -89,6 +89,7 @@ void AIController::Update()
             owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
                 true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;
             break;
+
         case AIController::AI_InputRight:
             
             if (pastInput == KeyType::Right || pastInput == KeyType::KeepRight)
@@ -101,13 +102,21 @@ void AIController::Update()
             owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
                 true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;
             break;
+
         case AIController::AI_InputJump:
             currentInput = KeyType::SpaceBar;
             break;
+
         case AIController::AI_InputAttack:
             currentInput = KeyType::Z;
             break;
+
+        case AIController::AI_InputDash:
+            currentInput = KeyType::Shift;
+            break;
+
         case AIController::AI_InputMax:
+            currentInput = KeyType::MAX;
             break;
         default:
             break;
