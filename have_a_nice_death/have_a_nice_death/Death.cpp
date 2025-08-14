@@ -393,9 +393,10 @@ void Death::UpdateState(KeyType Input)
 		if (state <= State_Hitted)
 			return;
 
-		if (!Attack())
+		if (Attack())
 		{
-			
+			//공격 모션 시, x 속도를 낮추자
+			velocity.x *= 0.7;
 		}
 	}
 
@@ -430,7 +431,7 @@ bool Death::Attack()
 
 	auto LookDir = [this]()
 		{
-			int32 movedir = GetController()->GetInputPressedX();
+			int32 movedir = GetController()->GetPastInputPressedX();
 
 			if(movedir !=0)
 				forwordDirection = movedir;

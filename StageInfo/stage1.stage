@@ -6,7 +6,7 @@
       {
         "owner": "Player",
         "type": "Death",
-        "position": [500, 650]
+        "position": [100, 650]
       },
 	  {
         "owner": "AI",

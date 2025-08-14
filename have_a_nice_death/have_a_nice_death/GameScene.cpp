@@ -33,6 +33,8 @@ void GameScene::Update(float deltatTime)
 	Super::Update(deltatTime);
 
 	hitBoxManager->Update(deltatTime);
+
+	stageController->Update();
 }
 
 void GameScene::PostUpdate(float deltaTime)
@@ -130,4 +132,30 @@ void GameScene::LoadStage(std::string stage)
 	{
 		int failed;
 	}
+}
+
+void GameScene::LoadObject(Object* obj)
+{
+	_gameSceneObjects.push_back(obj);
+
+	obj->Init();
+	ReserveAdd(obj);
+}
+
+void GameScene::EraseFromGame(Object* obj)
+{
+	ReserveRemove(obj);
+
+	auto Iter = _gameSceneObjects.begin();
+	while (Iter != _gameSceneObjects.end())
+	{
+		if (*Iter == obj)
+		{
+			_gameSceneObjects.erase(Iter);
+			break;
+		}
+
+		Iter++;
+	}
+
 }

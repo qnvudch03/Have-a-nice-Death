@@ -98,7 +98,7 @@ void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
 
 void LivingObject::Die()
 {
-	Game::GetGameScene()->ReserveRemove(this);
+	Game::GetGameScene()->EraseFromGame(this);
 }
 
 void LivingObject::ApplyEnvironment(float deltaTime)

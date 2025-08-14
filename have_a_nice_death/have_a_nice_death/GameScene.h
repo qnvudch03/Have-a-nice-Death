@@ -28,6 +28,8 @@ public:
 	void BindController(Controller* controller, LivingObject* ownerObject);
 	void ChangeControllerOwner(Controller* controller, LivingObject* newownerObject);
 	void LoadStage(std::string stage);
+	void LoadObject(Object* obj);
+	void EraseFromGame(Object* obj);
 
 	HitBoxManager* GetHitBoxManager() { return hitBoxManager; }
 

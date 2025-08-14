@@ -34,6 +34,10 @@ public:
 	void Die();
 
 	void ApplyEnvironment(float detaTime);
+	void AddAcceleration(Vector power)
+	{
+		acceleration + power;
+	}
 
 	ObjectStat GetStat() { return objectStat; }
 	void SetStat(ObjectStat stat) { objectStat = stat; }

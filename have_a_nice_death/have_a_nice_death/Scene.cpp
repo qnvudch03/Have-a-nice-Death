@@ -114,6 +114,7 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 void Scene::ReserveRemove(Object* actor)
 {
 	_reserveRemove.push_back(actor);
+
 }
 
 void Scene::ReserveAdd(Object* actor)

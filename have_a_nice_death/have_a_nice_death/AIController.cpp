@@ -99,13 +99,13 @@ void AIController::Update()
                 currentInput = KeyType::Right;
             break;
 
-        case AIController::AI_InputJump:
+        /*case AIController::AI_InputJump:
             currentInput = KeyType::SpaceBar;
             break;
 
         case AIController::AI_InputAttack:
             currentInput = KeyType::Z;
-            break;
+            break;*/
 
         case AIController::AI_InputDash:
             currentInput = KeyType::Shift;

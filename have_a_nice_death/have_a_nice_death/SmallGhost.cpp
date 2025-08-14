@@ -90,7 +90,7 @@ void SmallGhost::OnHitBoxSpawn()
 		animHitbox->SetAnimHitBox(animHitBoxSpawnPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "Attack_SmallGhost")
 			, GetStat().atk, HitBoxType::Fixed, GetController()->isPlayerController, this);
 
-		animHitbox->animator.SetAnimSpeed(25);
+		animHitbox->animator.SetAnimSpeed(30);
 	}
 	
 
@@ -191,9 +191,11 @@ void SmallGhost::UpdateState(KeyType Input)
 		animator.ResetAnimTimer();
 		SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Attack), false, 17);
 		state = ESmallGhostStatepriority::State_Attack;
-		animator.SetAnimSpeed(10);
+		animator.SetAnimSpeed(15);
 
 		isCanMove = false;
 		isCanJump = false;
+
+		AddAcceleration(Vector(0,50));
 	}
 }

@@ -5,6 +5,8 @@
 void StaticObject::Init()
 {
 	Super::Init();
+
+	animator.StartAnim();
 }
 
 void StaticObject::Update(float deltaTime)
