@@ -30,6 +30,7 @@ enum class KeyType
 	Inventory = 'I',
 	Z = 'Z',
 	X = 'x',
+	E = 'E',
 
 	RELEASE = '0',
 

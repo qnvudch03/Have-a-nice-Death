@@ -211,6 +211,10 @@ void Death::Hitted(HitBox* hitbox)
 
 void Death::UpdateState(KeyType Input)
 {
+	if (!IsActive)
+		return;
+
+
 	//상시 모션 체크 구분
 	{
 		if (state == EDeathStatepriority::State_JumptoFall &&
@@ -602,7 +606,9 @@ void Death::CallElevator()
 		if (elevator->callCount == 1)
 		{
 			OnDeathSpawn();
-			elevator->SetAnimaotrTextures(SpriteManager::GetInstance()->GetTextures("Elevator", "close"), false);
+			//elevator->SetAnimaotrTextures(SpriteManager::GetInstance()->GetTextures("Elevator", "close"), false);
+			elevator->animator.SetReversePlay();
+			elevator->animator.StartAnim();
 		}
 
 		else if (elevator->callCount == 2)

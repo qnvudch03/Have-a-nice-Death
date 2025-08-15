@@ -131,6 +131,7 @@
     <ClInclude Include="AnimHitBox.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="Contractor.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Death.h" />
     <ClInclude Include="DebugLenderer.h" />
@@ -145,6 +146,8 @@
     <ClInclude Include="HitBox.h" />
     <ClInclude Include="HitBoxManager.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="InteractableElevator.h" />
+    <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="LivingObject.h" />
     <ClInclude Include="LobbyScene.h" />
     <ClInclude Include="Object.h" />
@@ -173,6 +176,7 @@
     <ClCompile Include="AnimHitBox.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Contractor.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="DebugLenderer.cpp" />
@@ -186,6 +190,8 @@
     <ClCompile Include="HitBox.cpp" />
     <ClCompile Include="HitBoxManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="InteractableElevator.cpp" />
+    <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="LivingObject.cpp" />
     <ClCompile Include="LobbyScene.cpp" />
     <ClCompile Include="Object.cpp" />

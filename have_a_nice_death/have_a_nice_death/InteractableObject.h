@@ -1,0 +1,23 @@
+#pragma once
+#include "Object.h"
+
+class LivingObject;
+
+class InteractableObject : public Object
+{
+	using Super = Object;
+
+public:
+	InteractableObject(RenderLayer rendertype, ImageAnchor drawanchor, Vector pos);
+	virtual void Update(float deltaTime) override;
+
+	virtual void DoInteract() {}
+	virtual void OnAnimEnd() {}
+	virtual void SetDebugMode(bool debugmode) override;
+
+protected:
+	bool readyToInteract = false;
+	bool activate = false;
+	LivingObject* player = nullptr;
+};
+

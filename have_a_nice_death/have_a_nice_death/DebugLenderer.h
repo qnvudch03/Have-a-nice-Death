@@ -3,6 +3,7 @@
 class Sensor;
 class Collider;
 class HitBox;
+class Object;
 
 class DebugLenderer
 {
@@ -24,6 +25,11 @@ public:
 		hitBoxVec.push_back(hitBox);
 	}
 
+	/*void ReservedobjByTexture(Object* obj)
+	{
+		objVec.push_back(obj);
+	}*/
+
 	void DrawReserved();
 
 	void DrawRenctangle(Vector TopLeftPos, Vector BootomRightPos, D2D1::ColorF color, float Linewidth = 2.0f);
@@ -32,6 +38,7 @@ private:
 	std::vector<Sensor*> sensorVec;
 	std::vector<Collider* > colliderVec;
 	std::vector< HitBox*> hitBoxVec;
+	//std::vector< Object*> objVec;
 
 	ID2D1RenderTarget* renderTarget = nullptr;
 };

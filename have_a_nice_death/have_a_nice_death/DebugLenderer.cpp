@@ -40,6 +40,20 @@ void DebugLenderer::DrawReserved()
 
 		hitBoxVec.clear();
 	}
+
+	/*if (!objVec.empty())
+	{
+		for (auto& iter : objVec)
+		{
+			Vector objpos = iter->GetPos();
+			Vector textureSize = iter->animator.GetAnimTexture()->GetTextureSize();
+
+			DrawRenctangle(Vector(objpos.x - textureSize.x * 0.5, objpos.y - textureSize.y),
+				Vector(objpos.x + textureSize.x * 0.5, objpos.y), D2D1::ColorF::Red);
+		}
+
+		objVec.clear();
+	}*/
 	
 }
 

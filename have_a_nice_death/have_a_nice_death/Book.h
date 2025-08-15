@@ -28,7 +28,7 @@ private:
 	Vector pos;
 	Vector offset;
 	LivingObject* owner;
-	std::unordered_map<std::string, std::vector<Texture*>>* ownTextures = nullptr;
+	std::map<std::string, std::vector<Texture*>>* ownTextures = nullptr;
 	Animator animator;
 };
 

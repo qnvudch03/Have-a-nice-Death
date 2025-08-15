@@ -167,7 +167,7 @@ void HitBoxManager::CheckCollision(HitBox* hitbox)
 {
 	for (auto object : *(currentGameScene->GetGameSceneObjectVec()))
 	{
-		if (object->GetRenderLayer() != RenderLayer::Character)
+		if (object->GetRenderLayer() != RenderLayer::Character || object->collider == nullptr)
 			continue;
 
 		LivingObject* character = static_cast<LivingObject*>(object);

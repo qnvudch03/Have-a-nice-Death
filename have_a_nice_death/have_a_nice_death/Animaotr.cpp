@@ -3,7 +3,7 @@
 
 void Animator::Update(float deltaTime)
 {
-	if (onPlay == false || TextureNum == 1)
+	/*if (onPlay == false || TextureNum == 1)
 		return;
 
 	_animStackTimer += deltaTime * _animSpeed;
@@ -23,7 +23,54 @@ void Animator::Update(float deltaTime)
 	if (isAttackAnim && (hitboxIndex == AnimTextureIndex) )
 	{
 		onHitBoxSpawn();
-	}
+	}*/
+
+    if (onPlay == false || TextureNum == 1)
+        return;
+
+
+    if (_isReverse)
+        _animStackTimer -= deltaTime * _animSpeed;
+    else
+        _animStackTimer += deltaTime * _animSpeed;
+
+    
+    if (_IsLoop)
+    {
+        if (_isReverse && _animStackTimer < 0)
+            _animStackTimer = TextureNum - 1;
+        else if (!_isReverse && _animStackTimer >= TextureNum)
+            _animStackTimer = 0;
+    }
+    
+
+    else
+    {
+        if (_isReverse && _animStackTimer < 0)
+        {
+            onPlay = false;
+            _animStackTimer = 0;
+
+            if(onAnimEnd != nullptr)
+                onAnimEnd();
+        }
+        else if (!_isReverse && _animStackTimer > TextureNum - 1)
+        {
+            onPlay = false;
+            _animStackTimer = TextureNum - 1;
+            
+            if (onAnimEnd != nullptr)
+                onAnimEnd();
+        }
+    }
+
+    AnimTextureIndex = (int32)_animStackTimer;
+
+    if (isAttackAnim && (hitboxIndex == AnimTextureIndex))
+    {
+        if(onHitBoxSpawn != nullptr)
+            onHitBoxSpawn();
+    }
 }
 
 void Animator::Destroy()

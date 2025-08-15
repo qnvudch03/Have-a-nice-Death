@@ -77,7 +77,7 @@ public:
 
 	Controller* GetController() { return _controller; }
 
-	LivingObject(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft) : Super(RenderType, anchorPosition)
+	LivingObject(std::map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
 		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
 		animator.onHitBoxSpawn = [this]() {this->OnHitBoxSpawn(); };
@@ -119,7 +119,7 @@ public:
 
 private:
 
-	std::unordered_map<std::string, std::vector<Texture*>>* ownTextures = nullptr;
+	std::map<std::string, std::vector<Texture*>>* ownTextures = nullptr;
 
 	Controller* _controller = nullptr;
 

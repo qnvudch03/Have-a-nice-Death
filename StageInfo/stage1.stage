@@ -10,7 +10,7 @@
       },
 	  {
         "owner": "AI",
-        "type": "Death",
+        "type": "SmallGhost",
         "position": [800, 650]
       }
     ]
@@ -31,7 +31,7 @@
 	  {
         "type": "Platform",
 		"name": "emptyWall",
-        "position": [1700, 350]
+        "position": [1800, 350]
       },
       {
         "type": "Platform",

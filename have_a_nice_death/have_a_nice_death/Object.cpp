@@ -21,6 +21,7 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 		Game::GetInstance()->GetDebugLenderer()->ReserveCollider(collider);
 	}
 
+
 }
 
 void Object::SetDebugMode(bool debugMode)

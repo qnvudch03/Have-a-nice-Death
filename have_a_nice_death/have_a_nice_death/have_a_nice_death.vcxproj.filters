@@ -52,6 +52,9 @@
     <Filter Include="Elevator">
       <UniqueIdentifier>{d3fcff4b-e8c0-45f9-b0a6-8600bc3835d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NPC">
+      <UniqueIdentifier>{d6f243b2-cba6-49c0-b907-89b662961ae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -174,6 +177,15 @@
     <ClInclude Include="AnimHitBox.h">
       <Filter>HitBoxManager</Filter>
     </ClInclude>
+    <ClInclude Include="Contractor.h">
+      <Filter>NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableElevator.h">
+      <Filter>Elevator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -283,6 +295,15 @@
     </ClCompile>
     <ClCompile Include="AnimHitBox.cpp">
       <Filter>HitBoxManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Contractor.cpp">
+      <Filter>NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableElevator.cpp">
+      <Filter>Elevator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

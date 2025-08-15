@@ -134,6 +134,10 @@ void SmallGhost::TakeDamage(float Damage)
 
 void SmallGhost::UpdateState(KeyType Input)
 {
+	if (!IsActive)
+		return;
+
+
 	if (state == ESmallGhostStatepriority::State_Hitted1 ||
 		state == ESmallGhostStatepriority::State_Hitted2 ||
 		state == ESmallGhostStatepriority::State_IdleToUturn ||

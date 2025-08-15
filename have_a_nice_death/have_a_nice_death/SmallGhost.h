@@ -43,7 +43,7 @@ class SmallGhost : public LivingObject
 
 public:
 
-	SmallGhost(std::unordered_map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)
+	SmallGhost(std::map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)
 		: Super(OwningTextures, RenderType, anchorPosition)
 	{
 

@@ -11,7 +11,9 @@
 #include "SmallGhost.h"
 #include "UIManager.h"
 #include "UI.h"
-#include "Elevator.h"
+#include "InteractableElevator.h"
+//#include "Elevator.h"
+#include "Contractor.h"
 
 #include <random>
 
@@ -340,19 +342,38 @@ void Stage::StartWave()
 
 void Stage::StageClear()
 {
+	//static Object들 제거
+	{
+		for (auto& Iter : stageStaticObjectVec)
+		{
+			auto& Animator = Iter->animator;
+
+			if (Animator.TextureNum == 1)
+			{
+				gameScene->EraseFromGame(Iter);
+			}
+
+			else
+			{
+				Animator.SetReversePlay();
+				Animator.StartAnim();
+				Animator.onAnimEnd = [this, Iter]() {gameScene->EraseFromGame(Iter); };
+			}
+		}
+	}
+
 	//탈출용 엘레베이터 소환
 	{
 		Vector elevatorPosition = Vector(GWinSizeX - 200, GWinSizeY - 140);
-
-		Elevator* elevator = new Elevator(SpriteManager::GetInstance()->GetTextures("Elevator", "open"), RenderLayer::Platform, elevatorPosition, ImageAnchor::Bottomcenter);
-
-		elevator->animator.onAnimEnd = [this, elevator]() {};
-
-		gameScene->LoadObject(elevator);
 	}
 
 	//오샤 소환
 	{
+		Vector ContractorPosition = Vector(GWinSizeX * 0.5, GWinSizeY - 100);
+
+		Contractor* contractor = new Contractor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, ContractorPosition);
+		contractor->animator.SetAnimSpeed(20);
+		gameScene->LoadObject(contractor);
 
 	}
 }

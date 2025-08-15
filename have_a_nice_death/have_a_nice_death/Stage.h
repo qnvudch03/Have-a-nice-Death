@@ -5,6 +5,7 @@ class Object;
 class LivingObject;
 class StaticObject;
 class UI;
+class Elevator;
 
 class Stage
 {
@@ -15,6 +16,8 @@ public:
 	bool LoadStage(std::string stage);
 
 	bool LoadStageInfo(std::string stage);
+
+	LivingObject* GetPlayer() { return player; }
 
 	void Update();
 
@@ -52,5 +55,7 @@ private:
 	void StageClear();
 
 	UI* hpBar = nullptr;
+
+	Elevator* excapeElevator = nullptr;
 };
 

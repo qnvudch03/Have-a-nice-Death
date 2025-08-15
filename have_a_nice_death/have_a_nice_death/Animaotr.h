@@ -36,11 +36,11 @@ public:
 	void StopAnim() { onPlay = false; }
 	void StartAnim() { onPlay = true; }
 
-	void SetReversePlay() { _isReverse = true; }
-	void SetCorrectPlay() { _isReverse = false; }
+	void SetReversePlay() { _isReverse = true; _animStackTimer = TextureNum - 1;}
+	void SetCorrectPlay() { _isReverse = false; _animStackTimer = 0;}
 
-	std::function<void()> onAnimEnd;
-	std::function<void()> onHitBoxSpawn;
+	std::function<void()> onAnimEnd = nullptr;
+	std::function<void()> onHitBoxSpawn = nullptr;
 
 	std::vector<Texture*>* GetAnimTextureVec() { return _animTextures; }
 

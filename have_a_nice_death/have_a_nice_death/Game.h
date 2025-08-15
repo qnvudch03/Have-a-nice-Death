@@ -62,7 +62,7 @@ private:
 	Scene* _currScene = nullptr;
 	std::function<void(Vector pos)> _onLeftMousecliked;
 
-	std::unordered_map<std::string, std::function<void()>> _actionMap;
+	std::map<std::string, std::function<void()>> _actionMap;
 
 	//게임상에서 UI로 작동할 모든 함수들
 

@@ -123,7 +123,7 @@ std::vector<Texture*>* SpriteManager::GetTextures(std::string UpperName, std::st
 
 }
 
-std::unordered_map<std::string, std::vector<Texture*>>* SpriteManager::GetTextureMap(std::string UpperName)
+std::map<std::string, std::vector<Texture*>>* SpriteManager::GetTextureMap(std::string UpperName)
 {
     if (!_textures.contains(UpperName))
         return nullptr;

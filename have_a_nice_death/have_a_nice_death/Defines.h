@@ -29,6 +29,7 @@ enum RenderLayer
 {
 	Background,
 	Platform,
+	InterActObject,
 	Character,
 	Effect,
 	Max

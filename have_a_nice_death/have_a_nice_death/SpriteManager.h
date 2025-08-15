@@ -24,7 +24,7 @@ public:
 
 	void LoadTexture(std::string name, std::wstring path, int32 countX = 1, int32 countY = 1);
 	std::vector<Texture*>* GetTextures(std::string UpperName, std::string MiddleName);
-	std::unordered_map<std::string, std::vector<Texture*>>* GetTextureMap(std::string UpperName);
+	std::map<std::string, std::vector<Texture*>>* GetTextureMap(std::string UpperName);
 
 	const SpriteInfo* GetSpriteInfo(std::string key);
 
@@ -32,8 +32,8 @@ public:
 
 private:
 	//std::unordered_map<std::string, Texture*> _textures;
-	std::unordered_map<std::string, SpriteInfo>	_spriteNames;
+	std::map<std::string, SpriteInfo>	_spriteNames;
 
-	std::map<std::string, std::unordered_map<std::string, std::vector<Texture*>>> _textures;
+	std::map<std::string, std::map<std::string, std::vector<Texture*>>> _textures;
 };
 
