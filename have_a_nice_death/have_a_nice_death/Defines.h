@@ -1,7 +1,7 @@
 #pragma once
 
 //  우리가 정의하는 공용 선언들.
-const int32 GWinSizeX = 1700;
+const int32 GWinSizeX = 1800;
 const int32 GWinSizeY = 800;
 
 #define SAFE_RELEASE(p) if(p) { p->Release(); p = nullptr; }

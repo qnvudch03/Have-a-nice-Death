@@ -36,7 +36,7 @@ private:
 	void SetReady(Object* obj);
 
 	GameScene* gameScene = nullptr;
-	std::string currentStage;
+	//std::string currentStage;
 
 	bool bIsStageReady = false;
 
@@ -49,6 +49,7 @@ private:
 
 	void StartStage();
 	void StartWave();
+	void StageClear();
 
 	UI* hpBar = nullptr;
 };

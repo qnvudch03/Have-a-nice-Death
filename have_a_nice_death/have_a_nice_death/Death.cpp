@@ -57,11 +57,6 @@ void Death::Destroy()
 
 void Death::OnAnimEnd()
 {
-	//TODO
-	//애니메이션이 끝났을 떄의 처리
-	//[땅에 있는 애니메이션이였다. -> Ideal]
-	// [공중에 있는 상태였다. -> falling]
-
 	if (state == EDeathStatepriority::State_Apear)
 	{
 		SETTRIPLE(true)
@@ -211,17 +206,6 @@ void Death::Hitted(HitBox* hitbox)
 		return;
 
 	Super::Hitted(hitbox);
-
-	SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
-	state = EDeathStatepriority::State_Hitted;
-
-	TimeManager::GetInstance()->AddTimer(Timer([this]()
-		{
-			DamagedAble = true;
-		},
-		0.7));
-
-	atkcombo = 0;
 
 }
 
@@ -431,6 +415,14 @@ void Death::UpdateState(KeyType Input)
 void Death::TakeDamage(float Damage)
 {
 	Super::TakeDamage(Damage);
+
+	if (IsActive)
+	{
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
+		state = EDeathStatepriority::State_Hitted;
+
+		atkcombo = 0;
+	}
 }
 
 bool Death::Attack()

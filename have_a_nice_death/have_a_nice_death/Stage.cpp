@@ -11,6 +11,7 @@
 #include "SmallGhost.h"
 #include "UIManager.h"
 #include "UI.h"
+#include "Elevator.h"
 
 #include <random>
 
@@ -281,8 +282,7 @@ void Stage::enemyDie()
 	//최소 1마리 이상은 몬스터가 있다는 전제에 코드
 	if (WaveCount == -1)
 	{
-		//클리어 게임
-		int temp = 0;
+		StageClear();
 	}
 
 }
@@ -335,5 +335,24 @@ void Stage::StartWave()
 		gameScene->LoadObject(stageLivingObjectVec[randomIndex]);
 
 		stageLivingObjectVec.erase(stageLivingObjectVec.begin() + randomIndex);
+	}
+}
+
+void Stage::StageClear()
+{
+	//탈출용 엘레베이터 소환
+	{
+		Vector elevatorPosition = Vector(GWinSizeX - 200, GWinSizeY - 140);
+
+		Elevator* elevator = new Elevator(SpriteManager::GetInstance()->GetTextures("Elevator", "open"), RenderLayer::Platform, elevatorPosition, ImageAnchor::Bottomcenter);
+
+		elevator->animator.onAnimEnd = [this, elevator]() {};
+
+		gameScene->LoadObject(elevator);
+	}
+
+	//오샤 소환
+	{
+
 	}
 }

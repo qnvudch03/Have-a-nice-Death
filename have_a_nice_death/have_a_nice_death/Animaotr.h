@@ -36,6 +36,9 @@ public:
 	void StopAnim() { onPlay = false; }
 	void StartAnim() { onPlay = true; }
 
+	void SetReversePlay() { _isReverse = true; }
+	void SetCorrectPlay() { _isReverse = false; }
+
 	std::function<void()> onAnimEnd;
 	std::function<void()> onHitBoxSpawn;
 
@@ -53,6 +56,7 @@ private:
 
 	Vector atkBoxPos;
 
+	bool _isReverse = false;
 	bool _IsLoop = true;
 	int32 _animSpeed = 0;
 	float _animStackTimer = 0;
