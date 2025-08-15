@@ -73,7 +73,7 @@ public:
 	virtual void OnAnimEnd() override;
 	virtual void OnHitBoxSpawn() override;
 
-	virtual void OnHitted(HitBox* hitbox) override;
+	virtual void Hitted(HitBox* hitbox) override;
 
 	virtual void UpdateState(KeyType Input) override;
 

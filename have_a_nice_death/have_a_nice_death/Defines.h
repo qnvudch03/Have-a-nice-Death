@@ -221,6 +221,7 @@ struct Vector
 struct ObjectStat
 {
 	float hp = 10;
+	float maxhp = 10;
 	float atk = 10;
 	float def = 5;
 	float attack_duration = 0;

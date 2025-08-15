@@ -23,6 +23,7 @@ public:
 	bool IsDbugMode = false;
 
 	std::unordered_set<Object*>* GetActors() { return &_actors; }
+	UI* GetUIByName(std::string name);
 
 protected:
 	virtual void loadResource() {}

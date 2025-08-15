@@ -22,8 +22,8 @@ void Death::Init()
 
 	isEffectGravity = false;
 
-	//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-	SetStat(ObjectStat(100, 20, 5, 0, 30, 10, 500));
+	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
+	SetStat(ObjectStat(100, 100, 20, 5, 0, 30, 10, 500));
 
 	CallElevator();
 }
@@ -205,12 +205,12 @@ void Death::OnHitBoxSpawn()
 	Game::GetInstance()->GetDebugLenderer()->ReservedHitBox(hitbox);
 }
 
-void Death::OnHitted(HitBox* hitbox)
+void Death::Hitted(HitBox* hitbox)
 {
 	if (!DamagedAble)
 		return;
 
-	Super::OnHitted(hitbox);
+	Super::Hitted(hitbox);
 
 	SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
 	state = EDeathStatepriority::State_Hitted;

@@ -67,7 +67,8 @@ public:
 
 	virtual void TakeDamage(float Damage);
 	bool DamagedAble = true;
-	virtual void OnHitted(HitBox* hitbox);
+	virtual void Hitted(HitBox* hitbox);
+	std::function<void()> OnHitted = nullptr;
 
 
 	//Active

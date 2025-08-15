@@ -178,11 +178,8 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	collider->Update();
 }
 
-void LivingObject::OnHitted(HitBox* hitbox)
+void LivingObject::Hitted(HitBox* hitbox)
 {
-	/*if (!DamagedAble)
-		return;*/
-
 	DamagedAble = false;
 	isCanMove = false;
 	isCanJump = false;
@@ -205,6 +202,11 @@ void LivingObject::OnHitted(HitBox* hitbox)
 	}
 
 	TakeDamage(hitbox->damage);
+
+	if (OnHitted != nullptr)
+	{
+		OnHitted();
+	}
 }
 
 void LivingObject::TakeDamage(float Damage)

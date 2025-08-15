@@ -202,7 +202,7 @@ void HitBoxManager::CheckCollision(HitBox* hitbox)
 
 		if (isColliding && character->DamagedAble)
 		{
-			character->OnHitted(hitbox);
+			character->Hitted(hitbox);
 		}
 
 	}

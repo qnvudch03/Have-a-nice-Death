@@ -148,6 +148,17 @@ void Scene::RemoveAllActor()
 	_actors.clear();*/
 }
 
+UI* Scene::GetUIByName(std::string name)
+{
+	for (auto& Iter : *SceneUI)
+	{
+		if (!Iter->_name.compare(name))
+			return Iter;
+
+	}
+	return nullptr;
+}
+
 void Scene::addActor(Object* actor)
 {
 	//actor->Init();

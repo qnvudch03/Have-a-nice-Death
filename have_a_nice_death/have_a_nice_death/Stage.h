@@ -4,6 +4,7 @@ class GameScene;
 class Object;
 class LivingObject;
 class StaticObject;
+class UI;
 
 class Stage
 {
@@ -48,5 +49,7 @@ private:
 
 	void StartStage();
 	void StartWave();
+
+	UI* hpBar = nullptr;
 };
 

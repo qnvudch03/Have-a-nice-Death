@@ -9,6 +9,8 @@
 #include "PlayerController.h"
 #include "AIController.h"
 #include "SmallGhost.h"
+#include "UIManager.h"
+#include "UI.h"
 
 #include <random>
 
@@ -18,18 +20,11 @@ using json = nlohmann::json;
 
 Stage::~Stage()
 {
+	hpBar = nullptr;
 }
 
 bool Stage::LoadStage(std::string stage)
 {
-	/*if (!stageObjectVec.empty())
-	{
-		for (auto Iter : stageObjectVec)
-		{
-			delete Iter;
-		}
-	}*/
-
 	if (!stageLivingObjectVec.empty())
 	{
 		for (auto Iter : stageLivingObjectVec)
@@ -49,6 +44,8 @@ bool Stage::LoadStage(std::string stage)
 
 	if (LoadStageInfo(stage) == false)
 		return false;
+
+	hpBar = gameScene->GetUIByName("HPbar_body");
 
 	return true;
 }
@@ -143,6 +140,7 @@ bool Stage::LoadStageInfo(std::string stage)
 				gameScene->BindController(playerController, livingObject);
 
 				livingObject->OnDie = [this]() {this->playerDie(); };
+				livingObject->OnHitted = [this]() {this->playerHitted(); };
 
 				//TODO
 				// 책도 나중에 붙여보자
@@ -255,7 +253,12 @@ void Stage::playerDie()
 
 void Stage::playerHitted()
 {
+	float currentHP = player->GetStat().hp;
+	float maxHP = player->GetStat().maxhp;
 
+	currentHP = (currentHP <= 0) ? 0 : currentHP;
+
+	hpBar->SetRatio(currentHP/ maxHP);
 }
 
 void Stage::enemyDie()

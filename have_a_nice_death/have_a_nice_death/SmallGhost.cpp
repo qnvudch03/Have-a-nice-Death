@@ -17,7 +17,7 @@ void SmallGhost::Init()
 	SETTRIPLE(false)
 
 		//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-		SetStat(ObjectStat(50, 10, 10, 0, 30, 10, 500));
+		SetStat(ObjectStat(50, 50, 10, 10, 0, 30, 10, 500));
 }
 
 void SmallGhost::Update(float deltaTime)
@@ -98,12 +98,12 @@ void SmallGhost::OnHitBoxSpawn()
 	hitBoxManager->AddAnimHitBox(animHitbox);
 }
 
-void SmallGhost::OnHitted(HitBox* hitbox)
+void SmallGhost::Hitted(HitBox* hitbox)
 {
 	if (!DamagedAble)
 		return;
 
-	Super::OnHitted(hitbox);
+	Super::Hitted(hitbox);
 }
 
 void SmallGhost::TakeDamage(float Damage)
