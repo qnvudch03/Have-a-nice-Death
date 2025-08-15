@@ -140,14 +140,16 @@ bool Stage::LoadStageInfo(std::string stage)
 
 				//컨트롤러 바인딩
 				PlayerController* playerController = new PlayerController();
-				//livingObject->SetController(playerController);
 				gameScene->BindController(playerController, livingObject);
+
+				livingObject->OnDie = [this]() {this->playerDie(); };
 
 				//TODO
 				// 책도 나중에 붙여보자
 				//livingObject->SetBook(new Book(livingObject));
 
 				player = livingObject;
+
 			}
 
 			else if (!owner.compare("AI"))
@@ -166,7 +168,7 @@ bool Stage::LoadStageInfo(std::string stage)
 				//livingObject->SetController(aiController);
 				gameScene->BindController(aiController, livingObject);
 
-				//SetReady(livingObject);
+				livingObject->OnDie = [this]() {this->enemyDie(); };
 
 				TotalEnemy++;
 			}
@@ -246,6 +248,42 @@ void Stage::SetReady(Object* obj)
 	obj->collider->DeActivateCollier();
 }
 
+void Stage::playerDie()
+{
+	//플레이어 사망시 처리할 부분
+}
+
+void Stage::playerHitted()
+{
+
+}
+
+void Stage::enemyDie()
+{
+	//적 사망시 처리해야 할 부분
+	MonsterCounter--;
+
+	if (MonsterCounter < 0)
+	{
+		int apple = 10;
+		return;
+	}
+
+	if (MonsterCounter == 0)
+	{
+		WaveCount++;
+		StartWave();
+	}
+
+	//최소 1마리 이상은 몬스터가 있다는 전제에 코드
+	if (WaveCount == -1)
+	{
+		//클리어 게임
+		int temp = 0;
+	}
+
+}
+
 void Stage::StartStage()
 {
 	//벽과 오브젝트 화면에 로딩
@@ -264,6 +302,7 @@ void Stage::StartStage()
 void Stage::StartWave()
 {
 	int EnemyNum = 0;
+	MonsterCounter = 0;
 
 	while (EnemyNum == 0)
 	{
@@ -282,6 +321,7 @@ void Stage::StartWave()
 	if (WaveCount > 2)
 		WaveCount = -1;
 
+	MonsterCounter = EnemyNum;
 
 	for (int i = 0; i < EnemyNum; i++)
 	{

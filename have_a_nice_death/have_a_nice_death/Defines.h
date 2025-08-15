@@ -21,6 +21,7 @@ enum UiType
 {
 	Image,
 	Button,
+	HP_Bar,
 	UiDefault
 };
 

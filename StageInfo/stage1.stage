@@ -10,8 +10,8 @@
       },
 	  {
         "owner": "AI",
-        "type": "SmallGhost",
-        "position": [900, 650]
+        "type": "Death",
+        "position": [800, 650]
       }
     ]
   },

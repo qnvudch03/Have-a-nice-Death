@@ -31,6 +31,8 @@ public:
 	void LoadObject(Object* obj);
 	void EraseFromGame(Object* obj);
 
+	Stage* GetStage() { return stageController; }
+
 	HitBoxManager* GetHitBoxManager() { return hitBoxManager; }
 
 	std::vector<Object*>* GetGameSceneObjectVec() { return &_gameSceneObjects; }

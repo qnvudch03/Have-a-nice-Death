@@ -32,6 +32,7 @@ public:
 	void SetController(Controller* controller) { _controller = controller; }
 
 	void Die();
+	std::function<void()> OnDie;
 
 	void ApplyEnvironment(float detaTime);
 	void AddAcceleration(Vector power)

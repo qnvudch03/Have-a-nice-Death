@@ -207,6 +207,9 @@ void Death::OnHitBoxSpawn()
 
 void Death::OnHitted(HitBox* hitbox)
 {
+	if (!DamagedAble)
+		return;
+
 	Super::OnHitted(hitbox);
 
 	SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
@@ -251,7 +254,8 @@ void Death::UpdateState(KeyType Input)
 
 		if (state == EDeathStatepriority::State_Dash || 
 			state == EDeathStatepriority::State_Hitted ||
-			state == EDeathStatepriority::State_Death)
+			state == EDeathStatepriority::State_Death ||
+			state == EDeathStatepriority::State_Apear)
 		{
 			DamagedAble = false;
 		}

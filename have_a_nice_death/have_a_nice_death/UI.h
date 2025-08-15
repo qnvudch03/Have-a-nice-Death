@@ -19,10 +19,13 @@ public:
 	bool IsOpen() const { return _isOpen; }
 	void SetOpen(bool open) { _isOpen = open; }
 
+	void SetRatio(float Ratio) { ratio = Ratio; }
+
 	std::string _name;
 
 protected:
 	bool _isOpen = true;
+	float ratio = 1;
 	Vector _pos = {};
 	Texture* _uiTexture = nullptr;
 

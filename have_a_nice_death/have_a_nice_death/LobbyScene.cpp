@@ -39,13 +39,6 @@ void Lobby::EraseScene()
 	{
 		delete Iter;
 	}
-
-	//현재 씬의 모든 UI를 비활성화
-	for (auto Iter : *SceneUI)
-	{
-		Iter->Close();
-	}
-
 }
 
 void Lobby::loadResource()

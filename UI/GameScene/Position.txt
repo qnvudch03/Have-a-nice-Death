@@ -1,1 +1,2 @@
-HPbar 0 0
+HPbar 30 30
+HPbar_body 30 30

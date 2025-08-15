@@ -39,6 +39,10 @@ private:
 
 	bool bIsStageReady = false;
 
+	void playerDie();
+	void playerHitted();
+
+	void enemyDie();
 
 	LivingObject* player = nullptr;
 

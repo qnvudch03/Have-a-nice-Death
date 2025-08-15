@@ -11,7 +11,7 @@ public:
 	virtual void Update(float deltatTime);
 	virtual void PostUpdate(float deltaTime);
 	virtual void Render(ID2D1RenderTarget* renderTarget);
-	virtual void EraseScene() {}
+	virtual void EraseScene();
 
 
 	// Actor Remove

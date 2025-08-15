@@ -12,7 +12,13 @@ public:
 
 	UIImage(std::string name, Texture* texture, Vector pos) : Super(name, texture, pos)
 	{
-		_UiType = UiType::Image;
+		if (!name.compare("HPbar_body"))
+		{
+			_UiType = UiType::HP_Bar;
+		}
+
+		else
+			_UiType = UiType::Image;
 	}
 
 	~UIImage();

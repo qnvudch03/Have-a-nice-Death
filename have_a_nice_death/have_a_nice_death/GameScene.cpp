@@ -9,6 +9,7 @@
 #include "PlayerController.h"
 #include "HitBoxManager.h"
 #include "AnimHitBox.h"
+#include "UIManager.h"
 
 void GameScene::Init()
 {
@@ -91,8 +92,7 @@ void GameScene::loadResource()
 
 void GameScene::loadUI()
 {
-	//TODO
-	//HPbar
+	SceneUI = UIManager::GetInstance()->GetSceneUI(this);
 }
 
 void GameScene::BindController(Controller* controller, LivingObject* ownerObject)

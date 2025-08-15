@@ -96,6 +96,9 @@ void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
 
 void LivingObject::Die()
 {
+	//스테이지에 자신의 사망을 알림(플레이어, Enemy 일떄의 처리가 다름)
+	OnDie();
+
 	Game::GetGameScene()->EraseFromGame(this);
 }
 
@@ -177,8 +180,8 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 
 void LivingObject::OnHitted(HitBox* hitbox)
 {
-	if (!DamagedAble)
-		return;
+	/*if (!DamagedAble)
+		return;*/
 
 	DamagedAble = false;
 	isCanMove = false;
