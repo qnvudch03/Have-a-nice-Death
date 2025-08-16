@@ -372,7 +372,7 @@ void Stage::StageClear()
 		Vector ContractorPosition = Vector(GWinSizeX * 0.5, GWinSizeY - 100);
 
 		Contractor* contractor = new Contractor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, ContractorPosition);
-		contractor->animator.SetAnimSpeed(20);
+		contractor->animator.SetAnimSpeed(15);
 		gameScene->LoadObject(contractor);
 
 	}
