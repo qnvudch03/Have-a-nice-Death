@@ -37,7 +37,6 @@ public:
 		state = contractorState::Appear;
 		SetAnimaotrTextures(&(*ownTextures)[ConvertContractorStateToString(state)], false);
 
-		readyToInteract = true;
 	}
 
 	virtual void DoInteract() override;

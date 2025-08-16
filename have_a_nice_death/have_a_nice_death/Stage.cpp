@@ -364,7 +364,11 @@ void Stage::StageClear()
 
 	//탈출용 엘레베이터 소환
 	{
-		Vector elevatorPosition = Vector(GWinSizeX - 200, GWinSizeY - 140);
+		Vector elevatorPosition = Vector(GWinSizeX - 200, GWinSizeY - 120);
+
+		excapeElevator = new InteractableElevator(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, elevatorPosition);
+		excapeElevator->animator.SetAnimSpeed(20);
+		gameScene->LoadObject(excapeElevator);
 	}
 
 	//오샤 소환

@@ -5,7 +5,7 @@ class Object;
 class LivingObject;
 class StaticObject;
 class UI;
-class Elevator;
+class InteractableElevator;
 
 class Stage
 {
@@ -56,6 +56,6 @@ private:
 
 	UI* hpBar = nullptr;
 
-	Elevator* excapeElevator = nullptr;
+	InteractableElevator* excapeElevator = nullptr;
 };
 

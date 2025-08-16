@@ -594,7 +594,7 @@ bool Death::IsCanJump(EDeathStatepriority state)
 void Death::CallElevator()
 {
 	Vector elevatorPosition = GetPos();
-	elevatorPosition.x -= 20;
+	elevatorPosition.x -= 0;
 	elevatorPosition.y += 10;
 
 	Elevator* elevator = new Elevator(SpriteManager::GetInstance()->GetTextures("Elevator", "open"), RenderLayer::Platform, elevatorPosition, ImageAnchor::Bottomcenter);

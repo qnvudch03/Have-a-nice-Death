@@ -7,6 +7,11 @@ class InteractableObject : public Object
 {
 	using Super = Object;
 
+	enum MyEnum
+	{
+
+	};
+
 public:
 	InteractableObject(RenderLayer rendertype, ImageAnchor drawanchor, Vector pos);
 	virtual void Update(float deltaTime) override;
@@ -19,5 +24,6 @@ protected:
 	bool readyToInteract = false;
 	bool activate = false;
 	LivingObject* player = nullptr;
+
 };
 
