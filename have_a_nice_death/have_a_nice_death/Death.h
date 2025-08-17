@@ -113,7 +113,7 @@ private:
 	float attackStackTimer = 0;
 
 	bool canUpAttack = true;
-	bool canAirAttack = false;
+	bool canAirAttack = true;
 
 	bool DashException();
 	void LookInputDir();

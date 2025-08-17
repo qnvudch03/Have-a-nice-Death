@@ -22,34 +22,37 @@ C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_
 C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\LivingObject.h(58,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(198,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(195,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(207,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(204,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(216,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(213,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(226,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(223,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(226,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(223,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(235,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(232,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(235,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(232,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(281,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(243,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(412,40): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(289,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(440,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(420,40): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(449,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
   have_a_nice_death.vcxproj -> C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\x64\Debug\have_a_nice_death.exe

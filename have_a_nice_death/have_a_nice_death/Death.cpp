@@ -73,7 +73,6 @@ void Death::OnAnimEnd()
 		if (!groundSensor->IsActive())
 		{
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
-			//canAirAttack = true;
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 			return;
@@ -113,8 +112,8 @@ void Death::OnAnimEnd()
 
 			if (state == EDeathStatepriority::State_IdleUTurn)
 			{
-				if (GetController()->GetInput() == KeyType::Left ||
-					GetController()->GetInput() == KeyType::Right)
+				if (GetController()->GetInput() == KeyType::KeepLeft ||
+					GetController()->GetInput() == KeyType::KeepRight)
 				{
 					animator.onPlay = true;
 					animator.ResetAnimTimer(10);
@@ -139,7 +138,6 @@ void Death::OnAnimEnd()
 		else if (state == EDeathStatepriority::State_AttackUp)
 		{
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
-			//canAirAttack = true;
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 
@@ -154,7 +152,6 @@ void Death::OnAnimEnd()
 		else if (state == EDeathStatepriority::State_AttackAir)
 		{
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
-			//canAirAttack = true;
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 
@@ -232,9 +229,18 @@ void Death::OnHitBoxSpawn()
 		hitBoxSize.x = 50;
 		hitBoxSize.y = 80;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 0.7, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 0.7, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		//AddForce(Vector(0, -1), 500);
 		velocity.y = -10;
+		break;
+
+	case Death::State_AttackAir:
+		colliderCenterPos.x += 270;
+
+		hitBoxSize.x = 200;
+		hitBoxSize.y = 150;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		break;
 
 	default:
@@ -252,6 +258,8 @@ void Death::Hitted(HitBox* hitbox)
 		return;
 
 	Super::Hitted(hitbox);
+
+	canUpAttack = true;
 
 }
 
@@ -417,6 +425,7 @@ void Death::UpdateState(KeyType Input)
 			state = EDeathStatepriority::State_Dash;
 			animator.SetAnimSpeed(10);
 
+			canAirAttack = true;
 			isEffectGravity = false;
 
 			DamagedAble = false;
@@ -593,14 +602,16 @@ bool Death::Attack()
 		if (!canAirAttack)
 			return false;
 
-		animator.ResetAnimTimer(5);
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 4);
+		animator.ResetAnimTimer(15);
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 3);
 		state = EDeathStatepriority::State_AttackAir;
 
 		velocity.x = 0;
 		velocity.y = 0;
 
-		//canAirAttack = false;
+		LookInputDir();
+
+		canAirAttack = false;
 		isEffectGravity = false;
 		isCanMove = false;
 
@@ -713,5 +724,5 @@ void Death::CallElevator()
 void Death::OnLanded()
 {
 	canUpAttack = true;
-	canAirAttack = false;
+	canAirAttack = true;
 }

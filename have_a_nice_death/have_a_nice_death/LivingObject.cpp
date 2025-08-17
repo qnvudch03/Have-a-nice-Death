@@ -194,6 +194,7 @@ void LivingObject::Hitted(HitBox* hitbox)
 			DamagedAble = true;
 			isCanMove = true;
 			isCanJump = true;
+			IsessentialAnim = false;
 		},
 		0.5));
 
