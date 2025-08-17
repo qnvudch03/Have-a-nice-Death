@@ -135,6 +135,14 @@ void Death::OnAnimEnd()
 			isEffectGravity = true;
 		}
 
+		else if (state == EDeathStatepriority::State_AttackUp)
+		{
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			state = EDeathStatepriority::State_JumptoFall;
+			animator.ResetAnimTimer(20);
+			return;
+		}
+
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Idle), true);
 		state = EDeathStatepriority::State_Idle;
 		animator.onPlay = true;
@@ -165,6 +173,7 @@ void Death::OnHitBoxSpawn()
 
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		break;
+
 	case Death::State_Attack2:
 		colliderCenterPos.y -= 45;
 
@@ -173,6 +182,7 @@ void Death::OnHitBoxSpawn()
 
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		break;
+
 	case Death::State_Attack3:
 		colliderCenterPos.y -= 85;
 
@@ -181,6 +191,7 @@ void Death::OnHitBoxSpawn()
 
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		break;
+
 	case Death::State_Attack4:
 		colliderCenterPos.x += 175 * forwordDirection;
 		colliderCenterPos.y -= 125;
@@ -189,6 +200,17 @@ void Death::OnHitBoxSpawn()
 		hitBoxSize.y = 190;
 
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.3, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		break;
+
+	case Death::State_AttackUp:
+		colliderCenterPos.y -= 270;
+
+		hitBoxSize.x = 50;
+		hitBoxSize.y = 80;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 0.7, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		//AddForce(Vector(0, -1), 500);
+		velocity.y = -10;
 		break;
 
 	default:
@@ -446,6 +468,17 @@ bool Death::Attack()
 	if (DashException())
 	{
 		atkcombo = 0;
+	}
+
+	if (state > EDeathStatepriority::State_Dash &&
+		GetController()->GetPastInputPressedY())
+	{
+		animator.ResetAnimTimer();
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackUp), false, 3); //첫번쨰 사진은 0 입니다.
+		state = EDeathStatepriority::State_AttackUp;
+		animator.SetAnimSpeed(20);
+
+		return true;
 	}
 	
 

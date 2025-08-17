@@ -61,7 +61,7 @@ public:
 
 	void SetBook(Book* Book) { book = Book; }
 
-	Vector AddForce(Vector dir, float Power);
+	void AddForce(Vector dir, float Power);
 
 	//Battle
 

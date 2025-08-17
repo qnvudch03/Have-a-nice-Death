@@ -10,7 +10,6 @@ void InteractableElevator::DoInteract()
 	readyToInteract = false;
 
 	//플레이어를 엘레베이터 위치로 이동
-	LivingObject* player = Game::GetInstance()->GetGameScene()->GetStage()->GetPlayer();
 
 	Vector playerPos = player->GetPos();
 

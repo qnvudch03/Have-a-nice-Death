@@ -2,6 +2,8 @@
 #include "Contractor.h"
 #include "Game.h"
 #include "GameScene.h"
+#include "Object.h"
+#include "LivingObject.h"
 
 void Contractor::DoInteract()
 {
@@ -12,6 +14,9 @@ void Contractor::DoInteract()
 
 	state = contractorState::DisAppear;
 	SetState(state, 15);
+
+	player->SetState("PowerUp", false);
+	player->animator.SetAnimSpeed(10);
 
 	readyToInteract = false;
 }

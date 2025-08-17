@@ -130,7 +130,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	else
 	{
 		if(isEffectGravity)
-			acceleration += AddForce(Vector(0, 1), gravityPower);
+			AddForce(Vector(0, 1), gravityPower);
 	}
 
 	if (isCanMove && !isTurning)
@@ -146,7 +146,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 				inPut.x = -1;
 			}*/
 
-		acceleration += AddForce(inPut, objectStat.moveForce);
+		AddForce(inPut, objectStat.moveForce);
 
 		//공중상태에서는 가속도를 살짝 낮추자
 		if (!groundSensor->IsActive())
@@ -158,7 +158,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 		if (currentInput == KeyType::SpaceBar)
 		{
 			if (groundSensor->IsActive())
-				acceleration += AddForce(Vector(0, -1), objectStat.jumpPower);
+				AddForce(Vector(0, -1), objectStat.jumpPower);
 		}
 		
 	}
@@ -222,7 +222,7 @@ void LivingObject::TakeDamage(float Damage)
 	}
 }
 
-Vector LivingObject::AddForce(Vector dir, float Power)
+void LivingObject::AddForce(Vector dir, float Power)
 {
-	return Vector(dir.x * Power, dir.y * Power);
+	acceleration += Vector(dir.x * Power, dir.y * Power);
 }

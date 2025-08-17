@@ -7,6 +7,7 @@ enum class KeyType
 	RightMouse = VK_RBUTTON,
 
 	Up = VK_UP,
+	KeepUp = '.',
 	Down = VK_DOWN,
 	KeepLeft = '-',
 	KeepRight = '*',

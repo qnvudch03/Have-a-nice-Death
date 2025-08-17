@@ -41,6 +41,15 @@ public:
 			return 0;
 	}
 
+	int GetPastInputPressedY()
+	{
+		if (pastInput == KeyType::KeepUp)
+			return 1;
+
+		else
+			return 0;
+	}
+
 	int GetInputDownX()
 	{
 		if (currentInput == KeyType::Right)

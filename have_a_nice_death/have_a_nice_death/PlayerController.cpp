@@ -35,6 +35,12 @@ void PlayerController::Update()
 
 	}
 
+	else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Up))
+	{
+		currentInput = KeyType::KeepUp;
+
+	}
+
 	//else if (InputManager::GetInstance()->GetButtonPressed(KeyType::Left) || InputManager::GetInstance()->GetButtonPressed(KeyType::Right))
 	//{
 	//	currentInput = KeyType::Move;
