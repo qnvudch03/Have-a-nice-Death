@@ -18,6 +18,7 @@ void InteractableElevator::DoInteract()
 
 	//플레이어 Apeear 애니메이션 뒤로 재생
 	player->SetState("Appear", false);
+	player->animator.SetAnimSpeed(25);
 	player->IsActive = false;
 
 	player->animator.SetReversePlay();
