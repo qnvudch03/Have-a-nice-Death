@@ -12,23 +12,26 @@ class Death : public LivingObject
 		State_Death = 0,
 		State_Hitted = 1,
 		State_Dash = 2,
-		State_AttackUp = 3,
-		State_JumptoLand = 4,
-		State_JumptoFall = 5,
-		State_JumpStart = 6,
-		State_Attack1 = 7,
-		State_Attack2 = 8,
-		State_Attack3 = 9,
-		State_Attack4 = 10,
+		
+		State_JumptoLand = 3,
+		State_JumptoFall = 4,
+		State_JumpStart = 5,
+		State_Attack1 = 6,
+		State_Attack2 = 7,
+		State_Attack3 = 8,
+		State_AttackUp = 9,
+		State_AttackAir = 10,
+		State_Attack4 = 11,
 
-		State_RunToIdle = 11,
-		State_RunToUturn = 12,
-		State_IdleToRun = 13,
-		State_IdleUTurn = 14,
-		State_Running = 15,
-		State_Idle = 16,
 
-		State_PowerUp = 17,
+		State_RunToIdle = 12,
+		State_RunToUturn = 13,
+		State_IdleToRun = 14,
+		State_IdleUTurn = 15,
+		State_Running = 16,
+		State_Idle = 17,
+
+		State_PowerUp = 18,
 
 		State_max
 	};
@@ -55,6 +58,7 @@ class Death : public LivingObject
 			case EDeathStatepriority::State_Idle:         return "Idle";
 			case EDeathStatepriority::State_AttackUp:     return "Attack_up";
 			case EDeathStatepriority::State_PowerUp:      return "PowerUp";
+			case EDeathStatepriority::State_AttackAir:    return "Attack_air";
 			case EDeathStatepriority::State_max:          return "max";
 			default: return "Unknown";
 		}
@@ -96,6 +100,8 @@ public:
 
 	void CallElevator();
 
+	virtual void OnLanded() override;
+
 private:
 	float deltatime = 0;
 
@@ -107,6 +113,7 @@ private:
 	float attackStackTimer = 0;
 
 	bool canUpAttack = true;
+	bool canAirAttack = false;
 
 	bool DashException();
 	void LookInputDir();

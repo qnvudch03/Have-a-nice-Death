@@ -123,8 +123,12 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	if (groundSensor->IsActive())
 	{
 		//속도가 아래 방향일 경우에만 적용
-		if(velocity.y > 0)
+		if (velocity.y > 0)
+		{
 			velocity.y = 0;
+			OnLanded();
+		}
+			
 	}
 
 	else

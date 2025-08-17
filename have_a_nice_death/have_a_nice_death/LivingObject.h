@@ -58,6 +58,7 @@ public:
 	float gravityPower = 9.8;
 
 	bool isGround = false;
+	virtual void OnLanded() {};
 
 	void SetBook(Book* Book) { book = Book; }
 

@@ -73,6 +73,7 @@ void Death::OnAnimEnd()
 		if (!groundSensor->IsActive())
 		{
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			//canAirAttack = true;
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 			return;
@@ -138,6 +139,7 @@ void Death::OnAnimEnd()
 		else if (state == EDeathStatepriority::State_AttackUp)
 		{
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			//canAirAttack = true;
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 
@@ -149,11 +151,27 @@ void Death::OnAnimEnd()
 			return;
 		}
 
+		else if (state == EDeathStatepriority::State_AttackAir)
+		{
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			//canAirAttack = true;
+			state = EDeathStatepriority::State_JumptoFall;
+			animator.ResetAnimTimer(20);
+
+			isEffectGravity = true;
+			isCanMove = true;
+
+			LookInputDir();
+
+			return;
+		}
+
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Idle), true);
 		state = EDeathStatepriority::State_Idle;
 		animator.onPlay = true;
 		animator.ResetAnimTimer();
 		LookInputDir();
+		atkcombo = 0;
 
 		DamagedAble = true;
 	}
@@ -494,78 +512,102 @@ bool Death::Attack()
 
 		return true;
 	}
+
+	if (groundSensor->IsActive())
+	{
+		
+		//1단
+		if (atkcombo == 0 &&
+			state > EDeathStatepriority::State_Dash &&
+			state != EDeathStatepriority::State_Attack1)
+		{
+			LookDir();
+
+			animator.ResetAnimTimer();
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false, 2); //첫번쨰 사진은 0 입니다.
+			state = EDeathStatepriority::State_Attack1;
+			animator.SetAnimSpeed(20);
+			atkcombo++;
+
+			return true;
+		}
+
+		//2단
+		else if (atkcombo == 1 &&
+			state == EDeathStatepriority::State_Attack1 &&
+			animator.AnimTextureIndex < animator.TextureNum - 1 &&
+			animator.AnimTextureIndex > 3)
+		{
+
+			LookDir();
+
+			animator.ResetAnimTimer();
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false, 1);
+			state = EDeathStatepriority::State_Attack2;
+			animator.SetAnimSpeed(20);
+
+			atkcombo++;
+
+			return true;
+		}
+
+		//3단
+		else if (atkcombo == 2 &&
+			state == EDeathStatepriority::State_Attack2 &&
+			animator.AnimTextureIndex <= animator.TextureNum &&
+			animator.AnimTextureIndex > 1)
+		{
+
+			LookDir();
+
+			animator.ResetAnimTimer();
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false, 1);
+			state = EDeathStatepriority::State_Attack3;
+			animator.SetAnimSpeed(10);
+
+			atkcombo++;
+
+			return true;
+		}
+
+		//4단
+		else if (atkcombo == 3 &&
+			state == EDeathStatepriority::State_Attack3 &&
+			animator.AnimTextureIndex > 2)
+		{
+			LookDir();
+
+			animator.ResetAnimTimer();
+			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false, 10);
+			state = EDeathStatepriority::State_Attack4;
+			animator.SetAnimSpeed(20);
+
+			atkcombo++;
+
+			return true;
+		}
+	}
+
+	else
+	{
+		if (!canAirAttack)
+			return false;
+
+		animator.ResetAnimTimer(5);
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 4);
+		state = EDeathStatepriority::State_AttackAir;
+
+		velocity.x = 0;
+		velocity.y = 0;
+
+		//canAirAttack = false;
+		isEffectGravity = false;
+		isCanMove = false;
+
+		return true;
+	}
+
 	
-
-	//1단
-	if (atkcombo == 0 &&
-		state > EDeathStatepriority::State_Dash &&
-		state != EDeathStatepriority::State_Attack1)
-	{
-		LookDir();
-
-		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false, 2); //첫번쨰 사진은 0 입니다.
-		state = EDeathStatepriority::State_Attack1;
-		animator.SetAnimSpeed(20);
-		atkcombo++;
-
-		return true;
-	}
-
-	//2단
-	else if (atkcombo == 1 &&
-		state == EDeathStatepriority::State_Attack1 &&
-		animator.AnimTextureIndex < animator.TextureNum - 1 &&
-		animator.AnimTextureIndex > 3)
-	{
-
-		LookDir();
-
-		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false, 1);
-		state = EDeathStatepriority::State_Attack2;
-		animator.SetAnimSpeed(20);
-
-		atkcombo++;
-
-		return true;
-	}
-
-	//3단
-	else if (atkcombo == 2 &&
-		state == EDeathStatepriority::State_Attack2 &&
-		animator.AnimTextureIndex <= animator.TextureNum &&
-		animator.AnimTextureIndex > 1)
-	{
-
-		LookDir();
-
-		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false, 1);
-		state = EDeathStatepriority::State_Attack3;
-		animator.SetAnimSpeed(10);
-
-		atkcombo++;
-
-		return true;
-	}
-
-	//4단
-	else if (atkcombo == 3 &&
-		state == EDeathStatepriority::State_Attack3 &&
-		animator.AnimTextureIndex > 2)
-	{
-		LookDir();
-
-		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false, 10);
-		state = EDeathStatepriority::State_Attack4;
-		animator.SetAnimSpeed(20);
-
-		atkcombo++;
-
-		return true;
-	}
 
 	return false;
 }
@@ -595,6 +637,7 @@ bool Death::DashException()
 	{
  		state = EDeathStatepriority::State_Idle;
 		isEffectGravity = true;
+		isCanMove = false;
 		return true;
 	}
 	return false;
@@ -665,4 +708,10 @@ void Death::CallElevator()
 	};
 
 	Game::GetInstance()->GetGameScene()->LoadObject(elevator);
+}
+
+void Death::OnLanded()
+{
+	canUpAttack = true;
+	canAirAttack = false;
 }
