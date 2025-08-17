@@ -135,6 +135,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 
 	if (isCanMove && !isTurning)
 	{
+
 		if (currentInput == KeyType::KeepLeft ||
 			currentInput == KeyType::KeepRight)
 		{
@@ -145,8 +146,8 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 			{
 				inPut.x = -1;
 			}*/
-
-		AddForce(inPut, objectStat.moveForce);
+		if(!IsessentialAnim)
+			AddForce(inPut, objectStat.moveForce);
 
 		//공중상태에서는 가속도를 살짝 낮추자
 		if (!groundSensor->IsActive())

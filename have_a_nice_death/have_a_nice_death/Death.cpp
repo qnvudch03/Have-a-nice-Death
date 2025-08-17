@@ -63,7 +63,7 @@ void Death::OnAnimEnd()
 		isEffectGravity = true;
 	}
 
-	if (!IsActive)
+	if (!IsActive && state == EDeathStatepriority::State_Death)
 	{
 		Die();
 	}
@@ -140,6 +140,12 @@ void Death::OnAnimEnd()
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
+
+			IsessentialAnim = false;
+			LookInputDir();
+
+			atkcombo = 0;
+
 			return;
 		}
 
@@ -233,7 +239,7 @@ void Death::Hitted(HitBox* hitbox)
 
 void Death::UpdateState(KeyType Input)
 {
-	if (!IsActive)
+	if (!IsActive || IsessentialAnim)
 		return;
 
 
@@ -471,12 +477,20 @@ bool Death::Attack()
 	}
 
 	if (state > EDeathStatepriority::State_Dash &&
-		GetController()->GetPastInputPressedY())
+		GetController()->GetPastInputPressedY() &&
+		canUpAttack)
 	{
 		animator.ResetAnimTimer();
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackUp), false, 3); //첫번쨰 사진은 0 입니다.
+		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackUp), false, 3);
+		velocity.y = 0;
+		velocity.x = 0;
+
+		IsessentialAnim = true;
+
 		state = EDeathStatepriority::State_AttackUp;
 		animator.SetAnimSpeed(20);
+
+		canUpAttack = false;
 
 		return true;
 	}

@@ -74,6 +74,9 @@ public:
 	//Active
 	bool IsActive = true;
 
+	//Anim
+	bool IsessentialAnim = false;
+
 
 	Controller* GetController() { return _controller; }
 

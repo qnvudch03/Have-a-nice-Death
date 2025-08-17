@@ -22,34 +22,86 @@ C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_
 C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\LivingObject.h(58,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(174,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(180,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(183,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(189,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(192,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(198,86): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(202,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(208,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(202,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(208,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(211,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(217,92): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(211,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(217,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(257,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(265,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(388,40): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(396,40): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
-C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(416,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Death.cpp(424,18): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
+  GameScene.cpp
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+      C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\LivingObject.h(58,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\GameScene.cpp(133,7): warning C4101: 'failed' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+  Stage.cpp
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+      C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\have_a_nice_death\LivingObject.h(58,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+  코드를 생성하고 있습니다...
   have_a_nice_death.vcxproj -> C:\Users\qnvud\OneDrive\Desktop\have a nice death\have_a_nice_death\x64\Debug\have_a_nice_death.exe

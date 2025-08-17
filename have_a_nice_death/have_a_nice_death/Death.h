@@ -106,6 +106,8 @@ private:
 	int atkcombo = 0;
 	float attackStackTimer = 0;
 
+	bool canUpAttack = true;
+
 	bool DashException();
 	void LookInputDir();
 
