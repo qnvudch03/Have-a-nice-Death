@@ -21,6 +21,7 @@ void Death::Init()
 	SETTRIPLE(false)
 
 	isEffectGravity = false;
+	dashTimer = dashCollTime;
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
 	SetStat(ObjectStat(100, 100, 20, 5, 0, 30, 10, 500));
@@ -48,6 +49,7 @@ void Death::Update(float deltaTime)
 
 	isCanJump = IsCanJump(state);
 
+	UpdateDashTimer(deltaTime);
 
 }
 
@@ -235,7 +237,7 @@ void Death::OnHitBoxSpawn()
 		break;
 
 	case Death::State_AttackAir:
-		colliderCenterPos.x += 270;
+		colliderCenterPos.x += 270 *forwordDirection;
 
 		hitBoxSize.x = 200;
 		hitBoxSize.y = 150;
@@ -427,8 +429,10 @@ void Death::UpdateState(KeyType Input)
 
 			canAirAttack = true;
 			isEffectGravity = false;
-
 			DamagedAble = false;
+
+			dashTimer = 0;
+
 		}
 
 		//공격 모션 중, 대쉬로 캔슬로인한 콤보 초기화
@@ -446,6 +450,7 @@ void Death::UpdateState(KeyType Input)
 		if (Attack())
 		{
 			//공격 모션 시, x 속도를 낮추자
+			LookInputDir();
 			velocity.x *= 0.7;
 		}
 	}
@@ -599,10 +604,12 @@ bool Death::Attack()
 
 	else
 	{
-		if (!canAirAttack)
+		if (!canAirAttack ||
+			state <= EDeathStatepriority::State_Dash)
 			return false;
 
-		animator.ResetAnimTimer(15);
+		LookDir();
+		animator.ResetAnimTimer(20);
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 3);
 		state = EDeathStatepriority::State_AttackAir;
 
@@ -627,6 +634,9 @@ int Death::CheckDashCondition()
 {
 	KeyType pastInput = GetController()->GetPastInput();
 
+	if (dashTimer != dashCollTime)
+		return 0;
+
 	if (pastInput == KeyType::KeepRight ||
 		pastInput == KeyType::Right)
 	{
@@ -640,6 +650,17 @@ int Death::CheckDashCondition()
 	}
 
 	return 0;
+}
+
+void Death::UpdateDashTimer(float deltatime)
+{
+	if (dashTimer < dashCollTime)
+	{
+		dashTimer += deltatime;
+	}
+
+	else
+		dashTimer = dashCollTime;
 }
 
 bool Death::DashException()
@@ -707,7 +728,7 @@ void Death::CallElevator()
 		if (elevator->callCount == 1)
 		{
 			OnDeathSpawn();
-			//elevator->SetAnimaotrTextures(SpriteManager::GetInstance()->GetTextures("Elevator", "close"), false);
+
 			elevator->animator.SetReversePlay();
 			elevator->animator.StartAnim();
 		}

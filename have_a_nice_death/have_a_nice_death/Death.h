@@ -112,13 +112,20 @@ private:
 	int atkcombo = 0;
 	float attackStackTimer = 0;
 
+
+	bool Attack();
+
 	bool canUpAttack = true;
 	bool canAirAttack = true;
+
+	//Movement
+	float dashCollTime = 1.5;
+	float dashTimer = 0;
+	void UpdateDashTimer(float deltatime);
 
 	bool DashException();
 	void LookInputDir();
 
-	bool Attack();
 
 	int CheckDashCondition();
 };
