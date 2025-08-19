@@ -191,7 +191,7 @@ void GameScene::SetUI_PlayGame()
 	GetUIByName("HPbar")->SetOpen(true);
 	GetUIByName("HPbar_body")->SetOpen(true);
 
-	GetUIByName("RewordBackGround")->SetOpen(false);
+	GetUIByName("ARewordBackGround")->SetOpen(false);
 
 	for (auto& button : Curse_List)
 	{
@@ -207,7 +207,7 @@ void GameScene::SetUI_SelectReword()
 	GetUIByName("HPbar")->SetOpen(false);
 	GetUIByName("HPbar_body")->SetOpen(false);
 
-	GetUIByName("RewordBackGround")->SetOpen(true);
+	GetUIByName("ARewordBackGround")->SetOpen(true);
 
 	std::random_device rd;
 	std::vector< UIButton*> Curses = Curse_List;
