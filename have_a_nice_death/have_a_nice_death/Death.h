@@ -100,6 +100,8 @@ public:
 
 	void CallElevator();
 
+	void FixDashCollTImeByRatio(float ratio) { dashCollTime *= ratio; }
+
 	virtual void OnLanded() override;
 
 private:

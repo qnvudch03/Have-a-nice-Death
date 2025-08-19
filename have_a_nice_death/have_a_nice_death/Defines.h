@@ -22,6 +22,8 @@ enum UiType
 	Image,
 	Button,
 	HP_Bar,
+	BackGround,
+	CurseCard,
 	UiDefault
 };
 

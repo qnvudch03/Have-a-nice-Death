@@ -18,30 +18,25 @@ void UIManager::Init(fs::path directory)
 
 }
 
-void UIManager::Update(Scene* scene)
-{
-	//현재 씬을 받아서, 거기에 있는 UI만 업데이트
-	std::string CurrentScene;
-
-	if (dynamic_cast<GameScene*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
-	{
-		CurrentScene = "GameScene";
-	}
-
-	else if (dynamic_cast<Lobby*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
-	{
-		CurrentScene = "RobbyScene";
-
-		//우선 지금은, 로비씽는 업데이트 할 필요가 없음
-		return;
-	}
-
-	for (auto& Iter : _gameUI[CurrentScene])
-	{
-		Iter->Update();
-	}
-
-}
+//void UIManager::Update(Scene* scene)
+//{
+//	//현재 씬을 받아서, 거기에 있는 UI만 업데이트
+//	std::string CurrentScene;
+//
+//	if (dynamic_cast<GameScene*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
+//	{
+//		CurrentScene = "GameScene";
+//	}
+//
+//	else if (dynamic_cast<Lobby*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
+//	{
+//		CurrentScene = "RobbyScene";
+//
+//		//우선 지금은, 로비씽는 업데이트 할 필요가 없음
+//		return;
+//	}
+//
+//}
 
 void UIManager::OnMouseButtonClicked(Vector pos)
 {
@@ -169,6 +164,15 @@ void UIManager::CreateUIVec(fs::path directory)
 					UIButton* btn = new UIButton(name, texture.second, uiPosition);
 					_gameUI[UpperName].push_back(btn);
 					_buttons.push_back(btn);
+				}
+
+				else if (name.find("BackGround") != std::string::npos)
+				{
+					UIImage* img = new UIImage(name, texture.second, uiPosition);
+					img->SetRatioX(20);
+					img->SetRatioY(8);
+					_gameUI[UpperName].push_back(img);
+					_images.push_back(img);
 				}
 
 				//그냥 평범한 이미지 일 경우

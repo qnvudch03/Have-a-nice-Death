@@ -10,6 +10,11 @@
 #include "HitBoxManager.h"
 #include "AnimHitBox.h"
 #include "UIManager.h"
+#include "UIButton.h"
+#include "UI.h"
+#include "TimeManager.h"
+
+#include <random>
 
 void GameScene::Init()
 {
@@ -19,6 +24,8 @@ void GameScene::Init()
 
 	hitBoxManager = new HitBoxManager();
 	hitBoxManager->Init();
+
+	MappingInGameFunction();
 
 	//대문자 주의
 	LoadStage("Stage1");
@@ -95,6 +102,23 @@ void GameScene::loadUI()
 	SceneUI = UIManager::GetInstance()->GetSceneUI(this);
 }
 
+void GameScene::MappingInGameFunction()
+{
+	_inGameActionMap.clear();
+
+	_inGameActionMap = {
+		{"BTN_CURSE_ACTIONSPEED",		[this]() { Curse_ActionSpeed(); }},
+		{"BTN_CURSE_ATK",				[this]() { Curse_Attack(); }},
+		{"BTN_CURSE_DASHCOOLTIME",		[this]() { Curse_DashCoolTime(); }},
+		{"BTN_CURSE_DEF",				[this]() { Curse_Deffense(); }},
+		{"BTN_CURSE_HEALING",			[this]() { Curse_Healing(); }}
+
+	};
+
+	BindingWithBtn();
+
+}
+
 void GameScene::BindController(Controller* controller, LivingObject* ownerObject)
 {
 	if (_gameControllerMap.find(controller) != _gameControllerMap.end())
@@ -158,4 +182,121 @@ void GameScene::EraseFromGame(Object* obj)
 		Iter++;
 	}
 
+}
+
+void GameScene::SetUI_PlayGame()
+{
+	StartObjectUpdate();
+
+	GetUIByName("HPbar")->SetOpen(true);
+	GetUIByName("HPbar_body")->SetOpen(true);
+
+	GetUIByName("RewordBackGround")->SetOpen(false);
+
+	for (auto& button : Curse_List)
+	{
+		button->SetOpen(false);
+	}
+
+}
+
+void GameScene::SetUI_SelectReword()
+{
+	StopObjectUpdate();
+
+	GetUIByName("HPbar")->SetOpen(false);
+	GetUIByName("HPbar_body")->SetOpen(false);
+
+	GetUIByName("RewordBackGround")->SetOpen(true);
+
+	std::random_device rd;
+	std::vector< UIButton*> Curses = Curse_List;
+
+
+	//Select Curse
+	for (int i = 0; i < 3; i++)
+	{
+		auto iter = Curses.begin();
+
+		int randomCurseIndex = rd() % Curses.size();
+		auto& selectedCurse = (*(iter + randomCurseIndex));
+		selectedCurse->SetOpen(true);
+		selectedCurse->SetTargetpos(Vector(200 + 500 * i, 50));
+		selectedCurse->SetCurrentpos(Vector(200 + 500 * i, 800));
+		selectedCurse->SetMoveDirection(Vector(0, -1));
+		Curses.erase(iter + randomCurseIndex);
+	}
+}
+
+void GameScene::BindingWithBtn()
+{
+	Curse_List.clear();
+
+	for (auto& btn : *SceneUI)
+	{
+		if (btn->_name.find("BTN_CURSE") == std::string::npos)
+			continue;
+
+		UIButton* buttonCurse = static_cast<UIButton*>(btn);
+
+		buttonCurse->_actionFunc = _inGameActionMap[btn->_name];
+		Curse_List.push_back(buttonCurse);
+	}
+}
+
+void GameScene::Curse_Attack()
+{
+	LivingObject* player = stageController->GetPlayer();
+	if (player == nullptr)
+		return;
+
+	player->SetStatByIndex(3, 5);
+
+	//0.5초 게임 재 시작
+	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
+}
+
+void GameScene::Curse_ActionSpeed()
+{
+	LivingObject* player = stageController->GetPlayer();
+	if (player == nullptr)
+		return;
+
+	player->actionSpeed *= 1.5;
+
+	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
+}
+
+void GameScene::Curse_DashCoolTime()
+{
+	Death* player = dynamic_cast<Death*>(stageController->GetPlayer());
+	if (player == nullptr)
+		return;
+
+	player->FixDashCollTImeByRatio(0.8);
+
+	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
+}
+
+void GameScene::Curse_Deffense()
+{
+	LivingObject* player = stageController->GetPlayer();
+	if (player == nullptr)
+		return;
+
+	player->SetStatByIndex(4, 2);
+
+	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
+}
+
+void GameScene::Curse_Healing()
+{
+	LivingObject* player = stageController->GetPlayer();
+	if (player == nullptr)
+		return;
+
+	player->SetStatByIndex(1, 30);
+	stageController->UpdateHPBar();
+
+	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
 }

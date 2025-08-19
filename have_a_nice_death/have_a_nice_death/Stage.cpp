@@ -50,6 +50,8 @@ bool Stage::LoadStage(std::string stage)
 
 	hpBar = gameScene->GetUIByName("HPbar_body");
 
+	gameScene->SetUI_PlayGame();
+
 	return true;
 }
 
@@ -63,6 +65,16 @@ void Stage::Update()
 		bIsStageReady = true;
 		StartStage();
 	}
+}
+
+void Stage::UpdateHPBar()
+{
+	float currentHP = player->GetStat().hp;
+	float maxHP = player->GetStat().maxhp;
+
+	currentHP = (currentHP <= 0) ? 0 : currentHP;
+
+	hpBar->SetRatioX(currentHP / maxHP);
 }
 
 bool Stage::LoadStageInfo(std::string stage)
@@ -241,13 +253,13 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 	return livingObject;
 }
 
-void Stage::SetReady(Object* obj)
-{
-	obj->animator.SetAnimSpeed(0);
-	obj->animator.SetAnimLoop(false);
-	obj->animator.StopAnim();
-	obj->collider->DeActivateCollier();
-}
+//void Stage::SetReady(Object* obj)
+//{
+//	obj->animator.SetAnimSpeed(0);
+//	obj->animator.SetAnimLoop(false);
+//	obj->animator.StopAnim();
+//	obj->collider->DeActivateCollier();
+//}
 
 void Stage::playerDie()
 {
@@ -256,12 +268,7 @@ void Stage::playerDie()
 
 void Stage::playerHitted()
 {
-	float currentHP = player->GetStat().hp;
-	float maxHP = player->GetStat().maxhp;
-
-	currentHP = (currentHP <= 0) ? 0 : currentHP;
-
-	hpBar->SetRatio(currentHP/ maxHP);
+	UpdateHPBar();
 }
 
 void Stage::enemyDie()

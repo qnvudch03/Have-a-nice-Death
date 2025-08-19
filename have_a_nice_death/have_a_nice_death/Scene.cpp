@@ -41,9 +41,17 @@ void Scene::Destroy()
 
 void Scene::Update(float deltatTime)
 {
-	for (auto actor : _actors)
+	if (canObjectUpdate)
 	{
-		actor->Update(deltatTime);
+		for (auto actor : _actors)
+		{
+			actor->Update(deltatTime);
+		}
+	}
+
+	for (auto& ui : *SceneUI)
+	{
+		ui->Update(deltatTime);
 	}
 
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
@@ -105,6 +113,9 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 
 	for (auto& ui : *SceneUI)
 	{
+		if (!ui->IsOpen())
+			continue;
+
 		ui->Render(renderTarget);
 	}
 

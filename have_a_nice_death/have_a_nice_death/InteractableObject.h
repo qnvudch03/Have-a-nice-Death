@@ -2,6 +2,7 @@
 #include "Object.h"
 
 class LivingObject;
+class GameScene;
 
 class InteractableObject : public Object
 {
@@ -24,6 +25,7 @@ protected:
 	bool readyToInteract = false;
 	bool activate = false;
 	LivingObject* player = nullptr;
+	GameScene* gameScene = nullptr;
 
 };
 

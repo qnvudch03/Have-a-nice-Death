@@ -12,11 +12,13 @@ public:
 
 	// 해당 리소스가 그려지는 부분
 	void Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false);
-	void RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, float ratio, ImageAnchor drawAnchor = ImageAnchor::Topleft);
+	void RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, Vector ratio, ImageAnchor drawAnchor = ImageAnchor::Topleft);
 
 	void SetDrawBound(bool drawbound) { drawBound = drawbound; }
 
 	void SetRenderedPosition(int32 x, int32 y) { _renderingOffsetX = x; _renderingOffsetY = y; }
+
+	void ReSizeTexture(Vector size) { _textureSizeX = size.x; _textureSizeY = size.y; }
 
 private:
 	// 텍스처를 그리기위한 변수

@@ -17,14 +17,22 @@ public:
 			_UiType = UiType::HP_Bar;
 		}
 
+		else if (name.find("BackGround") != std::string::npos)
+		{
+			_UiType = UiType::BackGround;
+		}
+
 		else
 			_UiType = UiType::Image;
+
+		_targetPos = pos;
+		_currentPos = _targetPos;
 	}
 
 	~UIImage();
 
 	virtual void Init() override;
-	virtual void Update() override;
+	virtual void Update(float deltatime) override;
 	virtual void Render(ID2D1RenderTarget* renderTarget) override;
 };
 

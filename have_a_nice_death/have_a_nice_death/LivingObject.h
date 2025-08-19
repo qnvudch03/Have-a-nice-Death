@@ -42,6 +42,7 @@ public:
 
 	ObjectStat GetStat() { return objectStat; }
 	void SetStat(ObjectStat stat) { objectStat = stat; }
+	void SetStatByIndex(int index, float amount);
 
 	//bool checkCollision(LivingObject* object, Vector start, Vector end);
 
@@ -52,6 +53,8 @@ public:
 	bool isCanJump = false;
 	bool isTurning = false;
 	bool isEffectGravity = true;
+
+	float actionSpeed = 1.0;
 
 	Vector velocity;
 	Vector acceleration;
@@ -127,10 +130,10 @@ private:
 
 	Controller* _controller = nullptr;
 
-	ObjectStat objectStat;
-
 	Sensor** SensorArray[3] = { &groundSensor , &wallSensor, &cornerSensor };
 
 	Book* book = nullptr;
+
+	ObjectStat objectStat;
 };
 

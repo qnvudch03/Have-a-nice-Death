@@ -146,12 +146,11 @@ void Game::MappingFunctions()
 	_actionMap = {
 		{"BTN_Play",  [this]() { PlayGame(); }},
 		{"BTN_Edit",  [this]() { EditGame(); }},
-		{"BTN_Exit",  [this]() { ExitGame(); }},
-		{"BTN_Curse", [this]() { SelectCurse(); }}
+		{"BTN_Exit",  [this]() { ExitGame(); }}
 	};
 }
 
-std::function<void()> Game::BindingActionByName(std::string actionName)
+std::function<void()> Game::BindGameActionByName(std::string actionName)
 {
 	if (_actionMap.find(actionName) == _actionMap.end())
 		return nullptr;
@@ -194,9 +193,9 @@ void Game::ExitGame()
 {
 }
 
-void Game::SelectCurse()
-{
-}
+//void Game::SelectCurse()
+//{
+//}
 
 //void Game::InitDirectWrite()
 //{

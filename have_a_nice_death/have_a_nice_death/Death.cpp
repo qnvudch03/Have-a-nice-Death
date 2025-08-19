@@ -425,7 +425,7 @@ void Death::UpdateState(KeyType Input)
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;
-			animator.SetAnimSpeed(10);
+			animator.SetAnimSpeed(10 * actionSpeed);
 
 			canAirAttack = true;
 			isEffectGravity = false;
@@ -512,7 +512,7 @@ bool Death::Attack()
 		GetController()->GetPastInputPressedY() &&
 		canUpAttack)
 	{
-		animator.ResetAnimTimer();
+		animator.ResetAnimTimer(30 * actionSpeed);
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackUp), false, 3);
 		velocity.y = 0;
 		velocity.x = 0;
@@ -540,7 +540,7 @@ bool Death::Attack()
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false, 2); //첫번쨰 사진은 0 입니다.
 			state = EDeathStatepriority::State_Attack1;
-			animator.SetAnimSpeed(20);
+			animator.SetAnimSpeed(20 * actionSpeed);
 			atkcombo++;
 
 			return true;
@@ -558,7 +558,7 @@ bool Death::Attack()
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false, 1);
 			state = EDeathStatepriority::State_Attack2;
-			animator.SetAnimSpeed(20);
+			animator.SetAnimSpeed(20 * actionSpeed);
 
 			atkcombo++;
 
@@ -577,7 +577,7 @@ bool Death::Attack()
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false, 1);
 			state = EDeathStatepriority::State_Attack3;
-			animator.SetAnimSpeed(10);
+			animator.SetAnimSpeed(10 * actionSpeed);
 
 			atkcombo++;
 
@@ -594,7 +594,7 @@ bool Death::Attack()
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false, 10);
 			state = EDeathStatepriority::State_Attack4;
-			animator.SetAnimSpeed(20);
+			animator.SetAnimSpeed(20 * actionSpeed);
 
 			atkcombo++;
 
@@ -609,7 +609,7 @@ bool Death::Attack()
 			return false;
 
 		LookDir();
-		animator.ResetAnimTimer(20);
+		animator.ResetAnimTimer(20 * actionSpeed);
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 3);
 		state = EDeathStatepriority::State_AttackAir;
 

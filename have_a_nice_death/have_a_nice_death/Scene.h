@@ -22,6 +22,9 @@ public:
 
 	bool IsDbugMode = false;
 
+	void StopObjectUpdate() { canObjectUpdate = false; }
+	void StartObjectUpdate() { canObjectUpdate = true; }
+
 	std::unordered_set<Object*>* GetActors() { return &_actors; }
 	UI* GetUIByName(std::string name);
 
@@ -32,6 +35,8 @@ protected:
 private:
 	void addActor(Object* actor);
 	void removeActor(Object* actor);
+
+	bool canObjectUpdate = true;
 
 protected:
 

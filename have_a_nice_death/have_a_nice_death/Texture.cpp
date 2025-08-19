@@ -112,13 +112,13 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 	}
 }
 
-void Texture::RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, float ratio, ImageAnchor drawAnchor)
+void Texture::RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, Vector ratio, ImageAnchor drawAnchor)
 {
 	if (_bitmap->GetBitmap() == nullptr)
 		return;
 
-	if (ratio < 0.0f) ratio = 0.0f;
-	if (ratio > 1.0f) ratio = 1.0f;
+	if (ratio.x < 0.0f) ratio.x = 0.0f;
+	if (ratio.y < 0.0f) ratio.y = 0.0f;
 
 	float fullWidth = static_cast<float>(_bitmap->GetBitmapSize().Width);
 	float fullHeight = static_cast<float>(_bitmap->GetBitmapSize().Height);
@@ -135,8 +135,8 @@ void Texture::RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, float rat
 
 	if (drawAnchor == ImageAnchor::Center)
 	{
-		float halfX = (fullWidth * ratio )/ 2;
-		float halfY = fullHeight / 2;
+		float halfX = (fullWidth * ratio.x )/ 2;
+		float halfY = (fullHeight * ratio.y) / 2;
 
 		destLeft = D2D1::RectF(
 			pos.x - halfX - _renderingOffsetX,
@@ -147,8 +147,8 @@ void Texture::RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, float rat
 
 	else if (drawAnchor == ImageAnchor::Bottomcenter)
 	{
-		float halfX = (fullWidth * ratio) / 2;
-		float halfY = fullHeight / 2;
+		float halfX = (fullWidth * ratio.x) / 2;
+		float halfY = (fullHeight * ratio.y) / 2;
 
 		destLeft = D2D1::RectF(
 			pos.x - halfX - _renderingOffsetX,
@@ -162,15 +162,15 @@ void Texture::RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, float rat
 		destLeft = D2D1::RectF(
 			pos.x,
 			pos.y,
-			pos.x + (fullWidth * ratio),
-			pos.y + fullHeight);
+			pos.x + (fullWidth * ratio.x),
+			pos.y + fullHeight * ratio.y);
 	}
 
 	else if (drawAnchor == ImageAnchor::Bottomright)
 	{
 		destLeft = D2D1::RectF(
-			pos.x - fullWidth * ratio,
-			pos.y - fullHeight,
+			pos.x - fullWidth * ratio.x,
+			pos.y - fullHeight * ratio.y,
 			pos.x,
 			pos.y);
 	}

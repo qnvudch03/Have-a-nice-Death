@@ -21,7 +21,7 @@ public:
 	static Scene* GetScene();
 	static class GameScene* GetGameScene();
 
-	std::function<void()> BindingActionByName(std::string actionName);
+	std::function<void()> BindGameActionByName(std::string actionName);
 
 	Scene* GetCurrentScence() { return _currScene; }
 
@@ -71,7 +71,7 @@ private:
 	void ExitGame();
 
 	//이거는 게임씬에있는 함수랑 연결시켜 보는게 어떨까?
-	void SelectCurse();
+	//void SelectCurse();
 
 	DebugLenderer* debugLenderer = nullptr;
 };

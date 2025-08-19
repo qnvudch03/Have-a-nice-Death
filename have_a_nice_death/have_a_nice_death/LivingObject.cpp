@@ -183,6 +183,29 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	collider->Update();
 }
 
+void LivingObject::SetStatByIndex(int index, float amount)
+{
+	switch (index)
+	{
+	case 1:	objectStat.hp += amount;
+		if (objectStat.hp > objectStat.maxhp)
+		{
+			objectStat.hp = objectStat.maxhp;
+		}
+
+		return;
+
+	case 2:	objectStat.maxhp += amount;				return;
+	case 3:	objectStat.atk += amount;				return;
+	case 4:	objectStat.def += amount;				return;
+	case 5:	objectStat.attack_duration += amount;	return;
+	case 6:	objectStat.attack_range += amount;		return;
+	case 7:	objectStat.moveForce += amount;			return;
+	case 8:	objectStat.jumpPower += amount;			return;
+	default:										return;
+	}
+}
+
 void LivingObject::Hitted(HitBox* hitbox)
 {
 	DamagedAble = false;

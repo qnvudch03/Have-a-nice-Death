@@ -10,7 +10,9 @@ InteractableObject::InteractableObject(RenderLayer rendertype, ImageAnchor drawa
 {
 	SetPos(Pos);
 
-	player = Game::GetGameScene()->GetStage()->GetPlayer();
+	gameScene = Game::GetGameScene();
+	player = gameScene->GetStage()->GetPlayer();
+
 
 	animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
 }

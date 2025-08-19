@@ -20,6 +20,7 @@ public:
 	LivingObject* GetPlayer() { return player; }
 
 	void Update();
+	void UpdateHPBar();
 
 private:
 
@@ -36,7 +37,7 @@ private:
 
 	LivingObject* MakeCharacter(std::string type, Vector pos = Vector(0,0));
 
-	void SetReady(Object* obj);
+	//void SetReady(Object* obj);
 
 	GameScene* gameScene = nullptr;
 	//std::string currentStage;

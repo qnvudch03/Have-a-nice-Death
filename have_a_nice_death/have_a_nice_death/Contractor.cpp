@@ -7,10 +7,10 @@
 
 void Contractor::DoInteract()
 {
-	//Do
-	//UIÃ¢ ¶ç¿ì±â
 	if (!readyToInteract)
 		return;
+
+	gameScene->SetUI_SelectReword();
 
 	state = contractorState::DisAppear;
 	SetState(state, 15);

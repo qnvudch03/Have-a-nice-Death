@@ -97,4 +97,9 @@ void Lobby::loadUI()
 {
 	//LobbySceneUI = UIManager::GetInstance()->GetSceneUI(this);
 	SceneUI = UIManager::GetInstance()->GetSceneUI(this);
+
+	for (auto& lobbyUI : *SceneUI)
+	{
+		lobbyUI->SetOpen(true);
+	}
 }

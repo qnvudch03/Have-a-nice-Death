@@ -1,2 +1,3 @@
 HPbar 30 30
 HPbar_body 30 30
+RewordBackGround 0 0

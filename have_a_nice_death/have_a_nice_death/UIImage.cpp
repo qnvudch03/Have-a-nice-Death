@@ -10,8 +10,9 @@ void UIImage::Init()
 {
 }
 
-void UIImage::Update()
+void UIImage::Update(float deltatime)
 {
+	Super::Update(deltatime);
 }
 
 void UIImage::Render(ID2D1RenderTarget* renderTarget)

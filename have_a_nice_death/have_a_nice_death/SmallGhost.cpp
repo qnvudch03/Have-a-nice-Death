@@ -63,7 +63,7 @@ void SmallGhost::OnAnimEnd()
 
 	SetState("Idle", true);
 	state = ESmallGhostStatepriority::State_Idle;
-	animator.SetAnimSpeed(10);
+	animator.SetAnimSpeed(10 * actionSpeed);
 }
 
 void SmallGhost::OnHitBoxSpawn()

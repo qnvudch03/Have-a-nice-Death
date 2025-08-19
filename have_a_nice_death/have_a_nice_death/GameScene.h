@@ -8,6 +8,7 @@ class PlayerController;
 class AIController;
 class LivingObject;
 class HitBoxManager;
+class UIButton;
 
 class GameScene : public Scene
 {
@@ -25,11 +26,15 @@ public:
 	virtual void loadResource() override;
 	virtual void loadUI() override;
 
+	void MappingInGameFunction();
 	void BindController(Controller* controller, LivingObject* ownerObject);
 	void ChangeControllerOwner(Controller* controller, LivingObject* newownerObject);
 	void LoadStage(std::string stage);
 	void LoadObject(Object* obj);
 	void EraseFromGame(Object* obj);
+
+	void SetUI_PlayGame();
+	void SetUI_SelectReword();
 
 	Stage* GetStage() { return stageController; }
 
@@ -50,6 +55,17 @@ private:
 
 	Stage* stageController = nullptr;
 	HitBoxManager* hitBoxManager = nullptr;
-	//std::vector<Object*> _gameSceneObjects;
+
+	//인게임 액션 맵
+	std::map<std::string, std::function<void()>> _inGameActionMap;
+	void BindingWithBtn();
+
+	void Curse_Attack();
+	void Curse_ActionSpeed();
+	void Curse_DashCoolTime();
+	void Curse_Deffense();
+	void Curse_Healing();
+
+	std::vector< UIButton*> Curse_List;
 };
 
