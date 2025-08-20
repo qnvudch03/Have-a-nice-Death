@@ -483,9 +483,15 @@ void Death::TakeDamage(float Damage)
 	if (IsActive)
 	{
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
+		animator.SetAnimSpeed(20);
 		state = EDeathStatepriority::State_Hitted;
 
 		atkcombo = 0;
+	}
+
+	else 
+	{
+		state = EDeathStatepriority::State_Death;
 	}
 }
 

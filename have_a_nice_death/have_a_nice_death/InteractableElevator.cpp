@@ -4,6 +4,8 @@
 #include "GameScene.h"
 #include "Stage.h"
 #include "LivingObject.h"
+#include "TimeManager.h"
+#include "Contractor.h"
 
 void InteractableElevator::DoInteract()
 {
@@ -26,9 +28,12 @@ void InteractableElevator::DoInteract()
 		this->ReadyToMove();
 		};
 
-	//뒷 애님 종료 후, 엘레베이터 아래로
+	auto contracot = gameScene->GetStage()->GetContractor();
 
-	//엘레베이터 애님 종료 후, 레벨 로드
+	if (contracot->GetReadyToInteract() == true)
+	{
+		contracot->RemoteDisApear();
+	}
 
 }
 
@@ -41,9 +46,17 @@ void InteractableElevator::OnAnimEnd()
 
 	else if (state == ElevatorState::State_close)
 	{
-		Game::GetInstance()->GetGameScene()->EraseFromGame(this);
+		//Game::GetInstance()->GetGameScene()->EraseFromGame(this);
+		gameScene->EraseFromGame(this);
+		gameScene->SavePlayData();
 
 		//메세지 로드, 종료 처리하자
+		TimeManager::GetInstance()->AddTimer(Timer([this]() 
+			{
+				Game::GetInstance()->GetGameScene()->GoNextStage();
+			}
+		, 0.5));
+		
 	}
 	
 }
@@ -61,5 +74,5 @@ void InteractableElevator::ReadyToMove()
 	animator.SetReversePlay();
 	animator.StartAnim();
 
-	state == ElevatorState::State_close;
+	state = ElevatorState::State_close;
 }

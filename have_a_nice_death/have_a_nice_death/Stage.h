@@ -6,6 +6,7 @@ class LivingObject;
 class StaticObject;
 class UI;
 class InteractableElevator;
+class Contractor;
 
 class Stage
 {
@@ -17,7 +18,12 @@ public:
 
 	bool LoadStageInfo(std::string stage);
 
+	void ApplyPlayerData(std::map<std::string, float>& playerSaveParam);
+	void SetPlayerData(std::map<std::string, float>& playerSaveParam);
+
 	LivingObject* GetPlayer() { return player; }
+	InteractableElevator* GetElevator() { return excapeElevator; }
+	Contractor* GetContractor() { return contractor; }
 
 	void Update();
 	void UpdateHPBar();
@@ -58,5 +64,6 @@ private:
 	UI* hpBar = nullptr;
 
 	InteractableElevator* excapeElevator = nullptr;
+	Contractor* contractor = nullptr;
 };
 

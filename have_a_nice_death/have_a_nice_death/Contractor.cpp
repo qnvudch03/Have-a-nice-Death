@@ -69,6 +69,14 @@ void Contractor::SetDebugMode(bool debugmode)
 	}
 }
 
+void Contractor::RemoteDisApear()
+{
+	state = contractorState::DisAppear;
+	SetState(state, 15);
+
+	readyToInteract = false;
+}
+
 void Contractor::SetState(contractorState state, float animSpeed)
 {
 	animator.ResetAnimTimer(animSpeed);

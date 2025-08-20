@@ -127,8 +127,11 @@ void SmallGhost::TakeDamage(float Damage)
 			SetState("Hitted1", false);
 			state = ESmallGhostStatepriority::State_Hitted1;
 		}
+	}
 
-
+	else
+	{
+		state = ESmallGhostStatepriority::State_Death;
 	}
 }
 

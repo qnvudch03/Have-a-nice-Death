@@ -12,7 +12,6 @@
 #include "UIManager.h"
 #include "UI.h"
 #include "InteractableElevator.h"
-//#include "Elevator.h"
 #include "Contractor.h"
 
 #include <random>
@@ -24,31 +23,27 @@ using json = nlohmann::json;
 Stage::~Stage()
 {
 	hpBar = nullptr;
+
+	for (auto& preloadObject : stagePreloadObjectVec)
+	{
+		gameScene->EraseFromGame(preloadObject);
+	}
 }
 
 bool Stage::LoadStage(std::string stage)
 {
-	if (!stageLivingObjectVec.empty())
-	{
-		for (auto Iter : stageLivingObjectVec)
-		{
-			delete Iter;
-		}
-	}
-
-	if (!stageStaticObjectVec.empty())
-	{
-		for (auto Iter : stageStaticObjectVec)
-		{
-			delete Iter;
-		}
-	}
-
+	stageLivingObjectVec.clear();
+	stageStaticObjectVec.clear();
 
 	if (LoadStageInfo(stage) == false)
 		return false;
 
+
+
 	hpBar = gameScene->GetUIByName("HPbar_body");
+
+	UpdateHPBar();
+
 
 	gameScene->SetUI_PlayGame();
 
@@ -224,6 +219,40 @@ bool Stage::LoadStageInfo(std::string stage)
 	return true;
 }
 
+void Stage::ApplyPlayerData(std::map<std::string, float>& playerSaveParam)
+{
+	if (player == nullptr)
+		return;
+
+	Death* death = static_cast<Death*>(player);
+
+	playerSaveParam["currentHP"] = player->GetStat().hp;
+	playerSaveParam["defBonus"] = player->GetStat().def;
+	playerSaveParam["atkBonus"] = player->GetStat().atk;
+	playerSaveParam["actionSpeed"] = player->actionSpeed;
+
+	if (death != nullptr)
+	{
+		playerSaveParam["dashCollTime"] = death->GetDashCollTime();
+	}
+
+}
+
+void Stage::SetPlayerData(std::map<std::string, float>& playerSaveParam)
+{
+	Death* death = static_cast<Death*>(player);
+
+	player->SetStatByIndex(1, playerSaveParam["currentHP"]);
+	player->SetStatByIndex(3, playerSaveParam["atkBonus"]);
+	player->SetStatByIndex(4, playerSaveParam["defBonus"]);
+	player->actionSpeed = playerSaveParam["actionSpeed"];
+
+	if (death != nullptr)
+	{
+		death->SetDashCollTime(playerSaveParam["dashCollTime"]);
+	}
+}
+
 std::vector<int> Stage::divideIntoThree(int totalEnemy)
 {
 	int part1 = totalEnemy / 3;
@@ -382,7 +411,7 @@ void Stage::StageClear()
 	{
 		Vector ContractorPosition = Vector(GWinSizeX * 0.5, GWinSizeY - 100);
 
-		Contractor* contractor = new Contractor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, ContractorPosition);
+		contractor = new Contractor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, ContractorPosition);
 		contractor->animator.SetAnimSpeed(15);
 		gameScene->LoadObject(contractor);
 

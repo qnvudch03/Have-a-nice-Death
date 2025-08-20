@@ -183,7 +183,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	collider->Update();
 }
 
-void LivingObject::SetStatByIndex(int index, float amount)
+void LivingObject::AddStatByIndex(int index, float amount)
 {
 	switch (index)
 	{
@@ -191,6 +191,11 @@ void LivingObject::SetStatByIndex(int index, float amount)
 		if (objectStat.hp > objectStat.maxhp)
 		{
 			objectStat.hp = objectStat.maxhp;
+		}
+
+		if (objectStat.hp < 0)
+		{
+			objectStat.hp = 0;
 		}
 
 		return;
@@ -202,6 +207,22 @@ void LivingObject::SetStatByIndex(int index, float amount)
 	case 6:	objectStat.attack_range += amount;		return;
 	case 7:	objectStat.moveForce += amount;			return;
 	case 8:	objectStat.jumpPower += amount;			return;
+	default:										return;
+	}
+}
+
+void LivingObject::SetStatByIndex(int index, float amount)
+{
+	switch (index)
+	{
+	case 1:	objectStat.hp = amount;					return;
+	case 2:	objectStat.maxhp = amount;				return;
+	case 3:	objectStat.atk = amount;				return;
+	case 4:	objectStat.def = amount;				return;
+	case 5:	objectStat.attack_duration = amount;	return;
+	case 6:	objectStat.attack_range = amount;		return;
+	case 7:	objectStat.moveForce = amount;			return;
+	case 8:	objectStat.jumpPower = amount;			return;
 	default:										return;
 	}
 }
@@ -218,6 +239,7 @@ void LivingObject::Hitted(HitBox* hitbox)
 			isCanMove = true;
 			isCanJump = true;
 			IsessentialAnim = false;
+			isEffectGravity = true;
 		},
 		0.5));
 

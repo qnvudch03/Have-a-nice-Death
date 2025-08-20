@@ -101,6 +101,8 @@ public:
 	void CallElevator();
 
 	void FixDashCollTImeByRatio(float ratio) { dashCollTime *= ratio; }
+	float GetDashCollTime() { return dashCollTime; }
+	void SetDashCollTime(float DashCollTime) { dashCollTime = DashCollTime; }
 
 	virtual void OnLanded() override;
 

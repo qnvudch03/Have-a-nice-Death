@@ -42,6 +42,7 @@ public:
 
 	ObjectStat GetStat() { return objectStat; }
 	void SetStat(ObjectStat stat) { objectStat = stat; }
+	void AddStatByIndex(int index, float amount);
 	void SetStatByIndex(int index, float amount);
 
 	//bool checkCollision(LivingObject* object, Vector start, Vector end);

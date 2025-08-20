@@ -21,6 +21,8 @@ public:
 	virtual void OnAnimEnd() {}
 	virtual void SetDebugMode(bool debugmode) override;
 
+	bool GetReadyToInteract() { return readyToInteract; }
+
 protected:
 	bool readyToInteract = false;
 	bool activate = false;

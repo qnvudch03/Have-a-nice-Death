@@ -20,8 +20,6 @@ void GameScene::Init()
 {
 	Super::Init();
 
-	stageController = new Stage(this);
-
 	hitBoxManager = new HitBoxManager();
 	hitBoxManager->Init();
 
@@ -143,6 +141,11 @@ void GameScene::ChangeControllerOwner(Controller* controller, LivingObject* newo
 
 void GameScene::LoadStage(std::string stage)
 {
+	if (stageController != nullptr)
+		delete stageController;
+
+	stageController = new Stage(this);
+
 	if (stageController->LoadStage(stage))
 	{
 		for (auto& Iter : _gameSceneObjects)
@@ -150,11 +153,19 @@ void GameScene::LoadStage(std::string stage)
 			Iter->Init();
 			ReserveAdd(Iter);
 		}
+
+		stage_count++;
 	}
 
 	else
 	{
 		int failed;
+	}
+
+	if (stage.compare("Stage1"))
+	{
+		stageController->SetPlayerData(playerSaveParam);
+		stageController->UpdateHPBar();
 	}
 }
 
@@ -182,6 +193,12 @@ void GameScene::EraseFromGame(Object* obj)
 		Iter++;
 	}
 
+}
+
+std::string GameScene::GetNextStage()
+{
+	if (stage_count == 0)			return "Stage1";
+	else if (stage_count == 1)		return "Stage2";
 }
 
 void GameScene::SetUI_PlayGame()
@@ -228,6 +245,17 @@ void GameScene::SetUI_SelectReword()
 	}
 }
 
+void GameScene::SavePlayData()
+{
+
+	stageController->ApplyPlayerData(playerSaveParam);
+}
+
+void GameScene::GoNextStage()
+{
+	LoadStage(GetNextStage());
+}
+
 void GameScene::BindingWithBtn()
 {
 	Curse_List.clear();
@@ -250,7 +278,7 @@ void GameScene::Curse_Attack()
 	if (player == nullptr)
 		return;
 
-	player->SetStatByIndex(3, 5);
+	player->AddStatByIndex(3, 5);
 
 	//0.5초 게임 재 시작
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
@@ -262,7 +290,7 @@ void GameScene::Curse_ActionSpeed()
 	if (player == nullptr)
 		return;
 
-	player->actionSpeed *= 1.5;
+	player->actionSpeed *= 1.2;
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
 }
@@ -284,7 +312,7 @@ void GameScene::Curse_Deffense()
 	if (player == nullptr)
 		return;
 
-	player->SetStatByIndex(4, 2);
+	player->AddStatByIndex(4, 2);
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));
 }
@@ -295,7 +323,7 @@ void GameScene::Curse_Healing()
 	if (player == nullptr)
 		return;
 
-	player->SetStatByIndex(1, 30);
+	player->AddStatByIndex(1, 30);
 	stageController->UpdateHPBar();
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {SetUI_PlayGame(); }, 0.5));

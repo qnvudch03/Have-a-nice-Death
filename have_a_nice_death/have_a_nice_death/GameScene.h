@@ -33,14 +33,27 @@ public:
 	void LoadObject(Object* obj);
 	void EraseFromGame(Object* obj);
 
+	std::string GetNextStage();
 	void SetUI_PlayGame();
 	void SetUI_SelectReword();
 
+	void SavePlayData();
+
 	Stage* GetStage() { return stageController; }
+	void GoNextStage();
 
 	HitBoxManager* GetHitBoxManager() { return hitBoxManager; }
 
 	std::vector<Object*>* GetGameSceneObjectVec() { return &_gameSceneObjects; }
+
+	std::map<std::string, float> playerSaveParam
+	{
+		{"actionSpeed", 1.0},
+		{"atkBonus",	0.0},
+		{"defBonus",	0.0},
+		{"currentHP",	1.0},
+		{"dashCollTime",1.0}
+	};
 
 private:
 
@@ -65,6 +78,8 @@ private:
 	void Curse_DashCoolTime();
 	void Curse_Deffense();
 	void Curse_Healing();
+
+	int stage_count = 0;
 
 	std::vector< UIButton*> Curse_List;
 };

@@ -1,0 +1,59 @@
+{
+  "BackGround": "Stage2BackGround",
+
+  "LivingObjects": {
+    "Object": [
+      {
+        "owner": "Player",
+        "type": "Death",
+        "position": [100, 650]
+      },
+	  {
+        "owner": "AI",
+        "type": "SmallGhost",
+        "position": [1200, 200]
+      },
+	  {
+        "owner": "AI",
+        "type": "Death",
+        "position": [1400, 650]
+      }
+    ]
+  },
+
+  "StaticObjects": {
+    "Object": [
+	  {
+        "type": "Platform",
+		"name": "emptyground",
+        "position": [900, 750]
+      },
+	  {
+        "type": "Platform",
+		"name": "emptyWall",
+        "position": [0, 350]
+      },
+	  {
+        "type": "Platform",
+		"name": "emptyWall",
+        "position": [1800, 350]
+      },
+      {
+        "type": "Platform",
+		"name": "longshelf",
+        "position": [1200, 300]
+      },
+	  {
+        "type": "Wall",
+		"name": "PaperWall",
+        "position": [80, 350]
+      },
+	  {
+        "type": "Wall",
+		"name": "PaperWall",
+        "position": [1640, 350]
+      }
+	  
+    ]
+  }
+}

@@ -43,6 +43,7 @@ public:
 	virtual void OnAnimEnd() override;
 	virtual void SetDebugMode(bool debugmode) override;
 
+	void RemoteDisApear();
 	void SetState(contractorState state, float animSpeed);
 
 private:
