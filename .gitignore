@@ -45,3 +45,6 @@
 /ipch
 *.db
 *.pdb
+
+*.log
+*.tlog
