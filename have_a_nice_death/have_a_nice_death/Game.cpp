@@ -28,27 +28,51 @@ Game::~Game()
 	//CleanupDirectWrite();
 }
 
-void Game::Init(HWND hwnd)
+void Game::Init(HWND hwnd, HWND subhwnd)
 {
 	srand((uint32)time(0));
 	_hwnd = hwnd;
+	_subhwnd = subhwnd;
 
-	::GetClientRect(hwnd, &_rect);
+	//Create MainWindow RenderTarget
+	{
+		::GetClientRect(hwnd, &_rect);
 
-	// dx init
-	D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
+		// dx init
+		D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
 
-	D2D1_SIZE_U size = D2D1::SizeU(_rect.right - _rect.left, _rect.bottom - _rect.top);
+		D2D1_SIZE_U size = D2D1::SizeU(_rect.right - _rect.left, _rect.bottom - _rect.top);
 
-	// Create a Direct2D render target.
-	_dxFactory->CreateHwndRenderTarget(
-		D2D1::RenderTargetProperties(),
-		D2D1::HwndRenderTargetProperties(hwnd, size),
-		&_dxRenderTarget);
+		// Create a Direct2D render target.
+		_dxFactory->CreateHwndRenderTarget(
+			D2D1::RenderTargetProperties(),
+			D2D1::HwndRenderTargetProperties(hwnd, size),
+			&_dxRenderTarget);
 
-	// 이미지 로드 초기화
-	CoInitialize(NULL);
-	CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_wicFactory));
+		// 이미지 로드 초기화
+		CoInitialize(NULL);
+		CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_wicFactory));
+	}
+	
+	//Create SubWindow RenderTarget
+	{
+		::GetClientRect(subhwnd, &_subwidnowrect);
+
+		// dx init
+		D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
+
+		D2D1_SIZE_U size = D2D1::SizeU(_subwidnowrect.right - _subwidnowrect.left, _subwidnowrect.bottom - _subwidnowrect.top);
+
+		// Create a Direct2D render target.
+		_dxFactory->CreateHwndRenderTarget(
+			D2D1::RenderTargetProperties(),
+			D2D1::HwndRenderTargetProperties(subhwnd, size),
+			&_dxSubRenderTarget);
+
+		// 이미지 로드 초기화
+		CoInitialize(NULL);
+		CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_wicFactory));
+	}
 
 
 	//펑션 맵 초기화
@@ -103,7 +127,18 @@ void Game::CheckReservedScene()
 	delete _currScene;
 
 	_currScene = sceneLoader->GetReservedScene();
-	_currScene->Init();
+
+	if (auto gamdScene = dynamic_cast<GameScene*>(_currScene))
+	{
+		gamdScene->Init();
+	}
+
+	else if (auto editorScene = dynamic_cast<EditorScene*>(_currScene))
+	{
+		editorScene->SetSubWindow(_dxSubRenderTarget, _subhwnd);
+		editorScene->Init();
+	}
+	
 
 }
 
@@ -181,12 +216,7 @@ void Game::EditGame()
 		int apple = 0;
 	}
 
-	_currScene->EraseScene();
-	delete _currScene;
-
-	_currScene = new EditorScene();
-	_currScene->Init();
-
+	sceneLoader->ReserveScene(new EditorScene());
 }
 
 void Game::ExitGame()
@@ -258,8 +288,8 @@ void Game::Update()
 void Game::Render()
 {
 	_dxRenderTarget->BeginDraw();
-	_dxRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
 
+	_dxRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
 	GetScene()->Render(_dxRenderTarget);
 
 	_dxRenderTarget->EndDraw();

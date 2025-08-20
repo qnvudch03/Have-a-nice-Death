@@ -1,4 +1,244 @@
-﻿  Death.cpp
+﻿  AIController.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/AIController.cpp'을(를) 컴파일하는 중)
+  
+  AnimHitBox.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\AnimHitBox.cpp(44,41): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/AnimHitBox.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  Animaotr.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.cpp(41,42): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.cpp(60,42): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Animaotr.cpp'을(를) 컴파일하는 중)
+  
+  Book.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/Book.cpp'을(를) 컴파일하는 중)
+  
+  Collider.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Collider.cpp'을(를) 컴파일하는 중)
+  
+  Contractor.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/Contractor.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  Controller.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/Controller.cpp'을(를) 컴파일하는 중)
+  
+  Death.cpp
 C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Death.cpp'을(를) 컴파일하는 중)
   
@@ -96,4 +336,872 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
               _Other2=double
           ]
   
+  DebugLenderer.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/DebugLenderer.cpp'을(를) 컴파일하는 중)
+  
+  EditorScene.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/EditorScene.cpp'을(를) 컴파일하는 중)
+  
+  Elevator.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Elevator.cpp'을(를) 컴파일하는 중)
+  
+  Game.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\DebugLenderer.h(4,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/Game.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+              C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(50,2):
+              'GameScene::GameScene'에서 'std::pair<const std::string,float>::pair'에 대한 첫 번째 참조를 확인하세요.
+  
+  GameScene.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(162,7): warning C4101: 'failed' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(241,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(242,43): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(293,25): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(304,33): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/GameScene.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  HitBox.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/HitBox.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  HitBoxManager.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/HitBoxManager.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  InteractableElevator.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/InteractableElevator.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  InteractableObject.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/InteractableObject.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  LivingObject.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.cpp(109,16): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.cpp(146,14): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.cpp(158,22): warning C4305: '*=': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/LivingObject.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  LobbyScene.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/LobbyScene.cpp'을(를) 컴파일하는 중)
+  
+  Object.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Object.cpp'을(를) 컴파일하는 중)
+  
+  코드를 생성하고 있습니다...
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.cpp(202,1): warning C4715: 'GameScene::GetNextStage': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  컴파일하고 있습니다...
+  PlayerController.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/PlayerController.cpp'을(를) 컴파일하는 중)
+  
+  Scene.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Scene.cpp'을(를) 컴파일하는 중)
+  
+  Sensor.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Sensor.cpp(29,22): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Sensor.cpp(33,22): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/Sensor.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  SmallGhost.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\SmallGhost.cpp(66,27): warning C4244: '인수': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/SmallGhost.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  SpriteManager.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SpriteManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SpriteManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SpriteManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SpriteManager.cpp'을(를) 컴파일하는 중)
+  
+  Stage.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\LivingObject.h(62,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/Stage.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  StaticObject.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/StaticObject.cpp'을(를) 컴파일하는 중)
+  
+  Texture.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Texture.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Texture.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Texture.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Texture.cpp'을(를) 컴파일하는 중)
+  
+  UI.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UI.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UI.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UI.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UI.cpp'을(를) 컴파일하는 중)
+  
+  UIButton.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIButton.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIButton.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIButton.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIButton.cpp'을(를) 컴파일하는 중)
+  
+  UIImage.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIImage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIImage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIImage.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIImage.cpp'을(를) 컴파일하는 중)
+  
+  UIManager.cpp
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,57): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(11,42): warning C4244: '인수': 'int32'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,56): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Texture.h(21,80): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(30,95): warning C4244: '=': 'float'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Animaotr.h(39,74): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(26,4): warning C4150: 불완전한 형식 'Collider'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+      C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(5,7):
+      'Collider' 선언을 참조하십시오.
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\Object.h(36,44): warning C4267: '=': 'size_t'에서 'int32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\UIManager.cpp(140,34): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\UIManager.cpp(140,31): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244: '초기화 중': '_Ty'에서 '_Ty2'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:             _Ty2=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54): warning C4244:         ]
+  (소스 파일 '/UIManager.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(274,54):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\have_a_nice_death\GameScene.h(51,3):
+          컴파일되는 함수 템플릿 인스턴스화 'std::pair<const std::string,float>::pair<const char(&)[12],double,0>(_Other1,_Other2 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Other1=const char (&)[12],
+              _Other2=double
+          ]
+  
+  코드를 생성하고 있습니다...
   have_a_nice_death.vcxproj -> C:\Users\inha\source\repos\SVN_LJH\HaveaniceDeath\Have-a-nice-Death\have_a_nice_death\x64\Debug\have_a_nice_death.exe

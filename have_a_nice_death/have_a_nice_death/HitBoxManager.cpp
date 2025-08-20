@@ -165,7 +165,7 @@ void HitBoxManager::DrawHitbox(ID2D1RenderTarget* renderTarget)
 
 void HitBoxManager::CheckCollision(HitBox* hitbox)
 {
-	for (auto object : *(currentGameScene->GetGameSceneObjectVec()))
+	for (auto& object : *(currentGameScene->GetGameSceneObjectVec()))
 	{
 		if (object->GetRenderLayer() != RenderLayer::Character || object->collider == nullptr)
 			continue;

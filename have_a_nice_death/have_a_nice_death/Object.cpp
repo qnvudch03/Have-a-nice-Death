@@ -12,8 +12,11 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 		iter->Render(renderTarget, GetPos());
 	}*/
 
-	if(animator.GetAnimTexture() != nullptr)
+	if (animator.GetAnimTexture() != nullptr)
+	{
 		animator.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition, renderingFlipOrder);
+	}
+
 
 	if (Game::GetInstance()->GetScene()->IsDbugMode && collider != nullptr)
 	{
@@ -45,7 +48,7 @@ void Object::Destroy()
 		delete collider;
 		collider = nullptr;
 	}
-		
+
 }
 
 void Object::SetCollider()

@@ -16,10 +16,17 @@ WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 HWND g_hWnd;
 
+//에디터를 위한 서브 윈도우
+HWND g_hSubWnd;
+WCHAR szSubTitle[MAX_LOADSTRING] = L"Editor";
+WCHAR szSubWindowClass[MAX_LOADSTRING];
+
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
+ATOM                RegisterSubWindowClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK    SubWndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -43,6 +50,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_HAVEANICEDEATH, szWindowClass, MAX_LOADSTRING);
+
+    LoadStringW(hInstance, IDC_HAVEANICEDEATH, szSubWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -50,6 +59,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
+
+    RegisterSubWindowClass(hInstance);
+
+    //g_hSubWnd = CreateSubWindow(hInstance, nCmdShow);
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HAVEANICEDEATH));
 
@@ -60,7 +73,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     
 
-    game->Init(g_hWnd);
+    game->Init(g_hWnd, g_hSubWnd);
 
     const float targetFrameTime = 1000.0f / 120.f;  // 초당(1000ms) 120 프레임
 
@@ -131,6 +144,40 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     return RegisterClassExW(&wcex);
 }
 
+ATOM RegisterSubWindowClass(HINSTANCE hInstance)
+{
+    WNDCLASSEXW wcex;
+
+    wcex.cbSize = sizeof(WNDCLASSEX);
+
+    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc = WndProc;
+    wcex.cbClsExtra = 0;
+    wcex.cbWndExtra = 0;
+    wcex.hInstance = hInstance;
+    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HAVEANICEDEATH));
+    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wcex.lpszMenuName = nullptr;
+    wcex.lpszClassName = szSubWindowClass;
+    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+
+    return RegisterClassExW(&wcex);
+}
+
+LRESULT CALLBACK SubWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    switch (message)
+    {
+    case WM_DESTROY:
+        PostQuitMessage(0);
+        break;
+    default:
+        return DefWindowProc(hWnd, message, wParam, lParam);
+    }
+    return 0;
+}
+
 //
 //   함수: InitInstance(HINSTANCE, int)
 //
@@ -158,6 +205,24 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(g_hWnd, nCmdShow);
    UpdateWindow(g_hWnd);
+
+  
+   
+   //서브윈도우 초기화
+   RECT subSindowRect = { 0, 0, 600, 800 };
+   ::AdjustWindowRect(&subSindowRect, WS_OVERLAPPEDWINDOW, false);
+
+   g_hSubWnd = CreateWindowW(
+       szSubWindowClass, szSubTitle, WS_OVERLAPPEDWINDOW,
+       CW_USEDEFAULT, 0, subSindowRect.right - subSindowRect.left, subSindowRect.bottom - subSindowRect.top,
+       nullptr, nullptr, hInstance, nullptr);
+
+   if (g_hSubWnd)
+   {
+       ShowWindow(g_hSubWnd, SW_HIDE);
+       UpdateWindow(g_hSubWnd);
+   }
+
 
    return TRUE;
 }

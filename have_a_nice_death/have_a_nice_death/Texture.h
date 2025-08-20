@@ -32,6 +32,8 @@ private:
 	int32 _renderingOffsetX = 0; //그려질 때 가중치
 	int32 _renderingOffsetY = 0;
 
+	Vector _textureRatio = Vector(1, 1);
+
 	bool drawBound = false;
 
 };

@@ -12,7 +12,8 @@ public:
 	Game();
 	~Game();
 
-	void Init(HWND hwnd);
+	void Init(HWND hwnd, HWND subhwnd);
+	void InitSubWin();
 	void Update();
 	void Render();
 	void OnLeftClickEvent();
@@ -42,20 +43,25 @@ private:
 
 	HWND	_hwnd;
 	RECT	_rect;
+	HWND	_subhwnd;
+	RECT	_subwidnowrect;
+
+	ID2D1HwndRenderTarget* _dxRenderTarget = nullptr;
+	ID2D1HwndRenderTarget* _dxSubRenderTarget = nullptr;
+
 
 	ID2D1Factory* _dxFactory = nullptr;
-	ID2D1HwndRenderTarget* _dxRenderTarget = nullptr;
 	IWICImagingFactory* _wicFactory = nullptr;
 
 	//Draw Text
-	IDWriteFactory* m_pDWriteFactory = nullptr;
-	IDWriteTextFormat* m_pTextFormat = nullptr;
+	/*IDWriteFactory* m_pDWriteFactory = nullptr;
+	IDWriteTextFormat* m_pTextFormat = nullptr;*/
 
 	bool DegubMode = false;
 
-	void InitDirectWrite();
+	//void InitDirectWrite();
 
-	void DrawText(ID2D1RenderTarget* renderTarget, const wchar_t* text, float x, float y);
+	//void DrawText(ID2D1RenderTarget* renderTarget, const wchar_t* text, float x, float y);
 
 	void MappingFunctions();
 

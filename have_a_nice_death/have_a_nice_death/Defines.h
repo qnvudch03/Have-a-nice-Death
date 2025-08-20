@@ -37,6 +37,13 @@ enum RenderLayer
 	Max
 };
 
+//RenderLayer ConvertStringToRenderLayer(std::string typeName)
+//{
+//	if (typeName.compare("Background"))				return RenderLayer::Background;
+//	else if (typeName.compare("Platform"))			return RenderLayer::Platform;
+//	else if (typeName.compare("Character"))			return RenderLayer::Character;
+//}
+
 enum ImageAnchor
 {
 	Topleft,

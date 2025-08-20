@@ -49,10 +49,14 @@ void Scene::Update(float deltatTime)
 		}
 	}
 
-	for (auto& ui : *SceneUI)
+	if (SceneUI != nullptr)
 	{
-		ui->Update(deltatTime);
+		for (auto& ui : *SceneUI)
+		{
+			ui->Update(deltatTime);
+		}
 	}
+	
 
 	if (InputManager::GetInstance()->GetButtonDown(KeyType::F1))
 	{
