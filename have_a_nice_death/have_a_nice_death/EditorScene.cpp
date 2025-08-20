@@ -179,10 +179,20 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 								RenderLayer::Platform, position, ImageAnchor::Center) };
 
 				if (!structureName.compare("emptyground"))
-					staticObject.obj->animator.GetAnimTexture()->ReSizeTexture(Vector(1800, 100));
+				{
+					staticObject.obj->custumRenderSizeOrder = true;
+					staticObject.obj->custumRenderSize = Vector(1800, 100);
 
-				if (!structureName.compare("emptyWall"))
-					staticObject.obj->animator.GetAnimTexture()->ReSizeTexture(Vector(50, 350));
+				}	
+
+				else if (!structureName.compare("emptyWall"))
+				{
+					staticObject.obj->custumRenderSizeOrder = true;
+					staticObject.obj->custumRenderSize = Vector(50, 700);
+				}
+
+				staticObject.obj->collider->DeActivateCollier();
+					
 			}
 
 			else

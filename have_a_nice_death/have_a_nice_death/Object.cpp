@@ -14,7 +14,16 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 
 	if (animator.GetAnimTexture() != nullptr)
 	{
-		animator.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition, renderingFlipOrder);
+		if (custumRenderSizeOrder && (custumRenderSize.x != 0 && custumRenderSize.y != 0))
+		{
+			animator.GetAnimTexture()->RenderCustomSize(renderTarget, GetPos(), custumRenderSize, anchorPosition);
+		}
+
+		else
+		{
+			animator.GetAnimTexture()->Render(renderTarget, GetPos(), anchorPosition, renderingFlipOrder);
+		}
+		
 	}
 
 

@@ -43,6 +43,8 @@ public:
 	Animator animator;
 	ImageAnchor anchorPosition = ImageAnchor::Positiondefault;
 	bool renderingFlipOrder = false;
+	bool custumRenderSizeOrder = false;
+	Vector custumRenderSize = Vector(0, 0);
 
 	//콜라이더
 	Collider* collider = nullptr;
