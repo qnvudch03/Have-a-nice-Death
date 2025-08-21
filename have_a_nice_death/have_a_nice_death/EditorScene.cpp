@@ -2,6 +2,7 @@
 #include "EditorScene.h"
 #include "StaticObject.h"
 #include "SpriteManager.h"
+#include "Game.h"
 
 #include "json.hpp"
 
@@ -113,7 +114,7 @@ void EditorScene::SetSubWindow(ID2D1RenderTarget* SubRenderTarget, HWND Subhwnd)
 
 void EditorScene::LoadSubWinObject()
 {
-	int indexY = 1;
+	int OffsetY = 0;
 	//Ä³¸¯ÅÍ Object ºÎÂø
 	for (auto& characterName : CharacterOjbectList)
 	{
@@ -122,19 +123,21 @@ void EditorScene::LoadSubWinObject()
 
 		EdiSceneObject character = { characterName,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures(characterName, "Idle"),
-								RenderLayer::Character, Vector(300, indexY*200), ImageAnchor::Bottomcenter)};
+								RenderLayer::Character, Vector(0, 0), ImageAnchor::Center)};
 
 
+		Vector textureSize = character.obj->animator.GetAnimTexture()->GetTextureSize();
+		character.obj->SetPos(Vector(100, OffsetY + textureSize.y / 2));
 		SetCustumAnimSpeed(characterName, character.obj);
 		character.obj->collider->DeActivateCollier();
 		SubWinObject[0].push_back(character);
 
-		indexY++;
+		OffsetY += (textureSize.y ) + 20;
 	}
 
 	//½ºÅÂÆ½ Object ºÎÂø
 	{
-		indexY = 0;
+		OffsetY = 0;
 
 		std::vector<std::wstring> PlatformNames;
 
@@ -155,12 +158,17 @@ void EditorScene::LoadSubWinObject()
 
 				EdiSceneObject platform = { PlatformName,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures("Platform", PlatformName),
-								RenderLayer::Character, Vector(400, indexY * 200), ImageAnchor::Center) };
+								RenderLayer::Character, Vector(0, 0), ImageAnchor::Center) };
+
+
+				Vector textureSize = platform.obj->animator.GetAnimTexture()->GetTextureSize();
+				platform.obj->SetPos(Vector(400, OffsetY + textureSize.y / 2));
 
 				platform.obj->collider->DeActivateCollier();
 
 				SubWinObject[1].push_back(platform);
-				indexY++;
+
+				OffsetY += (textureSize.y ) + 50;
 			}
 		}
 	}
@@ -169,18 +177,13 @@ void EditorScene::LoadSubWinObject()
 
 void EditorScene::RenderSubWindow()
 {
-
-	subRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
-
-	/*for (auto& SubObjectVec : SubWinObject)
+	for (auto& SubObjectVec : SubWinObject)
 	{
 		for (auto& object : SubObjectVec)
 		{
 			object.obj->Render(subRenderTarget);
 		}
-	}*/
-
-	SubWinObject[0][0].obj->animator.GetAnimTexture()->Render(subRenderTarget, Vector(50, 50), ImageAnchor::Bottomcenter);
+	}
 }
 
 bool EditorScene::ReadStageData(std::string stageName)
@@ -311,6 +314,11 @@ void EditorScene::SetCustumAnimSpeed(std::string name, StaticObject* obj)
 		return;
 	}
 	else if (!name.compare("SmallGhost"))
+	{
+		obj->animator.SetAnimSpeed(10);
+		return;
+	}
+	else if (!name.compare("MedGhost"))
 	{
 		obj->animator.SetAnimSpeed(10);
 		return;

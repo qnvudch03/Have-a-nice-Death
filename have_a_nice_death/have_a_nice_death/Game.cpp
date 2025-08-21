@@ -49,9 +49,9 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 			D2D1::HwndRenderTargetProperties(hwnd, size),
 			&_dxRenderTarget);
 
-		// 이미지 로드 초기화
-		CoInitialize(NULL);
-		CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_wicFactory));
+		//// 이미지 로드 초기화
+		//CoInitialize(NULL);
+		//CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_wicFactory));
 	}
 	
 	//Create SubWindow RenderTarget

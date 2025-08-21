@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Texture.h"
 #include "DXBitmap.h"
+#include "Game.h"
 
 
 Texture::~Texture()
@@ -15,14 +16,36 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 	if (_bitmap->GetBitmap() == nullptr)
 		return;
 
+	DXBitmap* sellectedBitMap = _bitmap;
+
+	if (renderTarget != _mainWindowRenderTarget)
+	{
+		if (_subbitmap == nullptr)
+		{
+			_subbitmap = new DXBitmap();
+			_subbitmap->Load(renderTarget, FilePath);
+
+			if (!_subbitmap->GetBitmap())
+			{
+				int apple = 10;
+			}
+		}
+
+		sellectedBitMap = _subbitmap;
+	}
+
+	if (!sellectedBitMap->GetBitmap())
+	{
+		int apple = 10;
+	}
 
 
 	//비트 맵 상에서 가져올 영역 0.0 부터 끝까지.
 	D2D1_RECT_F srcLeft = D2D1::RectF(
 		0,
 		0,
-		static_cast<float>(_bitmap->GetBitmapSize().Width),
-		static_cast<float>(_bitmap->GetBitmapSize().Height));
+		static_cast<float>(sellectedBitMap->GetBitmapSize().Width),
+		static_cast<float>(sellectedBitMap->GetBitmapSize().Height));
 
 	/*D2D1_RECT_F srcLeft = D2D1::RectF(
 		0,
@@ -102,7 +125,7 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 
 		renderTarget->SetTransform(flipMat * oldTransform);
 
-		renderTarget->DrawBitmap(_bitmap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
+		renderTarget->DrawBitmap(sellectedBitMap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
 
 		if (drawBound)
 			DrawBound(renderTarget, destLeft);
@@ -114,7 +137,7 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 	//정방향
 	else
 	{
-		renderTarget->DrawBitmap(_bitmap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
+		renderTarget->DrawBitmap(sellectedBitMap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
 
 		if (drawBound)
 			DrawBound(renderTarget, destLeft);

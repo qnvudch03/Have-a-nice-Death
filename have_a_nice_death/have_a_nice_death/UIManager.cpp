@@ -96,6 +96,8 @@ std::vector<UI*>* UIManager::GetSceneUI(Scene* scene)
 
 void UIManager::CreateUIVec(fs::path directory)
 {
+	ID2D1HwndRenderTarget* mainRenderTarget = Game::GetInstance()->GetRenderTarget();
+
     directory = directory.lexically_normal();
 
     if (!fs::exists(directory) || !fs::is_directory(directory))
@@ -147,7 +149,7 @@ void UIManager::CreateUIVec(fs::path directory)
 				DXBitmap* bitmap = new DXBitmap();
 				bitmap->Load(FileName);
 
-				Texture* UITexture = new Texture(bitmap, bitmap->GetBitmapSize().Width, bitmap->GetBitmapSize().Height);
+				Texture* UITexture = new Texture(mainRenderTarget, bitmap, bitmap->GetBitmapSize().Width, bitmap->GetBitmapSize().Height);
 
 				textures.emplace_back(Lowleentry.path().filename().string(), UITexture);
 

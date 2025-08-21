@@ -7,8 +7,8 @@ class EditorScene : public Scene
 {
 	using Super = Scene;
 
-	//std::string CharacterOjbectList[3] = {"Death", "SmallGhost", "MedGhost"};
-	std::string CharacterOjbectList[3] = { "Death", "SmallGhost"};
+	std::string CharacterOjbectList[3] = {"Death", "SmallGhost", "MedGhost"};
+	//std::string CharacterOjbectList[3] = { "Death", "SmallGhost"};
 
 	struct EdiSceneObject
 	{

@@ -7,6 +7,7 @@ public:
 	virtual ~DXBitmap();
 
 	void Load(std::wstring path);
+	void Load(ID2D1RenderTarget* renderTarget, std::wstring path);
 	ID2D1Bitmap* GetBitmap() { return _bitmap; }
 	Size GetBitmapSize() { return Size(_bitmapSizeX, _bitmapSizeY); }
 

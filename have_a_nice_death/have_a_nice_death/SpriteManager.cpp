@@ -2,6 +2,7 @@
 #include "SpriteManager.h"
 #include "DXBitmap.h"
 #include "Texture.h"
+#include "Game.h"
 
 void SpriteManager::Init(HWND hwnd, fs::path directory)
 {
@@ -34,6 +35,8 @@ void SpriteManager::Destroy()
 
 void SpriteManager::CreateTextureVec(fs::path directory)
 {
+    ID2D1HwndRenderTarget* mainRenderTarget = Game::GetInstance()->GetRenderTarget();
+
     directory = directory.lexically_normal();
 
     if (!fs::exists(directory) || !fs::is_directory(directory))
@@ -93,7 +96,10 @@ void SpriteManager::CreateTextureVec(fs::path directory)
                     DXBitmap* bitmap = new DXBitmap();
                     bitmap->Load(FileName);
 
-                    _textures[UpperName][MiddleName].push_back(new Texture(bitmap, bitmap->GetBitmapSize().Width, bitmap->GetBitmapSize().Height));
+                    Texture* texture = new Texture(mainRenderTarget, bitmap, bitmap->GetBitmapSize().Width, bitmap->GetBitmapSize().Height);
+                    texture->SetFileFath(FileName);
+
+                    _textures[UpperName][MiddleName].push_back(texture);
 
                 }
             }
