@@ -14,6 +14,7 @@ public:
 	void Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false);
 	void RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, Vector ratio, ImageAnchor drawAnchor = ImageAnchor::Topleft,bool FlipOrder = false);
 	void RenderCustomSize(ID2D1RenderTarget* renderTarget, Vector pos, Vector size, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false);
+	void RenderWinOffset(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, Vector WinOffset = Vector(0,0));
 
 	void SetFileFath(std::wstring fileName) { FilePath = fileName; }
 	std::wstring GetFileFath() { return FilePath; }
@@ -38,6 +39,8 @@ private:
 
 	int32 _renderingOffsetX = 0; //그려질 때 가중치
 	int32 _renderingOffsetY = 0;
+
+	Vector WindowOffset = Vector(0, 0);
 
 	Vector _textureRatio = Vector(1, 1);
 

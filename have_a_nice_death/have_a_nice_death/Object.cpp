@@ -36,6 +36,11 @@ void Object::Render(ID2D1RenderTarget* renderTarget)
 
 }
 
+void Object::RenderWithWinOffset(ID2D1RenderTarget* renderTarget, Vector WinOffset)
+{
+	animator.GetAnimTexture()->RenderWinOffset(renderTarget, GetPos(), anchorPosition, WinOffset);
+}
+
 void Object::SetDebugMode(bool debugMode)
 {
 	//animator.GetAnimTexture()->SetDrawBound(debugMode);

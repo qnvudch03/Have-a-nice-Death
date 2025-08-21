@@ -12,6 +12,7 @@ class EditorScene : public Scene
 
 	struct EdiSceneObject
 	{
+		std::string type;
 		std::string name;
 
 		StaticObject* obj;
@@ -33,12 +34,20 @@ public:
 
 	bool LoadJsonFile(std::string FileName);
 
+
+
+	//서브윈도우랑 통신하는 액트
+	void AddWinOffset(Vector amount);
+	void ChangeColor(bool num);
+	std::pair<std::string, std::string> GetSellectedEdiSceneObjectData();
+
+	Vector subWinMouseClickedPos;
+
+
 private:
 
 	void SetCustumAnimSpeed(std::string name, StaticObject* obj);
-
-	/*std::vector<EdiSceneObject> SubWinCharacterObject;
-	std::vector<EdiSceneObject> SubWinStaticObject;*/
+	void StopAllSubWinObjAnimExcep(EdiSceneObject* theExcep);
 
 	//0에는 Chracter 1에는 staticObject
 	std::vector<EdiSceneObject> SubWinObject[2];
@@ -49,7 +58,12 @@ private:
 
 	std::string currentStage;
 
+	D2D1::ColorF currentColor = D2D1::ColorF::Coral;
+
 	ID2D1RenderTarget* subRenderTarget = nullptr;
 	HWND	_subhwnd = nullptr;
+
+	Vector subWinOffset = Vector(0,0);
+	int WinOffsetYMax = 0;
 };
 

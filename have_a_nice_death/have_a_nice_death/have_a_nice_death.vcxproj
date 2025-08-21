@@ -169,6 +169,7 @@
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UIManager.h" />
+    <ClInclude Include="WindowMediator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIController.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIImage.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="WindowMediator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="have_a_nice_death.rc" />

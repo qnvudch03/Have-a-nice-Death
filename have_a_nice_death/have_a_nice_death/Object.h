@@ -10,6 +10,7 @@ public:
 	virtual void Init() {}
 	virtual void Update(float deltaTime);
 	virtual void Render(ID2D1RenderTarget* renderTarget);
+	virtual void RenderWithWinOffset(ID2D1RenderTarget* renderTarget, Vector WinOffset);
 	virtual void SetDebugMode(bool debugMode);
 	virtual void Destroy();
 	virtual void SetCollider();

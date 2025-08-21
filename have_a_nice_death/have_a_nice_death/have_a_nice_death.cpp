@@ -5,6 +5,7 @@
 #include "framework.h"
 #include "have_a_nice_death.h"
 #include "Game.h"
+#include <windowsx.h>
 
 #define MAX_LOADSTRING 100
 
@@ -105,6 +106,43 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 prev = now;
 
                 game->CheckReservedScene();
+            }
+
+            if (msg.hwnd == g_hSubWnd)
+            {
+                if (msg.message == WM_LBUTTONDOWN)
+                {
+                    Vector pos;
+                    pos.x = GET_X_LPARAM(msg.lParam);
+                    pos.y = GET_Y_LPARAM(msg.lParam);
+
+                    game->OnSubWinLectMouseClicked(pos);
+                }
+
+                else if (msg.message == WM_RBUTTONDOWN)
+                {
+                    Vector pos;
+                    pos.x = GET_X_LPARAM(msg.lParam);
+                    pos.y = GET_Y_LPARAM(msg.lParam);
+
+                    game->OnSubWinRightMouseClicked(pos);
+                }
+
+                else if (msg.message == WM_KEYUP)
+                {
+                    switch (msg.wParam)
+                    {
+                    case VK_NUMPAD2: game->OnSubWinNumber2Pressed(); break;
+                    case VK_NUMPAD8: game->OnSubWinNumber8Pressed();/* 처리 */ break;
+
+                    }
+                }
+
+                else if (msg.message == WM_MOUSEWHEEL)
+                {
+                    int delta = GET_WHEEL_DELTA_WPARAM(msg.wParam);
+                    game->OnMouseWhillMoved(delta > 0);
+                }
             }
         }
     }

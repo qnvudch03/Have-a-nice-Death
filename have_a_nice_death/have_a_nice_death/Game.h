@@ -1,6 +1,7 @@
 #pragma once
 #include "Singleton.h"
 #include "Scene.h"
+#include "WindowMediator.h"
 
 class DebugLenderer;
 
@@ -35,6 +36,8 @@ public:
 	SceneLoader* sceneLoader = nullptr;
 
 	DebugLenderer* GetDebugLenderer() { return debugLenderer; }
+
+	WindowMediator WinMediator;
 
 public:
 	void Destroy() override;
@@ -84,5 +87,15 @@ private:
 	//void SelectCurse();
 
 	DebugLenderer* debugLenderer = nullptr;
+
+
+public:
+	//에디터 씬 데이터
+	void OnSubWinLectMouseClicked(Vector mouseClickedPos);
+	void OnSubWinRightMouseClicked(Vector mouseClickedPos);
+	void OnSubWinNumber2Pressed();
+	void OnSubWinNumber8Pressed();
+
+	void OnMouseWhillMoved(bool num);
 };
 

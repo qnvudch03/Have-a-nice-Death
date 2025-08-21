@@ -130,6 +130,7 @@ void Game::CheckReservedScene()
 
 	//씬 변경시 일단은 subWindow를 꺼
 	isSubWindowOpen = false;
+	WinMediator.SetActivate(false);
 
 	if (auto gamdScene = dynamic_cast<GameScene*>(_currScene))
 	{
@@ -141,6 +142,8 @@ void Game::CheckReservedScene()
 		isSubWindowOpen = true;
 		editorScene->SetSubWindow(_dxSubRenderTarget, _subhwnd);
 		editorScene->Init();
+
+		WinMediator.ReFresh();
 	}
 	
 
@@ -227,59 +230,6 @@ void Game::ExitGame()
 {
 }
 
-//void Game::SelectCurse()
-//{
-//}
-
-//void Game::InitDirectWrite()
-//{
-//	DWriteCreateFactory(
-//		DWRITE_FACTORY_TYPE_SHARED,
-//		__uuidof(IDWriteFactory),
-//		reinterpret_cast<IUnknown**>(&m_pDWriteFactory));
-//
-//	if (m_pDWriteFactory)
-//	{
-//		m_pDWriteFactory->CreateTextFormat(
-//			L"Segoe UI",
-//			nullptr,
-//			DWRITE_FONT_WEIGHT_NORMAL,
-//			DWRITE_FONT_STYLE_NORMAL,
-//			DWRITE_FONT_STRETCH_NORMAL,
-//			32.0f,
-//			L"en-us",
-//			&m_pTextFormat);
-//	}
-//}
-
-//void Game::DrawText(ID2D1RenderTarget* renderTarget, const wchar_t* text, float x, float y)
-//{
-//	if (!renderTarget || !m_pTextFormat)
-//		return;
-//
-//	ID2D1SolidColorBrush* pBlackBrush = nullptr;
-//	renderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &pBlackBrush);
-//
-//	D2D1_RECT_F layoutRect = D2D1::RectF(x, y, x + 500.f, y + 100.f);
-//
-//	renderTarget->DrawTextW(text, wcslen(text), m_pTextFormat, layoutRect, pBlackBrush);
-//
-//	if (pBlackBrush) pBlackBrush->Release();
-//}
-
-//void Game::CleanupDirectWrite()
-//{
-//	if (m_pTextFormat)
-//	{
-//		m_pTextFormat->Release();
-//		m_pTextFormat = nullptr;
-//	}
-//	if (m_pDWriteFactory)
-//	{
-//		m_pDWriteFactory->Release();
-//		m_pDWriteFactory = nullptr;
-//	}
-//}
 
 void Game::Update()
 {
@@ -304,4 +254,31 @@ void Game::Render()
 		GetScene()->RenderSubWin();
 	}
 
+}
+
+//이벤트씬 함수들
+
+void Game::OnSubWinLectMouseClicked(Vector mouseClickedPos)
+{
+	WinMediator.OnSubWinClicked(-1, mouseClickedPos);
+}
+
+void Game::OnSubWinRightMouseClicked(Vector mouseClickedPos)
+{
+	WinMediator.OnSubWinClicked(1, mouseClickedPos);
+}
+
+void Game::OnSubWinNumber2Pressed()
+{
+	WinMediator.OnSubWinNumPressed(2);
+}
+
+void Game::OnSubWinNumber8Pressed()
+{
+	WinMediator.OnSubWinNumPressed(8);
+}
+
+void Game::OnMouseWhillMoved(bool num)
+{
+	WinMediator.OnMouseWhillMove(num);
 }

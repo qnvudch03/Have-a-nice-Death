@@ -33,6 +33,9 @@ enum class KeyType
 	X = 'x',
 	E = 'E',
 
+	NumPad2 = VK_NUMPAD2,
+	NumPad8 = VK_NUMPAD8,
+
 	RELEASE = '0',
 
 	MAX,

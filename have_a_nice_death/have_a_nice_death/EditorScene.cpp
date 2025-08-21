@@ -3,6 +3,7 @@
 #include "StaticObject.h"
 #include "SpriteManager.h"
 #include "Game.h"
+#include "InputManager.h"
 
 #include "json.hpp"
 
@@ -91,7 +92,7 @@ void EditorScene::RenderSubWin()
 
 	subRenderTarget->BeginDraw();
 
-	subRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::White));
+	subRenderTarget->Clear(D2D1::ColorF(currentColor));
 	RenderSubWindow();
 
 	HRESULT hr = subRenderTarget->EndDraw();
@@ -121,19 +122,27 @@ void EditorScene::LoadSubWinObject()
 		if (characterName.empty())
 			break;
 
-		EdiSceneObject character = { characterName,
+		EdiSceneObject character = { "Player",characterName,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures(characterName, "Idle"),
-								RenderLayer::Character, Vector(0, 0), ImageAnchor::Center)};
+								RenderLayer::Character, Vector(0, 0), ImageAnchor::Center) };
 
 
 		Vector textureSize = character.obj->animator.GetAnimTexture()->GetTextureSize();
+
 		character.obj->SetPos(Vector(100, OffsetY + textureSize.y / 2));
-		SetCustumAnimSpeed(characterName, character.obj);
 		character.obj->collider->DeActivateCollier();
+		character.obj->animator.StopAnim();
+		SetCustumAnimSpeed(characterName, character.obj);
+
+
+		
 		SubWinObject[0].push_back(character);
 
-		OffsetY += (textureSize.y ) + 20;
+		OffsetY += (textureSize.y) + 20;
 	}
+
+	if (WinOffsetYMax < OffsetY)
+		WinOffsetYMax = OffsetY;
 
 	//스태틱 Object 부착
 	{
@@ -152,11 +161,11 @@ void EditorScene::LoadSubWinObject()
 			{
 				std::string PlatformName = entry.path().filename().string();
 
-				if(PlatformName.find("empty") != std::string::npos || !PlatformName.compare("bannedArea"))
+				if (PlatformName.find("empty") != std::string::npos || !PlatformName.compare("bannedArea"))
 					continue;
 
 
-				EdiSceneObject platform = { PlatformName,
+				EdiSceneObject platform = { "Platform", PlatformName,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures("Platform", PlatformName),
 								RenderLayer::Character, Vector(0, 0), ImageAnchor::Center) };
 
@@ -168,10 +177,13 @@ void EditorScene::LoadSubWinObject()
 
 				SubWinObject[1].push_back(platform);
 
-				OffsetY += (textureSize.y ) + 50;
+				OffsetY += (textureSize.y) + 50;
 			}
 		}
 	}
+
+	if (WinOffsetYMax < OffsetY)
+		WinOffsetYMax = OffsetY;
 
 }
 
@@ -181,7 +193,7 @@ void EditorScene::RenderSubWindow()
 	{
 		for (auto& object : SubObjectVec)
 		{
-			object.obj->Render(subRenderTarget);
+			object.obj->RenderWithWinOffset(subRenderTarget, subWinOffset);
 		}
 	}
 }
@@ -229,7 +241,7 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 			std::string name = object["type"];
 			Vector position = Vector(object["position"][0], object["position"][1]);
 
-			EdiSceneObject character = { name,
+			EdiSceneObject character = { "Player", name,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures(name, "Idle"),
 								RenderLayer::Character, position, ImageAnchor::Bottomcenter) };
 
@@ -238,7 +250,7 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 			LivingObjects.push_back(character);
 		}
 	}
-	
+
 
 	{
 		auto staticObjects = stageData["StaticObjects"]["Object"];
@@ -255,7 +267,7 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 
 			if (structureName.find("empty") != std::string::npos)
 			{
-				staticObject = { structureName,
+				staticObject = { "Platform", structureName,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures(type, "bannedArea"),
 								RenderLayer::Platform, position, ImageAnchor::Center) };
 
@@ -264,7 +276,7 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 					staticObject.obj->custumRenderSizeOrder = true;
 					staticObject.obj->custumRenderSize = Vector(1800, 100);
 
-				}	
+				}
 
 				else if (!structureName.compare("emptyWall"))
 				{
@@ -273,12 +285,12 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 				}
 
 				staticObject.obj->collider->DeActivateCollier();
-					
+
 			}
 
 			else
 			{
-				staticObject = { structureName,
+				staticObject = { "Platform", structureName,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures(type, structureName),
 								RenderLayer::Platform, position, ImageAnchor::Center) };
 			}
@@ -306,6 +318,59 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 	return false;
 }
 
+void EditorScene::AddWinOffset(Vector amount)
+{
+
+	if (amount.y > 0 && subWinOffset.y == 0)
+		return;
+
+	if (amount.y < 0 && subWinOffset.y >= WinOffsetYMax)
+	{
+		subWinOffset.y = WinOffsetYMax;
+		return;
+	}
+
+	subWinOffset.x += amount.x;
+	subWinOffset.y += amount.y;
+
+
+}
+
+std::pair<std::string, std::string> EditorScene::GetSellectedEdiSceneObjectData()
+{
+	Vector mousePos = subWinMouseClickedPos;
+
+	mousePos.x -= subWinOffset.x;
+	mousePos.y -= subWinOffset.y;
+
+	std::pair<std::string, std::string> SendData;
+
+	for (auto& Objects : SubWinObject)
+	{
+		for (auto& Obj : Objects)
+		{
+			Vector ObjectPos = Obj.obj->GetPos();
+			Vector TextureSize = Obj.obj->animator.GetAnimTexture()->GetTextureSize();
+
+			float halfX = TextureSize.x * 0.5;
+			float halfY = TextureSize.y * 0.5;
+
+			if (mousePos.x > ObjectPos.x - halfX &&
+				mousePos.y > ObjectPos.y - halfY &&
+				mousePos.x < ObjectPos.x + halfX &&
+				mousePos.y < ObjectPos.y + halfY)
+
+			{
+				SendData = std::make_pair(Obj.type, Obj.name);
+				Obj.obj->animator.StartAnim();
+				StopAllSubWinObjAnimExcep(&Obj);
+			}
+		}
+	}
+
+	return SendData;
+}
+
 void EditorScene::SetCustumAnimSpeed(std::string name, StaticObject* obj)
 {
 	if (!name.compare("Death"))
@@ -322,5 +387,74 @@ void EditorScene::SetCustumAnimSpeed(std::string name, StaticObject* obj)
 	{
 		obj->animator.SetAnimSpeed(10);
 		return;
+	}
+}
+
+void EditorScene::StopAllSubWinObjAnimExcep(EdiSceneObject* theExcep)
+{
+	for (auto& Obj : SubWinObject[0])
+	{
+		if(Obj.obj != theExcep->obj)
+		Obj.obj->animator.StopAnim();
+	}
+}
+
+void EditorScene::ChangeColor(bool num)
+{
+
+	auto CompareColor = [](const D2D1::ColorF& c1, const D2D1::ColorF& c2) -> bool
+		{
+			const float EPSILON = 0.001f;
+			return fabs(c1.r - c2.r) < EPSILON &&
+				fabs(c1.g - c2.g) < EPSILON &&
+				fabs(c1.b - c2.b) < EPSILON &&
+				fabs(c1.a - c2.a) < EPSILON;
+		};
+
+
+	if (num == true)
+	{
+		//if(currentColor == D2D1::ColorF::Coral)
+		if (CompareColor(currentColor, D2D1::ColorF::Coral))
+		{
+			return;
+		}
+
+		else
+		{
+			currentColor = D2D1::ColorF::Coral;
+		}
+	}
+
+	else if (num == false)
+	{
+		if (CompareColor(currentColor, D2D1::ColorF::Aqua))
+		{
+			return;
+		}
+
+		else
+		{
+			currentColor = D2D1::ColorF::Aqua;
+		}
+	}
+
+	//현재 에디터 캐릭터의 정보를 수정한다.
+
+	std::string characterType;
+
+	if (CompareColor(currentColor, D2D1::ColorF::Coral))
+	{
+		characterType = "Player";
+	}
+
+	else
+	{
+		characterType = "AI";
+	}
+
+	for (auto& Obj : SubWinObject[0])
+	{
+		Obj.type = characterType;
 	}
 }

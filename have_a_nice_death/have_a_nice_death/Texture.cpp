@@ -317,3 +317,9 @@ void Texture::RenderCustomSize(ID2D1RenderTarget* renderTarget, Vector pos, Vect
 			DrawBound(renderTarget, destLeft);
 	}
 }
+
+void Texture::RenderWinOffset(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor, Vector WinOffset)
+{
+	Vector newPos = Vector(pos.x + WinOffset.x, pos.y + WinOffset.y);
+	Render(renderTarget, newPos, drawAnchor, false);
+}
