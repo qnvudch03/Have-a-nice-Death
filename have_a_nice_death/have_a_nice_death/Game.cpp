@@ -34,13 +34,13 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 	_hwnd = hwnd;
 	_subhwnd = subhwnd;
 
+	D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
+
 	//Create MainWindow RenderTarget
 	{
 		::GetClientRect(hwnd, &_rect);
 
 		// dx init
-		D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
-
 		D2D1_SIZE_U size = D2D1::SizeU(_rect.right - _rect.left, _rect.bottom - _rect.top);
 
 		// Create a Direct2D render target.
@@ -59,7 +59,7 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 		::GetClientRect(subhwnd, &_subwidnowrect);
 
 		// dx init
-		D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
+		//D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &_dxFactory);
 
 		D2D1_SIZE_U size = D2D1::SizeU(_subwidnowrect.right - _subwidnowrect.left, _subwidnowrect.bottom - _subwidnowrect.top);
 
@@ -128,6 +128,9 @@ void Game::CheckReservedScene()
 
 	_currScene = sceneLoader->GetReservedScene();
 
+	//æ¿ ∫Ø∞ÊΩ√ ¿œ¥‹¿∫ subWindow∏¶ ≤®
+	isSubWindowOpen = false;
+
 	if (auto gamdScene = dynamic_cast<GameScene*>(_currScene))
 	{
 		gamdScene->Init();
@@ -135,6 +138,7 @@ void Game::CheckReservedScene()
 
 	else if (auto editorScene = dynamic_cast<EditorScene*>(_currScene))
 	{
+		isSubWindowOpen = true;
 		editorScene->SetSubWindow(_dxSubRenderTarget, _subhwnd);
 		editorScene->Init();
 	}
@@ -293,5 +297,11 @@ void Game::Render()
 	GetScene()->Render(_dxRenderTarget);
 
 	_dxRenderTarget->EndDraw();
+
+
+	if (isSubWindowOpen)
+	{
+		GetScene()->RenderSubWin();
+	}
 
 }

@@ -18,22 +18,42 @@ void EditorScene::Init()
 	currentStage = "Stage1";
 
 	ReadStageData(currentStage);
+	LoadSubWinObject();
 }
 
 void EditorScene::Destroy()
 {
+	ReserveRemove(backGroundObejct);
+
+	for (auto& mainLivingObject : LivingObjects)
+	{
+		ReserveRemove(mainLivingObject.obj);
+	}
+
+	LivingObjects.clear();
+
+	for (auto& mainStaticObject : StaticObjects)
+	{
+		ReserveRemove(mainStaticObject.obj);
+	}
+
+	StaticObjects.clear();
+
+
+
+	//자체삭제해야 함
+	//SubWinObject
 }
 
 void EditorScene::Update(float deltatTime)
 {
 	Super::Update(deltatTime);
-	/*for (auto& LivingObj : LivingObjects)
-	{
-		if (LivingObj.obj == nullptr)
-			continue;
 
-		LivingObj.obj->Update(deltatTime);
-	}*/
+	//서브윈도우 오브젝트 업데이트
+	for (auto& livingObj : SubWinObject[0])
+	{
+		livingObj.obj->Update(deltatTime);
+	}
 }
 
 void EditorScene::PostUpdate(float deltaTime)
@@ -44,9 +64,6 @@ void EditorScene::PostUpdate(float deltaTime)
 void EditorScene::Render(ID2D1RenderTarget* renderTarget)
 {
 	Super::Render(renderTarget);
-
-	RdnerSubWindow();
-
 }
 
 void EditorScene::EraseScene()
@@ -66,8 +83,26 @@ void EditorScene::EraseScene()
 	StaticObjects.clear();
 }
 
+void EditorScene::RenderSubWin()
+{
+
+	D2D1_SIZE_F rtSize = subRenderTarget->GetSize();
+
+	subRenderTarget->BeginDraw();
+
+	subRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::White));
+	RenderSubWindow();
+
+	HRESULT hr = subRenderTarget->EndDraw();
+}
+
 void EditorScene::SetSubWindow(ID2D1RenderTarget* SubRenderTarget, HWND Subhwnd)
 {
+	if (!IsWindow(Subhwnd))
+	{
+		int apple = 10;
+	}
+
 	if (SubRenderTarget == nullptr || Subhwnd == nullptr)
 		return;
 
@@ -76,48 +111,91 @@ void EditorScene::SetSubWindow(ID2D1RenderTarget* SubRenderTarget, HWND Subhwnd)
 
 }
 
-void EditorScene::RdnerSubWindow()
+void EditorScene::LoadSubWinObject()
 {
-	//subRenderTarget->BeginDraw();
+	int indexY = 1;
+	//캐릭터 Object 부착
+	for (auto& characterName : CharacterOjbectList)
+	{
+		if (characterName.empty())
+			break;
 
-	//subRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::White));
+		EdiSceneObject character = { characterName,
+				new StaticObject(SpriteManager::GetInstance()->GetTextures(characterName, "Idle"),
+								RenderLayer::Character, Vector(300, indexY*200), ImageAnchor::Bottomcenter)};
 
-	////ToDo
 
-	//subRenderTarget->EndDraw();
+		SetCustumAnimSpeed(characterName, character.obj);
+		character.obj->collider->DeActivateCollier();
+		SubWinObject[0].push_back(character);
+
+		indexY++;
+	}
+
+	//스태틱 Object 부착
+	{
+		indexY = 0;
+
+		std::vector<std::wstring> PlatformNames;
+
+		wchar_t buffer[MAX_PATH];
+		DWORD length = ::GetCurrentDirectory(MAX_PATH, buffer);
+		fs::path ResourcePath = fs::path(buffer) / L"../../Resources/Platform/";
+		ResourcePath = ResourcePath.lexically_normal();
+
+		for (const auto& entry : fs::directory_iterator(ResourcePath))
+		{
+			if (entry.is_directory())
+			{
+				std::string PlatformName = entry.path().filename().string();
+
+				if(PlatformName.find("empty") != std::string::npos || !PlatformName.compare("bannedArea"))
+					continue;
+
+
+				EdiSceneObject platform = { PlatformName,
+				new StaticObject(SpriteManager::GetInstance()->GetTextures("Platform", PlatformName),
+								RenderLayer::Character, Vector(400, indexY * 200), ImageAnchor::Center) };
+
+				platform.obj->collider->DeActivateCollier();
+
+				SubWinObject[1].push_back(platform);
+				indexY++;
+			}
+		}
+	}
+
+}
+
+void EditorScene::RenderSubWindow()
+{
+
+	subRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
+
+	/*for (auto& SubObjectVec : SubWinObject)
+	{
+		for (auto& object : SubObjectVec)
+		{
+			object.obj->Render(subRenderTarget);
+		}
+	}*/
+
+	SubWinObject[0][0].obj->animator.GetAnimTexture()->Render(subRenderTarget, Vector(50, 50), ImageAnchor::Bottomcenter);
 }
 
 bool EditorScene::ReadStageData(std::string stageName)
 {
-
 	LivingObjects.clear();
 	StaticObjects.clear();
 
 	if (LoadJsonFile(stageName) == false)
 		return false;
 
-
 	return true;
 }
 
 bool EditorScene::LoadJsonFile(std::string FileName)
 {
-	auto SetCustumAnimSpeed = [this](std::string name, StaticObject* obj)
-		{
-			if (!name.compare("Death"))
-			{
-				obj->animator.SetAnimSpeed(30);
-				//return;
-			}		
-			else if (!name.compare("SmallGhost"))
-			{
-				obj->animator.SetAnimSpeed(10);
-				//return;
-			}
-		};
-
-
-
 	std::string Filename = FileName + ".stage";
 	wchar_t buffer[MAX_PATH];
 	DWORD length = ::GetCurrentDirectory(MAX_PATH, buffer);
@@ -223,4 +301,18 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 	}
 
 	return false;
+}
+
+void EditorScene::SetCustumAnimSpeed(std::string name, StaticObject* obj)
+{
+	if (!name.compare("Death"))
+	{
+		obj->animator.SetAnimSpeed(30);
+		return;
+	}
+	else if (!name.compare("SmallGhost"))
+	{
+		obj->animator.SetAnimSpeed(10);
+		return;
+	}
 }

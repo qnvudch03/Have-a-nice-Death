@@ -24,7 +24,6 @@ public:
 
 private:
 	// 텍스처를 그리기위한 변수
-	HDC		_textureHdc = 0;
 
 	DXBitmap* _bitmap = nullptr;
 

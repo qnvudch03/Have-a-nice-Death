@@ -19,6 +19,8 @@ public:
 	void OnLeftClickEvent();
 	void CheckReservedScene();
 
+	void SetSubWinOpen(bool isOpen) { isSubWindowOpen = isOpen; }
+
 	static Scene* GetScene();
 	static class GameScene* GetGameScene();
 
@@ -26,6 +28,7 @@ public:
 
 	Scene* GetCurrentScence() { return _currScene; }
 
+	ID2D1HwndRenderTarget* GetSubRenderTarget() { return _dxSubRenderTarget; }
 	ID2D1HwndRenderTarget* GetRenderTarget() { return _dxRenderTarget; }
 	IWICImagingFactory* GetWICFactory() { return _wicFactory; }
 
@@ -58,6 +61,7 @@ private:
 	IDWriteTextFormat* m_pTextFormat = nullptr;*/
 
 	bool DegubMode = false;
+	bool isSubWindowOpen = false;
 
 	//void InitDirectWrite();
 

@@ -122,8 +122,6 @@ void Scene::Render(ID2D1RenderTarget* renderTarget)
 
 		ui->Render(renderTarget);
 	}
-
-
 }
 
 void Scene::EraseScene()
@@ -137,7 +135,6 @@ void Scene::EraseScene()
 void Scene::ReserveRemove(Object* actor)
 {
 	_reserveRemove.push_back(actor);
-
 }
 
 void Scene::ReserveAdd(Object* actor)
