@@ -53,12 +53,14 @@ void InputManager::Update(HWND hwnd)
 		{
 			Game::GetInstance()->OnLeftClickEvent();
 		}
-		
-		else if (hwnd == _subhwnd)
-		{
-			//Game::GetInstance()->OnSubWinLectMouseClicked(_mousePos);
-		}
+	}
 
+	else if (GetButtonDown(KeyType::RightMouse))
+	{
+		if (hwnd == _hwnd)
+		{
+			Game::GetInstance()->OnRightClickEvent();
+		}
 	}
 }
 

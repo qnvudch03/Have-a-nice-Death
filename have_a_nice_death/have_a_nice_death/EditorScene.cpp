@@ -58,11 +58,11 @@ void EditorScene::Update(float deltatTime)
 	}
 
 	//화면에 있는 프리뷰 오브젝트 업데이트
-	if (RecievedPreiVewObjectInfo.second != nullptr &&
-		!RecievedPreiVewObjectInfo.first.first.empty())
+	if (RecievedPreiVewObjectContainer.second != nullptr &&
+		!RecievedPreiVewObjectContainer.first.first.empty())
 	{
-		RecievedPreiVewObjectInfo.second->SetPos(InputManager::GetInstance()->GetMousePos());
-		RecievedPreiVewObjectInfo.second->Update(deltatTime);
+		RecievedPreiVewObjectContainer.second->SetPos(InputManager::GetInstance()->GetMousePos());
+		RecievedPreiVewObjectContainer.second->Update(deltatTime);
 	}
 }
 
@@ -76,15 +76,22 @@ void EditorScene::Render(ID2D1RenderTarget* renderTarget)
 	Super::Render(renderTarget);
 
 	//프리뷰 오브젝트 렌더
-	if (RecievedPreiVewObjectInfo.second != nullptr ||
-		!RecievedPreiVewObjectInfo.first.first.empty())
+	if (RecievedPreiVewObjectContainer.second != nullptr ||
+		!RecievedPreiVewObjectContainer.first.first.empty())
 	{
-		RecievedPreiVewObjectInfo.second->RenderWithOpacity(renderTarget, 0.7);
+		RecievedPreiVewObjectContainer.second->RenderWithOpacity(renderTarget, 0.7);
 	}
 }
 
 void EditorScene::EraseScene()
 {
+
+	if (!WriteStageData())
+	{
+		//FileSave Faild
+		throw std::runtime_error("파일 저장 실패: " + currentStage);
+	}
+
 	for (auto& livingObject : LivingObjects)
 	{
 		delete livingObject.obj;
@@ -99,9 +106,9 @@ void EditorScene::EraseScene()
 
 	StaticObjects.clear();
 
-	if (RecievedPreiVewObjectInfo.second != nullptr)
+	if (RecievedPreiVewObjectContainer.second != nullptr)
 	{
-		delete RecievedPreiVewObjectInfo.second;
+		delete RecievedPreiVewObjectContainer.second;
 	}
 }
 
@@ -120,7 +127,123 @@ void EditorScene::RenderSubWin()
 
 void EditorScene::OnLeftButtonClicked(Vector clickedPos)
 {
-	int applle = 10;
+	if ((RecievedPreiVewObjectContainer.first.first.empty() || RecievedPreiVewObjectContainer.first.second.empty()) ||
+		RecievedPreiVewObjectContainer.second == nullptr)
+		return;
+
+	std::string ObjType = RecievedPreiVewObjectContainer.first.first;
+	std::string ObjName = RecievedPreiVewObjectContainer.first.second;
+	StaticObject* SelectedObj = RecievedPreiVewObjectContainer.second;
+
+	StaticObject* AddedObject = nullptr;
+
+	//플랫폼일 경우
+	if (ObjType == "Platform")
+	{
+		AddedObject = new StaticObject(SpriteManager::GetInstance()->GetTextures(ObjType, ObjName),
+			RenderLayer::Platform, SelectedObj->GetPos(), ImageAnchor::Center);
+
+		StaticObjects.push_back(EdiSceneObject(ObjType, ObjName, AddedObject));
+	}
+
+	else
+	{
+		AddedObject = new StaticObject(SpriteManager::GetInstance()->GetTextures(ObjName, "Idle"),
+			RenderLayer::Character, SelectedObj->GetPos(), ImageAnchor::Bottomcenter);
+
+		SetCustumAnimSpeed(ObjName, AddedObject);
+		LivingObjects.push_back(EdiSceneObject(ObjType, ObjName, AddedObject));
+	}
+
+	if (AddedObject)
+	{
+		ReserveAdd(AddedObject);
+	}
+
+}
+
+void EditorScene::OnRightButtonClicked(Vector clickedPos)
+{
+
+	{
+
+		int playerNums = 0;
+		for (auto& livingObj : LivingObjects)
+		{
+			if (livingObj.type == "Player")
+				playerNums++;
+		}
+
+
+		auto livingObj = LivingObjects.begin();
+		while (livingObj != LivingObjects.end())
+		{
+			Vector ObjectPos = livingObj->obj->GetPos();
+			Vector TextureSize = livingObj->obj->animator.GetAnimTexture()->GetTextureSize();
+
+			float halfX = TextureSize.x * 0.5;
+
+			if (clickedPos.x > ObjectPos.x - halfX		   &&
+				clickedPos.y > ObjectPos.y - TextureSize.y &&
+				clickedPos.x < ObjectPos.x + halfX		   &&
+				clickedPos.y < ObjectPos.y)
+
+			{
+
+				if (livingObj->type == "Player")
+				{
+					if (playerNums > 1)
+					{
+						ReserveRemove(livingObj->obj);
+						livingObj = LivingObjects.erase(livingObj);
+						return;
+					}
+				}
+
+				else
+				{
+					ReserveRemove(livingObj->obj);
+					livingObj = LivingObjects.erase(livingObj);
+					return;
+				}
+				
+			}
+
+			livingObj++;
+		}
+	}
+	
+
+	auto staticObj = StaticObjects.begin();
+	while (staticObj != StaticObjects.end())
+	{
+		if (staticObj->name.find("empty") != std::string::npos)
+		{
+			staticObj++;
+			continue;
+		}
+			
+
+		Vector ObjectPos = staticObj->obj->GetPos();
+		Vector TextureSize = staticObj->obj->animator.GetAnimTexture()->GetTextureSize();
+
+		float halfX = TextureSize.x * 0.5;
+		float halfY = TextureSize.y * 0.5;
+
+		if (clickedPos.x > ObjectPos.x - halfX &&
+			clickedPos.y > ObjectPos.y - halfY &&
+			clickedPos.x < ObjectPos.x + halfX &&
+			clickedPos.y < ObjectPos.y + halfY)
+
+		{
+			ReserveRemove(staticObj->obj);
+			staticObj = StaticObjects.erase(staticObj);
+			return;
+		}
+
+		staticObj++;
+	}
+
 }
 
 void EditorScene::SetSubWindow(ID2D1RenderTarget* SubRenderTarget, HWND Subhwnd)
@@ -223,6 +346,18 @@ void EditorScene::RenderSubWindow()
 	}
 }
 
+void EditorScene::ChangeStage(int Inum)
+{
+	if (currentStage == "Stage1" && Inum < 0)
+		return;
+
+	if (currentStage == "Stage3" && Inum > 0)
+		return;
+
+	currentStage = AddjustStageString(currentStage, Inum);
+
+}
+
 bool EditorScene::ReadStageData(std::string stageName)
 {
 	LivingObjects.clear();
@@ -230,6 +365,76 @@ bool EditorScene::ReadStageData(std::string stageName)
 
 	if (LoadJsonFile(stageName) == false)
 		return false;
+
+	return true;
+}
+
+bool EditorScene::WriteStageData()
+{
+	if (LivingObjects.empty() && StaticObjects.empty())
+		return false;
+
+	json stageJson;
+
+	if (stageBackGroundName.empty())
+		return false;
+
+	stageJson["BackGround"] = stageBackGroundName;
+
+	stageJson["LivingObjects"]["Object"] = json::array();
+
+	//LivingObject 작성
+	for (auto& livingObj : LivingObjects)
+	{
+		stageJson["LivingObjects"]["Object"].push_back({
+		{"owner", livingObj.type},
+		{"type", livingObj.name},
+		{"position", {livingObj.obj->GetPos().x, livingObj.obj->GetPos().y}}
+			});
+	}
+
+
+	//StaticObject 작성
+	for (auto& staticObj : StaticObjects)
+	{
+		stageJson["StaticObjects"]["Object"].push_back({
+		{"type", staticObj.type},
+		{"name", staticObj.name},
+		{"position", {staticObj.obj->GetPos().x, staticObj.obj->GetPos().y}}
+			});
+	}
+
+	//에디터 씬에는 없는 종이 벽 저장
+	{
+		stageJson["StaticObjects"]["Object"].push_back({
+		{"type", "Wall"},
+		{"name", "PaperWall"},
+		{"position", {80, 350}}
+			});
+
+		stageJson["StaticObjects"]["Object"].push_back({
+			{"type", "Wall"},
+			{"name", "PaperWall"},
+			{"position", {1640, 350}}
+			});
+	}
+
+	std::string Filename = currentStage + ".stage";
+	wchar_t buffer[MAX_PATH];
+	DWORD length = ::GetCurrentDirectory(MAX_PATH, buffer);
+	fs::path ResourcePath = fs::path(buffer) / L"../../StageInfo/";
+	ResourcePath = ResourcePath.lexically_normal();
+
+	fs::path fullFilePath = ResourcePath / fs::path(Filename);
+
+	std::ofstream outFile(fullFilePath);
+	if (!outFile.is_open())
+	{
+		return false;
+	}
+
+	outFile << stageJson.dump(4);
+	outFile.close();
 
 	return true;
 }
@@ -257,19 +462,35 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 		RenderLayer::Background, Vector(0, 0), ImageAnchor::Topleft);
 
 	if (backGroundObejct != nullptr)
+	{
 		ReserveAdd(backGroundObejct);
+		stageBackGroundName = stageData["BackGround"];
+	}
+
 
 	{
 		auto livingObjects = stageData["LivingObjects"]["Object"];
 		for (const auto& object : livingObjects)
 		{
+			std::string owner = object["owner"];
 			std::string name = object["type"];
 			Vector position = Vector(object["position"][0], object["position"][1]);
 
-			EdiSceneObject character = { "Player", name,
+			EdiSceneObject character;
+
+			if (owner == "Player")
+			{
+				character = { "Player", name,
 				new StaticObject(SpriteManager::GetInstance()->GetTextures(name, "Idle"),
 								RenderLayer::Character, position, ImageAnchor::Bottomcenter) };
+			}
 
+			else if (owner == "AI")
+			{
+				character = { "AI", name,
+				new StaticObject(SpriteManager::GetInstance()->GetTextures(name, "Idle"),
+								RenderLayer::Character, position, ImageAnchor::Bottomcenter) };
+			}
 
 			SetCustumAnimSpeed(name, character.obj);
 			LivingObjects.push_back(character);
@@ -343,6 +564,11 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 	return false;
 }
 
+bool EditorScene::WriteJsonFile(std::string FileName)
+{
+	return false;
+}
+
 void EditorScene::AddWinOffset(Vector amount)
 {
 
@@ -364,8 +590,8 @@ void EditorScene::AddWinOffset(Vector amount)
 void EditorScene::SetPrieViewObject(std::pair<std::string, std::string> Objinfo, StaticObject* PreviewObject)
 {
 	//Null prt이면 그런대로 사용할거다
-	RecievedPreiVewObjectInfo.first = Objinfo;
-	RecievedPreiVewObjectInfo.second = PreviewObject;
+	RecievedPreiVewObjectContainer.first = Objinfo;
+	RecievedPreiVewObjectContainer.second = PreviewObject;
 }
 
 std::pair<std::string, std::string> EditorScene::GetSellectedEdiSceneObjectData()
@@ -443,7 +669,23 @@ void EditorScene::StopAllSubWinObjAnim()
 
 }
 
-void EditorScene::ChangeColor(bool num)
+std::string EditorScene::AddjustStageString(std::string stageName, int addmount)
+{
+	size_t pos = currentStage.find_last_of("0123456789");
+	if (pos != std::string::npos) {
+
+		int number = std::stoi(currentStage.substr(pos));
+		number += addmount;
+
+		std::string newStr = currentStage.substr(0, pos) + std::to_string(number);
+
+		currentStage = newStr;
+
+		return currentStage;
+	}
+}
+
+void EditorScene::ChangeColor()
 {
 
 	auto CompareColor = [](const D2D1::ColorF& c1, const D2D1::ColorF& c2) -> bool
@@ -455,33 +697,39 @@ void EditorScene::ChangeColor(bool num)
 				fabs(c1.a - c2.a) < EPSILON;
 		};
 
+	if (CompareColor(currentColor, D2D1::ColorF::Coral))
+		currentColor = D2D1::ColorF::Aqua;
 
-	if (num == true)
-	{
-		//if(currentColor == D2D1::ColorF::Coral)
-		if (CompareColor(currentColor, D2D1::ColorF::Coral))
-		{
-			return;
-		}
+	else if(CompareColor(currentColor, D2D1::ColorF::Aqua))
+		currentColor = D2D1::ColorF::Coral;
 
-		else
-		{
-			currentColor = D2D1::ColorF::Coral;
-		}
-	}
 
-	else if (num == false)
-	{
-		if (CompareColor(currentColor, D2D1::ColorF::Aqua))
-		{
-			return;
-		}
+	//if (num == true)
+	//{
+	//	//if(currentColor == D2D1::ColorF::Coral)
+	//	if (CompareColor(currentColor, D2D1::ColorF::Coral))
+	//	{
+	//		return;
+	//	}
 
-		else
-		{
-			currentColor = D2D1::ColorF::Aqua;
-		}
-	}
+	//	else
+	//	{
+	//		currentColor = D2D1::ColorF::Coral;
+	//	}
+	//}
+
+	//else if (num == false)
+	//{
+	//	if (CompareColor(currentColor, D2D1::ColorF::Aqua))
+	//	{
+	//		return;
+	//	}
+
+	//	else
+	//	{
+	//		currentColor = D2D1::ColorF::Aqua;
+	//	}
+	//}
 
 	//현재 에디터 캐릭터의 정보를 수정한다.
 

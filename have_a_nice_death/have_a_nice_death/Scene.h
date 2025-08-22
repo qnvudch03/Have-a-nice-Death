@@ -14,6 +14,7 @@ public:
 	virtual void RenderSubWin() {};
 	virtual void EraseScene();
 	virtual void OnLeftButtonClicked(Vector clickedPos) {};
+	virtual void OnRightButtonClicked(Vector clickedPos) {};
 
 
 	// Actor Remove

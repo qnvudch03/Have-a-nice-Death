@@ -41,8 +41,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	// 뭐 어쩌라고??
 	//메모리릭 탐지 코드
-	/*_CrtSetBreakAlloc(10943);
-	_CrtSetBreakAlloc(10951);*/
+	/*_CrtSetBreakAlloc(24500);
+	_CrtSetBreakAlloc(24497);*/
 
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
@@ -244,8 +244,9 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 
 		switch (wParam)
 		{
-			case VK_NUMPAD2: game->OnSubWinNumber2Pressed(); break;
-			case VK_NUMPAD8: game->OnSubWinNumber8Pressed(); break;
+		case VK_MULTIPLY: game->OnMultiplyKeypadPressed(); break;
+		case VK_ADD:	game->OnAddKeypadPressed();		   break;
+		case VK_SUBTRACT: game->OnMinusKeypadPressed();	   break;
 		}
 
 		break;
@@ -254,7 +255,7 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 		if (!IsWindowVisible(hWnd)) break;
 
 		tempVector.x = GET_WHEEL_DELTA_WPARAM(wParam);
-		game->OnMouseWhillMoved(tempVector.x > 0);
+		game->OnWhillMove(tempVector.x > 0);
 
 		tempVector.x = 0;
 		break;

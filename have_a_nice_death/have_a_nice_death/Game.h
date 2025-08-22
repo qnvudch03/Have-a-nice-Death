@@ -18,6 +18,7 @@ public:
 	void Update(HWND hwnd);
 	void Render();
 	void OnLeftClickEvent();
+	void OnRightClickEvent();
 	void CheckReservedScene();
 
 	void SetSubWinOpen(bool isOpen) { isSubWindowOpen = isOpen; }
@@ -74,6 +75,7 @@ private:
 
 	Scene* _currScene = nullptr;
 	std::function<void(Vector pos)> _onLeftMousecliked;
+	std::function<void(Vector pos)> _onRightMousecliked;
 
 	std::map<std::string, std::function<void()>> _actionMap;
 
@@ -93,9 +95,10 @@ public:
 	//에디터 씬 데이터
 	void OnSubWinLectMouseClicked(Vector mouseClickedPos);
 	void OnSubWinRightMouseClicked(Vector mouseClickedPos);
-	void OnSubWinNumber2Pressed();
-	void OnSubWinNumber8Pressed();
+	void OnWhillMove(bool num);
 
-	void OnMouseWhillMoved(bool num);
+	void OnMultiplyKeypadPressed();
+	void OnAddKeypadPressed();
+	void OnMinusKeypadPressed();
 };
 

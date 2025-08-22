@@ -20,8 +20,9 @@ public:
 	void SetActivate(bool activate) { Activate = activate; }
 
 	void OnSubWinClicked(int witch, Vector pos);
-	void OnSubWinNumPressed(int witch);
-	void OnMouseWhillMove(bool num);
+	void OnSubWinMouseWhillUp(int witch);
+	void OnMultiplyBtnPressed();
+	void OnPlusMinusPressed(int indicator);
 
 	StaticObject* GetPreViewObject() { return preViewObject; }
 

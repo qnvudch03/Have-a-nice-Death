@@ -107,6 +107,11 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 			_currScene->OnLeftButtonClicked(pos);
 		};
 
+	_onRightMousecliked = [this](Vector pos)
+		{
+			_currScene->OnRightButtonClicked(pos);
+		};
+
 }
 
 void Game::OnLeftClickEvent()
@@ -114,6 +119,13 @@ void Game::OnLeftClickEvent()
 	Vector mousePos = InputManager::GetInstance()->GetMousePos();
 
 	_onLeftMousecliked(mousePos);
+}
+
+void Game::OnRightClickEvent()
+{
+	Vector mousePos = InputManager::GetInstance()->GetMousePos();
+
+	_onRightMousecliked(mousePos);
 }
 
 void Game::CheckReservedScene()
@@ -269,17 +281,30 @@ void Game::OnSubWinRightMouseClicked(Vector mouseClickedPos)
 	WinMediator.OnSubWinClicked(1, mouseClickedPos);
 }
 
-void Game::OnSubWinNumber2Pressed()
+void Game::OnWhillMove(bool num)
 {
-	WinMediator.OnSubWinNumPressed(2);
+	if (num == true)
+	{
+		WinMediator.OnSubWinMouseWhillUp(8);
+	}
+
+	else if (num == false)
+	{
+		WinMediator.OnSubWinMouseWhillUp(2);
+	}
 }
 
-void Game::OnSubWinNumber8Pressed()
+void Game::OnMultiplyKeypadPressed()
 {
-	WinMediator.OnSubWinNumPressed(8);
+	WinMediator.OnMultiplyBtnPressed();
 }
 
-void Game::OnMouseWhillMoved(bool num)
+void Game::OnAddKeypadPressed()
 {
-	WinMediator.OnMouseWhillMove(num);
+	WinMediator.OnPlusMinusPressed(1);
+}
+
+void Game::OnMinusKeypadPressed()
+{
+	WinMediator.OnPlusMinusPressed(-1);
 }

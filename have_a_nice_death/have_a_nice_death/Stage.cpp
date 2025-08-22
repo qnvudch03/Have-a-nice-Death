@@ -338,6 +338,11 @@ void Stage::StartStage()
 	}
 
 	StartWave();
+
+	if (WaveCount <= -1)
+	{
+		StageClear();
+	}
 }
 
 void Stage::StartWave()

@@ -33,7 +33,7 @@ void WindowMediator::OnSubWinClicked(int witch, Vector pos)
 	editScene->subWinMouseClickedPos = pos;
 
 	//오른쪽
-	if(witch == 1)
+	if (witch == 1)
 	{
 		//서브윈도우 우클릭은 딱히 기능 없음
 	}
@@ -45,35 +45,41 @@ void WindowMediator::OnSubWinClicked(int witch, Vector pos)
 		RecievedData = editScene->GetSellectedEdiSceneObjectData();
 
 		editScene->SetPrieViewObject(RecievedData, MakePreViewObject(RecievedData));
-		
+
 	}
 }
 
-void WindowMediator::OnSubWinNumPressed(int witch)
+void WindowMediator::OnSubWinMouseWhillUp(int witch)
 {
 	//8
-	if (witch == 8)
+	if (witch == 2)
 	{
-		if (InputManager::GetInstance()->GetButtonUp(KeyType::NumPad8))
-		{
-			editScene->AddWinOffset(Vector(0, -50));
-		}
-		
+		editScene->AddWinOffset(Vector(0, -50));
 	}
 
-	else if (witch == 2)
+	else if (witch == 8)
 	{
-		if (InputManager::GetInstance()->GetButtonUp(KeyType::NumPad2))
-		{
-			editScene->AddWinOffset(Vector(0, 50));
-		}
-		
+		editScene->AddWinOffset(Vector(0, 50));
 	}
 }
 
-void WindowMediator::OnMouseWhillMove(bool num)
+void WindowMediator::OnMultiplyBtnPressed()
 {
-	editScene->ChangeColor(num);
+	editScene->ChangeColor();
+}
+
+void WindowMediator::OnPlusMinusPressed(int indicator)
+{
+	if (indicator > 0)
+	{
+		//Load Next EditScene
+
+	}
+
+	else if (indicator < 0)
+	{
+		//Load Pre EditScene
+	}
 }
 
 StaticObject* WindowMediator::MakePreViewObject(std::pair<std::string, std::string> RecievedData)
