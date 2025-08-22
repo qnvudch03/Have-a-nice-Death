@@ -11,10 +11,11 @@ public:
 	Vector GetTextureSize() { return Vector(_textureSizeX, _textureSizeY); }
 
 	// 해당 리소스가 그려지는 부분
-	void Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false);
+	void Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false, float Opacity = 1.0);
 	void RenderSlope(ID2D1RenderTarget* renderTarget, Vector pos, Vector ratio, ImageAnchor drawAnchor = ImageAnchor::Topleft,bool FlipOrder = false);
 	void RenderCustomSize(ID2D1RenderTarget* renderTarget, Vector pos, Vector size, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false);
 	void RenderWinOffset(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, Vector WinOffset = Vector(0,0));
+	void RenderWithOpacity(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor = ImageAnchor::Topleft, bool FlipOrder = false, float opacity = 1.0);
 
 	void SetFileFath(std::wstring fileName) { FilePath = fileName; }
 	std::wstring GetFileFath() { return FilePath; }

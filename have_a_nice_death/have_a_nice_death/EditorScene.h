@@ -8,7 +8,6 @@ class EditorScene : public Scene
 	using Super = Scene;
 
 	std::string CharacterOjbectList[3] = {"Death", "SmallGhost", "MedGhost"};
-	//std::string CharacterOjbectList[3] = { "Death", "SmallGhost"};
 
 	struct EdiSceneObject
 	{
@@ -27,6 +26,8 @@ public:
 	virtual void EraseScene() override;
 	virtual void RenderSubWin() override;
 
+	virtual void OnLeftButtonClicked(Vector clickedPos) override;
+
 	void SetSubWindow(ID2D1RenderTarget* SubRenderTarget, HWND	Subhwnd);
 	void LoadSubWinObject();
 	void RenderSubWindow();
@@ -39,6 +40,8 @@ public:
 	//서브윈도우랑 통신하는 액트
 	void AddWinOffset(Vector amount);
 	void ChangeColor(bool num);
+
+	void SetPrieViewObject(std::pair<std::string, std::string> Objinfo, StaticObject* PreviewObject);
 	std::pair<std::string, std::string> GetSellectedEdiSceneObjectData();
 
 	Vector subWinMouseClickedPos;
@@ -48,6 +51,7 @@ private:
 
 	void SetCustumAnimSpeed(std::string name, StaticObject* obj);
 	void StopAllSubWinObjAnimExcep(EdiSceneObject* theExcep);
+	void StopAllSubWinObjAnim();
 
 	//0에는 Chracter 1에는 staticObject
 	std::vector<EdiSceneObject> SubWinObject[2];
@@ -57,6 +61,8 @@ private:
 	StaticObject* backGroundObejct = nullptr;
 
 	std::string currentStage;
+
+	std::pair<std::pair<std::string, std::string>, StaticObject*> RecievedPreiVewObjectInfo;
 
 	D2D1::ColorF currentColor = D2D1::ColorF::Coral;
 

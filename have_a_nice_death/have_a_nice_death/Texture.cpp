@@ -11,7 +11,7 @@ Texture::~Texture()
 }
 
 
-void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor, bool FlipOrder)
+void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor, bool FlipOrder, float Opacity)
 {
 	if (_bitmap->GetBitmap() == nullptr)
 		return;
@@ -125,7 +125,7 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 
 		renderTarget->SetTransform(flipMat * oldTransform);
 
-		renderTarget->DrawBitmap(sellectedBitMap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
+		renderTarget->DrawBitmap(sellectedBitMap->GetBitmap(), destLeft, Opacity, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
 
 		if (drawBound)
 			DrawBound(renderTarget, destLeft);
@@ -137,7 +137,7 @@ void Texture::Render(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor dr
 	//Á¤¹æÇâ
 	else
 	{
-		renderTarget->DrawBitmap(sellectedBitMap->GetBitmap(), destLeft, 1.0f, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
+		renderTarget->DrawBitmap(sellectedBitMap->GetBitmap(), destLeft, Opacity, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR, &srcLeft);
 
 		if (drawBound)
 			DrawBound(renderTarget, destLeft);
@@ -322,4 +322,9 @@ void Texture::RenderWinOffset(ID2D1RenderTarget* renderTarget, Vector pos, Image
 {
 	Vector newPos = Vector(pos.x + WinOffset.x, pos.y + WinOffset.y);
 	Render(renderTarget, newPos, drawAnchor, false);
+}
+
+void Texture::RenderWithOpacity(ID2D1RenderTarget* renderTarget, Vector pos, ImageAnchor drawAnchor, bool FlipOrder, float opacity)
+{
+	Render(renderTarget, pos, drawAnchor, FlipOrder, opacity);
 }

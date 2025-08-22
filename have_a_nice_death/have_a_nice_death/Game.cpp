@@ -101,9 +101,10 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 
 	_currScene->Init();
 
-	_onLeftMousecliked = [](Vector pos)
+	_onLeftMousecliked = [this](Vector pos)
 		{
 			UIManager::GetInstance()->OnMouseButtonClicked(pos);
+			_currScene->OnLeftButtonClicked(pos);
 		};
 
 }

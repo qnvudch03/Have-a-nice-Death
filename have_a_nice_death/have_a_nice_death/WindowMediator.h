@@ -2,6 +2,7 @@
 
 class EditorScene;
 class Game;
+class StaticObject;
 
 class WindowMediator
 {
@@ -22,9 +23,15 @@ public:
 	void OnSubWinNumPressed(int witch);
 	void OnMouseWhillMove(bool num);
 
+	StaticObject* GetPreViewObject() { return preViewObject; }
+
 private:
 	bool Activate = false;
 	EditorScene* editScene = nullptr;
 	Game* game = nullptr;
+
+	StaticObject* preViewObject = nullptr;
+	StaticObject* MakePreViewObject(std::pair<std::string, std::string> RecievedData);
+	void SetCustumAnimSpeed(std::string name, StaticObject* obj);
 };
 

@@ -13,6 +13,7 @@ public:
 	virtual void Render(ID2D1RenderTarget* renderTarget);
 	virtual void RenderSubWin() {};
 	virtual void EraseScene();
+	virtual void OnLeftButtonClicked(Vector clickedPos) {};
 
 
 	// Actor Remove

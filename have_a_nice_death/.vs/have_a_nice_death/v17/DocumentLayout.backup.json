@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\have_a_nice_death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\have_a_nice_death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\InputManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\EditorScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\EditorScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,68 +23,60 @@
       "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\EditorScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\have_a_nice_death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\have_a_nice_death.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\WindowMediator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\WindowMediator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Animaotr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Animaotr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\InputManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Animaotr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Animaotr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\WindowMediator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\WindowMediator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\UIManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\StaticObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\StaticObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\DXBitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\DXBitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\InputManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Animaotr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Animaotr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Animaotr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\Animaotr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\UIManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\DXBitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|solutionrelative:have_a_nice_death\\DXBitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C34C8C7-3B72-4A54-9E53-0139089BCAE6}|have_a_nice_death\\have_a_nice_death.vcxproj|C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\DebugLenderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -291,7 +295,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -307,106 +311,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WindowMediator.cpp",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.cpp",
-              "RelativeDocumentMoniker": "have_a_nice_death\\WindowMediator.cpp",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.cpp",
-              "RelativeToolTip": "have_a_nice_death\\WindowMediator.cpp",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwCoAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-21T09:23:37.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WindowMediator.h",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.h",
-              "RelativeDocumentMoniker": "have_a_nice_death\\WindowMediator.h",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.h",
-              "RelativeToolTip": "have_a_nice_death\\WindowMediator.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-21T09:22:35.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "InputManager.h",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.h",
-              "RelativeDocumentMoniker": "have_a_nice_death\\InputManager.h",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.h",
-              "RelativeToolTip": "have_a_nice_death\\InputManager.h",
-              "ViewState": "AgIAADQAAAAAAAAAAAAuwEgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-21T09:15:09.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Game.cpp",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.cpp",
-              "RelativeDocumentMoniker": "have_a_nice_death\\Game.cpp",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.cpp",
-              "RelativeToolTip": "have_a_nice_death\\Game.cpp",
-              "ViewState": "AgIAAPYAAAAAAAAAAAAuwAYBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-21T01:19:08.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "InputManager.cpp",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.cpp",
+              "RelativeDocumentMoniker": "have_a_nice_death\\InputManager.cpp",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.cpp",
+              "RelativeToolTip": "have_a_nice_death\\InputManager.cpp",
+              "ViewState": "AgIAACQAAAAAAAAAAAAcwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-22T01:52:48.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "have_a_nice_death.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\have_a_nice_death.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\have_a_nice_death.cpp",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\have_a_nice_death.cpp",
               "RelativeToolTip": "have_a_nice_death\\have_a_nice_death.cpp",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAcwHMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAcwIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-08-07T07:25:47.329Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EditorScene.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\EditorScene.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\EditorScene.cpp",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\EditorScene.cpp",
               "RelativeToolTip": "have_a_nice_death\\EditorScene.cpp",
-              "ViewState": "AgIAAF4BAAAAAAAAAAAuwGkBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAwHoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-30T08:37:56.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Object.cpp",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.cpp",
-              "RelativeDocumentMoniker": "have_a_nice_death\\Object.cpp",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.cpp",
-              "RelativeToolTip": "have_a_nice_death\\Object.cpp",
-              "ViewState": "AgIAABoAAAAAAAAAAAAcwCgAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-30T08:58:10.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Texture.h",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.h",
-              "RelativeDocumentMoniker": "have_a_nice_death\\Texture.h",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.h",
-              "RelativeToolTip": "have_a_nice_death\\Texture.h",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAcwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-21T07:48:48.015Z",
               "EditorCaption": ""
             },
             {
@@ -417,14 +356,14 @@
               "RelativeDocumentMoniker": "have_a_nice_death\\Object.h",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.h",
               "RelativeToolTip": "have_a_nice_death\\Object.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAcwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-08-20T07:21:19.057Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "Animaotr.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Animaotr.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Animaotr.h",
@@ -432,38 +371,154 @@
               "RelativeToolTip": "have_a_nice_death\\Animaotr.h",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-15T06:29:36.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T06:29:36.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EditorScene.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\EditorScene.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\EditorScene.h",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\EditorScene.h",
               "RelativeToolTip": "have_a_nice_death\\EditorScene.h",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADEAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAwBwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-07-30T08:37:54.166Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Game.h",
               "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.h",
               "RelativeToolTip": "have_a_nice_death\\Game.h",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAuwF0AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAwEsAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-08-21T01:18:55.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StaticObject.h",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\StaticObject.h",
+              "RelativeDocumentMoniker": "have_a_nice_death\\StaticObject.h",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\StaticObject.h",
+              "RelativeToolTip": "have_a_nice_death\\StaticObject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-20T06:30:50.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Texture.cpp",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.cpp",
+              "RelativeDocumentMoniker": "have_a_nice_death\\Texture.cpp",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.cpp",
+              "RelativeToolTip": "have_a_nice_death\\Texture.cpp",
+              "ViewState": "AgIAADYBAAAAAAAAAAAAwEYBAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-20T07:53:28.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Object.cpp",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.cpp",
+              "RelativeDocumentMoniker": "have_a_nice_death\\Object.cpp",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Object.cpp",
+              "RelativeToolTip": "have_a_nice_death\\Object.cpp",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAkwC0AAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-30T08:58:10.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "Texture.h",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.h",
+              "RelativeDocumentMoniker": "have_a_nice_death\\Texture.h",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.h",
+              "RelativeToolTip": "have_a_nice_death\\Texture.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-21T07:48:48.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.cpp",
+              "RelativeDocumentMoniker": "have_a_nice_death\\Game.cpp",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Game.cpp",
+              "RelativeToolTip": "have_a_nice_death\\Game.cpp",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAcwO0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-21T01:19:08.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Scene.h",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.h",
+              "RelativeDocumentMoniker": "have_a_nice_death\\Scene.h",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.h",
+              "RelativeToolTip": "have_a_nice_death\\Scene.h",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-21T01:25:32.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WindowMediator.h",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.h",
+              "RelativeDocumentMoniker": "have_a_nice_death\\WindowMediator.h",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.h",
+              "RelativeToolTip": "have_a_nice_death\\WindowMediator.h",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwCEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-21T09:22:35.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WindowMediator.cpp",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.cpp",
+              "RelativeDocumentMoniker": "have_a_nice_death\\WindowMediator.cpp",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\WindowMediator.cpp",
+              "RelativeToolTip": "have_a_nice_death\\WindowMediator.cpp",
+              "ViewState": "AgIAACAAAAAAAAAAAAAkwC4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-21T09:23:37.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "InputManager.h",
+              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.h",
+              "RelativeDocumentMoniker": "have_a_nice_death\\InputManager.h",
+              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InputManager.h",
+              "RelativeToolTip": "have_a_nice_death\\InputManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-21T09:15:09.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Animaotr.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Animaotr.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Animaotr.cpp",
@@ -471,38 +526,11 @@
               "RelativeToolTip": "have_a_nice_death\\Animaotr.cpp",
               "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-07T02:08:20.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T02:08:20.481Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Texture.cpp",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.cpp",
-              "RelativeDocumentMoniker": "have_a_nice_death\\Texture.cpp",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Texture.cpp",
-              "RelativeToolTip": "have_a_nice_death\\Texture.cpp",
-              "ViewState": "AgIAADIBAAAAAAAAAAAcwEABAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-20T07:53:28.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "StaticObject.h",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\StaticObject.h",
-              "RelativeDocumentMoniker": "have_a_nice_death\\StaticObject.h",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\StaticObject.h",
-              "RelativeToolTip": "have_a_nice_death\\StaticObject.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-20T06:30:50.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "DXBitmap.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\DXBitmap.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\DXBitmap.h",
@@ -515,18 +543,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.h",
-              "RelativeDocumentMoniker": "have_a_nice_death\\Scene.h",
-              "ToolTip": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.h",
-              "RelativeToolTip": "have_a_nice_death\\Scene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-21T01:25:32.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "UIManager.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIManager.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\UIManager.cpp",
@@ -534,12 +550,11 @@
               "RelativeToolTip": "have_a_nice_death\\UIManager.cpp",
               "ViewState": "AgIAACEAAAAAAAAAAAAcwCgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-19T05:14:44.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T05:14:44.432Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "StaticObject.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\StaticObject.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\StaticObject.cpp",
@@ -551,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "SpriteManager.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\SpriteManager.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\SpriteManager.h",
@@ -563,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "DebugLenderer.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\DebugLenderer.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\DebugLenderer.cpp",
@@ -575,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Scene.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Scene.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Scene.cpp",
@@ -587,7 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "LobbyScene.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\LobbyScene.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\LobbyScene.cpp",
@@ -599,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "LivingObject.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\LivingObject.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\LivingObject.cpp",
@@ -611,7 +626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "vector",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\vector",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\vector",
@@ -623,7 +638,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Stage.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Stage.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Stage.h",
@@ -635,7 +650,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Stage.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Stage.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Stage.cpp",
@@ -647,7 +662,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "libloaderapi.h",
               "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\um\\libloaderapi.h",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\um\\libloaderapi.h",
@@ -659,7 +674,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "SmallGhost.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\SmallGhost.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\SmallGhost.cpp",
@@ -671,7 +686,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Contractor.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Contractor.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Contractor.cpp",
@@ -683,7 +698,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "InteractableObject.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InteractableObject.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\InteractableObject.h",
@@ -695,7 +710,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "LivingObject.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\LivingObject.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\LivingObject.h",
@@ -707,7 +722,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "xtree",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xtree",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xtree",
@@ -719,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Death.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Death.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Death.h",
@@ -731,7 +746,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "InteractableObject.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\InteractableObject.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\InteractableObject.cpp",
@@ -743,7 +758,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Collider.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Collider.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Collider.h",
@@ -755,7 +770,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "utility",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\utility",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\utility",
@@ -767,7 +782,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "UIImage.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIImage.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\UIImage.h",
@@ -779,7 +794,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "UIButton.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIButton.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\UIButton.h",
@@ -791,7 +806,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "UIButton.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIButton.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\UIButton.cpp",
@@ -803,7 +818,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "UIImage.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIImage.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\UIImage.cpp",
@@ -815,7 +830,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "Elevator.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Elevator.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Elevator.h",
@@ -827,7 +842,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "TimeManager.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\TimeManager.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\TimeManager.h",
@@ -839,7 +854,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "UIManager.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\UIManager.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\UIManager.h",
@@ -851,7 +866,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "LobbyScene.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\LobbyScene.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\LobbyScene.h",
@@ -863,7 +878,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "Controller.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Controller.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Controller.cpp",
@@ -875,7 +890,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "PlayerController.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\PlayerController.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\PlayerController.h",
@@ -887,7 +902,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "Controller.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Controller.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Controller.h",
@@ -899,7 +914,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "PlayerController.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\PlayerController.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\PlayerController.cpp",
@@ -911,7 +926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "Book.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Book.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Book.cpp",
@@ -923,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "AnimHitBox.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\AnimHitBox.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\AnimHitBox.cpp",
@@ -935,7 +950,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "DebugLenderer.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\DebugLenderer.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\DebugLenderer.h",
@@ -947,7 +962,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "Elevator.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Elevator.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Elevator.cpp",
@@ -959,7 +974,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "SmallGhost.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\SmallGhost.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\SmallGhost.h",
@@ -971,7 +986,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "pch.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\pch.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\pch.h",
@@ -983,7 +998,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "functional",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional",
@@ -995,7 +1010,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "Book.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Book.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Book.h",
@@ -1007,7 +1022,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "HitBoxManager.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\HitBoxManager.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\HitBoxManager.h",
@@ -1019,7 +1034,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "AIController.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\AIController.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\AIController.cpp",
@@ -1031,7 +1046,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "HitBox.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\HitBox.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\HitBox.cpp",
@@ -1043,7 +1058,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "AIController.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\AIController.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\AIController.h",
@@ -1055,7 +1070,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "SceneLoader.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\SceneLoader.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\SceneLoader.cpp",
@@ -1067,7 +1082,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "new_scalar.cpp",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\crt\\src\\vcruntime\\new_scalar.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\crt\\src\\vcruntime\\new_scalar.cpp",
@@ -1079,7 +1094,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "AnimHitBox.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\AnimHitBox.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\AnimHitBox.h",
@@ -1091,7 +1106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "Sensor.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Sensor.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Sensor.cpp",
@@ -1103,7 +1118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "Sensor.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Sensor.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\Sensor.h",
@@ -1115,7 +1130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "Collider.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\Collider.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\Collider.cpp",
@@ -1127,7 +1142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "TimeManager.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\TimeManager.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\TimeManager.cpp",
@@ -1139,7 +1154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "SceneLoader.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\SceneLoader.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\SceneLoader.h",
@@ -1151,7 +1166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "delete_scalar.cpp",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\crt\\src\\vcruntime\\delete_scalar.cpp",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\crt\\src\\vcruntime\\delete_scalar.cpp",
@@ -1163,7 +1178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "have_a_nice_death.h",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\have_a_nice_death.h",
               "RelativeDocumentMoniker": "have_a_nice_death\\have_a_nice_death.h",
@@ -1175,7 +1190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "pch.cpp",
               "DocumentMoniker": "C:\\Users\\inha\\source\\repos\\SVN_LJH\\HaveaniceDeath\\Have-a-nice-Death\\have_a_nice_death\\have_a_nice_death\\pch.cpp",
               "RelativeDocumentMoniker": "have_a_nice_death\\pch.cpp",

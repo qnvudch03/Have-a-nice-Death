@@ -56,6 +56,14 @@ void EditorScene::Update(float deltatTime)
 	{
 		livingObj.obj->Update(deltatTime);
 	}
+
+	//화면에 있는 프리뷰 오브젝트 업데이트
+	if (RecievedPreiVewObjectInfo.second != nullptr &&
+		!RecievedPreiVewObjectInfo.first.first.empty())
+	{
+		RecievedPreiVewObjectInfo.second->SetPos(InputManager::GetInstance()->GetMousePos());
+		RecievedPreiVewObjectInfo.second->Update(deltatTime);
+	}
 }
 
 void EditorScene::PostUpdate(float deltaTime)
@@ -66,6 +74,13 @@ void EditorScene::PostUpdate(float deltaTime)
 void EditorScene::Render(ID2D1RenderTarget* renderTarget)
 {
 	Super::Render(renderTarget);
+
+	//프리뷰 오브젝트 렌더
+	if (RecievedPreiVewObjectInfo.second != nullptr ||
+		!RecievedPreiVewObjectInfo.first.first.empty())
+	{
+		RecievedPreiVewObjectInfo.second->RenderWithOpacity(renderTarget, 0.7);
+	}
 }
 
 void EditorScene::EraseScene()
@@ -83,6 +98,11 @@ void EditorScene::EraseScene()
 	}
 
 	StaticObjects.clear();
+
+	if (RecievedPreiVewObjectInfo.second != nullptr)
+	{
+		delete RecievedPreiVewObjectInfo.second;
+	}
 }
 
 void EditorScene::RenderSubWin()
@@ -96,6 +116,11 @@ void EditorScene::RenderSubWin()
 	RenderSubWindow();
 
 	HRESULT hr = subRenderTarget->EndDraw();
+}
+
+void EditorScene::OnLeftButtonClicked(Vector clickedPos)
+{
+	int applle = 10;
 }
 
 void EditorScene::SetSubWindow(ID2D1RenderTarget* SubRenderTarget, HWND Subhwnd)
@@ -135,7 +160,7 @@ void EditorScene::LoadSubWinObject()
 		SetCustumAnimSpeed(characterName, character.obj);
 
 
-		
+
 		SubWinObject[0].push_back(character);
 
 		OffsetY += (textureSize.y) + 20;
@@ -336,6 +361,13 @@ void EditorScene::AddWinOffset(Vector amount)
 
 }
 
+void EditorScene::SetPrieViewObject(std::pair<std::string, std::string> Objinfo, StaticObject* PreviewObject)
+{
+	//Null prt이면 그런대로 사용할거다
+	RecievedPreiVewObjectInfo.first = Objinfo;
+	RecievedPreiVewObjectInfo.second = PreviewObject;
+}
+
 std::pair<std::string, std::string> EditorScene::GetSellectedEdiSceneObjectData()
 {
 	Vector mousePos = subWinMouseClickedPos;
@@ -364,10 +396,12 @@ std::pair<std::string, std::string> EditorScene::GetSellectedEdiSceneObjectData(
 				SendData = std::make_pair(Obj.type, Obj.name);
 				Obj.obj->animator.StartAnim();
 				StopAllSubWinObjAnimExcep(&Obj);
+				return SendData;
 			}
 		}
 	}
 
+	StopAllSubWinObjAnim();
 	return SendData;
 }
 
@@ -394,9 +428,19 @@ void EditorScene::StopAllSubWinObjAnimExcep(EdiSceneObject* theExcep)
 {
 	for (auto& Obj : SubWinObject[0])
 	{
-		if(Obj.obj != theExcep->obj)
+		if (Obj.obj != theExcep->obj)
+			Obj.obj->animator.StopAnim();
+	}
+}
+
+void EditorScene::StopAllSubWinObjAnim()
+{
+
+	for (auto& Obj : SubWinObject[0])
+	{
 		Obj.obj->animator.StopAnim();
 	}
+
 }
 
 void EditorScene::ChangeColor(bool num)

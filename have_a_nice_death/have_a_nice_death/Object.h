@@ -11,6 +11,7 @@ public:
 	virtual void Update(float deltaTime);
 	virtual void Render(ID2D1RenderTarget* renderTarget);
 	virtual void RenderWithWinOffset(ID2D1RenderTarget* renderTarget, Vector WinOffset);
+	virtual void RenderWithOpacity(ID2D1RenderTarget* renderTarget, float opacity);
 	virtual void SetDebugMode(bool debugMode);
 	virtual void Destroy();
 	virtual void SetCollider();

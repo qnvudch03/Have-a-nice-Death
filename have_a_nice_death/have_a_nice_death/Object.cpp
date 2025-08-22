@@ -41,6 +41,11 @@ void Object::RenderWithWinOffset(ID2D1RenderTarget* renderTarget, Vector WinOffs
 	animator.GetAnimTexture()->RenderWinOffset(renderTarget, GetPos(), anchorPosition, WinOffset);
 }
 
+void Object::RenderWithOpacity(ID2D1RenderTarget* renderTarget, float opacity)
+{
+	animator.GetAnimTexture()->RenderWithOpacity(renderTarget, GetPos(), anchorPosition, renderingFlipOrder, opacity);
+}
+
 void Object::SetDebugMode(bool debugMode)
 {
 	//animator.GetAnimTexture()->SetDrawBound(debugMode);

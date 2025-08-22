@@ -2,6 +2,8 @@
 #include "WindowMediator.h"
 #include "Game.h"
 #include "InputManager.h"
+#include "StaticObject.h"
+#include "SpriteManager.h"
 
 #include "EditorScene.h"
 
@@ -33,7 +35,7 @@ void WindowMediator::OnSubWinClicked(int witch, Vector pos)
 	//오른쪽
 	if(witch == 1)
 	{
-		
+		//서브윈도우 우클릭은 딱히 기능 없음
 	}
 
 	//왼쪽
@@ -42,6 +44,8 @@ void WindowMediator::OnSubWinClicked(int witch, Vector pos)
 		std::pair<std::string, std::string> RecievedData;
 		RecievedData = editScene->GetSellectedEdiSceneObjectData();
 
+		editScene->SetPrieViewObject(RecievedData, MakePreViewObject(RecievedData));
+		
 	}
 }
 
@@ -70,4 +74,63 @@ void WindowMediator::OnSubWinNumPressed(int witch)
 void WindowMediator::OnMouseWhillMove(bool num)
 {
 	editScene->ChangeColor(num);
+}
+
+StaticObject* WindowMediator::MakePreViewObject(std::pair<std::string, std::string> RecievedData)
+{
+	const std::string& type = RecievedData.first;
+	const std::string& name = RecievedData.second;
+
+	if (type.empty() || name.empty())
+	{
+		delete preViewObject;
+		preViewObject = nullptr;
+		return nullptr;
+	}
+
+	delete preViewObject;
+	preViewObject = nullptr;
+
+	// 3. type에 맞는 객체 생성
+	if (type == "Player" || type == "AI")
+	{
+		preViewObject = new StaticObject(
+			SpriteManager::GetInstance()->GetTextures(name, "Idle"),
+			RenderLayer::Character,
+			Vector(0, 0),
+			ImageAnchor::Bottomcenter
+		);
+		SetCustumAnimSpeed(name, preViewObject);
+	}
+	else if (type == "Platform")
+	{
+		preViewObject = new StaticObject(
+			SpriteManager::GetInstance()->GetTextures(type, name),
+			RenderLayer::Platform,
+			Vector(0, 0),
+			ImageAnchor::Center
+		);
+	}
+
+	return preViewObject;
+
+}
+
+void WindowMediator::SetCustumAnimSpeed(std::string name, StaticObject* obj)
+{
+	if (!name.compare("Death"))
+	{
+		obj->animator.SetAnimSpeed(30);
+		return;
+	}
+	else if (!name.compare("SmallGhost"))
+	{
+		obj->animator.SetAnimSpeed(10);
+		return;
+	}
+	else if (!name.compare("MedGhost"))
+	{
+		obj->animator.SetAnimSpeed(10);
+		return;
+	}
 }
