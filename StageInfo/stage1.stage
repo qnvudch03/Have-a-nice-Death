@@ -25,6 +25,14 @@
                     669.0
                 ],
                 "type": "Death"
+            },
+            {
+                "owner": "Player",
+                "position": [
+                    333.0,
+                    666.0
+                ],
+                "type": "Death"
             }
         ]
     },
@@ -51,6 +59,14 @@
                 "position": [
                     1800.0,
                     350.0
+                ],
+                "type": "Platform"
+            },
+            {
+                "name": "shelf",
+                "position": [
+                    575.0,
+                    373.0
                 ],
                 "type": "Platform"
             },

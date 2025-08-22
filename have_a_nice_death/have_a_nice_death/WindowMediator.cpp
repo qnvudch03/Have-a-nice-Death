@@ -70,16 +70,7 @@ void WindowMediator::OnMultiplyBtnPressed()
 
 void WindowMediator::OnPlusMinusPressed(int indicator)
 {
-	if (indicator > 0)
-	{
-		//Load Next EditScene
-
-	}
-
-	else if (indicator < 0)
-	{
-		//Load Pre EditScene
-	}
+	editScene->ChangeStage(indicator);
 }
 
 StaticObject* WindowMediator::MakePreViewObject(std::pair<std::string, std::string> RecievedData)

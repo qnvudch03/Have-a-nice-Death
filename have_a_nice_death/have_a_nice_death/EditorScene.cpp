@@ -94,14 +94,16 @@ void EditorScene::EraseScene()
 
 	for (auto& livingObject : LivingObjects)
 	{
-		delete livingObject.obj;
+		//delete livingObject.obj;
+		ReserveRemove(livingObject.obj);
 	}
 
 	LivingObjects.clear();
 
 	for (auto& staticObject : StaticObjects)
 	{
-		delete staticObject.obj;
+		//delete staticObject.obj;
+		ReserveRemove(staticObject.obj);
 	}
 
 	StaticObjects.clear();
@@ -109,6 +111,12 @@ void EditorScene::EraseScene()
 	if (RecievedPreiVewObjectContainer.second != nullptr)
 	{
 		delete RecievedPreiVewObjectContainer.second;
+		RecievedPreiVewObjectContainer.second = nullptr;
+	}
+
+	if (backGroundObejct != nullptr)
+	{
+		ReserveRemove(backGroundObejct);
 	}
 }
 
@@ -354,7 +362,11 @@ void EditorScene::ChangeStage(int Inum)
 	if (currentStage == "Stage3" && Inum > 0)
 		return;
 
+	EraseScene();
+
 	currentStage = AddjustStageString(currentStage, Inum);
+
+	ReadStageData(currentStage);
 
 }
 

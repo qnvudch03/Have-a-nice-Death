@@ -199,6 +199,7 @@ std::string GameScene::GetNextStage()
 {
 	if (stage_count == 0)			return "Stage1";
 	else if (stage_count == 1)		return "Stage2";
+	else if (stage_count == 2)		return "Stage3";
 }
 
 void GameScene::SetUI_PlayGame()
