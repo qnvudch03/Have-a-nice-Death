@@ -14,8 +14,8 @@ public:
 	~Game();
 
 	void Init(HWND hwnd, HWND subhwnd);
-	void InitSubWin();
-	void Update();
+	//void InitSubWin();
+	void Update(HWND hwnd);
 	void Render();
 	void OnLeftClickEvent();
 	void CheckReservedScene();

@@ -60,8 +60,8 @@ enum
 class InputManager : public Singleton<InputManager>
 {
 public:
-	void Init(HWND hwnd);
-	void Update();
+	void Init(HWND hwnd, HWND subhwnd);
+	void Update(HWND hwnd);
 
 	// 누르고 있을 때
 	bool GetButtonPressed(KeyType key) { return GetState(key) == KeyState::Press; }
@@ -84,6 +84,7 @@ private:
 
 private:
 	HWND _hwnd = 0;
+	HWND _subhwnd = 0;
 	std::vector<KeyState> _states;
 	POINT _mousePos = {};
 };

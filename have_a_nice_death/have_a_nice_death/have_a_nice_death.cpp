@@ -30,128 +30,132 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK    SubWndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+Game* game = nullptr;
+Vector tempVector;
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+	_In_opt_ HINSTANCE hPrevInstance,
+	_In_ LPWSTR    lpCmdLine,
+	_In_ int       nCmdShow)
 {
 
-    // 뭐 어쩌라고??
-    //메모리릭 탐지 코드
-    /*_CrtSetBreakAlloc(10943);
-    _CrtSetBreakAlloc(10951);*/
+	// 뭐 어쩌라고??
+	//메모리릭 탐지 코드
+	/*_CrtSetBreakAlloc(10943);
+	_CrtSetBreakAlloc(10951);*/
 
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
+	UNREFERENCED_PARAMETER(hPrevInstance);
+	UNREFERENCED_PARAMETER(lpCmdLine);
 
-    // TODO: 여기에 코드를 입력합니다.
+	// TODO: 여기에 코드를 입력합니다.
 
-    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    // 전역 문자열을 초기화합니다.
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_HAVEANICEDEATH, szWindowClass, MAX_LOADSTRING);
+	// 전역 문자열을 초기화합니다.
+	LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+	LoadStringW(hInstance, IDC_HAVEANICEDEATH, szWindowClass, MAX_LOADSTRING);
 
-    LoadStringW(hInstance, IDC_HAVEANICEDEATH, szSubWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance);
+	LoadStringW(hInstance, IDC_SUBWINDOWCLASS, szSubWindowClass, MAX_LOADSTRING);
+	MyRegisterClass(hInstance);
+	RegisterSubWindowClass(hInstance);
 
-    // 애플리케이션 초기화를 수행합니다:
-    if (!InitInstance (hInstance, nCmdShow))
-    {
-        return FALSE;
-    }
+	// 애플리케이션 초기화를 수행합니다:
+	if (!InitInstance(hInstance, nCmdShow))
+	{
+		return FALSE;
+	}
 
-    RegisterSubWindowClass(hInstance);
+	//RegisterSubWindowClass(hInstance);
 
-    //g_hSubWnd = CreateSubWindow(hInstance, nCmdShow);
+	//g_hSubWnd = CreateSubWindow(hInstance, nCmdShow);
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HAVEANICEDEATH));
+	HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HAVEANICEDEATH));
 
-    MSG msg = {};
+	MSG msg = {};
 
-    //Gamd의 루프
-    Game* game = Game::GetInstance();
-
-    
-
-    game->Init(g_hWnd, g_hSubWnd);
-
-    const float targetFrameTime = 1000.0f / 120.f;  // 초당(1000ms) 120 프레임
-
-    LARGE_INTEGER frequency, now, prev;
-    ::QueryPerformanceFrequency(&frequency);
-    ::QueryPerformanceCounter(&prev);
+	//Gamd의 루프
+	game = Game::GetInstance();
 
 
 
+	game->Init(g_hWnd, g_hSubWnd);
 
-    // 기본 메시지 루프입니다:
-    while (msg.message != WM_QUIT)
-    {
-        if (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-        {
-            ::TranslateMessage(&msg);
-            ::DispatchMessage(&msg);
-        }
-        else
-        {
-            ::QueryPerformanceCounter(&now);
-            float elapsed = (now.QuadPart - prev.QuadPart) / static_cast<float>(frequency.QuadPart) * 1000.0f;
+	const float targetFrameTime = 1000.0f / 120.f;  // 초당(1000ms) 120 프레임
 
-            if (elapsed >= targetFrameTime)
-            {
-                game->Update();
-                game->Render();
+	LARGE_INTEGER frequency, now, prev;
+	::QueryPerformanceFrequency(&frequency);
+	::QueryPerformanceCounter(&prev);
 
-                prev = now;
 
-                game->CheckReservedScene();
-            }
 
-            if (msg.hwnd == g_hSubWnd)
-            {
-                if (msg.message == WM_LBUTTONDOWN)
-                {
-                    Vector pos;
-                    pos.x = GET_X_LPARAM(msg.lParam);
-                    pos.y = GET_Y_LPARAM(msg.lParam);
 
-                    game->OnSubWinLectMouseClicked(pos);
-                }
+	// 기본 메시지 루프입니다:
+	while (msg.message != WM_QUIT)
+	{
+		if (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			::TranslateMessage(&msg);
+			::DispatchMessage(&msg);
+		}
+		else
+		{
+			::QueryPerformanceCounter(&now);
+			float elapsed = (now.QuadPart - prev.QuadPart) / static_cast<float>(frequency.QuadPart) * 1000.0f;
 
-                else if (msg.message == WM_RBUTTONDOWN)
-                {
-                    Vector pos;
-                    pos.x = GET_X_LPARAM(msg.lParam);
-                    pos.y = GET_Y_LPARAM(msg.lParam);
+			if (elapsed >= targetFrameTime)
+			{
+				game->Update(msg.hwnd);
+				game->Render();
 
-                    game->OnSubWinRightMouseClicked(pos);
-                }
+				prev = now;
 
-                else if (msg.message == WM_KEYUP)
-                {
-                    switch (msg.wParam)
-                    {
-                    case VK_NUMPAD2: game->OnSubWinNumber2Pressed(); break;
-                    case VK_NUMPAD8: game->OnSubWinNumber8Pressed();/* 처리 */ break;
+				game->CheckReservedScene();
+			}
 
-                    }
-                }
+			//if (msg.hwnd == g_hSubWnd)
+			//{
+			//	if (msg.message == WM_LBUTTONDOWN)
+			//	{
+			//		Vector pos;
+			//		pos.x = GET_X_LPARAM(msg.lParam);
+			//		pos.y = GET_Y_LPARAM(msg.lParam);
+			//
+			//		game->OnSubWinLectMouseClicked(pos);
+			//	}
+			//
+			//	if (msg.message == WM_RBUTTONDOWN)
+			//	{
+			//		Vector pos;
+			//		pos.x = GET_X_LPARAM(msg.lParam);
+			//		pos.y = GET_Y_LPARAM(msg.lParam);
+			//
+			//		game->OnSubWinRightMouseClicked(pos);
+			//	}
+			//
+			//	else if (msg.message == WM_KEYUP)
+			//	{
+			//	    switch (msg.wParam)
+			//	    {
+			//	    case VK_NUMPAD2: game->OnSubWinNumber2Pressed(); break;
+			//	    case VK_NUMPAD8: game->OnSubWinNumber8Pressed();/* 처리 */ break;
+			//
+			//	    }
+			//	}
+			//
+			//	else if (msg.message == WM_MOUSEWHEEL)
+			//	{
+			//	    int delta = GET_WHEEL_DELTA_WPARAM(msg.wParam);
+			//	    game->OnMouseWhillMoved(delta > 0);
+			//	}
+			//}
+		}
+	}
 
-                else if (msg.message == WM_MOUSEWHEEL)
-                {
-                    int delta = GET_WHEEL_DELTA_WPARAM(msg.wParam);
-                    game->OnMouseWhillMoved(delta > 0);
-                }
-            }
-        }
-    }
+	game->GetCurrentScence()->EraseScene();
+	game->Destroy();
+	delete game->GetCurrentScence();
 
-    game->GetCurrentScence()->EraseScene();
-    game->Destroy();
-    delete game->GetCurrentScence();
-
-    return (int) msg.wParam;
+	return (int)msg.wParam;
 }
 
 
@@ -163,57 +167,102 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-    WNDCLASSEXW wcex;
+	WNDCLASSEXW wcex;
 
-    wcex.cbSize = sizeof(WNDCLASSEX);
+	wcex.cbSize = sizeof(WNDCLASSEX);
 
-    wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
-    wcex.cbClsExtra     = 0;
-    wcex.cbWndExtra     = 0;
-    wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HAVEANICEDEATH));
-    wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName = nullptr;
-    wcex.lpszClassName  = szWindowClass;
-    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+	wcex.style = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc = WndProc;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = 0;
+	wcex.hInstance = hInstance;
+	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HAVEANICEDEATH));
+	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	wcex.lpszMenuName = nullptr;
+	wcex.lpszClassName = szWindowClass;
+	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
-    return RegisterClassExW(&wcex);
+	return RegisterClassExW(&wcex);
 }
 
 ATOM RegisterSubWindowClass(HINSTANCE hInstance)
 {
-    WNDCLASSEXW wcex;
+	WNDCLASSEXW wcex;
 
-    wcex.cbSize = sizeof(WNDCLASSEX);
+	wcex.cbSize = sizeof(WNDCLASSEX);
 
-    wcex.style = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc = WndProc;
-    wcex.cbClsExtra = 0;
-    wcex.cbWndExtra = 0;
-    wcex.hInstance = hInstance;
-    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HAVEANICEDEATH));
-    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wcex.lpszMenuName = nullptr;
-    wcex.lpszClassName = szSubWindowClass;
-    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+	wcex.style = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc = SubWndProc;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = 0;
+	wcex.hInstance = hInstance;
+	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HAVEANICEDEATH));
+	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	wcex.lpszMenuName = nullptr;
+	wcex.lpszClassName = szSubWindowClass;
+	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
-    return RegisterClassExW(&wcex);
+	return RegisterClassExW(&wcex);
 }
 
 LRESULT CALLBACK SubWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
-    {
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-    }
-    return 0;
+	switch (message)
+	{
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+
+	case WM_LBUTTONDOWN:
+		if (!IsWindowVisible(hWnd)) break;
+
+		tempVector.x = GET_X_LPARAM(lParam);
+		tempVector.y = GET_Y_LPARAM(lParam);
+
+		game->OnSubWinLectMouseClicked(tempVector);
+
+		tempVector = Vector(0, 0);
+
+		break;
+
+	case WM_RBUTTONDOWN:
+		if (!IsWindowVisible(hWnd)) break;
+
+		tempVector.x = GET_X_LPARAM(lParam);
+		tempVector.y = GET_Y_LPARAM(lParam);
+
+		game->OnSubWinRightMouseClicked(tempVector);
+
+		tempVector = Vector(0, 0);
+
+		break;
+
+	case WM_KEYUP:
+		if (!IsWindowVisible(hWnd)) break;
+
+		switch (wParam)
+		{
+			case VK_NUMPAD2: game->OnSubWinNumber2Pressed(); break;
+			case VK_NUMPAD8: game->OnSubWinNumber8Pressed(); break;
+		}
+
+		break;
+
+	case WM_MOUSEWHEEL:
+		if (!IsWindowVisible(hWnd)) break;
+
+		tempVector.x = GET_WHEEL_DELTA_WPARAM(wParam);
+		game->OnMouseWhillMoved(tempVector.x > 0);
+
+		tempVector.x = 0;
+		break;
+
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
 }
 
 //
@@ -228,41 +277,41 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+	hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   RECT windowRect = { 0, 0, GWinSizeX, GWinSizeY };
-   ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
+	RECT windowRect = { 0, 0, GWinSizeX, GWinSizeY };
+	::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
-   g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
+	g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0, windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
-   if (!g_hWnd)
-   {
-       return FALSE;
-   }
+	if (!g_hWnd)
+	{
+		return FALSE;
+	}
 
-   ShowWindow(g_hWnd, nCmdShow);
-   UpdateWindow(g_hWnd);
-
-  
-   
-   //서브윈도우 초기화
-   RECT subSindowRect = { 0, 0, 600, 800 };
-   ::AdjustWindowRect(&subSindowRect, WS_OVERLAPPEDWINDOW, false);
-
-   g_hSubWnd = CreateWindowW(
-       szSubWindowClass, szSubTitle, WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, subSindowRect.right - subSindowRect.left, subSindowRect.bottom - subSindowRect.top,
-       nullptr, nullptr, hInstance, nullptr);
-
-   if (g_hSubWnd)
-   {
-       ShowWindow(g_hSubWnd, SW_HIDE);
-       UpdateWindow(g_hSubWnd);
-   }
+	ShowWindow(g_hWnd, nCmdShow);
+	UpdateWindow(g_hWnd);
 
 
-   return TRUE;
+
+	//서브윈도우 초기화
+	RECT subSindowRect = { 0, 0, 600, 800 };
+	::AdjustWindowRect(&subSindowRect, WS_OVERLAPPEDWINDOW, false);
+
+	g_hSubWnd = CreateWindowW(
+		szSubWindowClass, szSubTitle, WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0, subSindowRect.right - subSindowRect.left, subSindowRect.bottom - subSindowRect.top,
+		nullptr, nullptr, hInstance, nullptr);
+
+	if (g_hSubWnd)
+	{
+		ShowWindow(g_hSubWnd, SW_HIDE);
+		UpdateWindow(g_hSubWnd);
+	}
+
+
+	return TRUE;
 }
 
 //
@@ -277,58 +326,58 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
-    {
-    case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다:
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
-        }
-        break;
-    case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-            EndPaint(hWnd, &ps);
-        }
-        break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-    }
-    return 0;
+	switch (message)
+	{
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		// 메뉴 선택을 구문 분석합니다:
+		switch (wmId)
+		{
+		case IDM_ABOUT:
+			DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+			break;
+		case IDM_EXIT:
+			DestroyWindow(hWnd);
+			break;
+		default:
+			return DefWindowProc(hWnd, message, wParam, lParam);
+		}
+	}
+	break;
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC hdc = BeginPaint(hWnd, &ps);
+		// TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+		EndPaint(hWnd, &ps);
+	}
+	break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
 }
 
 // 정보 대화 상자의 메시지 처리기입니다.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
+	UNREFERENCED_PARAMETER(lParam);
+	switch (message)
+	{
+	case WM_INITDIALOG:
+		return (INT_PTR)TRUE;
 
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
+	case WM_COMMAND:
+		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+		{
+			EndDialog(hDlg, LOWORD(wParam));
+			return (INT_PTR)TRUE;
+		}
+		break;
+	}
+	return (INT_PTR)FALSE;
 }

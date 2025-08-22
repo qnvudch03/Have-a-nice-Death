@@ -12,10 +12,12 @@
 #define IDI_HAVEANICEDEATH			107
 #define IDI_SMALL				108
 #define IDC_HAVEANICEDEATH			109
+#define IDC_SUBWINDOWCLASS		110
 #define IDC_MYICON				2
 #ifndef IDC_STATIC
 #define IDC_STATIC				-1
 #endif
+
 // 다음은 새 개체에 사용할 기본값입니다.
 //
 #ifdef APSTUDIO_INVOKED

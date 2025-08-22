@@ -2,14 +2,16 @@
 #include "InputManager.h"
 #include "Game.h"
 
-void InputManager::Init(HWND hwnd)
+void InputManager::Init(HWND hwnd, HWND subhwnd)
 {
 	_hwnd = hwnd;
+	_subhwnd = subhwnd;
+
 	_states.resize(KEY_TYPE_COUNT, KeyState::None);
 
 }
 
-void InputManager::Update()
+void InputManager::Update(HWND hwnd)
 {
 	BYTE asciiKeys[KEY_TYPE_COUNT] = {};
 	if (::GetKeyboardState(asciiKeys) == false)
@@ -47,8 +49,15 @@ void InputManager::Update()
 	if (GetButtonDown(KeyType::LeftMouse))
 	{
 		//눌린 좌표가, 게임 시작인지, 게임 에디터 인지는 알아야지
-		Game::GetInstance()->OnLeftClickEvent();
-
+		if (hwnd == _hwnd)
+		{
+			Game::GetInstance()->OnLeftClickEvent();
+		}
+		
+		else if (hwnd == _subhwnd)
+		{
+			//Game::GetInstance()->OnSubWinLectMouseClicked(_mousePos);
+		}
 
 	}
 }

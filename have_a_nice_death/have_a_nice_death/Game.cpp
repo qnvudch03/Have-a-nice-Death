@@ -91,7 +91,7 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 	// 타이머 초기화
 	TimeManager::GetInstance()->Init();
 	// 입력 매니저 초기화
-	InputManager::GetInstance()->Init(hwnd);
+	InputManager::GetInstance()->Init(hwnd, _subhwnd);
 
 	//씬로더 초기화
 	sceneLoader = new SceneLoader();
@@ -232,10 +232,10 @@ void Game::ExitGame()
 }
 
 
-void Game::Update()
+void Game::Update(HWND hwnd)
 {
 	TimeManager::GetInstance()->Update();
-	InputManager::GetInstance()->Update();
+	InputManager::GetInstance()->Update(hwnd);
 
 	GetScene()->Update(TimeManager::GetDeltaTime());
 }
