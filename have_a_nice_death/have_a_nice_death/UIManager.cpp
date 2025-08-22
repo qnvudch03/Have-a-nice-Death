@@ -7,6 +7,7 @@
 #include "DXBitmap.h"
 #include "UI.h"
 #include "UIButton.h"
+#include "EditorScene.h"
 #include "UIImage.h"
 
 void UIManager::Init(fs::path directory)
@@ -83,6 +84,11 @@ std::vector<UI*>* UIManager::GetSceneUI(Scene* scene)
 	else if (dynamic_cast<Lobby*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
 	{
 		CurrentScene = "RobbyScene";
+	}
+
+	else if (dynamic_cast<EditorScene*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
+	{
+		CurrentScene = "EditorScene";
 	}
 
 
