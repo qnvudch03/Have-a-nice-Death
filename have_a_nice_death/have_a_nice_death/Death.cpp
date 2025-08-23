@@ -20,11 +20,11 @@ void Death::Init()
 	animator.StopAnim();
 	SETTRIPLE(false)
 
-	isEffectGravity = false;
+		isEffectGravity = false;
 	dashTimer = dashCollTime;
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-	SetStat(ObjectStat(100, 100, 20, 5, 0, 30, 10, 500));
+	SetStat(ObjectStat(100, 100, 20, 5, 0, 30, 10, 900));
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {	CallElevator(); }, 0.3));
 }
@@ -62,7 +62,7 @@ void Death::OnAnimEnd()
 	if (state == EDeathStatepriority::State_Apear)
 	{
 		SETTRIPLE(true)
-		isEffectGravity = true;
+			isEffectGravity = true;
 	}
 
 	if (!IsActive && state == EDeathStatepriority::State_Death)
@@ -233,11 +233,11 @@ void Death::OnHitBoxSpawn()
 
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 0.7, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		//AddForce(Vector(0, -1), 500);
-		velocity.y = -10;
+		velocity.y = -20;
 		break;
 
 	case Death::State_AttackAir:
-		colliderCenterPos.x += 270 *forwordDirection;
+		colliderCenterPos.x += 270 * forwordDirection;
 
 		hitBoxSize.x = 200;
 		hitBoxSize.y = 150;
@@ -296,7 +296,7 @@ void Death::UpdateState(KeyType Input)
 			isTurning = false;
 		}
 
-		if (state == EDeathStatepriority::State_Dash || 
+		if (state == EDeathStatepriority::State_Dash ||
 			state == EDeathStatepriority::State_Hitted ||
 			state == EDeathStatepriority::State_Death ||
 			state == EDeathStatepriority::State_Apear)
@@ -309,7 +309,7 @@ void Death::UpdateState(KeyType Input)
 			DamagedAble = true;
 		}
 	}
-	
+
 
 	//이동버튼 해제
 	if (Input == KeyType::RELEASE)
@@ -379,7 +379,7 @@ void Death::UpdateState(KeyType Input)
 
 	//달리고 있는 중
 	else if (Input == KeyType::KeepLeft ||
-			Input == KeyType::KeepRight)
+		Input == KeyType::KeepRight)
 	{
 
 		if (state > EDeathStatepriority::State_Attack4)
@@ -416,16 +416,18 @@ void Death::UpdateState(KeyType Input)
 				forwordDirection = movedir;
 
 			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
-			
+
 			if (!wallSensor->IsActive())
 			{
 				velocity = Vector(forwordDirection * 10, 0);
 			}
-			
+
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;
 			animator.SetAnimSpeed(10 * actionSpeed);
+
+			velocity.y = 0;
 
 			canAirAttack = true;
 			isEffectGravity = false;
@@ -468,6 +470,7 @@ void Death::UpdateState(KeyType Input)
 
 		LookInputDir();
 
+		isCanJump = true;
 		atkcombo = 0;
 		SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumpStart), false);
 		state = EDeathStatepriority::State_JumpStart;
@@ -489,7 +492,7 @@ void Death::TakeDamage(float Damage)
 		atkcombo = 0;
 	}
 
-	else 
+	else
 	{
 		state = EDeathStatepriority::State_Death;
 	}
@@ -502,9 +505,9 @@ bool Death::Attack()
 		{
 			int32 movedir = GetController()->GetPastInputPressedX();
 
-			if(movedir !=0)
+			if (movedir != 0)
 				forwordDirection = movedir;
-			
+
 			renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
 		};
 
@@ -535,7 +538,7 @@ bool Death::Attack()
 
 	if (groundSensor->IsActive())
 	{
-		
+
 		//1단
 		if (atkcombo == 0 &&
 			state > EDeathStatepriority::State_Dash &&
@@ -631,7 +634,7 @@ bool Death::Attack()
 		return true;
 	}
 
-	
+
 
 	return false;
 }
@@ -673,7 +676,7 @@ bool Death::DashException()
 {
 	if (state == EDeathStatepriority::State_Dash && animator.AnimTextureIndex >= animator.TextureNum - 3)
 	{
- 		state = EDeathStatepriority::State_Idle;
+		state = EDeathStatepriority::State_Idle;
 		isEffectGravity = true;
 		isCanMove = false;
 		return true;
@@ -698,7 +701,7 @@ void Death::LookInputDir()
 		movedir = -1;
 	}
 
-	
+
 
 	if (movedir != 0)
 		forwordDirection = movedir;
@@ -708,10 +711,11 @@ void Death::LookInputDir()
 
 bool Death::IsCanJump(EDeathStatepriority state)
 {
-	if (state <= State_Hitted &&
+	if ((state <= State_Hitted &&
 		state == State_JumptoLand &&
 		state == State_JumptoFall &&
-		state == State_JumpStart
+		state == State_JumpStart) ||
+		state == State_Dash
 		)
 		return false;
 
@@ -743,7 +747,7 @@ void Death::CallElevator()
 		{
 			Game::GetInstance()->GetGameScene()->EraseFromGame(elevator);
 		}
-	};
+		};
 
 	Game::GetInstance()->GetGameScene()->LoadObject(elevator);
 }

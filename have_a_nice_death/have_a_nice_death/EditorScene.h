@@ -1,7 +1,10 @@
 #pragma once
 #include "Scene.h"
 
+#include <functional>
+
 class StaticObject;
+class WindowMediator;
 
 class EditorScene : public Scene
 {
@@ -49,6 +52,8 @@ public:
 	void SetPrieViewObject(std::pair<std::string, std::string> Objinfo, StaticObject* PreviewObject);
 	std::pair<std::string, std::string> GetSellectedEdiSceneObjectData();
 
+	std::function<void()> onStageReRoad = nullptr;
+
 	Vector subWinMouseClickedPos;
 
 
@@ -74,6 +79,8 @@ private:
 	std::pair<std::pair<std::string, std::string>, StaticObject*> RecievedPreiVewObjectContainer;
 
 	D2D1::ColorF currentColor = D2D1::ColorF::Coral;
+
+	WindowMediator* winMediator = nullptr;
 
 	ID2D1RenderTarget* subRenderTarget = nullptr;
 	HWND	_subhwnd = nullptr;

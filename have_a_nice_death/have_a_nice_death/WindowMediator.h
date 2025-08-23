@@ -23,6 +23,7 @@ public:
 	void OnSubWinMouseWhillUp(int witch);
 	void OnMultiplyBtnPressed();
 	void OnPlusMinusPressed(int indicator);
+	void OnStageReRoaded();
 
 	StaticObject* GetPreViewObject() { return preViewObject; }
 

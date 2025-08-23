@@ -17,7 +17,7 @@ void SmallGhost::Init()
 	SETTRIPLE(false)
 
 		//체 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-		SetStat(ObjectStat(50, 50, 10, 10, 0, 30, 10, 500));
+		SetStat(ObjectStat(50, 50, 10, 10, 0, 30, 10, 900));
 }
 
 void SmallGhost::Update(float deltaTime)

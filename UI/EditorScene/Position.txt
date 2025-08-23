@@ -1,1 +1,1 @@
-Door 0 600
+BTN_Lobby 50 20

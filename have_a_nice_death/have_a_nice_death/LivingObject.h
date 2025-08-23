@@ -59,7 +59,7 @@ public:
 
 	Vector velocity;
 	Vector acceleration;
-	float gravityPower = 9.8;
+	float gravityPower = 50;
 
 	bool isGround = false;
 	virtual void OnLanded() {};

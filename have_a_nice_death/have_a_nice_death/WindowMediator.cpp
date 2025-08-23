@@ -9,17 +9,32 @@
 
 void WindowMediator::ReFresh()
 {
-	game = Game::GetInstance();
+	if (Activate == false)
+	{
+		game = Game::GetInstance();
 
-	if (game == nullptr)
+		if (game == nullptr)
+			return;
+
+		editScene = dynamic_cast<EditorScene*>(game->GetCurrentScence());
+
+		if (editScene == nullptr)
+			return;
+
+		Activate = true;
+
 		return;
+	}
 
-	editScene = dynamic_cast<EditorScene*>(game->GetCurrentScence());
+	else
+	{
+		if (preViewObject != nullptr)
+		{
+			editScene->ReserveRemove(preViewObject);
+			//preViewObject = nullptr;
+		}
+	}
 
-	if (editScene == nullptr)
-		return;
-
-	Activate = true;
 }
 
 void WindowMediator::Update(float deltatime)
@@ -45,7 +60,6 @@ void WindowMediator::OnSubWinClicked(int witch, Vector pos)
 		RecievedData = editScene->GetSellectedEdiSceneObjectData();
 
 		editScene->SetPrieViewObject(RecievedData, MakePreViewObject(RecievedData));
-
 	}
 }
 
@@ -73,20 +87,26 @@ void WindowMediator::OnPlusMinusPressed(int indicator)
 	editScene->ChangeStage(indicator);
 }
 
+void WindowMediator::OnStageReRoaded()
+{
+
+}
+
 StaticObject* WindowMediator::MakePreViewObject(std::pair<std::string, std::string> RecievedData)
 {
-	const std::string& type = RecievedData.first;
-	const std::string& name = RecievedData.second;
+	const std::string type = RecievedData.first;
+	const std::string name = RecievedData.second;
 
 	if (type.empty() || name.empty())
 	{
-		delete preViewObject;
-		preViewObject = nullptr;
 		return nullptr;
 	}
 
-	delete preViewObject;
-	preViewObject = nullptr;
+	if (preViewObject != nullptr)
+	{
+		delete preViewObject;
+		preViewObject = nullptr;
+	}
 
 	// 3. type에 맞는 객체 생성
 	if (type == "Player" || type == "AI")

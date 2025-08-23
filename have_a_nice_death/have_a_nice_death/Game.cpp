@@ -142,6 +142,10 @@ void Game::CheckReservedScene()
 	_currScene = sceneLoader->GetReservedScene();
 
 	//씬 변경시 일단은 subWindow를 꺼
+	if (isSubWindowOpen)
+	{
+		ShowWindow(_subhwnd, SW_HIDE);
+	}
 	isSubWindowOpen = false;
 	WinMediator.SetActivate(false);
 
@@ -157,6 +161,11 @@ void Game::CheckReservedScene()
 		editorScene->Init();
 
 		WinMediator.ReFresh();
+	}
+
+	else if (auto lobbyScene = dynamic_cast<Lobby*>(_currScene))
+	{
+		lobbyScene->Init();
 	}
 	
 
@@ -201,7 +210,8 @@ void Game::MappingFunctions()
 	_actionMap = {
 		{"BTN_Play",  [this]() { PlayGame(); }},
 		{"BTN_Edit",  [this]() { EditGame(); }},
-		{"BTN_Exit",  [this]() { ExitGame(); }}
+		{"BTN_Exit",  [this]() { ExitGame(); }},
+		{"BTN_Lobby", [this]() {GoToLobby(); } }
 	};
 }
 
@@ -241,6 +251,19 @@ void Game::EditGame()
 
 void Game::ExitGame()
 {
+}
+
+void Game::GoToLobby()
+{
+	if (_currScene == nullptr)
+		throw std::runtime_error("로비 전환 실패(현재 Scene 정보 없음)");
+
+	//_currScene->EraseScene();
+
+	/*delete _currScene;
+	_currScene = nullptr;*/
+
+	sceneLoader->ReserveScene(new Lobby());
 }
 
 

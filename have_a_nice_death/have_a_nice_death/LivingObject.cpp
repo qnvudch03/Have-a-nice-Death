@@ -109,6 +109,7 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 	velocity.x *= 0.98;
 
 	KeyType currentInput = _controller->GetInput();
+	KeyType pastInput = _controller->GetPastInput();
 
 	if (abs(velocity.x) < 0.01)
 	{
@@ -160,9 +161,11 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 
 	if (isCanJump)
 	{
-		if (currentInput == KeyType::SpaceBar)
+		
+		if (currentInput == KeyType::SpaceBar &&
+			pastInput != KeyType::SpaceBar)
 		{
-			if (groundSensor->IsActive())
+			if (groundSensor->IsActive() && velocity.y <= 0)
 				AddForce(Vector(0, -1), objectStat.jumpPower);
 		}
 		

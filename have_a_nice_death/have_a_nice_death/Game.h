@@ -84,6 +84,7 @@ private:
 	void PlayGame();
 	void EditGame();
 	void ExitGame();
+	void GoToLobby();
 
 	//이거는 게임씬에있는 함수랑 연결시켜 보는게 어떨까?
 	//void SelectCurse();

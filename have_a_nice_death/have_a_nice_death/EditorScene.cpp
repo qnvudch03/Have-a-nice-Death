@@ -4,6 +4,9 @@
 #include "SpriteManager.h"
 #include "Game.h"
 #include "InputManager.h"
+#include "UIManager.h"
+#include "UI.h"
+#include "WindowMediator.h";
 
 #include "json.hpp"
 
@@ -14,6 +17,8 @@ void EditorScene::Init()
 	if (subRenderTarget == nullptr || _subhwnd == nullptr)
 		return;
 
+	SceneUI = UIManager::GetInstance()->GetSceneUI(this);
+
 	ShowWindow(_subhwnd, SW_SHOW);
 	UpdateWindow(_subhwnd);
 
@@ -21,6 +26,9 @@ void EditorScene::Init()
 
 	ReadStageData(currentStage);
 	LoadSubWinObject();
+
+	winMediator = &Game::GetInstance()->WinMediator;
+	onStageReRoad = [this]() {winMediator->ReFresh(); };
 }
 
 void EditorScene::Destroy()
@@ -76,7 +84,7 @@ void EditorScene::Render(ID2D1RenderTarget* renderTarget)
 	Super::Render(renderTarget);
 
 	//프리뷰 오브젝트 렌더
-	if (RecievedPreiVewObjectContainer.second != nullptr ||
+	if (RecievedPreiVewObjectContainer.second != nullptr &&
 		!RecievedPreiVewObjectContainer.first.first.empty())
 	{
 		RecievedPreiVewObjectContainer.second->RenderWithOpacity(renderTarget, 0.7);
@@ -85,6 +93,7 @@ void EditorScene::Render(ID2D1RenderTarget* renderTarget)
 
 void EditorScene::EraseScene()
 {
+	Super::EraseScene();
 
 	if (!WriteStageData())
 	{
@@ -117,6 +126,11 @@ void EditorScene::EraseScene()
 	if (backGroundObejct != nullptr)
 	{
 		ReserveRemove(backGroundObejct);
+	}
+
+	for (auto& EdittorSceneUI : *SceneUI)
+	{
+		EdittorSceneUI->SetOpen(false);
 	}
 }
 
@@ -368,6 +382,9 @@ void EditorScene::ChangeStage(int Inum)
 
 	ReadStageData(currentStage);
 
+	onStageReRoad();
+	StopAllSubWinObjAnim();
+
 }
 
 bool EditorScene::ReadStageData(std::string stageName)
@@ -377,6 +394,11 @@ bool EditorScene::ReadStageData(std::string stageName)
 
 	if (LoadJsonFile(stageName) == false)
 		return false;
+
+	for (auto& EdittorSceneUI : *SceneUI)
+	{
+		EdittorSceneUI->Open();
+	}
 
 	return true;
 }
@@ -398,6 +420,16 @@ bool EditorScene::WriteStageData()
 	//LivingObject 작성
 	for (auto& livingObj : LivingObjects)
 	{
+		Vector objPos = livingObj.obj->GetPos();
+
+		if(livingObj.name.empty() ||
+			livingObj.type.empty() ||
+			(objPos.x < 0 || objPos.x > 1900) || (objPos.y < 0 || objPos.y > 900) )
+		{
+			continue;
+		}
+			
+
 		stageJson["LivingObjects"]["Object"].push_back({
 		{"owner", livingObj.type},
 		{"type", livingObj.name},
@@ -409,6 +441,15 @@ bool EditorScene::WriteStageData()
 	//StaticObject 작성
 	for (auto& staticObj : StaticObjects)
 	{
+		Vector objPos = staticObj.obj->GetPos();
+
+		if (staticObj.name.empty() ||
+			staticObj.type.empty() ||
+			(objPos.x < 0 || objPos.x > 1900) || (objPos.y < 0 || objPos.y > 900))
+		{
+			continue;
+		}
+
 		stageJson["StaticObjects"]["Object"].push_back({
 		{"type", staticObj.type},
 		{"name", staticObj.name},
@@ -573,7 +614,7 @@ bool EditorScene::LoadJsonFile(std::string FileName)
 		ReserveAdd(StaticObj.obj);
 	}
 
-	return false;
+	return true;
 }
 
 bool EditorScene::WriteJsonFile(std::string FileName)

@@ -5,32 +5,24 @@
             {
                 "owner": "Player",
                 "position": [
-                    100.0,
-                    650.0
+                    99.0,
+                    665.0
                 ],
                 "type": "Death"
             },
             {
                 "owner": "AI",
                 "position": [
-                    1400.0,
-                    650.0
-                ],
-                "type": "Death"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    356.0,
-                    657.0
+                    676.0,
+                    516.0
                 ],
                 "type": "SmallGhost"
             },
             {
                 "owner": "AI",
                 "position": [
-                    733.0,
-                    657.0
+                    1196.0,
+                    562.0
                 ],
                 "type": "SmallGhost"
             }
@@ -59,14 +51,6 @@
                 "position": [
                     1800.0,
                     350.0
-                ],
-                "type": "Platform"
-            },
-            {
-                "name": "longshelf",
-                "position": [
-                    1200.0,
-                    300.0
                 ],
                 "type": "Platform"
             },
