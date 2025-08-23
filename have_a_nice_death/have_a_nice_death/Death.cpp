@@ -24,7 +24,7 @@ void Death::Init()
 	dashTimer = dashCollTime;
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-	SetStat(ObjectStat(100, 100, 20, 5, 0, 30, 10, 900));
+	SetStat(ObjectStat(100, 100, 20, 5, 0, 30, 14, 900));
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {	CallElevator(); }, 0.3));
 }
@@ -419,13 +419,13 @@ void Death::UpdateState(KeyType Input)
 
 			if (!wallSensor->IsActive())
 			{
-				velocity = Vector(forwordDirection * 10, 0);
+				velocity = Vector(forwordDirection * 17, 0);
 			}
 
 			animator.ResetAnimTimer();
 			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;
-			animator.SetAnimSpeed(10 * actionSpeed);
+			animator.SetAnimSpeed(13 * actionSpeed);
 
 			velocity.y = 0;
 

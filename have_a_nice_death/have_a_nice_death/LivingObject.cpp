@@ -121,6 +121,12 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 		velocity.y = 0;
 	}
 
+	if (currentInput == KeyType::RELEASE &&
+		(pastInput == KeyType::KeepLeft || pastInput == KeyType::KeepRight))
+	{
+		velocity.x *= 0.3;
+	}
+
 	if (groundSensor->IsActive())
 	{
 		//속도가 아래 방향일 경우에만 적용
