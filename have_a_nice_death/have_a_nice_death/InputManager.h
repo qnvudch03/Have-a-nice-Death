@@ -24,14 +24,21 @@ enum class KeyType
 	KEY_1 = '1',
 	KEY_2 = '2',
 
-	W = 'W',
-	A = 'A',
-	S = 'S',
-	D = 'D',
 	Inventory = 'I',
-	Z = 'Z',
-	X = 'x',
+
+	//Interact Key
 	E = 'E',
+
+	//Attack Key
+	AttackKey1 = 'Z',
+	AttackKey2 = 'A',
+	AttackKey3 = 'S',
+	AttackKey4 = 'D',
+	AttackKey5 = 'F',
+	AttackKey6 = 'G',
+
+	X = 'x',
+
 
 	NumPad2 = VK_NUMPAD2,
 	NumPad8 = VK_NUMPAD8,
@@ -77,7 +84,6 @@ public:
 	// 이동 입력키가 눌려있는지
 	int32 GetMovePressedX() const;
 	int32 GetMoveDownX() const;
-	int32 GetMoveDirY() const;
 
 private:
 	KeyState GetState(KeyType key) { return _states[static_cast<uint8>(key)]; }

@@ -4,7 +4,7 @@
 
 #include <random>
 
-void AIController::Update()
+void AIController::Update(float deltatime)
 {
     //float delta = TimeManager::GetDeltaTime(); // 프레임 보정
 
@@ -104,7 +104,7 @@ void AIController::Update()
             break;*/
 
         case AIController::AI_InputAttack:
-            currentInput = KeyType::Z;
+            currentInput = KeyType::AttackKey1;
             break;
 
         case AIController::AI_InputDash:

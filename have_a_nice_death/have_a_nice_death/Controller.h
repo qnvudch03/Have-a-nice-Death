@@ -10,7 +10,7 @@ public:
 	Controller() {}
 	virtual ~Controller() {}
 
-	virtual void Update();
+	virtual void Update(float deltatime);
 	void SetOwner(LivingObject* owner) { owningLivingObject = owner;}
 	LivingObject* GetOwner(void) { return owningLivingObject; }
 

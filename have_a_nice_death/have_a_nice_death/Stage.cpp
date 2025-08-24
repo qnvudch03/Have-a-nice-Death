@@ -5,14 +5,17 @@
 #include "StaticObject.h"
 #include "SpriteManager.h"
 #include "LivingObject.h"
-#include "Death.h"
 #include "PlayerController.h"
 #include "AIController.h"
-#include "SmallGhost.h"
+#include "AIBossController.h"
 #include "UIManager.h"
 #include "UI.h"
 #include "InteractableElevator.h"
+
 #include "Contractor.h"
+#include "Death.h"
+#include "SmallGhost.h"
+#include "W7.h"
 
 #include <random>
 
@@ -172,9 +175,18 @@ bool Stage::LoadStageInfo(std::string stage)
 
 
 				//컨트롤러 바인딩
-				AIController* aiController = new AIController();
-				//livingObject->SetController(aiController);
-				gameScene->BindController(aiController, livingObject);
+				if (type.find("Boss") == std::string::npos)
+				{
+					AIController* aiController = new AIController();
+					gameScene->BindController(aiController, livingObject);
+				}
+				
+
+				else
+				{
+					AIBossController* bossController  = new AIBossController();
+					gameScene->BindController(bossController, livingObject);
+				}
 
 				livingObject->OnDie = [this]() {this->enemyDie(); };
 
@@ -277,6 +289,12 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 	else if (!type.compare("SmallGhost"))
 	{
 		livingObject = new SmallGhost(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+			ImageAnchor::Bottomcenter);
+	}
+
+	else if (!type.compare("Boss_W7"))
+	{
+		livingObject = new W7(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
 			ImageAnchor::Bottomcenter);
 	}
 	return livingObject;

@@ -27,7 +27,7 @@ void LivingObject::Init()
 void LivingObject::Update(float deltaTime)
 {
 	if (_controller != nullptr)
-		_controller->Update();
+		_controller->Update(deltaTime);
 
 	auto game = Game::GetInstance();
 

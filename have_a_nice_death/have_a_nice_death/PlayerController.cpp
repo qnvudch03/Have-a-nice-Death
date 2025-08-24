@@ -2,15 +2,15 @@
 #include "PlayerController.h"
 #include "InputManager.h"
 
-void PlayerController::Update()
+void PlayerController::Update(float deltatime)
 {
 	//inputDirection = 0;
 
 	pastInput = currentInput;
 
-	if (InputManager::GetInstance()->GetButtonDown(KeyType::Z))
+	if (InputManager::GetInstance()->GetButtonDown(KeyType::AttackKey1))
 	{
-		currentInput = KeyType::Z;
+		currentInput = KeyType::AttackKey1;
 	}
 
 	else if (InputManager::GetInstance()->GetButtonDown(KeyType::Shift))

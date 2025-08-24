@@ -192,6 +192,12 @@
     <ClInclude Include="WindowMediator.h">
       <Filter>Main-SubMediator</Filter>
     </ClInclude>
+    <ClInclude Include="AIBossController.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="W7.h">
+      <Filter>Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -313,6 +319,12 @@
     </ClCompile>
     <ClCompile Include="WindowMediator.cpp">
       <Filter>Main-SubMediator</Filter>
+    </ClCompile>
+    <ClCompile Include="AIBossController.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="W7.cpp">
+      <Filter>Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

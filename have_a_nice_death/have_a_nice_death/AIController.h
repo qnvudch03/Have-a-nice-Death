@@ -14,7 +14,7 @@ class AIController : public Controller
 
 
 public:
-	virtual void Update() override;
+	virtual void Update(float deltatime) override;
 private:
 
 	float inputTimer = 0.0f;      

@@ -89,16 +89,3 @@ int32 InputManager::GetMoveDownX() const
 	}
 	return 0;
 }
-
-int32 InputManager::GetMoveDirY() const
-{
-	if (InputManager::GetInstance()->GetButtonPressed(KeyType::W))
-	{
-		return -1;
-	}
-	if (InputManager::GetInstance()->GetButtonPressed(KeyType::S))
-	{
-		return 1;
-	}
-	return 0;
-}

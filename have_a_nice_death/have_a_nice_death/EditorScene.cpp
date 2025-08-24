@@ -701,6 +701,10 @@ void EditorScene::SetCustumAnimSpeed(std::string name, StaticObject* obj)
 		obj->animator.SetAnimSpeed(10);
 		return;
 	}
+	else if (!name.compare("Boss_W7"))
+	{
+		obj->animator.SetAnimSpeed(30);
+	}
 }
 
 void EditorScene::StopAllSubWinObjAnimExcep(EdiSceneObject* theExcep)

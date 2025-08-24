@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AIBossController.h" />
     <ClInclude Include="AIController.h" />
     <ClInclude Include="Animaotr.h" />
     <ClInclude Include="AnimHitBox.h" />
@@ -169,9 +170,11 @@
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UIManager.h" />
+    <ClInclude Include="W7.h" />
     <ClInclude Include="WindowMediator.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AIBossController.cpp" />
     <ClCompile Include="AIController.cpp" />
     <ClCompile Include="Animaotr.cpp" />
     <ClCompile Include="AnimHitBox.cpp" />
@@ -213,6 +216,7 @@
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIImage.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="W7.cpp" />
     <ClCompile Include="WindowMediator.cpp" />
   </ItemGroup>
   <ItemGroup>

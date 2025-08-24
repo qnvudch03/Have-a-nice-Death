@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Controller.h"
 
-void Controller::Update()
+void Controller::Update(float deltatime)
 {
 	
 }

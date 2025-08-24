@@ -8,6 +8,6 @@ public:
 	{
 		isPlayerController = true;
 	}
-	virtual void Update() override;
+	virtual void Update(float deltatime) override;
 };
 

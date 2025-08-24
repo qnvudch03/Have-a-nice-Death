@@ -443,7 +443,7 @@ void Death::UpdateState(KeyType Input)
 	}
 
 	//АјАн
-	else if (Input == KeyType::Z)
+	else if (Input == KeyType::AttackKey1)
 	{
 
 		if (state <= State_Hitted)
