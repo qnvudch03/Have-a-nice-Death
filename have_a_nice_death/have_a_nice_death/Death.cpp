@@ -256,7 +256,7 @@ void Death::OnHitBoxSpawn()
 
 void Death::Hitted(HitBox* hitbox)
 {
-	if (!DamagedAble)
+	if (!DamagedAble || !IsActive)
 		return;
 
 	Super::Hitted(hitbox);
@@ -682,31 +682,6 @@ bool Death::DashException()
 		return true;
 	}
 	return false;
-}
-
-void Death::LookInputDir()
-{
-	KeyType currentInput = GetController()->GetInput();
-	int32 movedir = 0;
-
-	if (currentInput == KeyType::Right ||
-		currentInput == KeyType::KeepRight)
-	{
-		movedir = 1;
-	}
-
-	else if (currentInput == KeyType::Left ||
-		currentInput == KeyType::KeepLeft)
-	{
-		movedir = -1;
-	}
-
-
-
-	if (movedir != 0)
-		forwordDirection = movedir;
-
-	renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
 }
 
 bool Death::IsCanJump(EDeathStatepriority state)

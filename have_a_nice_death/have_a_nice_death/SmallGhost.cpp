@@ -100,7 +100,7 @@ void SmallGhost::OnHitBoxSpawn()
 
 void SmallGhost::Hitted(HitBox* hitbox)
 {
-	if (!DamagedAble)
+	if (!DamagedAble || !IsActive)
 		return;
 
 	Super::Hitted(hitbox);

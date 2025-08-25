@@ -35,6 +35,8 @@ public:
 	void Die();
 	std::function<void()> OnDie;
 
+	void LookInputDir();
+
 	void ApplyEnvironment(float detaTime);
 	void AddAcceleration(Vector power)
 	{

@@ -26,6 +26,8 @@ public:
 
     virtual void Update(float deltatime) override;
 
+    void StartAttackInterval();
+
 private:
     int numAttacks = 0;
     bool isIdlePhase = false;

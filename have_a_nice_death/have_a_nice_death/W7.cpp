@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "W7.h"
 #include "AIBossController.h"
+#include "random"
 
 void W7::Init()
 {
@@ -42,14 +43,61 @@ void W7::OnAnimEnd()
 		Die();
 	}
 
-	if (state == EW7PriorityState::State_Appear)
+	switch (state)
 	{
+	case W7::State_Appear:
 		SETTRIPLE(true)
+		break;
+	case W7::State_Death:
+		break;
+	case W7::State_Hitted:
+		break;
+	case W7::State_Attack1:
+		break;
+	case W7::State_Attack2:
+		break;
+	case W7::State_Attack3:
+		break;
+	case W7::State_Attack4:
+		break;
+	case W7::State_Attack5:
+		break;
+	case W7::State_Attack6:
+		break;
+	case W7::State_TeleportAppear:
+	{
+		animator.ResetAnimTimer(25);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack4), false, 13);
+		state = EW7PriorityState::State_Attack4;
+
+		DamagedAble = true;
+
+		return;
 	}
+	case W7::State_TeleportDisapera:
+	{
+		TeleportMapBound();
+
+		animator.ResetAnimTimer(15);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_TeleportAppear), false);
+		state = EW7PriorityState::State_TeleportAppear;
+
+		return;
+	}
+		break;
+	default:
+		break;
+	}
+
 
 	SetState("Idle", true);
 	state = EW7PriorityState::State_Idle;
 	animator.SetAnimSpeed(30);
+
+	if (GetController()->isPlayerController == false)
+	{
+		static_cast<AIBossController*>(GetController())->StartAttackInterval();
+	}
 }
 
 void W7::OnHitBoxSpawn()
@@ -58,7 +106,7 @@ void W7::OnHitBoxSpawn()
 
 void W7::Hitted(HitBox* hitbox)
 {
-	if (!DamagedAble)
+	if (!DamagedAble || !IsActive)
 		return;
 
 	Super::Hitted(hitbox);
@@ -75,13 +123,16 @@ void W7::TakeDamage(float Damage)
 			return;
 
 		animator.ResetAnimTimer(15);
-		SetState("Hitted2", false);
+		SetState("Hitted", false);
 		state = EW7PriorityState::State_Hitted;
 	}
 }
 
 void W7::UpdateState(KeyType Input)
 {
+	if (!IsActive)
+		return;
+
 	if (state != EW7PriorityState::State_Idle &&
 		state != EW7PriorityState::State_Running)
 		return;
@@ -101,6 +152,7 @@ void W7::UpdateState(KeyType Input)
 	{
 		animator.ResetAnimTimer(30);
 		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack1), false, 26);
+		state = EW7PriorityState::State_Attack1;
 
 		break;
 	}
@@ -109,22 +161,31 @@ void W7::UpdateState(KeyType Input)
 		animator.ResetAnimTimer(30);
 		//SetState(ConvertW7StateToString(EW7PriorityState::State_Attack2), false, 26);
 		SetMultiHitBoxState(ConvertW7StateToString(EW7PriorityState::State_Attack2), false, {16, 37});
+		state = EW7PriorityState::State_Attack2;
 
 		break;
 	}
 
 	case KeyType::AttackKey3:
 	{
-		animator.ResetAnimTimer(30);
-		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack3), false, 26);
+		animator.ResetAnimTimer(15);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack3), false, 10);
+		state = EW7PriorityState::State_Attack3;
 
 		break;
 	}
 
 	case KeyType::AttackKey4:
 	{
+		/*animator.ResetAnimTimer(30);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack4), false, 14);
+		state = EW7PriorityState::State_Attack4;*/
+
 		animator.ResetAnimTimer(30);
-		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack4), false, 26);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_TeleportDisapera), false);
+		state = EW7PriorityState::State_TeleportDisapera;
+
+		DamagedAble = false;
 
 		break;
 	}
@@ -132,7 +193,8 @@ void W7::UpdateState(KeyType Input)
 	case KeyType::AttackKey5:
 	{
 		animator.ResetAnimTimer(30);
-		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack5), false, 26);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack5), false, 21);
+		state = EW7PriorityState::State_Attack5;
 
 		break;
 	}
@@ -140,12 +202,35 @@ void W7::UpdateState(KeyType Input)
 	case KeyType::AttackKey6:
 	{
 		animator.ResetAnimTimer(30);
-		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, 26);
+		SetMultiHitBoxState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, {8, 9, 10, 11, 12, 13, 14});
+		state = EW7PriorityState::State_Attack6;
 
 		break;
 	}
-
 	default:
 		break;
 	}
+}
+
+void W7::TeleportMapBound()
+{
+	std::random_device rd;
+
+	int lookDir = (rd() % 2);
+
+	if (lookDir == 1)
+	{
+		forwordDirection = lookDir;
+		SetPos(Vector(100, 678));
+
+	}
+
+	else
+	{
+		lookDir = -1;
+		forwordDirection = -1;
+		SetPos(Vector(GWinSizeX - 100, 678));
+	}
+
+	renderingFlipOrder = (lookDir == -1) ? true : (lookDir == 1) ? false : renderingFlipOrder;
 }

@@ -115,6 +115,31 @@ void LivingObject::Die()
 	Game::GetGameScene()->EraseFromGame(this);
 }
 
+void LivingObject::LookInputDir()
+{
+	KeyType currentInput = GetController()->GetInput();
+	int32 movedir = 0;
+
+	if (currentInput == KeyType::Right ||
+		currentInput == KeyType::KeepRight)
+	{
+		movedir = 1;
+	}
+
+	else if (currentInput == KeyType::Left ||
+		currentInput == KeyType::KeepLeft)
+	{
+		movedir = -1;
+	}
+
+
+
+	if (movedir != 0)
+		forwordDirection = movedir;
+
+	renderingFlipOrder = (movedir == -1) ? true : (movedir == 1) ? false : renderingFlipOrder;
+}
+
 void LivingObject::ApplyEnvironment(float deltaTime)
 {
 	Vector inPut = { 0,0 };
@@ -292,6 +317,7 @@ void LivingObject::TakeDamage(float Damage)
 		animator.ResetAnimTimer(20);
 		SetState("Death", false);
 		IsActive = false;
+		DamagedAble = false;
 	}
 }
 

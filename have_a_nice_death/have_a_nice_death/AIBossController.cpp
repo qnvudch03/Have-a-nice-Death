@@ -35,6 +35,11 @@ void AIBossController::Update(float deltatime)
 
 }
 
+void AIBossController::StartAttackInterval()
+{
+    attackInterval = 1.5f;
+}
+
 void AIBossController::DecideAttack()
 {
     std::vector<int> readyAttacks;
@@ -72,17 +77,17 @@ void AIBossController::DecideAttack()
 
         
         //attackInterval = attackTimers[idx];
-        isIdlePhase = (rand() % 2 == 0);
+        /*isIdlePhase = (rand() % 2 == 0);
         if (isIdlePhase)
             attackInterval = 1.5f;
         else
-            attackInterval = 2.0f;
+            attackInterval = 2.0f;*/
     }
     else
     {
         currentInput = KeyType::MAX;
-        attackInterval = 1.5f; // 공격 불가 시 Move/Idle 처리
-        isIdlePhase = true;
+        attackInterval = 0.3f; // 공격 불가 시 Move/Idle 처리
+        isIdlePhase = false;
     }
 }
 

@@ -128,7 +128,6 @@ private:
 	void UpdateDashTimer(float deltatime);
 
 	bool DashException();
-	void LookInputDir();
 
 
 	int CheckDashCondition();

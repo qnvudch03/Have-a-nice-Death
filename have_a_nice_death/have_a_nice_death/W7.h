@@ -67,6 +67,8 @@ public:
 
 	virtual void UpdateState(KeyType Input) override;
 
+	void TeleportMapBound();
+
 private:
 	float deltatime = 0;
 
