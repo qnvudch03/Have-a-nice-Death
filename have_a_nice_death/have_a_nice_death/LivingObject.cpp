@@ -94,6 +94,19 @@ void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
 	}
 }
 
+void LivingObject::SetMultiHitBoxState(std::string state, bool IsLoop, std::vector<int32> atkIndexs)
+{
+	if (ownTextures->find(state) == ownTextures->end())
+		return;
+
+	//기본 애니메이션 일 경우
+	if (atkIndexs.size() != 0)
+	{
+		SetManyAnimaotrTextures(&(*ownTextures)[state], IsLoop, true, atkIndexs);
+	}
+
+}
+
 void LivingObject::Die()
 {
 	//스테이지에 자신의 사망을 알림(플레이어, Enemy 일떄의 처리가 다름)

@@ -12,7 +12,7 @@ void Book::Update()
 
 void Book::SetBookState(std::string state)
 {
-	if (!state.compare("Idle"))
+	/*if (!state.compare("Idle"))
 	{
 		animator.SetAnimTexture(&(*ownTextures)[state], true);
 	}
@@ -20,6 +20,6 @@ void Book::SetBookState(std::string state)
 	else if (!state.compare("IdleUturn"))
 	{
 		animator.SetAnimTexture(&(*ownTextures)[state], false);
-	}
+	}*/
 	
 }

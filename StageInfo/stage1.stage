@@ -17,6 +17,14 @@
                     678.0
                 ],
                 "type": "Boss_W7"
+            },
+            {
+                "owner": "AI",
+                "position": [
+                    756.0,
+                    310.0
+                ],
+                "type": "SmallGhost"
             }
         ]
     },

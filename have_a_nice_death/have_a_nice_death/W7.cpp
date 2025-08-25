@@ -17,13 +17,18 @@ void W7::Init()
 
 	if (GetController()->isPlayerController == false)
 	{
-		static_cast<AIBossController*>(GetController())->SetBossAttackCollInfo(6, {3, 4, 5, 7, 3, 5});
+		static_cast<AIBossController*>(GetController())->InitBossController(6, {3, 4, 5, 7, 3, 5});
 	}
 }
 
 void W7::Update(float deltaTime)
 {
 	Super::Update(deltaTime);
+
+	if (state == EW7PriorityState::State_Appear)
+		return;
+
+	UpdateState(Super::GetController()->GetInput());
 }
 
 void W7::Destroy()
@@ -77,5 +82,70 @@ void W7::TakeDamage(float Damage)
 
 void W7::UpdateState(KeyType Input)
 {
+	if (state != EW7PriorityState::State_Idle &&
+		state != EW7PriorityState::State_Running)
+		return;
 
+
+	switch (Input)
+	{
+	case KeyType::KeepLeft:
+		break;
+	case KeyType::KeepRight:
+		break;
+	case KeyType::Left:
+		break;
+	case KeyType::Right:
+		break;
+	case KeyType::AttackKey1:
+	{
+		animator.ResetAnimTimer(30);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack1), false, 26);
+
+		break;
+	}
+	case KeyType::AttackKey2:
+	{
+		animator.ResetAnimTimer(30);
+		//SetState(ConvertW7StateToString(EW7PriorityState::State_Attack2), false, 26);
+		SetMultiHitBoxState(ConvertW7StateToString(EW7PriorityState::State_Attack2), false, {16, 37});
+
+		break;
+	}
+
+	case KeyType::AttackKey3:
+	{
+		animator.ResetAnimTimer(30);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack3), false, 26);
+
+		break;
+	}
+
+	case KeyType::AttackKey4:
+	{
+		animator.ResetAnimTimer(30);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack4), false, 26);
+
+		break;
+	}
+
+	case KeyType::AttackKey5:
+	{
+		animator.ResetAnimTimer(30);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack5), false, 26);
+
+		break;
+	}
+
+	case KeyType::AttackKey6:
+	{
+		animator.ResetAnimTimer(30);
+		SetState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, 26);
+
+		break;
+	}
+
+	default:
+		break;
+	}
 }

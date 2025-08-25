@@ -29,6 +29,7 @@ public:
 	virtual void UpdateState(KeyType Input) {}
 
 	void SetState(std::string state, bool IsLoop = true, int32 atkIndex = -1);
+	void SetMultiHitBoxState(std::string state, bool IsLoop = true, std::vector<int32> atkIndexs = {});
 	void SetController(Controller* controller) { _controller = controller; }
 
 	void Die();

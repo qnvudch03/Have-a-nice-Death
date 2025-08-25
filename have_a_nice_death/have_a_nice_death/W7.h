@@ -25,6 +25,28 @@ class W7 : public LivingObject
 		State_Idle = 12,
 	};
 
+	std::string ConvertW7StateToString(EW7PriorityState v) {
+		switch (v)
+		{
+		case W7::State_Appear:					return "Appear";
+		case W7::State_Death:					return "Death";
+		case W7::State_Hitted:					return "Hitted";
+		case W7::State_Attack1:					return "Attack1";
+		case W7::State_Attack2:					return "Attack2";
+		case W7::State_Attack3:					return "Attack3";
+		case W7::State_Attack4:					return "Attack4";
+		case W7::State_Attack5:					return "Attack5";
+		case W7::State_Attack6:					return "Attack6";
+		case W7::State_TeleportAppear:			return "Teleport_Appear";
+		case W7::State_TeleportDisapera:		return "Teleport_Disappear";
+		case W7::State_Running:					return "Run";
+		case W7::State_Idle:					return "Idle";
+			break;
+		default:
+			break;
+		}
+	};
+
 public:
 
 	W7(std::map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft)

@@ -7,6 +7,7 @@ public:
 
 	//void Destory() { delete _animtures; }
 
+	std::queue<int32> hitboxIndexes;
 	int32 hitboxIndex = -1;
 	bool isAttackAnim = false;
 
@@ -18,6 +19,8 @@ public:
 	void SetAnimLoop(bool Isloop) { _IsLoop = Isloop; }
 	void SetAnimTexture(std::vector<Texture*>* animtures, bool IsLoop, bool IsAttackAnim = false, int32 HitBoxIndex = -1)
 	{ 
+		ClearHitBosQueue();
+
 		_animStackTimer = 0;
 		_animTextures = animtures;
 		_IsLoop = IsLoop; 
@@ -25,6 +28,26 @@ public:
 		onPlay = true;
 		isAttackAnim = IsAttackAnim;
 		hitboxIndex = HitBoxIndex;
+
+		//hitboxIndexes.push(HitBoxIndex);
+	}
+
+	void SetMultiAnimTexture(std::vector<Texture*>* animtures, bool IsLoop, bool IsAttackAnim = false, std::vector<int32> HitBoxIndexes = {})
+	{
+		ClearHitBosQueue();
+
+		_animStackTimer = 0;
+		_animTextures = animtures;
+		_IsLoop = IsLoop;
+		AnimTextureIndex = 0;
+		onPlay = true;
+		isAttackAnim = IsAttackAnim;
+		hitboxIndex = -1;
+
+		for (int i = 0; i < HitBoxIndexes.size(); i++)
+		{
+			hitboxIndexes.push(HitBoxIndexes[i]);
+		}
 	}
 
 	void ResetAnimTimer(float animSpeed = DefaultAnimSpeed) { _animStackTimer = 0;  _animSpeed = animSpeed; _IsLoop = true; }
@@ -38,6 +61,13 @@ public:
 
 	void SetReversePlay() { _isReverse = true; _animStackTimer = TextureNum - 1;}
 	void SetCorrectPlay() { _isReverse = false; _animStackTimer = 0;}
+
+	void ClearHitBosQueue()
+	{
+		while (!hitboxIndexes.empty())
+			hitboxIndexes.pop();
+
+	}
 
 	std::function<void()> onAnimEnd = nullptr;
 	std::function<void()> onHitBoxSpawn = nullptr;

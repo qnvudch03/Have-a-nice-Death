@@ -1,5 +1,7 @@
 #pragma once
 #include "Controller.h"
+#include "Game.h"
+#include "GameScene.h"
 
 class AIBossController : public Controller
 {
@@ -12,8 +14,10 @@ public:
         attackTimers.resize(numAttacks, 0.0f);
     }*/
 
-    void SetBossAttackCollInfo(int num_Attack, std::vector<float> attackCollDowns)
+    void InitBossController(int num_Attack, std::vector<float> attackCollDowns)
     {
+        target = Game::GetInstance()->GetGameScene()->GetStage()->GetPlayer();
+
         numAttacks = num_Attack;
         attackCooldowns = attackCollDowns;
 
@@ -26,9 +30,15 @@ private:
     int numAttacks = 0;
     bool isIdlePhase = false;
 
+    LivingObject* target = nullptr;
+
+    int CalcAttackWeight(std::vector<int>& readyAttacks);
     void DecideAttack();
 
-    float attackInterval = 5.0f;
+    float attackInterval = 2.0f;
+    float IdleTime = 1.5;
+    float MoveTime = 2;
+
     std::vector<float> attackCooldowns;
     std::vector<float> attackTimers;
 };

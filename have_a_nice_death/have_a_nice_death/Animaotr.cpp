@@ -66,11 +66,25 @@ void Animator::Update(float deltaTime)
 
     AnimTextureIndex = (int32)_animStackTimer;
 
-    if (isAttackAnim && (hitboxIndex == AnimTextureIndex))
+    if (isAttackAnim && (hitboxIndex == AnimTextureIndex) && hitboxIndex != -1)
     {
-        if(onHitBoxSpawn != nullptr)
+        if (onHitBoxSpawn != nullptr)
             onHitBoxSpawn();
+
     }
+
+    if (!hitboxIndexes.empty())
+    {
+        if (isAttackAnim && (hitboxIndexes.front() == AnimTextureIndex))
+        {
+            if (onHitBoxSpawn != nullptr)
+                onHitBoxSpawn();
+
+            hitboxIndexes.pop();
+        }
+    }
+
+    
 }
 
 void Animator::Destroy()

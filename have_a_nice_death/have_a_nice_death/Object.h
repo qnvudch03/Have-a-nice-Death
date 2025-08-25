@@ -38,6 +38,12 @@ public:
 		animator.TextureNum = (*texturesvec).size();
 	}
 
+	void SetManyAnimaotrTextures(std::vector<Texture*>* texturesvec, bool IsLoop = true, bool IsAttackAnim = false, std::vector<int32> HitBoxIndexs = {})
+	{
+		animator.SetMultiAnimTexture(texturesvec, IsLoop, IsAttackAnim, HitBoxIndexs);
+		animator.TextureNum = (*texturesvec).size();
+	}
+
 	Vector GetPos() { return _pos; }
 	void SetPos(Vector pos) { _pos = pos; }
 
