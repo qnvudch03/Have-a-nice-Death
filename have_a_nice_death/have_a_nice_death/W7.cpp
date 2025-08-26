@@ -140,7 +140,7 @@ void W7::AnimCallBack()
 		hitBoxSize.x = 130;
 		hitBoxSize.y = 130;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.5, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		break;
 	}
 	case W7::State_Attack2:
@@ -170,7 +170,7 @@ void W7::AnimCallBack()
 
 
 		animHitbox->SetAnimHitBox(colliderCenterPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "Attack_W7_WaterWave")
-			, GetStat().atk, HitBoxType::Movable, GetController()->isPlayerController, this);
+			, GetStat().atk * 1.7, HitBoxType::Movable, GetController()->isPlayerController, this);
 
 		animHitbox->animator.SetAnimSpeed(10);
 		animHitbox->SetMovingSpeed(Vector(600 * forwordDirection, 0));
@@ -196,14 +196,17 @@ void W7::AnimCallBack()
 			Vector spawnPos = { WaterWallSpawnList[i], 500 };
 
 			animHitbox->SetAnimHitBox(spawnPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "WaterWAll")
-				, GetStat().atk, HitBoxType::Fixed, GetController()->isPlayerController, this);
+				, GetStat().atk * 0.7, HitBoxType::Fixed, GetController()->isPlayerController, this);
 
 			animHitbox->animator.SetAnimSpeed(12);
 
 
 			TimeManager::GetInstance()->AddTimer(Timer([this, hitBoxManager, animHitbox]()
 				{
+					animHitbox->DisableCollition();
 					hitBoxManager->AddAnimHitBox(animHitbox, ImageAnchor::Center);
+
+					TimeManager::GetInstance()->AddTimer(Timer([this, animHitbox]() {animHitbox->SetCollition(); }, 1));
 				}
 			, 0.5 * i));
 		}
@@ -231,13 +234,14 @@ void W7::AnimCallBack()
 		{
 		case 6:
 			jumPos = GetPos();
-			jumPos.y -= 50;
+			jumPos.y -= 100;
 			SetPos(jumPos);
 			break;
 		case 7:
 			jumPos = GetPos();
-			jumPos.y -= 50;
+			jumPos.y -= 100;
 			SetPos(jumPos);
+			animator.SetAnimSpeed(15);
 			break;
 
 		case 8:
@@ -331,6 +335,14 @@ void W7::AnimCallBack()
 			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
 			SetPos(currentPos);
 			moveCounter = 0;
+
+			hitbox = hitBoxManager->CallHitBox();
+
+			hitBoxSize.x = 80;
+			hitBoxSize.y = 100;
+
+			hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.5, GetController()->isPlayerController, this);
+
 			break;
 		}
 		default:
@@ -505,7 +517,7 @@ void W7::UpdateState(KeyType Input)
 
 		LookEnemy();
 
-		animator.ResetAnimTimer(13);
+		animator.ResetAnimTimer(10);
 		SetMultiCallBackState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, {6, 7, 8, 9, 10, 11, 12, 13, 14 });
 		state = EW7PriorityState::State_Attack6;
 

@@ -17,6 +17,10 @@ public:
 	Vector GetPos() { return pos; }
 	Vector GetSize() { return size; }
 
+
+	void SetCollition() { collision = true; }
+	void DisableCollition() { collision = false; }
+	bool GetIsCollide() { return collision; }
 	ImageAnchor hitBoxAncor = ImageAnchor::Center;
 
 	bool isPlayerHitBox = false;
@@ -26,6 +30,7 @@ protected:
 
 	HitBoxType type;
 
+	bool collision = true;
 	Vector pos;
 	Vector size;
 	float lifeTime;
