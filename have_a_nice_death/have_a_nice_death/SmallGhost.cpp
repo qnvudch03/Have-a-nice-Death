@@ -10,7 +10,7 @@ void SmallGhost::Init()
 {
 	Super::Init();
 
-	SetState("Appear", false);
+	SetSingleCallbackState("Appear", false);
 	state = ESmallGhostStatepriority::State_Appear;
 	animator.SetAnimSpeed(10);
 
@@ -61,12 +61,12 @@ void SmallGhost::OnAnimEnd()
 		isCanJump = true;
 	}
 
-	SetState("Idle", true);
+	SetSingleCallbackState("Idle", true);
 	state = ESmallGhostStatepriority::State_Idle;
 	animator.SetAnimSpeed(10);
 }
 
-void SmallGhost::OnHitBoxSpawn()
+void SmallGhost::AnimCallBack()
 {
 	if (state != ESmallGhostStatepriority::State_Attack)
 		return;
@@ -116,15 +116,15 @@ void SmallGhost::TakeDamage(float Damage)
 		if (state == ESmallGhostStatepriority::State_Hitted1 ||
 			state == ESmallGhostStatepriority::State_Hitted2)
 		{
-			animator.ResetAnimTimer(15);
-			SetState("Hitted2", false);
+			animator.ResetAnimTimer(20);
+			SetSingleCallbackState("Hitted2", false);
 			state = ESmallGhostStatepriority::State_Hitted2;
 		}
 
 		else
 		{
-			animator.ResetAnimTimer(15);
-			SetState("Hitted1", false);
+			animator.ResetAnimTimer(20);
+			SetSingleCallbackState("Hitted1", false);
 			state = ESmallGhostStatepriority::State_Hitted1;
 		}
 	}
@@ -153,7 +153,7 @@ void SmallGhost::UpdateState(KeyType Input)
 	{
 		if (state == ESmallGhostStatepriority::State_Running)
 		{
-			SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Idle), true);
+			SetSingleCallbackState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Idle), true);
 			state = ESmallGhostStatepriority::State_Idle;
 			animator.SetAnimSpeed(10);
 		}
@@ -172,7 +172,7 @@ void SmallGhost::UpdateState(KeyType Input)
 			if (forwordDirection != GetController()->GetInputDownX() &&
 				forwordDirection != GetController()->GetInputPressedX())
 			{
-				SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_IdleToUturn), false);
+				SetSingleCallbackState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_IdleToUturn), false);
 				state = ESmallGhostStatepriority::State_IdleToUturn;
 				animator.SetAnimSpeed(10);
 
@@ -183,7 +183,7 @@ void SmallGhost::UpdateState(KeyType Input)
 
 			if (state != ESmallGhostStatepriority::State_Running)
 			{
-				SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Running), true);
+				SetSingleCallbackState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Running), true);
 				state = ESmallGhostStatepriority::State_Running;
 				animator.SetAnimSpeed(10);
 			}
@@ -199,7 +199,7 @@ void SmallGhost::UpdateState(KeyType Input)
 			return;
 
 		animator.ResetAnimTimer();
-		SetState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Attack), false, 17);
+		SetSingleCallbackState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Attack), false, 17);
 		state = ESmallGhostStatepriority::State_Attack;
 		animator.SetAnimSpeed(15);
 

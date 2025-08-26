@@ -35,6 +35,8 @@ void HitBox::Update(float deltatime)
 {
 	stackTimer += deltatime;
 
+
+
 	if (stackTimer >= lifeTime)
 	{
 		ClearBox();

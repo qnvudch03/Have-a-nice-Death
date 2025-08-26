@@ -28,8 +28,8 @@ public:
 
 	virtual void UpdateState(KeyType Input) {}
 
-	void SetState(std::string state, bool IsLoop = true, int32 atkIndex = -1);
-	void SetMultiHitBoxState(std::string state, bool IsLoop = true, std::vector<int32> atkIndexs = {});
+	void SetSingleCallbackState(std::string state, bool IsLoop = true, int32 atkIndex = -1);
+	void SetMultiCallBackState(std::string state, bool IsLoop = true, std::vector<int32> atkIndexs = {});
 	void SetController(Controller* controller) { _controller = controller; }
 
 	void Die();
@@ -91,7 +91,7 @@ public:
 	LivingObject(std::map<std::string, std::vector<Texture*>>* OwningTextures, RenderLayer RenderType, ImageAnchor anchorPosition = ImageAnchor::Topleft) : Super(RenderType, anchorPosition)
 	{
 		animator.onAnimEnd = [this]() {this->OnAnimEnd(); };
-		animator.onHitBoxSpawn = [this]() {this->OnHitBoxSpawn(); };
+		animator.onHitBoxSpawn = [this]() {this->AnimCallBack(); };
 		ownTextures = OwningTextures;
 
 		SetCollider();
@@ -121,7 +121,7 @@ public:
 	}
 
 	virtual void OnAnimEnd() {}
-	virtual void OnHitBoxSpawn() {}
+	virtual void AnimCallBack() {}
 
 	//감지 센서들
 	Sensor* groundSensor = nullptr;

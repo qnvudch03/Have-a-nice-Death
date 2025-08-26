@@ -38,6 +38,24 @@ void AIBossController::Update(float deltatime)
 void AIBossController::StartAttackInterval()
 {
     attackInterval = 1.5f;
+
+    if (rand() % 100 < 60)
+    {
+        isIdlePhase = true;
+        currentInput = KeyType::MAX;
+    }
+    else
+    {
+        isIdlePhase = false;
+
+        int moveDir = LookTarget();
+
+        if(moveDir == 1)
+            currentInput = KeyType::KeepRight;
+
+        else if (moveDir == -1)
+            currentInput = KeyType::KeepLeft;
+    }
 }
 
 void AIBossController::DecideAttack()
@@ -51,6 +69,8 @@ void AIBossController::DecideAttack()
 
     if (!readyAttacks.empty())
     {
+
+        LookTarget();
 
         int sellectActionIndex = CalcAttackWeight(readyAttacks);
 
@@ -89,6 +109,18 @@ void AIBossController::DecideAttack()
         attackInterval = 0.3f; // 공격 불가 시 Move/Idle 처리
         isIdlePhase = false;
     }
+}
+
+int AIBossController::LookTarget()
+{
+    int moveDir = (owningLivingObject->GetPos().x - target->GetPos().x >= 0) ? -1 : 1;
+
+    if (moveDir != 0)
+        owningLivingObject->forwordDirection = moveDir;
+
+    owningLivingObject->renderingFlipOrder = (moveDir == -1) ? true : (moveDir == 1) ? false : owningLivingObject->renderingFlipOrder;
+
+    return moveDir;
 }
 
 int AIBossController::CalcAttackWeight(std::vector<int>& readyAttacks)

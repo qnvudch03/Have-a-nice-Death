@@ -20,10 +20,12 @@ public:
 	virtual void ClearBox() override;
 
 	void SetAnimHitBox(Vector Pos, Vector Size, std::vector<Texture*>* animtures, float Damage, HitBoxType Type, bool IsPlayerHitBox, LivingObject* Spawner);
+	void SetMovingSpeed(Vector speed) { animMovingSpeed = speed; };
 
 	void OnAnimEnd();
 	Animator animator;
 
 private:
+	Vector animMovingSpeed;
 };
 

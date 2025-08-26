@@ -60,7 +60,7 @@ public:
 	virtual void Destroy() override;
 
 	virtual void OnAnimEnd() override;
-	virtual void OnHitBoxSpawn() override;
+	virtual void AnimCallBack() override;
 	virtual void Hitted(HitBox* hitbox) override;
 
 	virtual void TakeDamage(float Damage) override;
@@ -71,6 +71,8 @@ public:
 
 private:
 	float deltatime = 0;
+
+	bool readyAtk4 = false;
 
 	EW7PriorityState state;
 };

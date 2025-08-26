@@ -24,9 +24,17 @@ public:
         attackTimers.resize(numAttacks, 0.0f);
     }
 
+    LivingObject* GetTarget()
+    {
+        if (target != nullptr)
+            return target;
+    }
+
     virtual void Update(float deltatime) override;
 
     void StartAttackInterval();
+
+    int LookTarget();
 
 private:
     int numAttacks = 0;

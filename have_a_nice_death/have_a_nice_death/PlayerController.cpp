@@ -67,6 +67,31 @@ void PlayerController::Update(float deltatime)
 		currentInput = KeyType::RELEASE;
 	}
 
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::AttackKey2))
+	{
+		currentInput = KeyType::AttackKey2;
+	}
+
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::AttackKey3))
+	{
+		currentInput = KeyType::AttackKey3;
+	}
+
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::AttackKey4))
+	{
+		currentInput = KeyType::AttackKey4;
+	}
+
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::AttackKey5))
+	{
+		currentInput = KeyType::AttackKey5;
+	}
+
+	else if (InputManager::GetInstance()->GetButtonDown(KeyType::AttackKey6))
+	{
+		currentInput = KeyType::AttackKey6;
+	}
+
 	else
 	{
 		currentInput = KeyType::MAX;

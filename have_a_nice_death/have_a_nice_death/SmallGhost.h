@@ -54,7 +54,7 @@ public:
 	virtual void Destroy() override;
 
 	virtual void OnAnimEnd() override;
-	virtual void OnHitBoxSpawn() override;
+	virtual void AnimCallBack() override;
 	virtual void Hitted(HitBox* hitbox) override;
 
 	virtual void TakeDamage(float Damage) override;

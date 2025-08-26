@@ -18,7 +18,7 @@ void InteractableElevator::DoInteract()
 	player->SetPos(Vector(GetPos().x, playerPos.y));
 
 	//플레이어 Apeear 애니메이션 뒤로 재생
-	player->SetState("Appear", false);
+	player->SetSingleCallbackState("Appear", false);
 	player->animator.SetAnimSpeed(25);
 	player->IsActive = false;
 

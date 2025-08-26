@@ -15,7 +15,7 @@ void Contractor::DoInteract()
 	state = contractorState::DisAppear;
 	SetState(state, 15);
 
-	player->SetState("PowerUp", false);
+	player->SetSingleCallbackState("PowerUp", false);
 	player->animator.SetAnimSpeed(10);
 
 	readyToInteract = false;

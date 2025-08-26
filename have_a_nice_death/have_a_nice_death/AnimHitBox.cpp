@@ -13,6 +13,12 @@ void AnimHitBox::Update(float deltatime)
 
 	animator.Update(deltatime);
 
+	if (type == HitBoxType::Movable)
+	{
+		pos.x += deltatime * animMovingSpeed.x;
+		pos.y += deltatime * animMovingSpeed.y;
+	}
+
 }
 
 void AnimHitBox::ClearBox()

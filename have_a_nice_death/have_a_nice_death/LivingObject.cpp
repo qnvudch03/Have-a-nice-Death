@@ -76,7 +76,7 @@ void LivingObject::SetCollider()
 	collider = new Collider(this, (*ownTextures)["Idle"][0]->GetTextureSize());
 }
 
-void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
+void LivingObject::SetSingleCallbackState(std::string state, bool IsLoop, int32 atkIndex)
 {
 	if (ownTextures->find(state) == ownTextures->end())
 		return;
@@ -94,7 +94,7 @@ void LivingObject::SetState(std::string state, bool IsLoop, int32 atkIndex)
 	}
 }
 
-void LivingObject::SetMultiHitBoxState(std::string state, bool IsLoop, std::vector<int32> atkIndexs)
+void LivingObject::SetMultiCallBackState(std::string state, bool IsLoop, std::vector<int32> atkIndexs)
 {
 	if (ownTextures->find(state) == ownTextures->end())
 		return;
@@ -315,7 +315,7 @@ void LivingObject::TakeDamage(float Damage)
 	if (objectStat.hp <= 0)
 	{
 		animator.ResetAnimTimer(20);
-		SetState("Death", false);
+		SetSingleCallbackState("Death", false);
 		IsActive = false;
 		DamagedAble = false;
 	}

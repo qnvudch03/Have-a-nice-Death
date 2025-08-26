@@ -15,7 +15,7 @@ void Death::Init()
 {
 	Super::Init();
 
-	SetState("Appear", false);
+	SetSingleCallbackState("Appear", false);
 	state = EDeathStatepriority::State_Apear;
 	animator.StopAnim();
 	SETTRIPLE(false)
@@ -31,7 +31,7 @@ void Death::Init()
 
 void Death::OnDeathSpawn()
 {
-	SetState("Appear", false);
+	SetSingleCallbackState("Appear", false);
 	state = EDeathStatepriority::State_Apear;
 	animator.StartAnim();
 	animator.SetAnimSpeed(30);
@@ -74,7 +74,7 @@ void Death::OnAnimEnd()
 	{
 		if (!groundSensor->IsActive())
 		{
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 			return;
@@ -120,7 +120,7 @@ void Death::OnAnimEnd()
 					animator.onPlay = true;
 					animator.ResetAnimTimer(10);
 
-					SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleToRun), false);
+					SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_IdleToRun), false);
 					state = EDeathStatepriority::State_IdleToRun;
 					LookInputDir();
 
@@ -139,7 +139,7 @@ void Death::OnAnimEnd()
 
 		else if (state == EDeathStatepriority::State_AttackUp)
 		{
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 
@@ -153,7 +153,7 @@ void Death::OnAnimEnd()
 
 		else if (state == EDeathStatepriority::State_AttackAir)
 		{
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoFall), true);
 			state = EDeathStatepriority::State_JumptoFall;
 			animator.ResetAnimTimer(20);
 
@@ -165,7 +165,7 @@ void Death::OnAnimEnd()
 			return;
 		}
 
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Idle), true);
+		SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Idle), true);
 		state = EDeathStatepriority::State_Idle;
 		animator.onPlay = true;
 		animator.ResetAnimTimer();
@@ -177,7 +177,7 @@ void Death::OnAnimEnd()
 
 }
 
-void Death::OnHitBoxSpawn()
+void Death::AnimCallBack()
 {
 
 	HitBoxManager* hitBoxManager = static_cast<GameScene*>(Game::GetInstance()->GetCurrentScence())->GetHitBoxManager();
@@ -276,7 +276,7 @@ void Death::UpdateState(KeyType Input)
 		if (state == EDeathStatepriority::State_JumptoFall &&
 			groundSensor->IsActive())
 		{
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoLand), false);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_JumptoLand), false);
 			state = EDeathStatepriority::State_JumptoLand;
 			animator.SetAnimSpeed(10);
 
@@ -317,7 +317,7 @@ void Death::UpdateState(KeyType Input)
 		if (state == EDeathStatepriority::State_Running ||
 			state == EDeathStatepriority::State_IdleToRun)
 		{
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_RunToIdle), false);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_RunToIdle), false);
 			state = EDeathStatepriority::State_RunToIdle;
 			animator.SetAnimSpeed(15);
 		}
@@ -332,7 +332,7 @@ void Death::UpdateState(KeyType Input)
 		{
 			if (forwordDirection != GetController()->GetInputDownX())
 			{
-				SetState(ConvertDeathStateToString(EDeathStatepriority::State_RunToUturn), false);
+				SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_RunToUturn), false);
 				state = EDeathStatepriority::State_RunToUturn;
 				animator.SetAnimSpeed(10);
 
@@ -348,14 +348,14 @@ void Death::UpdateState(KeyType Input)
 			//바라보는 방향과 입력 방향이 다를 떄
 			if (forwordDirection != GetController()->GetInputDownX())
 			{
-				SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleUTurn), false);
+				SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_IdleUTurn), false);
 				state = EDeathStatepriority::State_IdleUTurn;
 				animator.SetAnimSpeed(15);
 			}
 
 			else
 			{
-				SetState(ConvertDeathStateToString(EDeathStatepriority::State_IdleToRun), false);
+				SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_IdleToRun), false);
 				state = EDeathStatepriority::State_IdleToRun;
 				animator.SetAnimSpeed(15);
 			}
@@ -394,7 +394,7 @@ void Death::UpdateState(KeyType Input)
 			//현재 입력방향과 속도가 같은지 비교 후 조정
 
 
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Running));
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Running));
 			state = EDeathStatepriority::State_Running;
 			animator.SetAnimSpeed(10);
 
@@ -423,7 +423,7 @@ void Death::UpdateState(KeyType Input)
 			}
 
 			animator.ResetAnimTimer();
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Dash), false);
 			state = EDeathStatepriority::State_Dash;
 			animator.SetAnimSpeed(13 * actionSpeed);
 
@@ -460,7 +460,7 @@ void Death::UpdateState(KeyType Input)
 	//점프
 	else if (Input == KeyType::SpaceBar)
 	{
-		DashException();
+		//DashException();
 
 		if (state <= State_JumpStart)
 			return;
@@ -472,7 +472,7 @@ void Death::UpdateState(KeyType Input)
 
 		isCanJump = true;
 		atkcombo = 0;
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_JumpStart), false);
+		SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_JumpStart), false);
 		state = EDeathStatepriority::State_JumpStart;
 		animator.SetAnimSpeed(20);
 
@@ -485,8 +485,8 @@ void Death::TakeDamage(float Damage)
 
 	if (IsActive)
 	{
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
-		animator.SetAnimSpeed(20);
+		SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
+		animator.SetAnimSpeed(25);
 		state = EDeathStatepriority::State_Hitted;
 
 		atkcombo = 0;
@@ -522,7 +522,7 @@ bool Death::Attack()
 		canUpAttack)
 	{
 		animator.ResetAnimTimer(30 * actionSpeed);
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackUp), false, 3);
+		SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_AttackUp), false, 3);
 		velocity.y = 0;
 		velocity.x = 0;
 
@@ -547,7 +547,7 @@ bool Death::Attack()
 			LookDir();
 
 			animator.ResetAnimTimer();
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false, 2); //첫번쨰 사진은 0 입니다.
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Attack1), false, 2); //첫번쨰 사진은 0 입니다.
 			state = EDeathStatepriority::State_Attack1;
 			animator.SetAnimSpeed(20 * actionSpeed);
 			atkcombo++;
@@ -565,7 +565,7 @@ bool Death::Attack()
 			LookDir();
 
 			animator.ResetAnimTimer();
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false, 1);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Attack2), false, 1);
 			state = EDeathStatepriority::State_Attack2;
 			animator.SetAnimSpeed(20 * actionSpeed);
 
@@ -584,7 +584,7 @@ bool Death::Attack()
 			LookDir();
 
 			animator.ResetAnimTimer();
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false, 1);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Attack3), false, 1);
 			state = EDeathStatepriority::State_Attack3;
 			animator.SetAnimSpeed(10 * actionSpeed);
 
@@ -601,7 +601,7 @@ bool Death::Attack()
 			LookDir();
 
 			animator.ResetAnimTimer();
-			SetState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false, 10);
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Attack4), false, 10);
 			state = EDeathStatepriority::State_Attack4;
 			animator.SetAnimSpeed(20 * actionSpeed);
 
@@ -619,7 +619,7 @@ bool Death::Attack()
 
 		LookDir();
 		animator.ResetAnimTimer(20 * actionSpeed);
-		SetState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 3);
+		SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_AttackAir), false, 3);
 		state = EDeathStatepriority::State_AttackAir;
 
 		velocity.x = 0;
