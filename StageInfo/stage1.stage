@@ -11,28 +11,12 @@
                 "type": "Boss_W7"
             },
             {
-                "owner": "AI",
-                "position": [
-                    756.0,
-                    310.0
-                ],
-                "type": "SmallGhost"
-            },
-            {
                 "owner": "Player",
                 "position": [
-                    250.0,
-                    683.0
+                    272.0,
+                    625.0
                 ],
-                "type": "Boss_W7"
-            },
-            {
-                "owner": "Player",
-                "position": [
-                    125.0,
-                    648.0
-                ],
-                "type": "SmallGhost"
+                "type": "Death"
             }
         ]
     },

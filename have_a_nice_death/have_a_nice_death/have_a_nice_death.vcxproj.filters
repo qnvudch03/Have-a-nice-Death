@@ -58,6 +58,9 @@
     <Filter Include="Main-SubMediator">
       <UniqueIdentifier>{5f564ab1-c460-4444-9342-d2ca2dd6d2eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AttackFX">
+      <UniqueIdentifier>{d45f5428-a850-4472-8b86-54e4200aa95d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -198,6 +201,9 @@
     <ClInclude Include="W7.h">
       <Filter>Character</Filter>
     </ClInclude>
+    <ClInclude Include="WaterWall.h">
+      <Filter>AttackFX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -325,6 +331,9 @@
     </ClCompile>
     <ClCompile Include="W7.cpp">
       <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterWall.cpp">
+      <Filter>AttackFX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

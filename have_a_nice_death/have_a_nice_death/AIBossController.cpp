@@ -3,6 +3,10 @@
 
 void AIBossController::Update(float deltatime)
 {
+
+    if (target->IsActive == false)
+        return;
+
     pastInput = currentInput;
 
     for (int i = 0; i < numAttacks; i++)
@@ -25,7 +29,7 @@ void AIBossController::Update(float deltatime)
         }
         else
         {
-            currentInput = KeyType::KeepLeft; // Move 동안 지속 입력
+            //currentInput = KeyType::KeepLeft; // Move 동안 지속 입력
         }
 
         return;

@@ -110,7 +110,7 @@ void LivingObject::SetMultiCallBackState(std::string state, bool IsLoop, std::ve
 void LivingObject::Die()
 {
 	//스테이지에 자신의 사망을 알림(플레이어, Enemy 일떄의 처리가 다름)
-	OnDie();
+	OnDie(this);
 
 	Game::GetGameScene()->EraseFromGame(this);
 }

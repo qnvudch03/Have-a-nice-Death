@@ -152,7 +152,7 @@ bool Stage::LoadStageInfo(std::string stage)
 				PlayerController* playerController = new PlayerController();
 				gameScene->BindController(playerController, livingObject);
 
-				livingObject->OnDie = [this]() {this->playerDie(); };
+				livingObject->OnDie = [this](LivingObject* livingObject) {this->playerDie(livingObject); };
 				livingObject->OnHitted = [this]() {this->playerHitted(); };
 
 				//TODO
@@ -188,7 +188,7 @@ bool Stage::LoadStageInfo(std::string stage)
 					gameScene->BindController(bossController, livingObject);
 				}
 
-				livingObject->OnDie = [this]() {this->enemyDie(); };
+				livingObject->OnDie = [this](LivingObject* livingObject) {this->enemyDie(livingObject); };
 
 				TotalEnemy++;
 			}
@@ -265,6 +265,20 @@ void Stage::SetPlayerData(std::map<std::string, float>& playerSaveParam)
 	}
 }
 
+LivingObject* Stage::GetEnemy()
+{
+	for (auto Obj : currentWaveEnemy)
+	{
+		if (Obj == nullptr)
+			continue;
+
+		LivingObject* livingObj = static_cast<LivingObject*>(Obj);
+		if (livingObj->IsActive)
+			return livingObj;
+	}
+	return nullptr;
+}
+
 std::vector<int> Stage::divideIntoThree(int totalEnemy)
 {
 	int part1 = totalEnemy / 3;
@@ -308,7 +322,7 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 //	obj->collider->DeActivateCollier();
 //}
 
-void Stage::playerDie()
+void Stage::playerDie(LivingObject* player)
 {
 	//플레이어 사망시 처리할 부분
 }
@@ -318,10 +332,12 @@ void Stage::playerHitted()
 	UpdateHPBar();
 }
 
-void Stage::enemyDie()
+void Stage::enemyDie(LivingObject* deathCharacater)
 {
 	//적 사망시 처리해야 할 부분
 	MonsterCounter--;
+
+	currentWaveEnemy.erase(deathCharacater);
 
 	if (MonsterCounter < 0)
 	{
@@ -394,7 +410,7 @@ void Stage::StartWave()
 		int randomIndex = (rd() % stageLivingObjectVec.size());
 
 		gameScene->LoadObject(stageLivingObjectVec[randomIndex]);
-
+		currentWaveEnemy.insert(stageLivingObjectVec[randomIndex]);
 		stageLivingObjectVec.erase(stageLivingObjectVec.begin() + randomIndex);
 	}
 }

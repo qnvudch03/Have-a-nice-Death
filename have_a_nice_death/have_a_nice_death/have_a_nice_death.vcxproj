@@ -171,6 +171,7 @@
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="W7.h" />
+    <ClInclude Include="WaterWall.h" />
     <ClInclude Include="WindowMediator.h" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +218,7 @@
     <ClCompile Include="UIImage.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="W7.cpp" />
+    <ClCompile Include="WaterWall.cpp" />
     <ClCompile Include="WindowMediator.cpp" />
   </ItemGroup>
   <ItemGroup>

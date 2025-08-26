@@ -6,6 +6,7 @@
 #include "random"
 #include "Game.h"
 #include "DebugLenderer.h"
+#include "TimeManager.h"
 
 void W7::Init()
 {
@@ -111,6 +112,7 @@ void W7::OnAnimEnd()
 	state = EW7PriorityState::State_Idle;
 	animator.SetAnimSpeed(30);
 	isCanMove = true;
+	DamagedAble = true;
 
 	if (GetController()->isPlayerController == false)
 	{
@@ -138,7 +140,7 @@ void W7::AnimCallBack()
 		hitBoxSize.x = 130;
 		hitBoxSize.y = 130;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.5, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		break;
 	}
 	case W7::State_Attack2:
@@ -162,18 +164,18 @@ void W7::AnimCallBack()
 			return;
 
 		colliderCenterPos.x += forwordDirection * 170;
-		colliderCenterPos.y += 50;
+		colliderCenterPos.y += 120;
 
-		Vector hitBoxSize = { 0,0 };
+		//Vector hitBoxSize = { 0,0 };
 
 
 		animHitbox->SetAnimHitBox(colliderCenterPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "Attack_W7_WaterWave")
 			, GetStat().atk, HitBoxType::Movable, GetController()->isPlayerController, this);
 
 		animHitbox->animator.SetAnimSpeed(10);
-		animHitbox->SetMovingSpeed(Vector(600, 0));
+		animHitbox->SetMovingSpeed(Vector(600 * forwordDirection, 0));
 
-		hitBoxManager->AddAnimHitBox(animHitbox);
+		hitBoxManager->AddAnimHitBox(animHitbox, ImageAnchor::Bottomcenter);
 
 		Game::GetInstance()->GetDebugLenderer()->ReservedHitBox(animHitbox);
 
@@ -181,11 +183,163 @@ void W7::AnimCallBack()
 	}
 
 	case W7::State_Attack4:
+	{
+		//1800 / 물기둥 너비 개수 만큼
+		int numWaterWall = 5;
+		std::vector<float> WaterWallSpawnList = { 100, 300, 500, 700, 900, 1100, 1300, 1500, 1700 };
+
+		WaterWallSpawnList = ShuffleVector(WaterWallSpawnList);
+
+		for (int i = 0; i < numWaterWall; i++)
+		{
+			AnimHitBox* animHitbox = hitBoxManager->CallAnimHitBox();
+			Vector spawnPos = { WaterWallSpawnList[i], 500 };
+
+			animHitbox->SetAnimHitBox(spawnPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "WaterWAll")
+				, GetStat().atk, HitBoxType::Fixed, GetController()->isPlayerController, this);
+
+			animHitbox->animator.SetAnimSpeed(12);
+
+
+			TimeManager::GetInstance()->AddTimer(Timer([this, hitBoxManager, animHitbox]()
+				{
+					hitBoxManager->AddAnimHitBox(animHitbox, ImageAnchor::Center);
+				}
+			, 0.5 * i));
+		}
+
 		break;
+	}
+
 	case W7::State_Attack5:
+	{
+		hitbox = hitBoxManager->CallHitBox();
+
+		colliderCenterPos.x += 150 * forwordDirection;
+		colliderCenterPos.y += 30;
+		hitBoxSize.x = 200;
+		hitBoxSize.y = 80;
+
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 1.0, GetController()->isPlayerController, this);
 		break;
+	}
 	case W7::State_Attack6:
-		break;
+	{
+		Vector currentPos;
+		Vector jumPos;
+		switch (animator.AnimTextureIndex)
+		{
+		case 6:
+			jumPos = GetPos();
+			jumPos.y -= 50;
+			SetPos(jumPos);
+			break;
+		case 7:
+			jumPos = GetPos();
+			jumPos.y -= 50;
+			SetPos(jumPos);
+			break;
+
+		case 8:
+		{
+			if (moveCounter > 1)
+				return;
+
+			moveCounter = 1;
+
+			if (GetController()->isPlayerController == true)
+			{
+				auto Emeny = Game::GetGameScene()->GetStage()->GetEnemy();
+				if (Emeny == nullptr)
+					flyingTargetPos = GetPos();
+
+				else
+					flyingTargetPos = Emeny->GetPos();
+				
+			}
+
+			else
+			{
+				flyingTargetPos = static_cast<AIBossController*>(GetController())->GetTarget()->GetPos();
+			}
+
+			flyingStartPos = GetPos();
+
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			break;
+		}
+
+		case 9:
+		{
+			if (moveCounter > 2)
+				return;
+
+			moveCounter = 2;
+
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			break;
+		}
+
+		case 10:
+		{
+			if (moveCounter > 3)
+				return;
+
+			moveCounter = 3;
+
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			break;
+		}
+		case 11:
+		{
+			if (moveCounter > 4)
+				return;
+
+			moveCounter = 4;
+
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			break;
+		}
+		case 12:
+		{
+			if (moveCounter > 5)
+				return;
+
+			moveCounter = 5;
+
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			break;
+		}
+		case 13:
+		{
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			break;
+		}
+		case 14:
+		{
+			if (moveCounter > 6)
+				return;
+
+			moveCounter = 6;
+
+			currentPos = flyingStartPos + (flyingTargetPos - flyingStartPos) * (moveCounter / 6);
+			SetPos(currentPos);
+			moveCounter = 0;
+			break;
+		}
+		default:
+			break;
+		}
+	}
+
+
+	break;
 	default:
 		break;
 	}
@@ -242,10 +396,14 @@ void W7::UpdateState(KeyType Input)
 	case KeyType::Left:
 	case KeyType::Right:
 
-		if (state != EW7PriorityState::State_Idle)
+		if (state != EW7PriorityState::State_Idle &&
+			state != EW7PriorityState::State_Running)
 			return;
 
 		LookInputDir();
+
+		if (state == EW7PriorityState::State_Running)
+			return;
 
 		animator.ResetAnimTimer(30);
 		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_Running), true);
@@ -268,20 +426,31 @@ void W7::UpdateState(KeyType Input)
 
 		animator.ResetAnimTimer(30);
 
-		if (GetController()->isPlayerController == false)
+		LivingObject* target = nullptr;
+
 		{
-			AIBossController* bossConroller = static_cast<AIBossController*>(GetController());
-			LivingObject* target = bossConroller->GetTarget();
-
-			if (target)
+			if (GetController()->isPlayerController == false)
 			{
-				Vector targetPos = target->GetPos();
-				int targetLookDir = target->forwordDirection;
-				Vector spawnedPos = Vector(targetPos.x + (targetLookDir * -50), targetPos.y);
-
-				SetPos(spawnedPos);
+				AIBossController* bossConroller = static_cast<AIBossController*>(GetController());
+				target = bossConroller->GetTarget();
 				bossConroller->LookTarget();
 			}
+
+			else
+			{
+				target = LookEnemy();
+
+			}
+		}
+
+
+		if (target)
+		{
+			Vector targetPos = target->GetPos();
+			int targetLookDir = target->forwordDirection;
+			Vector spawnedPos = Vector(targetPos.x + (targetLookDir * -50), targetPos.y);
+
+			SetPos(spawnedPos);
 		}
 
 		SetMultiCallBackState(ConvertW7StateToString(EW7PriorityState::State_Attack2), false, { 17, 38 });
@@ -323,7 +492,7 @@ void W7::UpdateState(KeyType Input)
 		isCanMove = false;
 
 		animator.ResetAnimTimer(30);
-		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_Attack5), false, 21);
+		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_Attack5), false, 22);
 		state = EW7PriorityState::State_Attack5;
 
 		break;
@@ -332,10 +501,15 @@ void W7::UpdateState(KeyType Input)
 	case KeyType::AttackKey6:
 	{
 		isCanMove = false;
+		DamagedAble = false;
 
-		animator.ResetAnimTimer(20);
-		SetMultiCallBackState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, { 8, 9, 10, 11, 12, 13, 14 });
+		LookEnemy();
+
+		animator.ResetAnimTimer(13);
+		SetMultiCallBackState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, {6, 7, 8, 9, 10, 11, 12, 13, 14 });
 		state = EW7PriorityState::State_Attack6;
+
+		readyAtk4 = false;
 
 		break;
 	}
@@ -374,4 +548,30 @@ void W7::TeleportMapBound()
 	}
 
 	renderingFlipOrder = (lookDir == -1) ? true : (lookDir == 1) ? false : renderingFlipOrder;
+}
+
+std::vector<float>& W7::ShuffleVector(std::vector<float>& vec)
+{
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::shuffle(vec.begin(), vec.end(), g);
+	return vec;
+}
+
+LivingObject* W7::LookEnemy()
+{
+	auto Emeny = Game::GetGameScene()->GetStage()->GetEnemy();
+
+	if (Emeny == nullptr)
+		return this;
+
+
+	int moveDir = (GetPos().x - Emeny->GetPos().x >= 0) ? -1 : 1;
+
+	if (moveDir != 0)
+		forwordDirection = moveDir;
+
+	renderingFlipOrder = (moveDir == -1) ? true : (moveDir == 1) ? false : renderingFlipOrder;
+
+	return Emeny;
 }

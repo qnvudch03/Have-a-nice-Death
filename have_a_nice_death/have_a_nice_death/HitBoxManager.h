@@ -25,10 +25,18 @@ public:
 	}
 
 	AnimHitBox* CallAnimHitBox();
-	void AddAnimHitBox(AnimHitBox* hitbox)
+	//void AddAnimHitBox(AnimHitBox* hitbox)
+	//{
+	//	int size = spanwedAnimHitBoxVec.size();
+	//	spanwedAnimHitBoxVec.insert(hitbox);
+
+	//	//currentGameScene = Game::GetInstance()->GetGameScene();
+	//}
+
+	void AddAnimHitBox(AnimHitBox* hitbox, ImageAnchor HitBoxAnchor)
 	{
-		int size = spanwedAnimHitBoxVec.size();
-		spanwedAnimHitBoxVec.insert(hitbox);
+		spanwedAnimHitBoxVec.insert(std::make_pair(hitbox, HitBoxAnchor));
+		hitbox->hitBoxAncor = HitBoxAnchor;
 
 		//currentGameScene = Game::GetInstance()->GetGameScene();
 	}
@@ -47,7 +55,8 @@ private:
 	std::set<HitBox*> spanwedHitBoxVec;
 
 	std::queue<AnimHitBox*> animHitBoxPull;
-	std::set<AnimHitBox*> spanwedAnimHitBoxVec;
+	//std::set<AnimHitBox*> spanwedAnimHitBoxVec;
+	std::set<std::pair<AnimHitBox*, ImageAnchor>> spanwedAnimHitBoxVec;
 
 	GameScene* currentGameScene = nullptr;
 };

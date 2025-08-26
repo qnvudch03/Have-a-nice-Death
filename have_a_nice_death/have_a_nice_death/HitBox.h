@@ -17,6 +17,8 @@ public:
 	Vector GetPos() { return pos; }
 	Vector GetSize() { return size; }
 
+	ImageAnchor hitBoxAncor = ImageAnchor::Center;
+
 	bool isPlayerHitBox = false;
 	float damage;
 

@@ -21,6 +21,8 @@ public:
 	void ApplyPlayerData(std::map<std::string, float>& playerSaveParam);
 	void SetPlayerData(std::map<std::string, float>& playerSaveParam);
 
+	LivingObject* GetEnemy();
+
 	LivingObject* GetPlayer() { return player; }
 	InteractableElevator* GetElevator() { return excapeElevator; }
 	Contractor* GetContractor() { return contractor; }
@@ -37,7 +39,9 @@ private:
 
 	std::vector<int> divideIntoThree(int totalEnemy);
 
-	std::vector< Object*> stagePreloadObjectVec;
+	std::set<Object*> currentWaveEnemy;
+
+	std::vector<Object*> stagePreloadObjectVec;
 	std::vector<Object*> stageLivingObjectVec;
 	std::vector< Object*> stageStaticObjectVec;
 
@@ -50,10 +54,10 @@ private:
 
 	bool bIsStageReady = false;
 
-	void playerDie();
+	void playerDie(LivingObject* deathCharacater);
 	void playerHitted();
 
-	void enemyDie();
+	void enemyDie(LivingObject* deathCharacater);
 
 	LivingObject* player = nullptr;
 

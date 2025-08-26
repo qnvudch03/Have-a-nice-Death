@@ -95,7 +95,7 @@ void SmallGhost::AnimCallBack()
 	
 
 
-	hitBoxManager->AddAnimHitBox(animHitbox);
+	hitBoxManager->AddAnimHitBox(animHitbox, ImageAnchor::Center);
 }
 
 void SmallGhost::Hitted(HitBox* hitbox)

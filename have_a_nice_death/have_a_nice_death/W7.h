@@ -71,7 +71,14 @@ public:
 
 private:
 	float deltatime = 0;
+	std::vector<float>& ShuffleVector(std::vector<float>& vec);
 
+	Vector flyingTargetPos;
+	Vector flyingStartPos;
+
+	LivingObject* LookEnemy();
+
+	float moveCounter = 0;
 	bool readyAtk4 = false;
 
 	EW7PriorityState state;

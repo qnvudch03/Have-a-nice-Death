@@ -29,13 +29,26 @@ void DebugLenderer::DrawReserved()
 
 	if (!hitBoxVec.empty())
 	{
-		for (auto& iter : hitBoxVec)
+		for (auto& hitbox : hitBoxVec)
 		{
-			Vector hitBoxPos = iter->GetPos();
-			Vector hitBoxSize = iter->GetSize();
+			Vector hitBoxPos = hitbox->GetPos();
+			Vector hitBoxSize = hitbox->GetSize();
 
-			DrawRenctangle(Vector(hitBoxPos.x - hitBoxSize.x, hitBoxPos.y - hitBoxSize.y),
-				Vector(hitBoxPos.x + hitBoxSize.x, hitBoxPos.y + hitBoxSize.y), D2D1::ColorF::Yellow);
+			switch (hitbox->hitBoxAncor)
+			{
+			case ImageAnchor::Center:
+				DrawRenctangle(Vector(hitBoxPos.x - hitBoxSize.x, hitBoxPos.y - hitBoxSize.y),
+					Vector(hitBoxPos.x + hitBoxSize.x, hitBoxPos.y + hitBoxSize.y), D2D1::ColorF::Yellow);
+				break;
+			case ImageAnchor::Bottomcenter:
+				DrawRenctangle(Vector(hitBoxPos.x - hitBoxSize.x, hitBoxPos.y - 2 * hitBoxSize.y),
+					Vector(hitBoxPos.x + hitBoxSize.x, hitBoxPos.y), D2D1::ColorF::Yellow);
+				break;
+			default:
+				break;
+			}
+
+			
 		}
 
 		hitBoxVec.clear();

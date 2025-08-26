@@ -27,19 +27,21 @@ void InteractableObject::Update(float deltaTime)
 
 	activate = false;
 
-	RectanglePos playerCollider = player->collider->Getrectangle();
+	/*RectanglePos playerCollider = player->collider->Getrectangle();
 	Vector TopLeft = playerCollider.TopLeft;
-	Vector BottomRight = playerCollider.BottomRight;
+	Vector BottomRight = playerCollider.BottomRight;*/
+
+	Vector playerPos = player->collider->GetCenterPos();
 
 	Vector textureSize = animator.GetAnimTexture()->GetTextureSize();
 	Vector pos = GetPos();
 
 
-	if (TopLeft.x >= pos.x - textureSize.x * 0.5 &&
-		TopLeft.y >= pos.y - textureSize.y * 0.5 &&
+	if (playerPos.x >= pos.x - textureSize.x * 0.5 &&
+		playerPos.y >= pos.y - textureSize.y * 0.5 &&
 
-		BottomRight.x <= pos.x + textureSize.x * 0.5 &&
-		BottomRight.y <= pos.y + textureSize.y * 0.5)
+		playerPos.x <= pos.x + textureSize.x * 0.5 &&
+		playerPos.y <= pos.y + textureSize.y * 0.5)
 
 	{
 		activate = true;

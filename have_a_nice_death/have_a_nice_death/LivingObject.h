@@ -33,7 +33,7 @@ public:
 	void SetController(Controller* controller) { _controller = controller; }
 
 	void Die();
-	std::function<void()> OnDie;
+	std::function<void(LivingObject* deadCharacter)> OnDie;
 
 	void LookInputDir();
 

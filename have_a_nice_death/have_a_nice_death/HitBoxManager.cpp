@@ -36,7 +36,7 @@ HitBoxManager::~HitBoxManager()
 	{
 		for (auto Iter : spanwedAnimHitBoxVec)
 		{
-			delete Iter;
+			delete Iter.first;
 		}
 
 		spanwedAnimHitBoxVec.clear();
@@ -111,7 +111,17 @@ void HitBoxManager::ReturnAnimHitBox(AnimHitBox* hitbox)
 		return;
 
 	animHitBoxPull.push(hitbox);
-	spanwedAnimHitBoxVec.erase(hitbox);
+
+	for (auto animHitbox : spanwedAnimHitBoxVec)
+	{
+		if (hitbox == animHitbox.first)
+		{
+			spanwedAnimHitBoxVec.erase(animHitbox);
+			break;
+		}
+			
+	}
+	//spanwedAnimHitBoxVec.erase(hitbox);
 }
 
 void HitBoxManager::Update(float deltatime)
@@ -134,8 +144,8 @@ void HitBoxManager::Update(float deltatime)
 		auto animHitBox = spanwedAnimHitBoxVec;
 		for (auto Iter : animHitBox)
 		{
-			Iter->Update(deltatime);
-			CheckCollision(Iter);
+			Iter.first->Update(deltatime);
+			CheckCollision(Iter.first);
 		}
 	}
 
@@ -152,12 +162,12 @@ void HitBoxManager::DrawHitbox(ID2D1RenderTarget* renderTarget)
 	{
 		for (auto& Iter : spanwedAnimHitBoxVec)
 		{
-			bool Fliporder = (Iter->GetForwordDirection() == 1) ? false : true;
-			Iter->animator.GetAnimTexture()->Render(renderTarget, Iter->GetPos(), ImageAnchor::Center, Fliporder);
+			bool Fliporder = (Iter.first->GetForwordDirection() == 1) ? false : true;
+			Iter.first->animator.GetAnimTexture()->Render(renderTarget, Iter.first->GetPos(), Iter.second, Fliporder);
 
 			if (isDbugMode)
 			{
-				GarbageCollector->ReservedHitBox(Iter);
+				GarbageCollector->ReservedHitBox(Iter.first);
 			}
 		}
 	}
