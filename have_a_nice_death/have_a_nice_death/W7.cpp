@@ -171,7 +171,7 @@ void W7::AnimCallBack()
 			, GetStat().atk, HitBoxType::Movable, GetController()->isPlayerController, this);
 
 		animHitbox->animator.SetAnimSpeed(10);
-		animHitbox->SetMovingSpeed(Vector(100, 0));
+		animHitbox->SetMovingSpeed(Vector(600, 0));
 
 		hitBoxManager->AddAnimHitBox(animHitbox);
 

@@ -17,6 +17,8 @@ public:
 	HitBox* CallHitBox();
 	void AddHitBox(HitBox* hitbox)
 	{
+		if (hitbox == nullptr)
+			return;
 		spanwedHitBoxVec.insert(hitbox);
 
 		//currentGameScene = Game::GetInstance()->GetGameScene();
@@ -25,6 +27,7 @@ public:
 	AnimHitBox* CallAnimHitBox();
 	void AddAnimHitBox(AnimHitBox* hitbox)
 	{
+		int size = spanwedAnimHitBoxVec.size();
 		spanwedAnimHitBoxVec.insert(hitbox);
 
 		//currentGameScene = Game::GetInstance()->GetGameScene();

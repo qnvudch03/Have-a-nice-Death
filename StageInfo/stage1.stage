@@ -25,6 +25,14 @@
                     683.0
                 ],
                 "type": "Boss_W7"
+            },
+            {
+                "owner": "Player",
+                "position": [
+                    125.0,
+                    648.0
+                ],
+                "type": "SmallGhost"
             }
         ]
     },

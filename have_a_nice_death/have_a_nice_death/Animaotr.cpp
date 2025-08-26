@@ -71,6 +71,7 @@ void Animator::Update(float deltaTime)
         if (onHitBoxSpawn != nullptr)
             onHitBoxSpawn();
 
+        hitboxIndex = -1;
     }
 
     if (!hitboxIndexes.empty())
