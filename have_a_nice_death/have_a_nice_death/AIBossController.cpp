@@ -144,15 +144,15 @@ int AIBossController::CalcAttackWeight(std::vector<int>& readyAttacks)
         switch (i)
         {
         case 0: case 4: // 근거리
-            if (distance <= 4.0f) weight *= 2.0f;
+            if (distance < 12.0f) weight *= 2.0f;
             break;
 
         case 1: case 5: // 중거리
-            if (distance >= 9.0f && distance <= 26.0f) weight *= 2.0f;
+            if (distance >= 12.0f && distance < 60.0f) weight *= 2.0f;
             break;
 
         case 2: case 3: // 원거리
-            if (distance >= 25.0f) weight *= 2.0f;
+            if (distance >= 60.0f) weight *= 2.0f;
             break;
         }
 

@@ -201,7 +201,7 @@ void SmallGhost::UpdateState(KeyType Input)
 		animator.ResetAnimTimer();
 		SetSingleCallbackState(ConvertSmallGhostStateToString(ESmallGhostStatepriority::State_Attack), false, 17);
 		state = ESmallGhostStatepriority::State_Attack;
-		animator.SetAnimSpeed(15);
+		animator.SetAnimSpeed(15 * actionSpeed);
 
 		isCanMove = false;
 		isCanJump = false;

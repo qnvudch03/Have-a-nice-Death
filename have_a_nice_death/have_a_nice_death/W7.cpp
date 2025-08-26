@@ -426,7 +426,7 @@ void W7::UpdateState(KeyType Input)
 	{
 		isCanMove = false;
 
-		animator.ResetAnimTimer(30);
+		animator.ResetAnimTimer(30 * actionSpeed);
 		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_Attack1), false, 26);
 		state = EW7PriorityState::State_Attack1;
 
@@ -436,7 +436,7 @@ void W7::UpdateState(KeyType Input)
 	{
 		isCanMove = false;
 
-		animator.ResetAnimTimer(30);
+		animator.ResetAnimTimer(30 * actionSpeed);
 
 		LivingObject* target = nullptr;
 
@@ -475,7 +475,7 @@ void W7::UpdateState(KeyType Input)
 	{
 		isCanMove = false;
 
-		animator.ResetAnimTimer(15);
+		animator.ResetAnimTimer(15 * actionSpeed);
 		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_Attack3), false, 10);
 		state = EW7PriorityState::State_Attack3;
 
@@ -489,7 +489,7 @@ void W7::UpdateState(KeyType Input)
 		state = EW7PriorityState::State_Attack4;*/
 		isCanMove = false;
 
-		animator.ResetAnimTimer(30);
+		animator.ResetAnimTimer(30 * actionSpeed);
 		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_TeleportDisapera), false);
 		state = EW7PriorityState::State_TeleportDisapera;
 
@@ -503,7 +503,7 @@ void W7::UpdateState(KeyType Input)
 	{
 		isCanMove = false;
 
-		animator.ResetAnimTimer(30);
+		animator.ResetAnimTimer(30 * actionSpeed);
 		SetSingleCallbackState(ConvertW7StateToString(EW7PriorityState::State_Attack5), false, 22);
 		state = EW7PriorityState::State_Attack5;
 
@@ -517,7 +517,7 @@ void W7::UpdateState(KeyType Input)
 
 		LookEnemy();
 
-		animator.ResetAnimTimer(10);
+		animator.ResetAnimTimer(10 * actionSpeed);
 		SetMultiCallBackState(ConvertW7StateToString(EW7PriorityState::State_Attack6), false, {6, 7, 8, 9, 10, 11, 12, 13, 14 });
 		state = EW7PriorityState::State_Attack6;
 

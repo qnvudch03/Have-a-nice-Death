@@ -204,6 +204,9 @@
     <ClInclude Include="WaterWall.h">
       <Filter>AttackFX</Filter>
     </ClInclude>
+    <ClInclude Include="MedChost.h">
+      <Filter>Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -334,6 +337,9 @@
     </ClCompile>
     <ClCompile Include="WaterWall.cpp">
       <Filter>AttackFX</Filter>
+    </ClCompile>
+    <ClCompile Include="MedChost.cpp">
+      <Filter>Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
