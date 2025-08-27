@@ -340,6 +340,7 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 void Stage::playerDie(LivingObject* player)
 {
 	//플레이어 사망시 처리할 부분
+	gameScene->SetUI_GameOver();
 }
 
 void Stage::playerHitted()

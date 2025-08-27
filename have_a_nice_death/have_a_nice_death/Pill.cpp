@@ -19,7 +19,10 @@ void Pill::Init()
 	SETTRIPLE(false)
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워 
-	SetStat(ObjectStat(50, 50, 20, 7, 0, 30, 10, 700));
+	SetStat(ObjectStat(50, 50, 20, 7, 0, 100, 10, 700));
+
+	SetDetectRnage(500);
+	GetController()->SetAttackNum(2);
 }
 
 void Pill::Update(float deltaTime)

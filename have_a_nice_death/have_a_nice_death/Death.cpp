@@ -24,9 +24,13 @@ void Death::Init()
 	dashTimer = dashCollTime;
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워
-	SetStat(ObjectStat(80, 80, 15, 3, 0, 30, 14, 900));
+	SetStat(ObjectStat(80, 80, 15, 3, 0, 150, 14, 900));
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {	CallElevator(); }, 0.3));
+
+
+	SetDetectRnage(900);
+	GetController()->SetAttackNum(1);
 }
 
 void Death::OnDeathSpawn()
@@ -453,7 +457,7 @@ void Death::UpdateState(KeyType Input)
 		{
 			//공격 모션 시, x 속도를 낮추자
 			LookInputDir();
-			velocity.x *= 0.7;
+			//velocity.x *= 0.7;
 		}
 	}
 

@@ -24,6 +24,7 @@ void W7::Init()
 	if (GetController()->isPlayerController == false)
 	{
 		static_cast<AIBossController*>(GetController())->InitBossController(6, { 3, 4, 5, 7, 3, 5 });
+		SetDetectRnage(500);
 	}
 }
 

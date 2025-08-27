@@ -78,6 +78,8 @@ public:
 	virtual void Hitted(HitBox* hitbox);
 	std::function<void()> OnHitted = nullptr;
 
+	void SetDetectRnage(float rnage) { detectRange = rnage; }
+	float GetDetectRange() { return detectRange; }
 
 	//Active
 	bool IsActive = true;
@@ -141,6 +143,8 @@ private:
 	ObjectStat objectStat;
 
 	void GenHitEffect();
+
+	float detectRange = 0;
 
 	//¿Ã∆Â∆Æ ±‚¥…
 	//std::vector<Texture*>* EffectTexture = nullptr;

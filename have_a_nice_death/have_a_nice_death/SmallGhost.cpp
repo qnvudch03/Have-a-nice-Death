@@ -17,7 +17,10 @@ void SmallGhost::Init()
 	SETTRIPLE(false)
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워 
-	SetStat(ObjectStat(50, 50, 10, 5, 0, 30, 10, 900));
+	SetStat(ObjectStat(50, 50, 10, 5, 0, 200, 10, 900));
+
+	SetDetectRnage(700);
+	GetController()->SetAttackNum(1);
 }
 
 void SmallGhost::Update(float deltaTime)
@@ -195,7 +198,8 @@ void SmallGhost::UpdateState(KeyType Input)
 
 	else if (Input == KeyType::AttackKey1)
 	{
-		if (state != ESmallGhostStatepriority::State_Idle)
+		if (state != ESmallGhostStatepriority::State_Idle &&
+			state != ESmallGhostStatepriority::State_Running)
 			return;
 
 		animator.ResetAnimTimer();

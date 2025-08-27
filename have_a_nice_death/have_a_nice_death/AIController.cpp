@@ -13,122 +13,157 @@ AIController::AIController()
 
 void AIController::Update(float deltatime)
 {
-    //float delta = TimeManager::GetDeltaTime(); // 프레임 보정
-
-    //// 쿨타임 중이면 입력 없음
-    //if (isInCoolTime)
-    //{
-    //    coolTimer += delta;
-    //    currentInput = KeyType::MAX;
-
-    //    if (coolTimer >= coolDuration)
-    //    {
-    //        coolTimer = 0.0f;
-    //        isInCoolTime = false;
-    //    }
-    //    return;
-    //}
-
-    //// 현재 입력 유지 중이면
-    //if (inputTimer < inputDuration)
-    //{
-    //    inputTimer += delta;
-    //    return; // 기존 입력 유지
-    //}
-
-    //// 새로운 랜덤 입력 생성
-    //std::random_device rd;
-    //AIInputList randomInput = static_cast<AIInputList>(rd() % (AIInputList::AI_InputMax));
-
-    //switch (randomInput)
-    //{
-    //case AIController::AI_InputLeft:
-    //    currentInput = KeyType::Move;
-    //    owningLivingObject->forwordDirection = -1;
-    //    owningLivingObject->renderingFlipOrder = true;
-    //    break;
-    //case AIController::AI_InputRight:
-    //    currentInput = KeyType::Move;
-    //    owningLivingObject->forwordDirection = 1;
-    //    owningLivingObject->renderingFlipOrder = false;
-    //    break;
-    //case AIController::AI_InputJump:
-    //    currentInput = KeyType::SpaceBar;
-    //    break;
-    //case AIController::AI_InputAttack:
-    //    currentInput = KeyType::Z;
-    //    break;
-    //default:
-    //    currentInput = KeyType::MAX;
-    //    break;
-    //}
-
-    //// 입력 유지 타이머 리셋
-    //inputTimer = 0.0f;
-
-    //// 3초 유지가 끝나면 쿨타임 시작
-    //if (inputDuration > 0)
-    //{
-    //    isInCoolTime = true;
-    //    coolTimer = 0.0f;
-    //}
-
-    if (stack_counter == 0)
-    {
-        std::random_device rd;
-        //std::srand(std::time(nullptr));
-
-        AIInputList randomInput = static_cast<AIInputList>(rd() % (AIInputList::AI_InputMax));
-
-        //입력 그거에 따라서 
-        switch (randomInput)
-        {
-        case AIController::AI_InputLeft:
-
-            if (pastInput == KeyType::Left || pastInput == KeyType::KeepLeft)
-                currentInput = KeyType::KeepLeft;
-
-            else
-                currentInput = KeyType::Left;
-
-            
-            /*owningLivingObject->forwordDirection = -1;
-            owningLivingObject->renderingFlipOrder = (owningLivingObject->forwordDirection == -1) ?
-                true : (owningLivingObject->forwordDirection == 1) ? false : owningLivingObject->renderingFlipOrder;*/
-            break;
-
-        case AIController::AI_InputRight:
-            
-            if (pastInput == KeyType::Right || pastInput == KeyType::KeepRight)
-                currentInput = KeyType::KeepRight;
-
-            else
-                currentInput = KeyType::Right;
-            break;
-
-        /*case AIController::AI_InputJump:
-            currentInput = KeyType::SpaceBar;
-            break;*/
-
-        case AIController::AI_InputAttack:
-            currentInput = KeyType::AttackKey1;
-            break;
-
-        case AIController::AI_InputDash:
-            currentInput = KeyType::Shift;
-            break;
-
-        case AIController::AI_InputMax:
-            currentInput = KeyType::MAX;
-            break;
-        default:
-            break;
-        }
-
-        stack_counter = input_Interver;
-    }
+    if (target == nullptr || (*target) == nullptr || (*target)->IsActive == false)
+        return;
 
     pastInput = currentInput;
 
-    stack_counter--;
+    LivingObject* Target = (*target);
+    Vector ObjPos = owningLivingObject->GetPos();
+    Vector targetPos = Target->GetPos();
+
+    
+    {
+        float distanceX = fabsf(Target->GetPos().x - ObjPos.x);
+
+        if (distanceX < owningLivingObject->GetStat().attack_range)
+            state = AI_Attack;
+
+        else if (distanceX < owningLivingObject->GetDetectRange())
+            state = AI_Chase;
+
+        else
+            state = AI_Patrol;
+    }
+
+    if (fabsf(Target->GetPos().y - ObjPos.y) > 50)
+        state = AI_Patrol;
+
+    decideInput();
+
+    patrolTimer += deltatime;
+    attackTimer += deltatime;
+
+}
+
+void AIController::decideInput()
+{
+    switch (state)
+    {
+    case AIController::AI_Patrol:
+
+        if (patrolTimer >= patrolInterval)
+        {
+            patrolTimer = 0.0f;
+
+            int r = rand() % 3;
+            switch (r)
+            {
+                case 0: currentInput = KeyType::MAX; break;
+
+
+                case 1:
+                {
+                    if (pastInput == KeyType::KeepLeft || pastInput == KeyType::Left)
+                        currentInput = KeyType::Right;
+
+                    else
+                        currentInput = KeyType::KeepRight;
+
+                     break;
+                }
+
+                case 2:
+                {
+                    if (pastInput == KeyType::KeepRight || pastInput == KeyType::Right)
+                        currentInput = KeyType::Left;
+
+                    else
+                        currentInput = KeyType::KeepLeft;
+
+                    break;
+
+                    //currentInput = KeyType::KeepLeft; break;
+                }
+            }
+        }
+
+        break;
+
+    case AIController::AI_Chase:
+        moveDir = (owningLivingObject->GetPos().x - (*target)->GetPos().x >= 0) ? -1 : 1;
+
+        if (moveDir == -1)
+        {
+            /*if (pastInput != KeyType::KeepLeft)
+                currentInput = KeyType::Left;
+
+            else
+                currentInput = KeyType::KeepLeft;*/
+            currentInput = KeyType::KeepLeft;
+        }
+
+
+        else
+        {
+            /*if (pastInput != KeyType::KeepRight)
+                currentInput = KeyType::Right;
+
+            else
+                currentInput = KeyType::KeepRight;*/
+
+            currentInput = KeyType::KeepRight;
+        }
+
+        break;
+    case AIController::AI_Attack:
+
+        if (attackTimer >= attackInterval)
+        {
+            LookTarget();
+
+            attackTimer = 0;
+
+            if (attackNum <= 1)
+            {
+                currentInput = KeyType::AttackKey1;
+                break;
+            }
+                
+            else
+            {
+                std::random_device rd;
+
+                int r = rd() % attackNum;
+                switch (r)
+                {
+                    case 0: currentInput = KeyType::AttackKey1; break;
+                    case 1: currentInput = KeyType::AttackKey2; break;
+                    case 2: currentInput = KeyType::AttackKey3; break;
+                    case 3: currentInput = KeyType::AttackKey4; break;
+                    case 4: currentInput = KeyType::AttackKey5; break;
+                    case 5: currentInput = KeyType::AttackKey6; break;
+                }
+            }
+            
+        }
+        break;
+    case AIController::AI_Default:
+        currentInput = KeyType::MAX;
+        break;
+    default:
+        break;
+    }
+}
+
+int AIController::LookTarget()
+{
+    int moveDir = (owningLivingObject->GetPos().x - (*target)->GetPos().x >= 0) ? -1 : 1;
+
+    if (moveDir != 0)
+        owningLivingObject->forwordDirection = moveDir;
+
+    owningLivingObject->renderingFlipOrder = (moveDir == -1) ? true : (moveDir == 1) ? false : owningLivingObject->renderingFlipOrder;
+
+    return moveDir;
 }

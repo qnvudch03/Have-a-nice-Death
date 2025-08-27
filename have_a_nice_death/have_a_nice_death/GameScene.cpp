@@ -118,7 +118,8 @@ void GameScene::MappingInGameFunction()
 		{"BTN_CURSE_ATK",				[this]() { Curse_Attack(); }},
 		{"BTN_CURSE_DASHCOOLTIME",		[this]() { Curse_DashCoolTime(); }},
 		{"BTN_CURSE_DEF",				[this]() { Curse_Deffense(); }},
-		{"BTN_CURSE_HEALING",			[this]() { Curse_Healing(); }}
+		{"BTN_CURSE_HEALING",			[this]() { Curse_Healing(); }},
+		{"BTN_Lobby",					[this]() {Game::GetInstance()->GoToLobby(); } }
 
 	};
 
@@ -219,6 +220,7 @@ void GameScene::SetUI_PlayGame()
 	GetUIByName("HPbar_body")->SetOpen(true);
 
 	GetUIByName("ARewordBackGround")->SetOpen(false);
+	GetUIByName("BTN_Lobby")->SetOpen(false);
 
 	for (auto& button : Curse_List)
 	{
@@ -253,6 +255,16 @@ void GameScene::SetUI_SelectReword()
 		selectedCurse->SetMoveDirection(Vector(0, -1));
 		Curses.erase(iter + randomCurseIndex);
 	}
+}
+
+void GameScene::SetUI_GameOver()
+{
+	GetUIByName("ARewordBackGround")->SetOpen(true);
+
+	GetUIByName("BTN_Lobby")->SetOpen(true);
+
+	GetUIByName("HPbar")->SetOpen(false);
+	GetUIByName("HPbar_body")->SetOpen(false);
 }
 
 void GameScene::SavePlayData()

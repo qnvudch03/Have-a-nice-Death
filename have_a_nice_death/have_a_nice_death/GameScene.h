@@ -40,6 +40,7 @@ public:
 	std::string GetNextStage();
 	void SetUI_PlayGame();
 	void SetUI_SelectReword();
+	void SetUI_GameOver();
 
 	void SavePlayData();
 

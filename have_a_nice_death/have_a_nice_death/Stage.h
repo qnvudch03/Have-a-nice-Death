@@ -23,7 +23,7 @@ public:
 
 	LivingObject* GetEnemy();
 
-	LivingObject* GetPlayer() { return player; }
+	LivingObject*& GetPlayer() { return player; }
 	InteractableElevator* GetElevator() { return excapeElevator; }
 	Contractor* GetContractor() { return contractor; }
 

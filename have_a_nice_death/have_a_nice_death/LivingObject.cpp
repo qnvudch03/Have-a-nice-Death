@@ -220,6 +220,16 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 		
 	}
 
+	if (currentInput == KeyType::AttackKey1 ||
+		currentInput == KeyType::AttackKey2 ||
+		currentInput == KeyType::AttackKey3 ||
+		currentInput == KeyType::AttackKey4 ||
+		currentInput == KeyType::AttackKey5 ||
+		currentInput == KeyType::AttackKey6)
+	{
+		velocity.x *= 0.2;
+	}
+
 	velocity += acceleration * deltaTime;
 
 	if (wallSensor->IsActive())

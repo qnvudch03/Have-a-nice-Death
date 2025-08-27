@@ -12,6 +12,7 @@ public:
 
 	virtual void Update(float deltatime);
 	void SetOwner(LivingObject* owner) { owningLivingObject = owner;}
+	void SetAttackNum(int num) { attackNum = num; }
 	LivingObject* GetOwner(void) { return owningLivingObject; }
 
 	KeyType GetInput() { return currentInput; }
@@ -68,5 +69,7 @@ protected:
 	KeyType currentInput;
 	KeyType pastInput = KeyType::MAX;
 	LivingObject* owningLivingObject = nullptr;
+
+	int attackNum = 0;
 };
 

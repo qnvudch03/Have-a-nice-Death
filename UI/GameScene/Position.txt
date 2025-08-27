@@ -1,3 +1,4 @@
 HPbar 30 30
 HPbar_body 30 30
 ARewordBackGround 0 0
+BTN_Lobby 50 20

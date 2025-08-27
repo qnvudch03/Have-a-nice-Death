@@ -57,7 +57,7 @@ void Lobby::loadResource()
 		setLobbyActor(_backGround);
 	}
 
-	_Death_Head = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "head"), RenderLayer::Effect, Vector(GWinSizeX - 400, 280), ImageAnchor::Center);
+	_Death_Head = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "head"), RenderLayer::Character, Vector(GWinSizeX - 400, 280), ImageAnchor::Center);
 	if (_Death_Head != nullptr)
 	{
 		//람다를 써 보자
@@ -65,14 +65,14 @@ void Lobby::loadResource()
 	}
 		
 
-	_Death_Body = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Character, Vector(GWinSizeX - 420, 550), ImageAnchor::Center);
+	_Death_Body = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "body"), RenderLayer::Platform, Vector(GWinSizeX - 420, 550), ImageAnchor::Center);
 	if (_Death_Body != nullptr)
 	{
 		setLobbyActor(_Death_Body);
 	}
 		
 
-	_Death_Arm = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Effect, Vector(GWinSizeX - 370, 520), ImageAnchor::Center);
+	_Death_Arm = new StaticObject(SpriteManager::GetInstance()->GetTextures("Home", "arm"), RenderLayer::Character, Vector(GWinSizeX - 370, 520), ImageAnchor::Center);
 	if (_Death_Arm != nullptr)
 	{
 		setLobbyActor(_Death_Arm);
