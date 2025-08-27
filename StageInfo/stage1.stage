@@ -3,20 +3,44 @@
     "LivingObjects": {
         "Object": [
             {
+                "owner": "AI",
+                "position": [
+                    743.0,
+                    509.0
+                ],
+                "type": "SmallGhost"
+            },
+            {
                 "owner": "Player",
                 "position": [
-                    258.0,
-                    637.0
+                    196.0,
+                    670.0
                 ],
                 "type": "Death"
             },
             {
                 "owner": "AI",
                 "position": [
-                    1004.0,
-                    661.0
+                    654.0,
+                    672.0
                 ],
-                "type": "Boss_W7"
+                "type": "Pill"
+            },
+            {
+                "owner": "AI",
+                "position": [
+                    927.0,
+                    465.0
+                ],
+                "type": "MedGhost"
+            },
+            {
+                "owner": "AI",
+                "position": [
+                    908.0,
+                    653.0
+                ],
+                "type": "Death"
             }
         ]
     },

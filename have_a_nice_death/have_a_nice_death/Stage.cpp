@@ -16,6 +16,8 @@
 #include "Death.h"
 #include "SmallGhost.h"
 #include "W7.h"
+#include "MedChost.h"
+#include "Pill.h"
 
 #include <random>
 
@@ -311,6 +313,19 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 		livingObject = new W7(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
 			ImageAnchor::Bottomcenter);
 	}
+
+	else if (!type.compare("MedGhost"))
+	{
+		livingObject = new MedChost(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+			ImageAnchor::Bottomcenter);
+	}
+
+	else if (!type.compare("Pill"))
+	{
+		livingObject = new Pill(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+			ImageAnchor::Bottomcenter);
+	}
+
 	return livingObject;
 }
 

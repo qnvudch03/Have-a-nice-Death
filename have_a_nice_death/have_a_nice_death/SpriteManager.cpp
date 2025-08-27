@@ -66,6 +66,12 @@ void SpriteManager::CreateTextureVec(fs::path directory)
                     //std::vector<Vector> offsetVector;
                     std::wstring FileName = Lowleentry.path().c_str();
 
+                    if (FileName[FileName.size() - 4] == L'.' &&
+                        FileName[FileName.size() - 3] == L'i' &&
+                        FileName[FileName.size() - 2] == L'n' &&
+                        FileName[FileName.size() - 1] == L'i')
+                        continue;
+
                     //offset txt 파일 걸려내기
                     if (FileName[FileName.size() - 4] == L'.' &&
                         FileName[FileName.size() - 3] == L't'&&
