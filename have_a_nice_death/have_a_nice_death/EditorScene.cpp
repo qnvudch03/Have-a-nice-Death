@@ -373,7 +373,7 @@ void EditorScene::ChangeStage(int Inum)
 	if (currentStage == "Stage1" && Inum < 0)
 		return;
 
-	if (currentStage == "Stage3" && Inum > 0)
+	if (currentStage == "Stage4" && Inum > 0)
 		return;
 
 	EraseScene();

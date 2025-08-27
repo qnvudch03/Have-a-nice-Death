@@ -1,5 +1,5 @@
 {
-    "BackGround": "Stage2BackGround",
+    "BackGround": "Stage3BackGround",
     "LivingObjects": {
         "Object": [
             {
@@ -9,22 +9,6 @@
                     650.0
                 ],
                 "type": "Death"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    500.0,
-                    457.0
-                ],
-                "type": "SmallGhost"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    1149.0,
-                    590.0
-                ],
-                "type": "SmallGhost"
             }
         ]
     },

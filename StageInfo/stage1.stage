@@ -13,26 +13,10 @@
             {
                 "owner": "AI",
                 "position": [
-                    1366.0,
-                    663.0
-                ],
-                "type": "SmallGhost"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    557.0,
-                    659.0
+                    932.0,
+                    681.0
                 ],
                 "type": "MedGhost"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    957.0,
-                    646.0
-                ],
-                "type": "Pill"
             }
         ]
     },

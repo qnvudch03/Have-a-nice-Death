@@ -6,6 +6,7 @@
 #include "LivingObject.h"
 #include "TimeManager.h"
 #include "Contractor.h"
+#include "ExcapeDoor.h"
 
 void InteractableElevator::DoInteract()
 {

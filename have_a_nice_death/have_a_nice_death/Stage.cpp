@@ -11,6 +11,7 @@
 #include "UIManager.h"
 #include "UI.h"
 #include "InteractableElevator.h"
+#include "ExcapeDoor.h"
 
 #include "Contractor.h"
 #include "Death.h"
@@ -40,6 +41,8 @@ bool Stage::LoadStage(std::string stage)
 	stageLivingObjectVec.clear();
 	stageStaticObjectVec.clear();
 
+	currentStage = stage;
+
 	if (LoadStageInfo(stage) == false)
 		return false;
 
@@ -51,6 +54,14 @@ bool Stage::LoadStage(std::string stage)
 
 
 	gameScene->SetUI_PlayGame();
+
+	if (!currentStage.compare("Stage5"))
+	{
+		gameScene->SetUI_EndingScene();
+		gameClearDoor = new ExcapeDoor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, { GWinSizeX * 0.5, GWinSizeY - 80 });
+
+		gameScene->LoadObject(gameClearDoor);
+	}
 
 	return true;
 }
@@ -377,6 +388,9 @@ void Stage::enemyDie(LivingObject* deathCharacater)
 
 void Stage::StartStage()
 {
+	if (!currentStage.compare("Stage5"))
+		return;
+
 	//벽과 오브젝트 화면에 로딩
 	for (auto& Iter : stageStaticObjectVec)
 	{

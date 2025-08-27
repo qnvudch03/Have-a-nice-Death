@@ -1,0 +1,43 @@
+{
+    "BackGround": "Stage5BackGround",
+    "LivingObjects": {
+        "Object": [
+            {
+                "owner": "Player",
+                "position": [
+                    100.0,
+                    650.0
+                ],
+                "type": "Death"
+            }
+        ]
+    },
+    "StaticObjects": {
+        "Object": [
+            {
+                "name": "emptyground",
+                "position": [
+                    900.0,
+                    800.0
+                ],
+                "type": "Platform"
+            },
+            {
+                "name": "emptyWall",
+                "position": [
+                    0.0,
+                    350.0
+                ],
+                "type": "Platform"
+            },
+            {
+                "name": "emptyWall",
+                "position": [
+                    1800.0,
+                    350.0
+                ],
+                "type": "Platform"
+            }
+        ]
+    }
+}

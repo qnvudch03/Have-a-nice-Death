@@ -41,6 +41,8 @@ public:
 	void SetUI_PlayGame();
 	void SetUI_SelectReword();
 	void SetUI_GameOver();
+	void SetUI_ClearGame();
+	void SetUI_EndingScene();
 
 	void SavePlayData();
 

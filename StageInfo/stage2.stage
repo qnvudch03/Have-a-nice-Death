@@ -9,22 +9,6 @@
                     665.0
                 ],
                 "type": "Death"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    676.0,
-                    516.0
-                ],
-                "type": "SmallGhost"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    1196.0,
-                    562.0
-                ],
-                "type": "SmallGhost"
             }
         ]
     },

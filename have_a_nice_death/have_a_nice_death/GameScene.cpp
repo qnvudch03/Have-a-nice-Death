@@ -210,6 +210,9 @@ std::string GameScene::GetNextStage()
 	if (stage_count == 0)			return "Stage1";
 	else if (stage_count == 1)		return "Stage2";
 	else if (stage_count == 2)		return "Stage3";
+	else if (stage_count == 3)		return "Stage4";
+	else if (stage_count == 4)		return "Stage5";
+
 }
 
 void GameScene::SetUI_PlayGame()
@@ -221,6 +224,7 @@ void GameScene::SetUI_PlayGame()
 
 	GetUIByName("ARewordBackGround")->SetOpen(false);
 	GetUIByName("BTN_Lobby")->SetOpen(false);
+	GetUIByName("BTN_Lobby")->SetCurrentpos({50, 20});
 
 	for (auto& button : Curse_List)
 	{
@@ -263,6 +267,18 @@ void GameScene::SetUI_GameOver()
 
 	GetUIByName("BTN_Lobby")->SetOpen(true);
 
+	GetUIByName("HPbar")->SetOpen(false);
+	GetUIByName("HPbar_body")->SetOpen(false);
+}
+
+void GameScene::SetUI_ClearGame()
+{
+	GetUIByName("BTN_Lobby")->SetOpen(true);
+	GetUIByName("BTN_Lobby")->SetCurrentpos({ 859, 570 });
+}
+
+void GameScene::SetUI_EndingScene()
+{
 	GetUIByName("HPbar")->SetOpen(false);
 	GetUIByName("HPbar_body")->SetOpen(false);
 }

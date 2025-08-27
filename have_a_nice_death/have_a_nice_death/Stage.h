@@ -7,6 +7,7 @@ class StaticObject;
 class UI;
 class InteractableElevator;
 class Contractor;
+class ExcapeDoor;
 
 class Stage
 {
@@ -50,7 +51,7 @@ private:
 	//void SetReady(Object* obj);
 
 	GameScene* gameScene = nullptr;
-	//std::string currentStage;
+	std::string currentStage;
 
 	bool bIsStageReady = false;
 
@@ -67,6 +68,7 @@ private:
 
 	UI* hpBar = nullptr;
 
+	ExcapeDoor* gameClearDoor = nullptr;
 	InteractableElevator* excapeElevator = nullptr;
 	Contractor* contractor = nullptr;
 };
