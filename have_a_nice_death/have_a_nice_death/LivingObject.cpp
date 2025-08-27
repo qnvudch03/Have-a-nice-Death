@@ -8,6 +8,8 @@
 #include "HitBox.h"
 #include "TimeManager.h"
 #include "GameScene.h"
+#include "EffectManager.h"
+#include "Effect.h"
 
 //void LivingObject::Init()
 //{
@@ -22,6 +24,9 @@
 void LivingObject::Init()
 {
 	Super::Init();
+
+	//ÀÌÆåÆ® ±â´É
+	//EffectTexture = SpriteManager::GetInstance()->GetTextures("Effect", "FX_HtPlaeyr");
 }
 
 void LivingObject::Update(float deltaTime)
@@ -312,6 +317,8 @@ void LivingObject::TakeDamage(float Damage)
 	float damageAmount = (Damage - objectStat.def <= 0) ? 0 : Damage - objectStat.def;
 	objectStat.hp -= damageAmount;
 
+	//GenHitEffect();
+
 	if (objectStat.hp <= 0)
 	{
 		animator.ResetAnimTimer(20);
@@ -324,4 +331,11 @@ void LivingObject::TakeDamage(float Damage)
 void LivingObject::AddForce(Vector dir, float Power)
 {
 	acceleration += Vector(dir.x * Power, dir.y * Power);
+}
+
+void LivingObject::GenHitEffect()
+{
+	/*Effecter* effecter = Game::GetInstance()->GetGameScene()->GetEffectManager()->CallEffect();
+	effecter->SetEffect(EffectTexture, GetPos(), 20);
+	Game::GetInstance()->GetGameScene()->ReserveAdd(effecter);*/
 }

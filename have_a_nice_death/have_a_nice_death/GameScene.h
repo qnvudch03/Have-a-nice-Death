@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Stage.h"
 
+
 class Object;
 class Controller;
 class PlayerController;
@@ -9,6 +10,7 @@ class AIController;
 class LivingObject;
 class HitBoxManager;
 class UIButton;
+class EffectManager;
 
 class GameScene : public Scene
 {
@@ -22,6 +24,8 @@ public:
 	virtual void PostUpdate(float deltaTime) override;
 	virtual void Render(ID2D1RenderTarget* renderTarget) override;
 	virtual void EraseScene() override;
+
+	EffectManager* GetEffectManager() { return effectManager; }
 
 	virtual void loadResource() override;
 	virtual void loadUI() override;
@@ -68,6 +72,7 @@ private:
 
 	Stage* stageController = nullptr;
 	HitBoxManager* hitBoxManager = nullptr;
+	EffectManager* effectManager = nullptr;
 
 	//인게임 액션 맵
 	std::map<std::string, std::function<void()>> _inGameActionMap;

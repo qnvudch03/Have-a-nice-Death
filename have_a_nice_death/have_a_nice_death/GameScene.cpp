@@ -13,6 +13,7 @@
 #include "UIButton.h"
 #include "UI.h"
 #include "TimeManager.h"
+#include "EffectManager.h"
 
 #include <random>
 
@@ -22,6 +23,8 @@ void GameScene::Init()
 
 	hitBoxManager = new HitBoxManager();
 	hitBoxManager->Init();
+
+	//effectManager = new EffectManager();
 
 	MappingInGameFunction();
 
@@ -86,6 +89,12 @@ void GameScene::EraseScene()
 
 	if (hitBoxManager != nullptr)
 		delete hitBoxManager;
+
+	if (effectManager != nullptr)
+	{
+		effectManager->EraseEffects();
+		delete effectManager;
+	}
 }
 
 

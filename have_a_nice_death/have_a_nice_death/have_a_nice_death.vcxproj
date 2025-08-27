@@ -140,6 +140,8 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="DXBitmap.h" />
     <ClInclude Include="EditorScene.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="EffectManager.h" />
     <ClInclude Include="Elevator.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
@@ -191,6 +193,8 @@
     <ClCompile Include="Defines.cpp" />
     <ClCompile Include="DXBitmap.cpp" />
     <ClCompile Include="EditorScene.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="EffectManager.cpp" />
     <ClCompile Include="Elevator.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameScene.cpp" />

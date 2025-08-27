@@ -1,8 +1,15 @@
 #include "pch.h"
 #include "AIController.h"
 #include "TimeManager.h"
+#include "Game.h"
+#include "GameScene.h"
 
 #include <random>
+
+AIController::AIController()
+{
+    target = &(Game::GetInstance()->GetGameScene()->GetStage()->GetPlayer());
+}
 
 void AIController::Update(float deltatime)
 {

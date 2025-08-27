@@ -12,10 +12,20 @@ class AIController : public Controller
 		AI_InputMax
 	};
 
+	enum AIState {
+		AI_Patrol,
+		AI_Chase,
+		AI_Attack,
+	};
 
 public:
+
+	AIController();
+
 	virtual void Update(float deltatime) override;
 private:
+
+	LivingObject*& target;
 
 	float inputTimer = 0.0f;      
 	float inputDuration = 5.0f;   

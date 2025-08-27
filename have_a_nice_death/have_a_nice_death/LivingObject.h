@@ -139,5 +139,10 @@ private:
 	Book* book = nullptr;
 
 	ObjectStat objectStat;
+
+	void GenHitEffect();
+
+	//¿Ã∆Â∆Æ ±‚¥…
+	//std::vector<Texture*>* EffectTexture = nullptr;
 };
 
