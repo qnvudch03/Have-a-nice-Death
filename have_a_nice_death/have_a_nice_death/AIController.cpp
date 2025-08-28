@@ -96,7 +96,7 @@ void AIController::decideInput()
             }
         }
 
-        if (!owningLivingObject->cornerSensor->IsActive() && owningLivingObject->groundSensor->IsActive())
+        if (owningLivingObject->cornerSensor->IsActive() && owningLivingObject->groundSensor->IsActive())
         {
 
             owningLivingObject->velocity.x = 0;

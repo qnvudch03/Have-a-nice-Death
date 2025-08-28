@@ -13,16 +13,8 @@
             {
                 "owner": "AI",
                 "position": [
-                    711.0,
-                    674.0
-                ],
-                "type": "SmallGhost"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    1074.0,
-                    675.0
+                    680.0,
+                    677.0
                 ],
                 "type": "MedGhost"
             }

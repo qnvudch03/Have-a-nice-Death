@@ -33,6 +33,14 @@
                     657.0
                 ],
                 "type": "Pill"
+            },
+            {
+                "owner": "AI",
+                "position": [
+                    1083.0,
+                    684.0
+                ],
+                "type": "Nurse"
             }
         ]
     },

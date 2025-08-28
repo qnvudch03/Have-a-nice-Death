@@ -45,9 +45,9 @@ private:
     int CalcAttackWeight(std::vector<int>& readyAttacks);
     void DecideAttack();
 
-    float attackInterval = 2.0f;
-    float IdleTime = 1.5;
-    float MoveTime = 2;
+    float attackInterval = 1.7f;
+    float IdleTime = 1.0;
+    float MoveTime = 1.0;
 
     std::vector<float> attackCooldowns;
     std::vector<float> attackTimers;

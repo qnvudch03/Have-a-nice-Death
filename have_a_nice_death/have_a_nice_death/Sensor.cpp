@@ -98,7 +98,9 @@ void Sensor::CheckActive()
 		{
 			float margin = 1.0f;
 
-			if (actor->collider->GetSize().y > 500)
+			//TODO
+			//벽과, 땅 임시로 필터링, 차후 ObjectType 추가 필요
+			if (actor->collider->GetSize().y > 500 || actor->collider->GetSize().x > 1000)
 				continue;
 
 			// 발 좌/우 센서가 플랫폼 아래인지 체크

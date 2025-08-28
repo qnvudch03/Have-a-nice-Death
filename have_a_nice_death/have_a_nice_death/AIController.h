@@ -35,10 +35,10 @@ private:
 	int LookTarget();
 
 	float patrolTimer = 0.0f;
-	float patrolInterval = 2.0f;
+	float patrolInterval = 1.5f;
 
 	float attackTimer = 0.0f;
-	float attackInterval = 3.0f;
+	float attackInterval = 2.5f;
 
 	int moveDir = 0;
 

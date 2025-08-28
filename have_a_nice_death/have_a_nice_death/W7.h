@@ -82,5 +82,8 @@ private:
 	bool readyAtk4 = false;
 
 	EW7PriorityState state;
+
+	float stunCounter = 0;
+	float resistStunMax = 2;
 };
 

@@ -20,6 +20,16 @@ void MedChost::Init()
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워 
 	SetStat(ObjectStat(100, 100, 17, 7, 0, 100, 7, 900));
 
+	//Multi 공격 패턴 설정
+	{
+		AttackProfile = {
+			{1, 50.0, 200, 1,0}, //공격 번호, 최소 거리, 최대거리, 가중치, 쿨타임
+			{2, 0.0, 100, 1,0},
+			{3, 0.0, 150, 1,0},
+			{4, 0.0, 150, 1,0}
+		};
+	}
+
 	SetDetectRnage(700);
 	GetController()->SetAttackNum(4);
 }

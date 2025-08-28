@@ -76,7 +76,7 @@ void Nurse::OnAnimEnd()
 		TeleportToTarget();
 
 		animator.ResetAnimTimer(12);
-		SetSingleCallbackState(ConvertPillStateToString(ENurseStatepriority::State_Attack1), false, 12);
+		SetMultiCallBackState(ConvertPillStateToString(ENurseStatepriority::State_Attack1), false, {7, 12});
 		state = ENurseStatepriority::State_Attack1;
 		return;
 
@@ -133,14 +133,24 @@ void Nurse::AnimCallBack()
 		break;
 
 	case Nurse::State_Attack1:
-		colliderCenterPos.x += 200 * forwordDirection;
-		colliderCenterPos.y += 40;
-		hitBoxSize.x = 150;
-		hitBoxSize.y = 70;
 
-		DamagedAble = true;
+		if (animator.AnimTextureIndex == 7)
+		{
+			LookEnemy();
+		}
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 2.0, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		else if (animator.AnimTextureIndex == 12)
+		{
+			colliderCenterPos.x += 200 * forwordDirection;
+			colliderCenterPos.y += 40;
+			hitBoxSize.x = 150;
+			hitBoxSize.y = 70;
+
+			DamagedAble = true;
+
+			hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 2.0, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		}
+		
 		break;
 
 	case Nurse::State_Attack2:

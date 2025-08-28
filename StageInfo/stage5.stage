@@ -18,7 +18,7 @@
                 "name": "emptyground",
                 "position": [
                     900.0,
-                    800.0
+                    750.0
                 ],
                 "type": "Platform"
             },

@@ -158,7 +158,7 @@ int AIBossController::CalcAttackWeight(std::vector<int>& readyAttacks)
             break;
 
         case 3: case 1: // ¿ø°Å¸®
-            if (distance >= 40.0f) weight *= 15.0f;
+            if (distance >= 40.0f) weight *= 20.0f;
             break;
         }
 

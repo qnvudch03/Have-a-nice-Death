@@ -13,10 +13,10 @@
             {
                 "owner": "AI",
                 "position": [
-                    936.0,
-                    266.0
+                    739.0,
+                    688.0
                 ],
-                "type": "Pill"
+                "type": "Boss_W7"
             }
         ]
     },
@@ -43,14 +43,6 @@
                 "position": [
                     1800.0,
                     350.0
-                ],
-                "type": "Platform"
-            },
-            {
-                "name": "Bridge_2x8",
-                "position": [
-                    928.0,
-                    305.0
                 ],
                 "type": "Platform"
             },

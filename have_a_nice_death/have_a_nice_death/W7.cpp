@@ -386,9 +386,19 @@ void W7::TakeDamage(float Damage)
 			state != EW7PriorityState::State_Running)
 			return;
 
-		animator.ResetAnimTimer(15);
-		SetSingleCallbackState("Hitted", false);
-		state = EW7PriorityState::State_Hitted;
+		if (stunCounter < resistStunMax)
+		{
+			animator.ResetAnimTimer(30);
+			SetSingleCallbackState("Hitted", false);
+			state = EW7PriorityState::State_Hitted;
+
+			stunCounter++;
+
+			//10초 동안 기절저항 부여
+			TimeManager::GetInstance()->AddTimer(Timer([this]() {stunCounter = 0; }, 10));
+		}
+
+		
 	}
 }
 

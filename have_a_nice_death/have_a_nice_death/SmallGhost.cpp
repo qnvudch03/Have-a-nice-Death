@@ -19,6 +19,10 @@ void SmallGhost::Init()
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워 
 	SetStat(ObjectStat(50, 50, 10, 5, 0, 200, 10, 900));
 
+	AttackProfile = {
+			{1, 50.0, 250, 1,0} //공격 번호, 최소 거리, 최대거리, 가중치, 쿨타임
+	};
+
 	SetDetectRnage(700);
 	GetController()->SetAttackNum(1);
 }

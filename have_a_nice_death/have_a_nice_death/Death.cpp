@@ -28,6 +28,9 @@ void Death::Init()
 
 	TimeManager::GetInstance()->AddTimer(Timer([this]() {	CallElevator(); }, 0.3));
 
+	AttackProfile = {
+			{1, 20.0, 150, 1,0} //공격 번호, 최소 거리, 최대거리, 가중치, 쿨타임
+	};
 
 	SetDetectRnage(900);
 	GetController()->SetAttackNum(1);
