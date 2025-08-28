@@ -3,6 +3,7 @@
 #include "TimeManager.h"
 #include "Game.h"
 #include "GameScene.h"
+#include "Sensor.h"
 
 #include <random>
 
@@ -25,9 +26,16 @@ void AIController::Update(float deltatime)
     
     {
         float distanceX = fabsf(Target->GetPos().x - ObjPos.x);
+        float combatEnterRange = GetCombatEnterRange();
 
-        if (distanceX < owningLivingObject->GetStat().attack_range)
-            state = AI_Attack;
+        if (distanceX < combatEnterRange)
+        {
+            if (attackTimer < attackInterval)
+                state = AI_Patrol;
+            else
+                state = AI_Attack;
+        }
+            
 
         else if (distanceX < owningLivingObject->GetDetectRange())
             state = AI_Chase;
@@ -88,6 +96,17 @@ void AIController::decideInput()
             }
         }
 
+        if (!owningLivingObject->cornerSensor->IsActive() && owningLivingObject->groundSensor->IsActive())
+        {
+
+            owningLivingObject->velocity.x = 0;
+
+            if (currentInput == KeyType::Left)      currentInput = KeyType::Right;
+            else if (currentInput == KeyType::KeepLeft)  currentInput = KeyType::KeepRight;
+            else if (currentInput == KeyType::Right)     currentInput = KeyType::Left;
+            else if (currentInput == KeyType::KeepRight) currentInput = KeyType::KeepLeft;
+        }
+
         break;
 
     case AIController::AI_Chase:
@@ -124,7 +143,10 @@ void AIController::decideInput()
 
             attackTimer = 0;
 
-            if (attackNum <= 1)
+            float distX = fabsf((*target)->GetPos().x - owningLivingObject->GetPos().x);
+            currentInput = ChooseAttackByDistance(distX);
+
+            /*if (attackNum <= 1)
             {
                 currentInput = KeyType::AttackKey1;
                 break;
@@ -144,7 +166,7 @@ void AIController::decideInput()
                     case 4: currentInput = KeyType::AttackKey5; break;
                     case 5: currentInput = KeyType::AttackKey6; break;
                 }
-            }
+            }*/
             
         }
         break;
@@ -166,4 +188,62 @@ int AIController::LookTarget()
     owningLivingObject->renderingFlipOrder = (moveDir == -1) ? true : (moveDir == 1) ? false : owningLivingObject->renderingFlipOrder;
 
     return moveDir;
+}
+
+float AIController::GetCombatEnterRange() const
+{
+    const auto& prof = owningLivingObject->AttackProfile;
+    if (prof.empty()) {
+        // 하위호환: 예전 방식 유지 (프로필이 세팅 안 된 몬스터)
+        return owningLivingObject->GetStat().attack_range;
+    }
+    float mx = 0.f;
+    for (const auto& s : prof)
+    {
+        if (s.maxDist > mx)
+            mx = s.maxDist;
+    }
+
+    return mx;
+}
+
+KeyType AIController::ChooseAttackByDistance(float distX)
+{
+    const auto& prof = owningLivingObject->AttackProfile;
+    std::vector<const AttackSlot*> candidates;
+
+    for (const auto& s : prof) {
+        if (distX >= s.minDist && distX <= s.maxDist) {
+            // 쿨타임 체크가 필요하면 여기서 조건 추가
+            candidates.push_back(&s);
+        }
+    }
+
+    //걸릴 일 거의 없음
+    if (candidates.empty()) {
+        // 사거리 안 맞으면 접근/리포지션(추격) 입력으로 대체
+        return (moveDir == -1) ? KeyType::KeepLeft : KeyType::KeepRight;
+    }
+
+    // 가중치 랜덤 선택 (균등이면 간단히 랜덤 인덱스)
+    /*int sumW = 0.0f;
+    for (auto* c : candidates) sumW += c->weight;*/
+
+    std::random_device rd;
+
+    int randomIndex = rd() % candidates.size();
+    int choosenAttack = candidates[randomIndex]->atkNum;
+    switch (choosenAttack)
+    {
+    case 1:     return KeyType::AttackKey1;
+    case 2:     return KeyType::AttackKey2;
+    case 3:     return KeyType::AttackKey3;
+    case 4:     return KeyType::AttackKey4;
+    case 5:     return KeyType::AttackKey5;
+    case 6:     return KeyType::AttackKey6;
+    default:
+        break;
+    }
+
+    return KeyType::MAX;
 }

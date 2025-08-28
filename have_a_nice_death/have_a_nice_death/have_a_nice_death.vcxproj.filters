@@ -225,6 +225,9 @@
     <ClInclude Include="ExcapeDoor.h">
       <Filter>ExcapeDoor</Filter>
     </ClInclude>
+    <ClInclude Include="Nurse.h">
+      <Filter>Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="have_a_nice_death.cpp">
@@ -370,6 +373,9 @@
     </ClCompile>
     <ClCompile Include="ExcapeDoor.cpp">
       <Filter>ExcapeDoor</Filter>
+    </ClCompile>
+    <ClCompile Include="Nurse.cpp">
+      <Filter>Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

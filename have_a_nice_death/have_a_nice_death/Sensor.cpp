@@ -94,6 +94,21 @@ void Sensor::CheckActive()
 				return;
 		}
 
+		else if (sensorType == SensorType::CornerSensor)
+		{
+			float margin = 1.0f;
+
+			if (actor->collider->GetSize().y > 500)
+				continue;
+
+			// 발 좌/우 센서가 플랫폼 아래인지 체크
+			isActive = 
+				(recPos.BottomRight.x < actorRect.BottomLeft.x - margin || recPos.BottomLeft.x > actorRect.BottomRight.x + margin) &&
+				(recPos.TopLeft.y > actorRect.TopLeft.y && recPos.BottomLeft.y < actorRect.BottomLeft.y);
+
+			if (isActive)
+				return; // 완전히 벗어났으면 바로 반환
+		}
 		
 	}
 }

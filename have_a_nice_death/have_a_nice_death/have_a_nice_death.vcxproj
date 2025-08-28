@@ -156,6 +156,7 @@
     <ClInclude Include="LivingObject.h" />
     <ClInclude Include="LobbyScene.h" />
     <ClInclude Include="MedChost.h" />
+    <ClInclude Include="Nurse.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pill.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="LivingObject.cpp" />
     <ClCompile Include="LobbyScene.cpp" />
     <ClCompile Include="MedChost.cpp" />
+    <ClCompile Include="Nurse.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

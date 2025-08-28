@@ -3,18 +3,18 @@
     "LivingObjects": {
         "Object": [
             {
-                "owner": "AI",
-                "position": [
-                    1023.0,
-                    676.0
-                ],
-                "type": "Boss_W7"
-            },
-            {
                 "owner": "Player",
                 "position": [
-                    95.0,
-                    662.0
+                    244.0,
+                    664.0
+                ],
+                "type": "Death"
+            },
+            {
+                "owner": "AI",
+                "position": [
+                    936.0,
+                    266.0
                 ],
                 "type": "Pill"
             }
@@ -47,10 +47,10 @@
                 "type": "Platform"
             },
             {
-                "name": "SingleBridge",
+                "name": "Bridge_2x8",
                 "position": [
-                    737.0,
-                    560.0
+                    928.0,
+                    305.0
                 ],
                 "type": "Platform"
             },

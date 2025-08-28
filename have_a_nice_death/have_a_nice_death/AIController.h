@@ -24,6 +24,7 @@ public:
 	AIController();
 
 	virtual void Update(float deltatime) override;
+	LivingObject* GetTarget() { return *target; }
 
 private:
 
@@ -40,6 +41,9 @@ private:
 	float attackInterval = 3.0f;
 
 	int moveDir = 0;
+
+	float GetCombatEnterRange() const;
+	KeyType ChooseAttackByDistance(float distX);
 
 	//float inputTimer = 0.0f;      
 	//float inputDuration = 5.0f;   

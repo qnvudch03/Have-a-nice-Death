@@ -12,10 +12,13 @@ class Sensor;
 
 class Controller;
 
+
+
 class LivingObject : public Object
 {
 	//맵 데이터를 받아서, 상태에 따라 상황에 맞는 texture를 Object의 setTexture를 호출해서 설정하세요.
 	using Super = Object;
+
 
 public:
 
@@ -129,6 +132,8 @@ public:
 	Sensor* groundSensor = nullptr;
 	Sensor* wallSensor = nullptr;
 	Sensor* cornerSensor = nullptr;
+
+	std::vector<AttackSlot> AttackProfile;
 
 private:
 

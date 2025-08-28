@@ -176,6 +176,10 @@ void LivingObject::ApplyEnvironment(float deltaTime)
 		if (velocity.y > 0)
 		{
 			velocity.y = 0;
+
+			if (GetPos().y > 701)
+				SetPos({ GetPos().x, 700 });
+
 			OnLanded();
 		}
 			

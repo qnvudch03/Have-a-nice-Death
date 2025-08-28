@@ -10,7 +10,7 @@ class EditorScene : public Scene
 {
 	using Super = Scene;
 
-	std::string CharacterOjbectList[5] = {"Death", "SmallGhost", "MedGhost", "Pill", "Boss_W7"};
+	std::string CharacterOjbectList[6] = {"Death", "SmallGhost", "MedGhost", "Pill", "Nurse", "Boss_W7"};
 
 	struct EdiSceneObject
 	{

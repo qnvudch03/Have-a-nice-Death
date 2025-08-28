@@ -19,6 +19,7 @@
 #include "W7.h"
 #include "MedChost.h"
 #include "Pill.h"
+#include "Nurse.h"
 
 #include <random>
 
@@ -334,6 +335,12 @@ LivingObject* Stage::MakeCharacter(std::string type, Vector pos)
 	else if (!type.compare("Pill"))
 	{
 		livingObject = new Pill(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
+			ImageAnchor::Bottomcenter);
+	}
+
+	else if (!type.compare("Nurse"))
+	{
+		livingObject = new Nurse(SpriteManager::GetInstance()->GetTextureMap(type), RenderLayer::Character,
 			ImageAnchor::Bottomcenter);
 	}
 

@@ -237,7 +237,7 @@ void Death::AnimCallBack()
 
 		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 0.7, HitBoxType::Fixed, 0.1, GetController()->isPlayerController, this);
 		//AddForce(Vector(0, -1), 500);
-		velocity.y = -20;
+		velocity.y = -25;
 		break;
 
 	case Death::State_AttackAir:

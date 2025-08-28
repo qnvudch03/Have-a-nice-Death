@@ -30,6 +30,7 @@ enum UiType
 enum RenderLayer
 {
 	Background,
+	Ground,
 	Platform,
 	InterActObject,
 	Character,
@@ -238,7 +239,17 @@ struct ObjectStat
 	float attack_range = 0;
 	float moveForce = 10;
 	float jumpPower = 500;
+};
 
+struct AttackSlot
+{
+	int atkNum;
+
+	float minDist;
+	float maxDist;
+
+	float weight = 1.0f;
+	float cooldown = 0.0f;
 };
 
 struct RectanglePos
