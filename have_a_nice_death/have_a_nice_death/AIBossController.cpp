@@ -4,7 +4,13 @@
 void AIBossController::Update(float deltatime)
 {
 
-    if (target->IsActive == false)
+    if ((*target)->IsActive == false && targetDead == false)
+    {
+        targetDead = true;
+        return;
+    }
+
+    if (targetDead)
         return;
 
     pastInput = currentInput;
@@ -117,7 +123,7 @@ void AIBossController::DecideAttack()
 
 int AIBossController::LookTarget()
 {
-    int moveDir = (owningLivingObject->GetPos().x - target->GetPos().x >= 0) ? -1 : 1;
+    int moveDir = (owningLivingObject->GetPos().x - (*target)->GetPos().x >= 0) ? -1 : 1;
 
     if (moveDir != 0)
         owningLivingObject->forwordDirection = moveDir;
@@ -132,8 +138,8 @@ int AIBossController::CalcAttackWeight(std::vector<int>& readyAttacks)
     LivingObject* AIBossObject = GetOwner();
 
 
-    float dx = (AIBossObject->GetPos().x - target->GetPos().x) * 0.01;
-    float dy = (AIBossObject->GetPos().y - target->GetPos().y) * 0.01;
+    float dx = (AIBossObject->GetPos().x - (*target)->GetPos().x) * 0.01;
+    float dy = (AIBossObject->GetPos().y - (*target)->GetPos().y) * 0.01;
     float distance = (dx * dx + dy * dy);
 
     std::vector<std::pair<int, float>> weightedAttacks;
@@ -147,12 +153,12 @@ int AIBossController::CalcAttackWeight(std::vector<int>& readyAttacks)
             if (distance < 12.0f) weight *= 2.0f;
             break;
 
-        case 1: case 5: // 중거리
-            if (distance >= 12.0f && distance < 60.0f) weight *= 2.0f;
+        case 5: case 2: // 중거리
+            if (distance >= 12.0f && distance < 40.0f) weight *= 8.0f;
             break;
 
-        case 2: case 3: // 원거리
-            if (distance >= 60.0f) weight *= 2.0f;
+        case 3: case 1: // 원거리
+            if (distance >= 40.0f) weight *= 15.0f;
             break;
         }
 

@@ -16,7 +16,7 @@ public:
 
     void InitBossController(int num_Attack, std::vector<float> attackCollDowns)
     {
-        target = Game::GetInstance()->GetGameScene()->GetStage()->GetPlayer();
+        target = &Game::GetInstance()->GetGameScene()->GetStage()->GetPlayer();
 
         numAttacks = num_Attack;
         attackCooldowns = attackCollDowns;
@@ -27,7 +27,7 @@ public:
     LivingObject* GetTarget()
     {
         if (target != nullptr)
-            return target;
+            return *target;
     }
 
     virtual void Update(float deltatime) override;
@@ -40,7 +40,7 @@ private:
     int numAttacks = 0;
     bool isIdlePhase = false;
 
-    LivingObject* target = nullptr;
+    LivingObject** target = nullptr;
 
     int CalcAttackWeight(std::vector<int>& readyAttacks);
     void DecideAttack();
@@ -51,5 +51,7 @@ private:
 
     std::vector<float> attackCooldowns;
     std::vector<float> attackTimers;
+
+    bool targetDead = false;
 };
 

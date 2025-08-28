@@ -19,11 +19,11 @@ void W7::Init()
 	SETTRIPLE(false)
 
 		//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워 
-		SetStat(ObjectStat(100, 100, 10, 5, 0, 0, 5, 0));
+		SetStat(ObjectStat(400, 400, 12, 5, 0, 0, 5, 0));
 
 	if (GetController()->isPlayerController == false)
 	{
-		static_cast<AIBossController*>(GetController())->InitBossController(6, { 3, 4, 5, 7, 3, 5 });
+		static_cast<AIBossController*>(GetController())->InitBossController(6, { 3, 5, 3, 7, 3, 3 });
 		SetDetectRnage(500);
 	}
 }
@@ -141,7 +141,7 @@ void W7::AnimCallBack()
 		hitBoxSize.x = 130;
 		hitBoxSize.y = 130;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.5, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 2.0, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		break;
 	}
 	case W7::State_Attack2:
@@ -153,7 +153,7 @@ void W7::AnimCallBack()
 		hitBoxSize.x = 200;
 		hitBoxSize.y = 70;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.3, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		break;
 	}
 
@@ -224,7 +224,7 @@ void W7::AnimCallBack()
 		hitBoxSize.x = 200;
 		hitBoxSize.y = 80;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 1.0, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.2, HitBoxType::Fixed, 1.0, GetController()->isPlayerController, this);
 		break;
 	}
 	case W7::State_Attack6:
@@ -342,7 +342,7 @@ void W7::AnimCallBack()
 			hitBoxSize.x = 80;
 			hitBoxSize.y = 100;
 
-			hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk, HitBoxType::Fixed, 0.5, GetController()->isPlayerController, this);
+			hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 2.0, HitBoxType::Fixed, 0.5, GetController()->isPlayerController, this);
 
 			break;
 		}

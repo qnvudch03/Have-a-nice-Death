@@ -106,6 +106,8 @@ void Pill::AnimCallBack()
 		hitBoxSize.x = 130;
 		hitBoxSize.y = 100;
 
+		velocity.x += forwordDirection * 1;
+
 		HitBox* hitbox = hitBoxManager->CallHitBox();
 
 		if (hitbox == nullptr)
