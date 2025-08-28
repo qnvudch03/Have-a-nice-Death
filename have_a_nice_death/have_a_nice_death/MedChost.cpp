@@ -5,6 +5,7 @@
 #include "HitBox.h"
 #include "Controller.h"
 #include "Game.h"
+#include "TimeManager.h"
 #include "DebugLenderer.h"
 
 void MedChost::Init()
@@ -18,7 +19,7 @@ void MedChost::Init()
 	SETTRIPLE(false)
 
 	//체 최대체력 공 방 공격쿨타임, 공격사거리, 이동속도, 점프파워 
-	SetStat(ObjectStat(100, 100, 17, 7, 0, 100, 7, 900));
+	SetStat(ObjectStat(100, 100, 16, 7, 0, 100, 7, 900));
 
 	//Multi 공격 패턴 설정
 	{
@@ -32,6 +33,8 @@ void MedChost::Init()
 
 	SetDetectRnage(700);
 	GetController()->SetAttackNum(4);
+
+	resistStunMax = 3;
 }
 
 void MedChost::Update(float deltaTime)
@@ -104,7 +107,7 @@ void MedChost::AnimCallBack()
 		hitBoxSize.x = 120;
 		hitBoxSize.y = 120;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.7, HitBoxType::Fixed, 0.2, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.5, HitBoxType::Fixed, 0.2, GetController()->isPlayerController, this);
 		break;
 
 	case MedChost::State_Attack2:
@@ -122,7 +125,7 @@ void MedChost::AnimCallBack()
 		hitBoxSize.x = 150;
 		hitBoxSize.y = 200;
 
-		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 2.0, HitBoxType::Fixed, 0.2, GetController()->isPlayerController, this);
+		hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.7, HitBoxType::Fixed, 0.2, GetController()->isPlayerController, this);
 		break;
 
 	case MedChost::State_Attack4:
@@ -162,20 +165,29 @@ void MedChost::TakeDamage(float Damage)
 	if (IsActive)
 	{
 
-		if (state == EMedGhostStatepriority::State_Hitted1 ||
-			state == EMedGhostStatepriority::State_Hitted2)
+		if (stunCounter < resistStunMax)
 		{
-			animator.ResetAnimTimer(20);
-			SetSingleCallbackState("Hitted2", false);
-			state = EMedGhostStatepriority::State_Hitted2;
+			if (state == EMedGhostStatepriority::State_Hitted1 ||
+				state == EMedGhostStatepriority::State_Hitted2)
+			{
+				animator.ResetAnimTimer(20);
+				SetSingleCallbackState("Hitted2", false);
+				state = EMedGhostStatepriority::State_Hitted2;
+			}
+
+			else
+			{
+				animator.ResetAnimTimer(20);
+				SetSingleCallbackState("Hitted1", false);
+				state = EMedGhostStatepriority::State_Hitted1;
+			}
+
+			stunCounter++;
+
+			TimeManager::GetInstance()->AddTimer(Timer([this]() {stunCounter = 0; }, 3));
 		}
 
-		else
-		{
-			animator.ResetAnimTimer(20);
-			SetSingleCallbackState("Hitted1", false);
-			state = EMedGhostStatepriority::State_Hitted1;
-		}
+		
 	}
 
 	else

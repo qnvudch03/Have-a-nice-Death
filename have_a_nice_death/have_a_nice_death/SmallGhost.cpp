@@ -4,6 +4,7 @@
 #include "Controller.h"
 #include "AnimHitBox.h"
 #include "HitBoxManager.h"
+#include "TimeManager.h"
 #include "SpriteManager.h"
 
 void SmallGhost::Init()
@@ -25,6 +26,8 @@ void SmallGhost::Init()
 
 	SetDetectRnage(700);
 	GetController()->SetAttackNum(1);
+
+	resistStunMax = 3;
 }
 
 void SmallGhost::Update(float deltaTime)
@@ -120,20 +123,29 @@ void SmallGhost::TakeDamage(float Damage)
 	if (IsActive)
 	{
 
-		if (state == ESmallGhostStatepriority::State_Hitted1 ||
-			state == ESmallGhostStatepriority::State_Hitted2)
+		if (stunCounter < resistStunMax)
 		{
-			animator.ResetAnimTimer(20);
-			SetSingleCallbackState("Hitted2", false);
-			state = ESmallGhostStatepriority::State_Hitted2;
+			if (state == ESmallGhostStatepriority::State_Hitted1 ||
+				state == ESmallGhostStatepriority::State_Hitted2)
+			{
+				animator.ResetAnimTimer(20);
+				SetSingleCallbackState("Hitted2", false);
+				state = ESmallGhostStatepriority::State_Hitted2;
+			}
+
+			else
+			{
+				animator.ResetAnimTimer(20);
+				SetSingleCallbackState("Hitted1", false);
+				state = ESmallGhostStatepriority::State_Hitted1;
+			}
+
+			stunCounter++;
+
+			TimeManager::GetInstance()->AddTimer(Timer([this]() {stunCounter = 0; }, 3));
 		}
 
-		else
-		{
-			animator.ResetAnimTimer(20);
-			SetSingleCallbackState("Hitted1", false);
-			state = ESmallGhostStatepriority::State_Hitted1;
-		}
+		
 	}
 
 	else

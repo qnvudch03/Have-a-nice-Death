@@ -9,38 +9,6 @@
                     650.0
                 ],
                 "type": "Death"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    546.0,
-                    671.0
-                ],
-                "type": "Pill"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    896.0,
-                    667.0
-                ],
-                "type": "Pill"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    1271.0,
-                    657.0
-                ],
-                "type": "Pill"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    1083.0,
-                    684.0
-                ],
-                "type": "Nurse"
             }
         ]
     },

@@ -84,6 +84,9 @@ public:
 	void SetDetectRnage(float rnage) { detectRange = rnage; }
 	float GetDetectRange() { return detectRange; }
 
+	float stunCounter = 0;
+	float resistStunMax = 2;
+
 	//Active
 	bool IsActive = true;
 

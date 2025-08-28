@@ -59,7 +59,7 @@ bool Stage::LoadStage(std::string stage)
 	if (!currentStage.compare("Stage5"))
 	{
 		gameScene->SetUI_EndingScene();
-		gameClearDoor = new ExcapeDoor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, { GWinSizeX * 0.5, GWinSizeY - 80 });
+		gameClearDoor = new ExcapeDoor(RenderLayer::InterActObject, ImageAnchor::Bottomcenter, { GWinSizeX * 0.5, GWinSizeY - 130 });
 
 		gameScene->LoadObject(gameClearDoor);
 	}

@@ -9,14 +9,6 @@
                     650.0
                 ],
                 "type": "Death"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    978.0,
-                    685.0
-                ],
-                "type": "Boss_W7"
             }
         ]
     },

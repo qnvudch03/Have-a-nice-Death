@@ -140,7 +140,7 @@ void Pill::AnimCallBack()
 			return;
 
 		animHitBox->SetAnimHitBox(colliderCenterPos, hitBoxSize, SpriteManager::GetInstance()->GetTextures("HitBoxFX", "Attack_Pill_Smoke")
-			, GetStat().atk * 2.0, HitBoxType::Fixed, GetController()->isPlayerController, this);
+			, GetStat().atk * 1.0, HitBoxType::Fixed, GetController()->isPlayerController, this);
 
 		animHitBox->animator.SetAnimSpeed(20);
 

@@ -26,6 +26,8 @@ void W7::Init()
 		static_cast<AIBossController*>(GetController())->InitBossController(6, { 3, 5, 3, 7, 3, 3 });
 		SetDetectRnage(500);
 	}
+
+	resistStunMax = 2;
 }
 
 void W7::Update(float deltaTime)

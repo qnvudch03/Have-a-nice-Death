@@ -83,7 +83,5 @@ private:
 
 	EW7PriorityState state;
 
-	float stunCounter = 0;
-	float resistStunMax = 2;
 };
 

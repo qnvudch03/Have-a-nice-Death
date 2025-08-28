@@ -274,7 +274,7 @@ void GameScene::SetUI_GameOver()
 void GameScene::SetUI_ClearGame()
 {
 	GetUIByName("BTN_Lobby")->SetOpen(true);
-	GetUIByName("BTN_Lobby")->SetCurrentpos({ 859, 570 });
+	GetUIByName("BTN_Lobby")->SetCurrentpos({ 859, 520 });
 }
 
 void GameScene::SetUI_EndingScene()

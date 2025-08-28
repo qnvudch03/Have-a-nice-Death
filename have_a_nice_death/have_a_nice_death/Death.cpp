@@ -34,6 +34,8 @@ void Death::Init()
 
 	SetDetectRnage(900);
 	GetController()->SetAttackNum(1);
+
+	resistStunMax = 3;
 }
 
 void Death::OnDeathSpawn()
@@ -492,11 +494,19 @@ void Death::TakeDamage(float Damage)
 
 	if (IsActive)
 	{
-		SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
-		animator.SetAnimSpeed(25);
-		state = EDeathStatepriority::State_Hitted;
+		if (stunCounter < resistStunMax)
+		{
+			SetSingleCallbackState(ConvertDeathStateToString(EDeathStatepriority::State_Hitted), false);
+			animator.SetAnimSpeed(25);
+			state = EDeathStatepriority::State_Hitted;
 
-		atkcombo = 0;
+			atkcombo = 0;
+
+			stunCounter++;
+
+			TimeManager::GetInstance()->AddTimer(Timer([this]() {stunCounter = 0; }, 5));
+		}
+		
 	}
 
 	else

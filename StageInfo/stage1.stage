@@ -5,18 +5,18 @@
             {
                 "owner": "Player",
                 "position": [
-                    244.0,
-                    664.0
+                    101.0,
+                    663.0
                 ],
-                "type": "Death"
+                "type": "Nurse"
             },
             {
                 "owner": "AI",
                 "position": [
-                    739.0,
-                    688.0
+                    1250.0,
+                    677.0
                 ],
-                "type": "Boss_W7"
+                "type": "Pill"
             }
         ]
     },

@@ -9,14 +9,6 @@
                     665.0
                 ],
                 "type": "Death"
-            },
-            {
-                "owner": "AI",
-                "position": [
-                    680.0,
-                    677.0
-                ],
-                "type": "MedGhost"
             }
         ]
     },

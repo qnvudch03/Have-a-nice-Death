@@ -6,6 +6,7 @@
 #include "Controller.h"
 #include "AIController.h"
 #include "Game.h"
+#include "TimeManager.h"
 #include "DebugLenderer.h"
 
 void Nurse::Init()
@@ -32,6 +33,8 @@ void Nurse::Init()
 
 	SetDetectRnage(1200);
 	GetController()->SetAttackNum(2);
+
+	resistStunMax = 3;
 }
 
 void Nurse::Update(float deltaTime)
@@ -148,7 +151,7 @@ void Nurse::AnimCallBack()
 
 			DamagedAble = true;
 
-			hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 2.0, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
+			hitbox->SetHitBox(colliderCenterPos, hitBoxSize, GetStat().atk * 1.5, HitBoxType::Fixed, 0.3, GetController()->isPlayerController, this);
 		}
 		
 		break;
@@ -214,21 +217,30 @@ void Nurse::TakeDamage(float Damage)
 
 	if (IsActive)
 	{
-
-		if (state == ENurseStatepriority::State_Hitted1 ||
-			state == ENurseStatepriority::State_Hitted2)
+		if (stunCounter < resistStunMax)
 		{
-			animator.ResetAnimTimer(20);
-			SetSingleCallbackState("Hitted2", false);
-			state = ENurseStatepriority::State_Hitted2;
-		}
+			if (state == ENurseStatepriority::State_Hitted1 ||
+				state == ENurseStatepriority::State_Hitted2)
+			{
+				animator.ResetAnimTimer(20);
+				SetSingleCallbackState("Hitted2", false);
+				state = ENurseStatepriority::State_Hitted2;
+			}
 
-		else
-		{
-			animator.ResetAnimTimer(20);
-			SetSingleCallbackState("Hitted1", false);
-			state = ENurseStatepriority::State_Hitted1;
+			else
+			{
+				animator.ResetAnimTimer(20);
+				SetSingleCallbackState("Hitted1", false);
+				state = ENurseStatepriority::State_Hitted1;
+			}
+
+			stunCounter++;
+
+			TimeManager::GetInstance()->AddTimer(Timer([this]() {stunCounter = 0; }, 5));
 		}
+		
+
+		
 	}
 }
 
