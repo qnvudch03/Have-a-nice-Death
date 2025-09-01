@@ -16,31 +16,70 @@ WinApi 모작 🎮
 
 ---
 
-## 주요 기능
+## 주요 시스템
 
 <details>
-<summary>보스 AI</summary>
+<summary>🖼 리소스</summary>
 <ul>
-  <li>상태 패턴(State Pattern)을 활용한 보스 행동 제어</li>
-  <li>패턴별 타이머를 이용한 공격 주기 관리</li>
-  <li>페이즈 전환 로직 구현</li>
+  <li>SingleTon 패턴의 SpriteManager에서 Map에 매핑되어있는 데이터를 포인터로 접근</li>
 </ul>
 </details>
 
 <details>
-<summary>🎮 입력 및 충돌 처리</summary>
+<summary>🎮 입력</summary>
 <ul>
-  <li>WinAPI 메시지 루프 기반 입력 처리</li>
-  <li>AABB 충돌 감지 및 반응 처리</li>
-  <li>플레이어/적/투사체 간 상호작용</li>
+  <li>CurrentInput / PastInput Key 으로 입력값을 저장</li>
+ <summary>PlayerController</summary>
+  
+<ul>
+  <li>WinAPI 메시지 루프 기반 InputManager의 KeyMap 갱신</li>
+</ul>
+
+  <summary>AIController</summary>
+<ul>
+  <li>FSM 기반. Player와의 거리로 CurrentInput 갱신</li>
+</ul>
+
 </ul>
 </details>
 
 <details>
-<summary>🖼 리소스 관리</summary>
+<summary>Object</summary>
 <ul>
-  <li>텍스처/스프라이트 로딩 및 캐싱</li>
-  <li>상대 경로 기반 리소스 접근</li>
-  <li>SpriteManager를 통한 렌더링 일원화</li>
+  <li>인게임 내부에 존재하는 객체들</li>
+  
+  <details>
+    <summary>LiginObject</summary>
+    <ul>
+      <li>상태를 지니고 있는 Playable Character</li>
+      <li>FSM패턴으로 컨트롤러의 입력값을 받아 상태를 전이</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>StaticObject</summary>
+    <ul>
+      <li>여기에 StaticObject 설명 추가</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>InteractableObject</summary>
+    <ul>
+      <li>여기에 InteractableObject 설명 추가</li>
+    </ul>
+  </details>
+
+  <li>콜백 패턴으로, 애니메이션 종료 / 원하는 스프라이트 시점에 원하는 로직 수행</li>
 </ul>
 </details>
+
+<details>
+<summary>애니메이션</summary>
+<ul>
+  <li>프레임 기반 애니메이션 재생 시스템</li>
+  <li>콜백 패턴으로, 애니메이션 종료 / 원하는 스프라이트 시점에 원하는 로직 수행</li>
+</ul>
+</details>
+
+
