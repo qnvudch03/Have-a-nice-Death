@@ -1,6 +1,6 @@
 # Have-a-nice-Death
 WinApi 모작 🎮
-
+![게임 로비씬](originalImage/LoobyScene.png)
 ---
 
 ## 📌 프로젝트 소개
