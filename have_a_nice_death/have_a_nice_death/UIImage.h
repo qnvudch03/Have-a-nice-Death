@@ -14,19 +14,19 @@ public:
 	{
 		if (!name.compare("HPbar_body"))
 		{
-			_UiType = UiType::HP_Bar;
+			UiType = UiType::HP_Bar;
 		}
 
 		else if (name.find("BackGround") != std::string::npos)
 		{
-			_UiType = UiType::BackGround;
+			UiType = UiType::BackGround;
 		}
 
 		else
-			_UiType = UiType::Image;
+			UiType = UiType::Image;
 
-		_targetPos = pos;
-		_currentPos = _targetPos;
+		targetPos = pos;
+		currentPos = targetPos;
 	}
 
 	~UIImage();

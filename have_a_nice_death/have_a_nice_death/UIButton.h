@@ -13,15 +13,15 @@ public:
 
 	UIButton(std::string name, Texture* texture, Vector pos) : Super(name, texture, pos)
 	{
-		_UiType = UiType::Button;
+		UiType = UiType::Button;
 
 		if (name.find("CURSE") == std::string::npos)
 		{
 			_actionFunc = Game::GetInstance()->BindGameActionByName(name);
 		}
 
-		_targetPos = pos;
-		_currentPos = _targetPos;
+		targetPos = pos;
+		currentPos = targetPos;
 		
 	}
 

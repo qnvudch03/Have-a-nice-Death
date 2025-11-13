@@ -3,20 +3,20 @@
     "LivingObjects": {
         "Object": [
             {
-                "owner": "Player",
-                "position": [
-                    101.0,
-                    663.0
-                ],
-                "type": "Nurse"
-            },
-            {
                 "owner": "AI",
                 "position": [
                     1250.0,
                     677.0
                 ],
                 "type": "Pill"
+            },
+            {
+                "owner": "Player",
+                "position": [
+                    229.0,
+                    644.0
+                ],
+                "type": "Death"
             }
         ]
     },

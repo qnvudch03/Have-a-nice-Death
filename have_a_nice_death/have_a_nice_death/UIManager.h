@@ -8,7 +8,6 @@ class UIManager : public Singleton<UIManager>
 {
 public:
 	void Init(fs::path directory);
-	//void Update(Scene* scene);
 
 	void Destroy();
 

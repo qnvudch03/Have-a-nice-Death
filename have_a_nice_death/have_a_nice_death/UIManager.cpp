@@ -19,26 +19,6 @@ void UIManager::Init(fs::path directory)
 
 }
 
-//void UIManager::Update(Scene* scene)
-//{
-//	//현재 씬을 받아서, 거기에 있는 UI만 업데이트
-//	std::string CurrentScene;
-//
-//	if (dynamic_cast<GameScene*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
-//	{
-//		CurrentScene = "GameScene";
-//	}
-//
-//	else if (dynamic_cast<Lobby*>(Game::GetInstance()->GetCurrentScence()) != nullptr)
-//	{
-//		CurrentScene = "RobbyScene";
-//
-//		//우선 지금은, 로비씽는 업데이트 할 필요가 없음
-//		return;
-//	}
-//
-//}
-
 void UIManager::OnMouseButtonClicked(Vector pos)
 {
 	//TODO

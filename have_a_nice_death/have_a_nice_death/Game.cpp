@@ -97,7 +97,7 @@ void Game::Init(HWND hwnd, HWND subhwnd)
 	sceneLoader = new SceneLoader();
 
 	//디버그 렌더러 초기화
-	debugLenderer = new DebugLenderer(_dxRenderTarget);
+	_debugLenderer = new DebugLenderer(_dxRenderTarget);
 
 	_currScene->Init();
 
@@ -142,11 +142,11 @@ void Game::CheckReservedScene()
 	_currScene = sceneLoader->GetReservedScene();
 
 	//씬 변경시 일단은 subWindow를 꺼
-	if (isSubWindowOpen)
+	if (_isSubWindowOpen)
 	{
 		ShowWindow(_subhwnd, SW_HIDE);
 	}
-	isSubWindowOpen = false;
+	_isSubWindowOpen = false;
 	WinMediator.SetActivate(false);
 
 	if (auto gamdScene = dynamic_cast<GameScene*>(_currScene))
@@ -156,7 +156,7 @@ void Game::CheckReservedScene()
 
 	else if (auto editorScene = dynamic_cast<EditorScene*>(_currScene))
 	{
-		isSubWindowOpen = true;
+		_isSubWindowOpen = true;
 		editorScene->SetSubWindow(_dxSubRenderTarget, _subhwnd);
 		editorScene->Init();
 
@@ -197,7 +197,7 @@ void Game::Destroy()
 
 	delete sceneLoader;
 
-	delete debugLenderer;
+	delete _debugLenderer;
 }
 
 void Game::MappingFunctions()
@@ -285,7 +285,7 @@ void Game::Render()
 	_dxRenderTarget->EndDraw();
 
 
-	if (isSubWindowOpen)
+	if (_isSubWindowOpen)
 	{
 		GetScene()->RenderSubWin();
 	}

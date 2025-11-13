@@ -142,19 +142,3 @@ std::map<std::string, std::vector<Texture*>>* SpriteManager::GetTextureMap(std::
 
     return &_textures[UpperName];
 }
-
-//DXBitmap* ResourceManager::LoadDXBitmap(std::string key, std::wstring path)
-//{
-//	if (_bitmap.find(key) != _bitmap.end())
-//	{
-//		// 이미 존재하는 키라면 리턴
-//		return _bitmap[key];
-//	}
-//
-//	fs::path fullPath = _resourcePath / path;
-//
-//	DXBitmap* bitmap = new DXBitmap();
-//	bitmap->Load(fullPath.c_str(), countX, countY);
-//	_bitmap[key] = bitmap;
-//	return bitmap;
-//}

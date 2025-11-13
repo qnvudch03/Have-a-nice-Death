@@ -4,7 +4,7 @@
 class UI
 {
 public:
-	UI(std::string name, Texture* texture, Vector pos) : _name(name), _uiTexture(texture), _targetPos(pos){}
+	UI(std::string name, Texture* texture, Vector pos) : _name(name), uiTexture(texture), targetPos(pos){}
 	virtual ~UI() = default;
 
 public:
@@ -14,13 +14,13 @@ public:
 	virtual void Open() { _isOpen = true; }
 	virtual void Close() { _isOpen = false; }
 
-	UiType GetType() { return _UiType; }
+	UiType GetType() { return UiType; }
 
 	bool IsOpen() const { return _isOpen; }
 	void SetOpen(bool open) { _isOpen = open; }
 
-	void SetCurrentpos(Vector pos) { _currentPos = pos; }
-	void SetTargetpos(Vector pos) { _targetPos = pos; }
+	void SetCurrentpos(Vector pos) { currentPos = pos; }
+	void SetTargetpos(Vector pos) { targetPos = pos; }
 	void SetMoveDirection(Vector dir, float speed = 1500) { movingDirect = dir; movingSpeed = speed, _isMoveable = true; }
 
 	void SetRatioX(float Ratio) { ratio.x = Ratio; }
@@ -35,10 +35,10 @@ protected:
 
 	bool _isMoveable = false;
 	Vector ratio = Vector(1,1);
-	Vector _currentPos = {};
-	Vector _targetPos = {};
-	Texture* _uiTexture = nullptr;
+	Vector currentPos = {};
+	Vector targetPos = {};
+	Texture* uiTexture = nullptr;
 
-	UiType _UiType = UiType::UiDefault;
+	UiType UiType = UiType::UiDefault;
 };
 

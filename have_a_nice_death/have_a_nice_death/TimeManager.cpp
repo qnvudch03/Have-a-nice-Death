@@ -40,14 +40,6 @@ void TimeManager::Update()
 		}
 		Iter++;
 	}
-
-	/*for (auto& timer : _timers)
-	{
-		if (timer.Update(_deltaTime))
-		{
-			_timersGrave.push_back(timer);
-		}
-	}*/
 }
 
 void TimeManager::AddTimer(Timer timer)

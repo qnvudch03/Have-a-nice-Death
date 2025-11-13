@@ -3,7 +3,7 @@
 
 UIButton::~UIButton()
 {
-	delete _uiTexture;
+	delete uiTexture;
 }
 
 void UIButton::Init()
@@ -25,12 +25,12 @@ bool UIButton::CheckClicked(Vector mousepos)
 {
 	//TODO
 	//현재 UI는 기본적으로 좌측상단 고정이라고 생각하고 코드를 짜고 있는데, 나중에 Anchor 위치 받아와서 작업 할 필요도 있으면 해야 함
-	Vector UIPos = _currentPos;
-	Vector UISize = _uiTexture->GetTextureSize();
+	Vector UIPos = currentPos;
+	Vector UISize = uiTexture->GetTextureSize();
 
 	if (
-		(mousepos.x > _currentPos.x && mousepos.x < _currentPos.x + UISize.x) &&
-		(mousepos.y > _currentPos.y && mousepos.y < _currentPos.y + UISize.y)
+		(mousepos.x > currentPos.x && mousepos.x < currentPos.x + UISize.x) &&
+		(mousepos.y > currentPos.y && mousepos.y < currentPos.y + UISize.y)
 
 		)
 	{

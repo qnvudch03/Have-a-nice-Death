@@ -3,14 +3,14 @@
 
 void UI::Render(ID2D1RenderTarget* renderTarget)
 {
-	if (_UiType == UiType::HP_Bar || _UiType == UiType::BackGround)
+	if (UiType == UiType::HP_Bar || UiType == UiType::BackGround)
 	{
-		_uiTexture->RenderSlope(renderTarget, _currentPos, ratio, ImageAnchor::Topleft);
+		uiTexture->RenderSlope(renderTarget, currentPos, ratio, ImageAnchor::Topleft);
 	}
 
 	else
 	{
-		_uiTexture->Render(renderTarget, _currentPos, ImageAnchor::Topleft);
+		uiTexture->Render(renderTarget, currentPos, ImageAnchor::Topleft);
 	}
 
 }
@@ -18,18 +18,18 @@ void UI::Render(ID2D1RenderTarget* renderTarget)
 void UI::Update(float deltatime)
 {
 	if (_isMoveable == false ||
-		_currentPos == _targetPos)
+		currentPos == targetPos)
 	{
 		return;
 	}
 		
 
-	_currentPos.x += movingDirect.x * deltatime * movingSpeed;
-	_currentPos.y += movingDirect.y * deltatime * movingSpeed;
+	currentPos.x += movingDirect.x * deltatime * movingSpeed;
+	currentPos.y += movingDirect.y * deltatime * movingSpeed;
 
-	if (_currentPos.x < _targetPos.x)
-		_currentPos.x = _targetPos.x;
+	if (currentPos.x < targetPos.x)
+		currentPos.x = targetPos.x;
 
-	if (_currentPos.y < _targetPos.y)
-		_currentPos.y = _targetPos.y;
+	if (currentPos.y < targetPos.y)
+		currentPos.y = targetPos.y;
 }

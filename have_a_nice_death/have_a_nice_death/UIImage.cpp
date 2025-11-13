@@ -3,7 +3,7 @@
 
 UIImage::~UIImage()
 {
-	delete _uiTexture;
+	delete uiTexture;
 }
 
 void UIImage::Init()

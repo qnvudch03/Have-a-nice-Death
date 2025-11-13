@@ -75,14 +75,14 @@ enum HitBoxType
 
 
 //////////////////GameStruct
-struct SpriteInfo
-{
-	int32 startX = 0;
-	int32 startY = 0;
-	float dur = 0;
-	bool loop = false;
-	std::string textureKey;
-};
+//struct SpriteInfo
+//{
+//	int32 startX = 0;
+//	int32 startY = 0;
+//	float dur = 0;
+//	bool loop = false;
+//	std::string textureKey;
+//};
 
 struct Size
 {

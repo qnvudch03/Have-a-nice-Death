@@ -121,7 +121,6 @@ void HitBoxManager::ReturnAnimHitBox(AnimHitBox* hitbox)
 		}
 			
 	}
-	//spanwedAnimHitBoxVec.erase(hitbox);
 }
 
 void HitBoxManager::Update(float deltatime)
@@ -154,7 +153,6 @@ void HitBoxManager::Update(float deltatime)
 
 void HitBoxManager::DrawHitbox(ID2D1RenderTarget* renderTarget)
 {
-	//spanwedHitBoxVec
 	bool isDbugMode = Game::GetInstance()->GetCurrentScence()->IsDbugMode;
 	auto GarbageCollector = Game::GetInstance()->GetDebugLenderer();
 
