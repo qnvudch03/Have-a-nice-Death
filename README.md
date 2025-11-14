@@ -28,95 +28,37 @@ WinAPI로 제작한 1개월 규모의 모작 프로젝트
     <summary>Object Pool</summary>
       <ul>
         <p>짧은시간에 많은 입력이 들어오는 액션게임이기에, 인게임 중 동적 메모리 할당을 최소화 하기 위해 사용</p>
-        <p><strong>1. 초기화 시 미리 풀에 객체 생성</strong></p>
-        <pre><code>void HitBoxManager::Init()
-          {
-              for (int i = 0; i &lt; 20; i++)
-                  hitBoxPull.push(new HitBox());
-          }</code></pre>
-    
-        <p><strong>2. 필요할 때 풀에서 객체를 꺼내 재사용</strong></p>
-        <pre><code>HitBox* HitBoxManager::CallHitBox()
-          {
-              if (hitBoxPull.empty()) return nullptr;
-              HitBox* hitBox = hitBoxPull.front();
-              hitBoxPull.pop();
-              return hitBox;
-          }</code></pre>
-    
-        <p><strong>3. 사용 후 다시 풀에 반환</strong></p>
-        <pre><code>void HitBoxManager::ReturnHitBox(HitBox* hitbox)
-          {
-              if (!hitbox) return;
-              hitBoxPull.push(hitbox);
-              spanwedHitBoxVec.erase(hitbox);
-          }</code></pre>
+        <li>HitBox</li>
+          <img src="https://github.com/user-attachments/assets/823690c8-aac5-4d1f-a1f9-4ad02955d9ac">
+        <li>Effect</li>
+          <img width="400" height="290" alt="Image" src="https://github.com/user-attachments/assets/1c6ef72d-b073-4f55-b95a-b1e80958f976" />
       </ul>
   </details>
 
-<details>
-  <summary>리소스</summary>
-  <ul>
-    <li>SingleTon 패턴의 SpriteManager에서 Map에 매핑되어있는 데이터를 포인터로 접근</li>
-  </ul>
-</details>
+- **함수포인터**
+  <details>
+    <summary>애니메이션 콜백</summary>
 
-<details>
-  <summary>입력</summary>
-  <ul>
-    <li>CurrentInput / PastInput Key 으로 입력값을 저장</li>
+    - **사용 목적**
+      - 종료 & 특정 시점 상태 전이
+      - 정확한 시점 HitBox 생성
 
     <details>
-      <summary>PlayerController</summary>
-      <ul>
-        <li>WinAPI 메시지 루프 기반 InputManager의 KeyMap 갱신</li>
-      </ul>
+      <summary>상태 전이</summary>
+      이동 금지, 속도 조절, 조작불가 등 전이 로직 처리
+
+  ![Image](https://github.com/user-attachments/assets/eb605204-c52d-400d-8228-482d24045144)
+
+  ![Image](https://github.com/user-attachments/assets/32a12642-f748-4a7f-acfe-8ab2cf6c59d7)
+
     </details>
 
     <details>
-      <summary>AIController</summary>
-      <ul>
-        <li>FSM 기반. Player와의 거리로 CurrentInput 갱신</li>
-      </ul>
-    </details>
-  </ul>
-</details>
+      <summary>HitBox</summary>
+      공격 애니메이션 재생 시, 정확한 스프라이트 타이밍에 HitBox 생성 요청
 
-<details>
-  <summary>Object</summary>
-  <ul>
-    <li>인게임 내부에 존재하는 객체들</li>
+  ![Image](https://github.com/user-attachments/assets/6848f058-e8c6-4bd0-9dde-fd271698f1a7)
 
-    <details>
-      <summary>LiginObject</summary>
-      <ul>
-        <li>상태를 지니고 있는 Playable Character</li>
-        <li>FSM패턴으로 컨트롤러의 입력값을 받아 상태를 전이</li>
-      </ul>
     </details>
 
-    <details>
-      <summary>StaticObject</summary>
-      <ul>
-        <li>여기에 StaticObject 설명 추가</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>InteractableObject</summary>
-      <ul>
-        <li>여기에 InteractableObject 설명 추가</li>
-      </ul>
-    </details>
-
-    <li>콜백 패턴으로, 애니메이션 종료 / 원하는 스프라이트 시점에 원하는 로직 수행</li>
-  </ul>
-</details>
-
-<details>
-  <summary>애니메이션</summary>
-  <ul>
-    <li>프레임 기반 애니메이션 재생 시스템</li>
-    <li>콜백 패턴으로, 애니메이션 종료 / 원하는 스프라이트 시점에 원하는 로직 수행</li>
-  </ul>
-</details>
+  </details>
