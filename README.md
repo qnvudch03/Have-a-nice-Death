@@ -75,6 +75,8 @@ WinAPI로 제작한 1개월 규모의 모작 프로젝트
     <img width="1047" height="747" alt="Image" src="https://github.com/user-attachments/assets/2f0f6f3b-a66d-416d-b5da-d0c8c4d66b83" />
   </details>
 
+---
+
 # 흐름
   - 초기화
     
@@ -82,6 +84,8 @@ WinAPI로 제작한 1개월 규모의 모작 프로젝트
   - 업데이트 & 렌더
     
     <img width="874" height="589" alt="Image" src="https://github.com/user-attachments/assets/25e28711-69df-43ec-b0c8-4170405ae05f" />
+
+---
 
 # 작업일지
   -https://blog.naver.com/qnvudch03/223954253559
