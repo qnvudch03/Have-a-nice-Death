@@ -82,3 +82,6 @@ WinAPI로 제작한 1개월 규모의 모작 프로젝트
   - 업데이트 & 렌더
     
     <img width="874" height="589" alt="Image" src="https://github.com/user-attachments/assets/25e28711-69df-43ec-b0c8-4170405ae05f" />
+
+# 작업일지
+  -https://blog.naver.com/qnvudch03/223954253559
